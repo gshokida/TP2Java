@@ -11,13 +11,18 @@ public class CasilleroTest {
     @Test
     public void casilleroNuevoEsVacio(){
         Contenido contenido = new ContenidoVacio();
-        Casillero casillero = new Casillero(contenido);
+        Casillero casillero = new Casillero();
 
+        casillero.setContenido(contenido);
         assertEquals(casillero.getContenido(), contenido);
     }
 
     @Test
-    public void casilleroConSuperficieDeTierra(){
+    public void casilleroNuevoConSuperficieDeTierra(){
+        SuperficieTerrestre tierraRocosa = new TierraRocosa();
+        Casillero casillero = new Casillero();
 
+        casillero.setSuperficieTerreste(tierraRocosa);
+        assertEquals(casillero.getSuperficieTerreste(), tierraRocosa);
     }
 }
