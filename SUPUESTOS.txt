@@ -1,0 +1,6 @@
+Un archivo para que anoten todos los supuestos que se les van ocurriendo.
+
+
+
+Turno -> El Jugador 1 es el primero en mover.
+Turno -> El turno empieza en 1, no en 0.
