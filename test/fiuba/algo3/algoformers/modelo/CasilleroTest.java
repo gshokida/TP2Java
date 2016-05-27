@@ -25,4 +25,13 @@ public class CasilleroTest {
         casillero.setSuperficieTerreste(tierraRocosa);
         assertEquals(casillero.getSuperficieTerreste(), tierraRocosa);
     }
+
+    @Test
+    public void casilleroNuevoConSuperficieAerea(){
+        SuperficieAerea nube = new Nube();
+        Casillero casillero = new Casillero();
+
+        casillero.setSuperficieAerea(nube);
+        assertEquals(casillero.getSuperficieAerea(), nube);
+    }
 }

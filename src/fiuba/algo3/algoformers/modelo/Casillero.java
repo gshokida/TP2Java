@@ -6,6 +6,7 @@ package fiuba.algo3.algoformers.modelo;
 public class Casillero {
     private Contenido contenido;
     private SuperficieTerrestre superficieTerreste;
+    private SuperficieAerea superficieAerea;
 
     public void setContenido(Contenido contenido){
         this.contenido = contenido;
@@ -21,5 +22,13 @@ public class Casillero {
 
     public SuperficieTerrestre getSuperficieTerreste() {
         return this.superficieTerreste;
+    }
+
+    public void setSuperficieAerea(SuperficieAerea superficieAerea) {
+        this.superficieAerea = superficieAerea;
+    }
+
+    public SuperficieAerea getSuperficieAerea() {
+        return this.superficieAerea;
     }
 }
