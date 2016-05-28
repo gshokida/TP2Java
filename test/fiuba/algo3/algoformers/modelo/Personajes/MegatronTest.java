@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by german.shokida on 24/5/2016.
@@ -118,5 +119,19 @@ public class MegatronTest {
         megatron.transformar();
 
         assertEquals(megatron.getVelocidad(), 8);
+    }
+
+    @Test
+    public void nuevaInstancia_tipoUnidad_esTerrestre() {
+        Megatron megatron = new Megatron();
+
+        assertTrue(megatron.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+    }
+
+    @Test
+    public void cambiarModo_tipoUnidad_esTerrestre() {
+        Megatron megatron = new Megatron();
+
+        assertTrue(megatron.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
 }

@@ -5,28 +5,30 @@ package fiuba.algo3.algoformers.modelo.Personajes;
  */
 public abstract class AlgoFormer {
     protected String nombre;
-    protected int vida;
-    protected int ataque;
-    protected int velocidad;
-    protected int distanciaAtaque;
+    protected int puntosDeVida;
+    protected AlgoformerEstado estado;
 
     public String getNombre() {
         return nombre;
     }
 
     public int getPuntosDeVida() {
-        return vida;
+        return puntosDeVida;
     }
 
     public int getAtaque() {
-        return ataque;
-    }
-
-    public int getVelocidad() {
-        return velocidad;
+        return estado.getAtaque();
     }
 
     public int getDistanciaDeAtaque() {
-        return distanciaAtaque;
+        return estado.getDistanciaDeAtaque();
+    }
+
+    public int getVelocidad() {
+        return estado.getVelocidad();
+    }
+
+    public boolean esTipoUnidad(TipoUnidadTerrestre tipoUnidad) {
+        return estado.esTipoUnidad(tipoUnidad);
     }
 }

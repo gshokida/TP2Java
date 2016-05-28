@@ -1,0 +1,38 @@
+package fiuba.algo3.algoformers.modelo.Personajes;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
+
+/**
+ * Created by Hennico on 23/5/2016.
+ */
+public class AlgoformerEstadoTest {
+    @Test
+    public void nuevaInstancia_ataque_tieneValorIndicado() {
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,4, TipoUnidadTerrestre.instancia());
+
+        assertTrue(estado.getAtaque() == 15f);
+    }
+
+    @Test
+    public void nuevaInstancia_distanciaDeAtaque_tieneValorIndicado() throws Exception {
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,5, TipoUnidadTerrestre.instancia());
+
+        assertTrue(estado.getDistanciaDeAtaque() == 4);
+    }
+
+    @Test
+    public void nuevaInstancia_velocidad_tieneValorIndicado() {
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,5, TipoUnidadTerrestre.instancia());
+
+        assertTrue(estado.getVelocidad() == 5);
+    }
+
+    @Test
+    public void esTipoUnidad_enviandoElMismoTipoQueSeUsoEnElConstructor_daVerdadero() throws Exception {
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,5,TipoUnidadTerrestre.instancia());
+
+        assertTrue(estado.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+    }
+}

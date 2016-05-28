@@ -1,7 +1,5 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
-
 /**
  * Created by Rodrigo on 27/05/2016.
  */

@@ -1,12 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by german.shokida on 24/5/2016.
- */
 public class OptimusTest {
     @Test
     public void nuevaInstancia_nombre_valeOptimusPrime() {
@@ -119,7 +117,7 @@ public class OptimusTest {
 
         assertEquals(optimus.getVelocidad(), 5);
     }
-    /*
+
     @Test
     public void nuevaInstancia_tipoUnidad_esTerrestre() {
         Optimus optimus = new Optimus();
@@ -132,5 +130,5 @@ public class OptimusTest {
         Optimus optimus = new Optimus();
 
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
-    }*/
+    }
 }

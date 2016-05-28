@@ -1,48 +1,20 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-public class Optimus {
-    private String nombre;
-    private float puntosDeVida;
-
-    private AlgoformerEstado estadoActual;
+public class Optimus extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
     public Optimus() {
         nombre = "Optimus Prime";
-        puntosDeVida = 500f;
+        puntosDeVida = 500;
 
-        estadoActual = new AlgoformerEstado(50f, 2, 2, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(15f, 4 ,5, TipoUnidadTerrestre.instancia());
+        estado = new AlgoformerEstado(50, 2, 2, TipoUnidadTerrestre.instancia());
+        estadoInactivo = new AlgoformerEstado(15, 4 ,5, TipoUnidadTerrestre.instancia());
     }
 
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public float getPuntosDeVida() {
-        return puntosDeVida;
-    }
-
-    public float getAtaque() {
-        return estadoActual.getAtaque();
-    }
-
-    public int getDistanciaDeAtaque() {
-        return estadoActual.getDistanciaDeAtaque();
-    }
-
-    public int getVelocidad() {
-        return estadoActual.getVelocidad();
-    }
-
-    public void cambiarModo() {
+    public void transformar() {
         AlgoformerEstado auxiliar = estadoInactivo;
-        estadoInactivo = estadoActual;
-        estadoActual = auxiliar;
+        estadoInactivo = estado;
+        estado = auxiliar;
     }
 
-    public boolean esTipoUnidad(TipoUnidadTerrestre tipoUnidad) {
-        return estadoActual.esTipoUnidad(tipoUnidad);
-    }
 }

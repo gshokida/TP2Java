@@ -1,7 +1,5 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Turno;
 import org.junit.Assert;
 import org.junit.Test;
 

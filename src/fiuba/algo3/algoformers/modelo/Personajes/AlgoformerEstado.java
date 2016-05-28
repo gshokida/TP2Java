@@ -4,19 +4,19 @@ package fiuba.algo3.algoformers.modelo.Personajes;
  * Created by Hennico on 23/5/2016.
  */
 public class AlgoformerEstado {
-    private float ataque;
+    private int ataque;
     private int distanciaDeAtaque;
     private int velocidad;
     private TipoUnidad tipoUnidad;
 
-    public AlgoformerEstado(float ataque, int distanciaDeAtaque, int velocidad, TipoUnidad tipoUnidad) {
+    public AlgoformerEstado(int ataque, int distanciaDeAtaque, int velocidad, TipoUnidad tipoUnidad) {
         this.ataque = ataque;
         this.distanciaDeAtaque = distanciaDeAtaque;
         this.velocidad = velocidad;
         this.tipoUnidad = tipoUnidad;
     }
 
-    public float getAtaque() {
+    public int getAtaque() {
         return ataque;
     }
 
