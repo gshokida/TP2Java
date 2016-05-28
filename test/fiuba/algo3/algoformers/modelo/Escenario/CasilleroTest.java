@@ -1,6 +1,5 @@
-package fiuba.algo3.algoformers.modelo.Esenario;
+package fiuba.algo3.algoformers.modelo.Escenario;
 
-import fiuba.algo3.algoformers.modelo.Esenario.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

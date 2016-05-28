@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo.Esenario;
+package fiuba.algo3.algoformers.modelo.Escenario;
 
 /**
  * Created by Rodrigo on 27/05/2016.
