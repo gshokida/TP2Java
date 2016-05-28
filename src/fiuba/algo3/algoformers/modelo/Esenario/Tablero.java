@@ -1,4 +1,6 @@
-package fiuba.algo3.algoformers.modelo;
+package fiuba.algo3.algoformers.modelo.Esenario;
+
+import fiuba.algo3.algoformers.modelo.Esenario.Casillero;
 
 /**
  * Created by Rodrigo on 27/05/2016.

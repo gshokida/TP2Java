@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo;
+package fiuba.algo3.algoformers.modelo.Personajes;
 
 import org.junit.Test;
 

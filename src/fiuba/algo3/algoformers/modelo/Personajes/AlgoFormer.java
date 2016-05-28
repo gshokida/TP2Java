@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo;
+package fiuba.algo3.algoformers.modelo.Personajes;
 
 /**
  * Created by german.shokida on 24/5/2016.
@@ -6,25 +6,27 @@ package fiuba.algo3.algoformers.modelo;
 public abstract class AlgoFormer {
     protected String nombre;
     protected int vida;
-    protected Modo modo;
+    protected int ataque;
+    protected int velocidad;
+    protected int distanciaAtaque;
 
     public String getNombre() {
-        return this.nombre;
+        return nombre;
     }
 
     public int getPuntosDeVida() {
-        return this.vida;
+        return vida;
     }
 
     public int getAtaque() {
-        return this.modo.ataque();
+        return ataque;
     }
 
     public int getVelocidad() {
-        return this.modo.velocidad();
+        return velocidad;
     }
 
     public int getDistanciaDeAtaque() {
-        return this.modo.distanciaAtaque();
+        return distanciaAtaque;
     }
 }

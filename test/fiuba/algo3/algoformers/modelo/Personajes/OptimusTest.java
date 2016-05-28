@@ -1,6 +1,5 @@
-package fiuba.algo3.algoformers.modelo;
+package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Optimus;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

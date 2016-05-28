@@ -1,5 +1,7 @@
-package fiuba.algo3.algoformers.modelo;
+package fiuba.algo3.algoformers.modelo.Esenario;
 
+import fiuba.algo3.algoformers.modelo.Esenario.Casillero;
+import fiuba.algo3.algoformers.modelo.Esenario.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
 
