@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
 /**
@@ -9,6 +11,7 @@ public abstract class AlgoFormer {
     protected String nombre;
     protected int puntosDeVida;
     protected AlgoformerEstado estado;
+    protected Bando bando;
 
     public String getNombre() {
         return nombre;
@@ -32,5 +35,11 @@ public abstract class AlgoFormer {
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
+    }
+
+    public void atacar(AlgoFormer enemigo) throws NoSePermiteElFuegoAmistosoError {
+        if (bando.esMismoBando(enemigo.bando))
+            throw new NoSePermiteElFuegoAmistosoError();
+        enemigo.puntosDeVida -= estado.getAtaque();
     }
 }

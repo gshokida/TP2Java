@@ -1,11 +1,13 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class RatchetTest {
     @Test
@@ -134,5 +136,38 @@ public class RatchetTest {
         algoFormer.transformar();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.instancia()));
+    }
+
+    @Test
+    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+        Ratchet ratchet = new Ratchet();
+        Megatron megatron = new Megatron();
+        int vidaInicialMegatron = megatron.getPuntosDeVida();
+
+        try {
+            ratchet.atacar(megatron);
+        } catch (NoSePermiteElFuegoAmistosoError error) {
+            fail();
+        }
+
+        assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - ratchet.getAtaque());
+    }
+
+    @Test
+    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+        Ratchet ratchet = new Ratchet();
+        Bumblebee bumblebee = new Bumblebee();
+
+        try {
+            ratchet.atacar(bumblebee);
+            fail();
+        }
+        catch (NoSePermiteElFuegoAmistosoError error) {
+            success();
+        }
+    }
+
+    private void success() {
+        assertTrue(true);
     }
 }

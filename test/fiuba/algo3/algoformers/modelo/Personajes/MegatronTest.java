@@ -1,11 +1,13 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Created by german.shokida on 24/5/2016.
@@ -137,5 +139,38 @@ public class MegatronTest {
         megatron.transformar();
 
         assertTrue(megatron.esTipoUnidad(TipoUnidadAerea.instancia()));
+    }
+
+    @Test
+    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+        Megatron megatron = new Megatron();
+        Optimus optimus = new Optimus();
+        int vidaInicialOptimus = optimus.getPuntosDeVida();
+
+        try {
+            megatron.atacar(optimus);
+        } catch (NoSePermiteElFuegoAmistosoError error) {
+            fail();
+        }
+
+        assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - megatron.getAtaque());
+    }
+
+    @Test
+    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+        Megatron megatron = new Megatron();
+        Bonecrusher bonecrusher = new Bonecrusher();
+
+        try {
+            megatron.atacar(bonecrusher);
+            fail();
+        }
+        catch (NoSePermiteElFuegoAmistosoError error) {
+            success();
+        }
+    }
+
+    private void success() {
+        assertTrue(true);
     }
 }

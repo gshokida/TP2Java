@@ -1,10 +1,12 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class BonecrusherTest {
     @Test
@@ -133,5 +135,38 @@ public class BonecrusherTest {
         algoFormer.transformar();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+    }
+
+    @Test
+    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+        Bonecrusher bonecrusher = new Bonecrusher();
+        Optimus optimus = new Optimus();
+        int vidaInicialOptimus = optimus.getPuntosDeVida();
+
+        try {
+            bonecrusher.atacar(optimus);
+        } catch (NoSePermiteElFuegoAmistosoError error) {
+            fail();
+        }
+
+        assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - bonecrusher.getAtaque());
+    }
+
+    @Test
+    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+        Bonecrusher bonecrusher = new Bonecrusher();
+        Frenzy frenzy = new Frenzy();
+
+        try {
+            bonecrusher.atacar(frenzy);
+            fail();
+        }
+        catch (NoSePermiteElFuegoAmistosoError error) {
+            success();
+        }
+    }
+
+    private void success() {
+        assertTrue(true);
     }
 }

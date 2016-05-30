@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
 public class Frenzy extends AlgoFormer {
@@ -8,6 +9,7 @@ public class Frenzy extends AlgoFormer {
     public Frenzy() {
         nombre = "Frenzy";
         puntosDeVida = 400;
+        bando = BandoDecepticons.instancia();
 
         estado = new AlgoformerEstado(10, 5, 2, TipoUnidadTerrestre.instancia());
         estadoInactivo = new AlgoformerEstado(25, 2, 6, TipoUnidadTerrestre.instancia());

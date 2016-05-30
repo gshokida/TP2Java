@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
@@ -9,6 +10,7 @@ public class Megatron extends AlgoFormer {
     public Megatron() {
         nombre = "Megatron";
         puntosDeVida = 550;
+        bando = BandoDecepticons.instancia();
 
         estado = new AlgoformerEstado(10, 3, 1, TipoUnidadTerrestre.instancia());
         estadoInactivo = new AlgoformerEstado(55, 2 ,8, TipoUnidadAerea.instancia());

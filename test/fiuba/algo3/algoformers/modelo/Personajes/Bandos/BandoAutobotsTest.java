@@ -19,6 +19,6 @@ public class BandoAutobotsTest {
     public void bandoAutobot_noEsMismoBandoQue_bandoDecepticon() {
         Bando bando = BandoAutobots.instancia();
 
-        assertTrue(bando.esMismoBando(BandoDecepticons.instancia()));
+        assertTrue(!bando.esMismoBando(BandoDecepticons.instancia()));
     }
 }

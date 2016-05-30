@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
 public class Optimus extends AlgoFormer {
@@ -8,6 +9,7 @@ public class Optimus extends AlgoFormer {
     public Optimus() {
         nombre = "Optimus Prime";
         puntosDeVida = 500;
+        bando = BandoAutobots.instancia();
 
         estado = new AlgoformerEstado(50, 2, 2, TipoUnidadTerrestre.instancia());
         estadoInactivo = new AlgoformerEstado(15, 4 ,5, TipoUnidadTerrestre.instancia());

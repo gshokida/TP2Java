@@ -1,10 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class OptimusTest {
     @Test
@@ -133,5 +133,38 @@ public class OptimusTest {
         optimus.transformar();
 
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+    }
+
+    @Test
+    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+        Optimus optimus = new Optimus();
+        Megatron megatron = new Megatron();
+        int vidaInicialMegatron = megatron.getPuntosDeVida();
+
+        try {
+            optimus.atacar(megatron);
+        } catch (NoSePermiteElFuegoAmistosoError error) {
+            fail();
+        }
+
+        assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - optimus.getAtaque());
+    }
+
+    @Test
+    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+        Optimus optimus = new Optimus();
+        Bumblebee bumblebee = new Bumblebee();
+
+        try {
+            optimus.atacar(bumblebee);
+            fail();
+        }
+        catch (NoSePermiteElFuegoAmistosoError error) {
+            success();
+        }
+    }
+
+    private void success() {
+        assertTrue(true);
     }
 }
