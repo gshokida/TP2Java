@@ -1,5 +1,7 @@
-package fiuba.algo3.algoformers.modelo.Personajes;
+package fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades;
 
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -16,12 +18,6 @@ public class TipoUnidadAereaTest {
 
     @Test
     public void esTipoUniad_siSeEnviaTipoDeUnidadDistinto_esFalso() throws Exception {
-        assertFalse(TipoUnidadAerea.instancia().esTipoUnidad(new TipoUnidadTest()));
-    }
-
-    private class TipoUnidadTest implements TipoUnidad {
-        public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
-            return false;
-        }
+        assertFalse(TipoUnidadAerea.instancia().esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
 }

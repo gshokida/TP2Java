@@ -2,15 +2,15 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
-public class Optimus extends AlgoFormer {
+public class Bonecrusher extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
-    public Optimus() {
-        nombre = "Optimus Prime";
-        puntosDeVida = 500;
+    public Bonecrusher() {
+        nombre = "Bonecrusher";
+        puntosDeVida = 200;
 
-        estado = new AlgoformerEstado(50, 2, 2, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(15, 4 ,5, TipoUnidadTerrestre.instancia());
+        estado = new AlgoformerEstado(30, 3, 1, TipoUnidadTerrestre.instancia());
+        estadoInactivo = new AlgoformerEstado(30, 3, 8, TipoUnidadTerrestre.instancia());
     }
 
     public void transformar() {

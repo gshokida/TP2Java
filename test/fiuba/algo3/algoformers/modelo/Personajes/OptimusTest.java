@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -128,6 +129,8 @@ public class OptimusTest {
     @Test
     public void cambiarModo_tipoUnidad_esTerrestre() {
         Optimus optimus = new Optimus();
+
+        optimus.transformar();
 
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }

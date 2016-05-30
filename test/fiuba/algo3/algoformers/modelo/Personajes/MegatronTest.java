@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -129,9 +131,11 @@ public class MegatronTest {
     }
 
     @Test
-    public void cambiarModo_tipoUnidad_esTerrestre() {
+    public void cambiarModo_tipoUnidad_esAerea() {
         Megatron megatron = new Megatron();
 
-        assertTrue(megatron.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        megatron.transformar();
+
+        assertTrue(megatron.esTipoUnidad(TipoUnidadAerea.instancia()));
     }
 }

@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
+
 /**
  * Created by german.shokida on 24/5/2016.
  */
@@ -28,7 +30,7 @@ public abstract class AlgoFormer {
         return estado.getVelocidad();
     }
 
-    public boolean esTipoUnidad(TipoUnidadTerrestre tipoUnidad) {
+    public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
     }
 }

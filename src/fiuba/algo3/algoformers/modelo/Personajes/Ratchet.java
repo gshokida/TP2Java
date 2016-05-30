@@ -3,15 +3,15 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
-public class Megatron extends AlgoFormer {
+public class Ratchet extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
-    public Megatron() {
-        nombre = "Megatron";
-        puntosDeVida = 550;
+    public Ratchet() {
+        nombre = "Ratchet";
+        puntosDeVida = 150;
 
-        estado = new AlgoformerEstado(10, 3, 1, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(55, 2 ,8, TipoUnidadAerea.instancia());
+        estado = new AlgoformerEstado(5, 5, 1, TipoUnidadTerrestre.instancia());
+        estadoInactivo = new AlgoformerEstado(35, 2, 8, TipoUnidadAerea.instancia());
     }
 
     public void transformar() {
@@ -19,4 +19,5 @@ public class Megatron extends AlgoFormer {
         estadoInactivo = estado;
         estado = auxiliar;
     }
+
 }
