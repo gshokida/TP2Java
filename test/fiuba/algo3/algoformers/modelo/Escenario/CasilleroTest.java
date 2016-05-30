@@ -1,5 +1,9 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.Nube;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.TierraRocosa;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +23,7 @@ public class CasilleroTest {
 
     @Test
     public void casilleroNuevoConSuperficieDeTierra(){
-        SuperficieTerrestre tierraRocosa = new TierraRocosa();
+        SuperficieTerrestre tierraRocosa = TierraRocosa.getInstance();
         Casillero casillero = new Casillero();
 
         casillero.setSuperficieTerreste(tierraRocosa);
@@ -28,7 +32,7 @@ public class CasilleroTest {
 
     @Test
     public void casilleroNuevoConSuperficieAerea(){
-        SuperficieAerea nube = new Nube();
+        SuperficieAerea nube = Nube.getInstance();
         Casillero casillero = new Casillero();
 
         casillero.setSuperficieAerea(nube);
