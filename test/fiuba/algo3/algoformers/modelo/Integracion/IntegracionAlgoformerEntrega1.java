@@ -135,6 +135,10 @@ public class IntegracionAlgoformerEntrega1 {
         Jugador jugador1 = juego.getJugador1();
         Jugador jugador2 = juego.getJugador2();
 
+        Assert.assertTrue(jugador1.seLlama("Pepe"));
+        Assert.assertTrue(jugador2.seLlama("Pablo"));
+
+
 
 
 

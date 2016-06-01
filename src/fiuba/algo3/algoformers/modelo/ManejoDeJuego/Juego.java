@@ -2,6 +2,8 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.Personajes.*;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -53,6 +55,21 @@ public class Juego {
         autobots.add(bumblebee);
         autobots.add (rathcet);
 
+        this.jugadorUno.agregarAlgoformers(autobots);
+        this.jugadorUno.setBando(BandoAutobots.instancia());
+
+
+        List<AlgoFormer> decepticons = new LinkedList<>();
+        decepticons.add(megatron);
+        decepticons.add(bonecrusher);
+        decepticons.add(frenzy);
+
+        this.jugadorDos.agregarAlgoformers(autobots);
+        this.jugadorDos.setBando(BandoDecepticons.instancia());
+
+
+
+
 
         tablero.setPersonaje(optimus,1, 2);
         tablero.setPersonaje(bumblebee,0, 1);
@@ -68,6 +85,6 @@ public class Juego {
     }
 
     public Jugador getJugador2() {
-        return jugadorDos;
+        return this.jugadorDos;
     }
 }
