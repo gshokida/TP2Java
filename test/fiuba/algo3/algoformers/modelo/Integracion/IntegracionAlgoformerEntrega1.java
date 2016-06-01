@@ -16,9 +16,9 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(8, 8);
         Optimus optimus = new Optimus();
 
-        //tablero.setContenido(optimus, 0, 0);
+        tablero.setContenido(optimus, 0, 0);
 
-        //assertEquals(optimus, tablero.getContenido(0, 0));
+        assertEquals(optimus, tablero.getContenido(0, 0));
     }
 
     @Test

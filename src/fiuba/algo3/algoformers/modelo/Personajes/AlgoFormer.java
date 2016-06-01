@@ -1,13 +1,14 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
 /**
  * Created by german.shokida on 24/5/2016.
  */
-public abstract class AlgoFormer {
+public abstract class AlgoFormer extends Contenido {
     protected String nombre;
     protected int puntosDeVida;
     protected AlgoformerEstado estado;

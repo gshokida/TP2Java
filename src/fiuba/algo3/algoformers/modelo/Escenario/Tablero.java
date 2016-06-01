@@ -62,9 +62,9 @@ public class Tablero {
 
     }
 
-    public void getContenido(Contenido contenido, int x, int y) {
+    public Contenido getContenido(int x, int y) {
 
-        this.tablero[x][y].setContenido(contenido);
+        return (tablero[x][y].getContenido());
 
     }
 }
