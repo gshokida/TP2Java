@@ -5,7 +5,9 @@ package fiuba.algo3.algoformers.modelo.Escenario;
  */
 public interface Contenido {
 
-    public boolean esLaHoloSpark (Contenido contenido);
+     boolean esLaHoloSpark (Contenido contenido);
+
+    boolean esAlgoformer (Contenido contenido);
 
 
 }

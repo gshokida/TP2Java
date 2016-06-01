@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.Integracion;
 
 import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
@@ -147,6 +148,10 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = juego.getTablero();
 
         Assert.assertTrue(tablero.getContenido(2,2).esLaHoloSpark(HoloSpark.instancia()));
+
+
+        Contenido contenido = tablero.getContenido(1,2);
+
 
 
 

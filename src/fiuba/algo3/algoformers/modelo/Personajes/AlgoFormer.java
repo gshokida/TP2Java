@@ -67,4 +67,9 @@ public abstract class AlgoFormer implements Contenido {
 
     }
 
+    public  boolean esAlgoformer (Contenido contenido){
+
+        return this.equals(contenido);
+
+    }
 }
