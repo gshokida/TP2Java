@@ -9,7 +9,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 /**
  * Created by german.shokida on 24/5/2016.
  */
-public abstract class AlgoFormer extends Contenido {
+public abstract class AlgoFormer implements Contenido {
     protected String nombre;
     protected int puntosDeVida;
     protected AlgoformerEstado estado;
@@ -60,4 +60,11 @@ public abstract class AlgoFormer extends Contenido {
         enemigo.puntosDeVida -= estado.getAtaque();
     }
     public abstract void transformar();
+
+    public boolean esLaHoloSpark (Contenido contenido){
+
+        return this.equals(contenido);
+
+    }
+
 }

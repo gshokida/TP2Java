@@ -146,7 +146,9 @@ public class IntegracionAlgoformerEntrega1 {
 
         Tablero tablero = juego.getTablero();
 
-        Assert.assertTrue(tablero.getContenido(2,2).equals(HoloSpark.instancia()));
+        Assert.assertTrue(tablero.getContenido(2,2).esLaHoloSpark(HoloSpark.instancia()));
+
+
 
 
     }

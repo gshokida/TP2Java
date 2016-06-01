@@ -20,9 +20,9 @@ public class TableroTest {
     @Test
     public void testCrearTablero(){
 
-        Tablero tablero = new Tablero(4,4);
+        Tablero tablero = new Tablero(5,5);
 
-        Assert.assertTrue(tablero.tieneTamanio(4*4));
+        Assert.assertTrue(tablero.tieneTamanio(5*5));
 
 
     }
@@ -30,7 +30,7 @@ public class TableroTest {
     @Test
     public void testBuscarMedio(){
 
-        Tablero tablero = new Tablero(4,4);
+        Tablero tablero = new Tablero(5,5);
 
         Assert.assertTrue(tablero.medio() == 4);
 
@@ -39,7 +39,7 @@ public class TableroTest {
     @Test
     public void testEncontrarElElementoMedioDeCasillero(){
 
-        Tablero tablero = new Tablero(4,4);
+        Tablero tablero = new Tablero(5,5);
 
         Casillero casillero = new Casillero();
 

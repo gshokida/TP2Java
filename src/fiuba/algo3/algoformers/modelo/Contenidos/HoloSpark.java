@@ -5,7 +5,7 @@ import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 /**
  * Created by Rodrigo on 01/06/2016.
  */
-public class HoloSpark extends Contenido{
+public class HoloSpark implements Contenido{
 
     private static HoloSpark unicaInstancia = new HoloSpark();
 
