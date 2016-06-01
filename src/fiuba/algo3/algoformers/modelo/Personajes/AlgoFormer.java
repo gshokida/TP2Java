@@ -40,6 +40,14 @@ public abstract class AlgoFormer extends Contenido {
         return estado.esTipoUnidad(tipoUnidad);
     }
 
+    public int getPosicionX() {
+        return posx;
+    }
+
+    public int getPosicionY() {
+        return posy;
+    }
+
     public void setPosicion(int posx, int posy) {
         this.posx = posx;
         this.posy = posy;

@@ -23,15 +23,15 @@ public class IntegracionAlgoformerEntrega1 {
     }
 
     @Test
-    public void nuevoTablero_UbicoAlgoFormer_Muevo_VerificoPosicion_Punto1(){
+    public void nuevoTablero_UbicoAlgoFormer_MuevoACasilleroVacio_VerificoPosicion_Punto1(){
         Tablero tablero = new Tablero(8, 8);
         Optimus optimus = new Optimus();
         tablero.setContenido(optimus, 0, 0);
 
-        //tablero.moverPersonaje(optimus,2,2);
+        tablero.moverPersonaje(optimus,2,2);
 
-        //assertEquals(optimus, tablero.getContenido(2, 2));
-        //assertEquals(ContenidoVacio.getInstance(), tablero.getContenido(0,0));
+        assertEquals(optimus, tablero.getContenido(2, 2));
+        assertEquals(ContenidoVacio.getInstance(), tablero.getContenido(0,0));
     }
 
 

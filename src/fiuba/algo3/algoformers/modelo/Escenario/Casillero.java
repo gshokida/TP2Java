@@ -36,5 +36,4 @@ public class Casillero {
         return this.superficieAerea;
     }
 
-
 }

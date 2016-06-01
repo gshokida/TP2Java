@@ -57,7 +57,4 @@ public class TableroTest {
     public void testUnTableroImparLanzaExcepcion(){
 
     }
-
-
-
 }

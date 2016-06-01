@@ -76,4 +76,10 @@ public class Tablero {
 
     }
 
+    public void moverPersonaje(AlgoFormer algoFormer, int posx, int posy) {
+        int posx_origen = algoFormer.getPosicionX();
+        int posy_origen = algoFormer.getPosicionY();
+        setPersonaje(algoFormer,posx,posy);
+        tablero[posx_origen][posy_origen].setContenido(ContenidoVacio.getInstance());
+    }
 }
