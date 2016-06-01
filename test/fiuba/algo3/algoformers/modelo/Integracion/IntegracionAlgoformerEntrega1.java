@@ -55,11 +55,12 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
 
-        //tablero.setContenido(optimus, 0, 0);
+        tablero.setContenido(optimus, 0, 0);
 
-        assertTrue(optimus.getAtaque() == 50);
-        assertTrue(optimus.getDistanciaDeAtaque() == 2);
-        assertTrue(optimus.getVelocidad() == 2);
+        assertEquals(optimus.getPuntosDeVida(),500);
+        assertEquals(optimus.getAtaque(),50);
+        assertEquals(optimus.getDistanciaDeAtaque(),2);
+        assertEquals(optimus.getVelocidad(),2);
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
 
@@ -67,14 +68,14 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoTransformacion_Punto2(){
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
+        tablero.setContenido(optimus, 0, 0);
 
-        //tablero.setContenido(optimus, 0, 0);
+        tablero.transformarPersonaje(optimus);
 
-        optimus.transformar();
-
-        assertTrue(optimus.getAtaque() == 15);
-        assertTrue(optimus.getDistanciaDeAtaque() == 4);
-        assertTrue(optimus.getVelocidad() == 5);
+        assertEquals(optimus.getPuntosDeVida(),500);
+        assertEquals(optimus.getAtaque(),15);
+        assertEquals(optimus.getDistanciaDeAtaque(),4);
+        assertEquals(optimus.getVelocidad(),5);
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
 
@@ -82,15 +83,15 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoDobleTransformacion_Punto2(){
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
+        tablero.setContenido(optimus, 0, 0);
 
-        //tablero.setContenido(optimus, 0, 0);
+        tablero.transformarPersonaje(optimus);
+        tablero.transformarPersonaje(optimus);
 
-        optimus.transformar();
-        optimus.transformar();
-
-        assertTrue(optimus.getAtaque() == 50);
-        assertTrue(optimus.getDistanciaDeAtaque() == 2);
-        assertTrue(optimus.getVelocidad() == 2);
+        assertEquals(optimus.getPuntosDeVida(),500);
+        assertEquals(optimus.getAtaque(),50);
+        assertEquals(optimus.getDistanciaDeAtaque(),2);
+        assertEquals(optimus.getVelocidad(),2);
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
 
