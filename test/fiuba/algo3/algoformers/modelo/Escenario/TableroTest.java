@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -49,7 +51,24 @@ public class TableroTest {
 
     }
 
+    @Test
+    public void testTablero_Esta_Ocupado(){
 
+        AlgoFormer optimus = new Optimus();
+
+        Tablero tablero = new Tablero(5,5);
+
+        Casillero casillero = new Casillero();
+
+        casillero.setContenido(optimus);
+
+        tablero.llenarCasilleroDelMedio(casillero);
+
+
+        Assert.assertTrue(tablero.casilleroOcupado(2,2));
+
+
+    }
 
 
 
