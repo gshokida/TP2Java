@@ -149,8 +149,12 @@ public class IntegracionAlgoformerEntrega1 {
 
         Assert.assertTrue(tablero.getContenido(2,2).esLaHoloSpark(HoloSpark.instancia()));
 
-
-        Contenido contenido = tablero.getContenido(1,2);
+        Assert.assertTrue(tablero.casilleroOcupado(0,0));
+        Assert.assertTrue(tablero.casilleroOcupado(0,1));
+        Assert.assertTrue(tablero.casilleroOcupado(1,2));
+        Assert.assertTrue(tablero.casilleroOcupado(4,4));
+        Assert.assertTrue(tablero.casilleroOcupado(4,3));
+        Assert.assertTrue(tablero.casilleroOcupado(3,4));
 
 
 

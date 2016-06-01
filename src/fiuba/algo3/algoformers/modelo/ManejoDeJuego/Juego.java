@@ -16,8 +16,16 @@ public class Juego {
     private Tablero tablero;
     private Jugador jugadorUno;
     private Jugador jugadorDos;
+    private int filas;
+    private  int columnas;
 
     public Juego(String nombreJugadorUno, String nombreJugadorDos, int filas, int columnas) {
+
+        //VERIFICAR
+        this.filas = filas;
+        this.columnas = columnas;
+
+
         this.jugadorUno = new Jugador();
         this.jugadorDos = new Jugador();
 
@@ -26,7 +34,7 @@ public class Juego {
 
         this.turno = new Turno();
         this.turno.agregarJugador1(jugadorUno);
-        this.turno.agregarJugador1(jugadorUno);
+        this.turno.agregarJugador2(jugadorDos);
 
         this.tablero = new Tablero(filas, columnas);
 
@@ -66,12 +74,12 @@ public class Juego {
         this.jugadorDos.setBando(BandoDecepticons.instancia());
 
 
-        tablero.setPersonaje(optimus,1, 2);
+        tablero.setPersonaje(optimus,0, 0);
         tablero.setPersonaje(bumblebee,0, 1);
-        tablero.setPersonaje(rathcet,0, 3 );
-        tablero.setPersonaje(megatron,2, 3 );
-        tablero.setPersonaje(bonecrusher,4, 1);
-        tablero.setPersonaje(frenzy,4,3 );
+        tablero.setPersonaje(rathcet,1, 2 );
+        tablero.setPersonaje(megatron,this.filas-1, this.columnas-1 );
+        tablero.setPersonaje(bonecrusher,this.filas-1 , this.columnas-2);
+        tablero.setPersonaje(frenzy,this.filas-2,this.columnas-1);
 
     }
 

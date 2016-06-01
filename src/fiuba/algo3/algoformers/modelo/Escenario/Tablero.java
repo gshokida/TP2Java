@@ -89,4 +89,9 @@ public class Tablero {
     }
 
 
+    public boolean casilleroOcupado(int x, int y) {
+
+        return this.tablero [x][y].estaOcupado();
+
+    }
 }
