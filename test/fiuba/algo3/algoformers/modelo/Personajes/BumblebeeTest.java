@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -145,7 +146,9 @@ public class BumblebeeTest {
 
         try {
             bumblebee.atacar(megatron);
-        } catch (NoSePermiteElFuegoAmistosoError error) {
+        } catch (NoSePermiteElFuegoAmistosoException error) {
+            fail();
+        } catch (DistanciaEntreAlgoFormersExcedidaException e) {
             fail();
         }
 
@@ -161,8 +164,10 @@ public class BumblebeeTest {
             bumblebee.atacar(ratchet);
             fail();
         }
-        catch (NoSePermiteElFuegoAmistosoError error) {
+        catch (NoSePermiteElFuegoAmistosoException error) {
             success();
+        } catch (DistanciaEntreAlgoFormersExcedidaException e) {
+            fail();
         }
     }
 

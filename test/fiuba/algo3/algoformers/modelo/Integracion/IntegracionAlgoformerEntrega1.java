@@ -1,8 +1,9 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
 import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
@@ -37,7 +38,7 @@ public class IntegracionAlgoformerEntrega1 {
             throws ImposibleMoverseCasilleroOcupadoException {
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
 
         tablero.moverPersonaje(optimus,2,2);
 
@@ -51,8 +52,8 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
-        tablero.setContenido(optimus, 0, 0);
-        tablero.setContenido(megatron, 2, 2);
+        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(megatron, 2, 2);
 
         tablero.moverPersonaje(optimus,2,2);
     }
@@ -62,7 +63,7 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
 
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
 
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
@@ -71,7 +72,7 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoTransformacion_Punto2(){
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
 
         optimus.transformar();
 
@@ -86,9 +87,9 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoDobleTransformacion_Punto2(){
         Tablero tablero = new Tablero(8, 8);
         AlgoFormer optimus = new Optimus();
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
+        optimus.transformar();
 
-     optimus.transformar();
         optimus.transformar();
 
         assertEquals(optimus.getPuntosDeVida(),500);
@@ -105,7 +106,7 @@ public class IntegracionAlgoformerEntrega1 {
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
 
         assertEquals(optimus, tablero.getContenido(0, 0));
     }
@@ -116,7 +117,7 @@ public class IntegracionAlgoformerEntrega1 {
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
 
         try {
             tablero.moverPersonaje(optimus, 1, 1);
@@ -155,12 +156,37 @@ public class IntegracionAlgoformerEntrega1 {
         Assert.assertTrue(tablero.casilleroOcupado(4,4));
         Assert.assertTrue(tablero.casilleroOcupado(4,3));
         Assert.assertTrue(tablero.casilleroOcupado(3,4));
-
-
-
-
-
     }
 
+    @Test
+    public void test_UbicarAlgoFormers_SeAtacanConDistanciaValida_Integracion_Punto5()
+            throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
+        Tablero tablero = new Tablero(8, 8);
+        AlgoFormer optimus = new Optimus();
+        AlgoFormer megatron = new Megatron();
+        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(megatron, 2, 2);
 
+        optimus.atacar(megatron);
+
+        assertEquals(optimus.getPuntosDeVida(),500);
+        assertEquals(megatron.getPuntosDeVida(),500);
+
+        megatron.atacar(optimus);
+
+        assertEquals(optimus.getPuntosDeVida(),490);
+        assertEquals(megatron.getPuntosDeVida(),500);
+    }
+
+    @Test(expected=DistanciaEntreAlgoFormersExcedidaException.class)
+    public void test_UbicarAlgoFormers_SeAtacanConDistanciaInvalida_Integracion_Punto5()
+            throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
+        Tablero tablero = new Tablero(8, 8);
+        AlgoFormer optimus = new Optimus();
+        AlgoFormer megatron = new Megatron();
+        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(megatron, 3, 3);
+
+        optimus.atacar(megatron);
+    }
 }

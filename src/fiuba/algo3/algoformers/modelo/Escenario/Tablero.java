@@ -80,7 +80,7 @@ public class Tablero {
     }
 
     public void moverPersonaje(AlgoFormer algoFormer, int posx, int posy) throws ImposibleMoverseCasilleroOcupadoException {
-        if (tablero[posx][posy].estaOcupado())
+        if (casilleroOcupado(posx,posy))
             throw new ImposibleMoverseCasilleroOcupadoException();
         int posx_origen = algoFormer.getPosicionX();
         int posy_origen = algoFormer.getPosicionY();
@@ -90,8 +90,6 @@ public class Tablero {
 
 
     public boolean casilleroOcupado(int x, int y) {
-
-        return this.tablero [x][y].estaOcupado();
-
+        return (tablero[x][y].estaOcupado());
     }
 }
