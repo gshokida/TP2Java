@@ -18,7 +18,7 @@ public class Juego {
     private Jugador jugadorDos;
 
     public Juego(String nombreJugadorUno, String nombreJugadorDos, int filas, int columnas) {
-       this.jugadorUno = new Jugador();
+        this.jugadorUno = new Jugador();
         this.jugadorDos = new Jugador();
 
         jugadorUno.addNombre(nombreJugadorUno);
@@ -29,17 +29,15 @@ public class Juego {
         this.turno.agregarJugador1(jugadorUno);
 
         this.tablero = new Tablero(filas, columnas);
-    }
 
+        this.comenzarNuevoJuego();
 
-    public Tablero getTablero (){
-        return this.tablero;
     }
 
 
     //ESTO DEBERIA VERSE MAS LINDO, CAPAZ QUE PODEMOS CREAR UNA LISTA Y MANDAR A METODO, AGREGARAUTOBOT y AGREGARDECEPTICONS
 
-    public void comenzarNuevoJuego() {
+  private void comenzarNuevoJuego() {
 
         Optimus optimus = new Optimus();
         Bumblebee bumblebee = new Bumblebee();
@@ -68,9 +66,6 @@ public class Juego {
         this.jugadorDos.setBando(BandoDecepticons.instancia());
 
 
-
-
-
         tablero.setPersonaje(optimus,1, 2);
         tablero.setPersonaje(bumblebee,0, 1);
         tablero.setPersonaje(rathcet,0, 3 );
@@ -87,4 +82,11 @@ public class Juego {
     public Jugador getJugador2() {
         return this.jugadorDos;
     }
+
+    public Tablero getTablero (){
+        return this.tablero;
+    }
+
+
+
 }

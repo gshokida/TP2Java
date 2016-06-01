@@ -1,11 +1,14 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
+import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Escenario.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
@@ -125,12 +128,9 @@ public class IntegracionAlgoformerEntrega1 {
 
 
     @Test
-    public void nombredeTest()  {
+    public void test_Crear_NuevoJuego_Integracion_Punto4()  {
 
-        Juego juego = new Juego("Pepe", "Pablo", 4, 4);
-
-        juego.comenzarNuevoJuego();
-
+        Juego juego = new Juego("Pepe", "Pablo", 5, 5);
 
         Jugador jugador1 = juego.getJugador1();
         Jugador jugador2 = juego.getJugador2();
@@ -138,9 +138,15 @@ public class IntegracionAlgoformerEntrega1 {
         Assert.assertTrue(jugador1.seLlama("Pepe"));
         Assert.assertTrue(jugador2.seLlama("Pablo"));
 
+        Assert.assertTrue(jugador1.getBando().equals(BandoAutobots.instancia()));
+        Assert.assertFalse(jugador1.getBando().equals(BandoDecepticons.instancia()));
 
+        Assert.assertTrue(jugador2.getBando().equals(BandoDecepticons.instancia()));
+        Assert.assertFalse(jugador2.getBando().equals(BandoAutobots.instancia()));
 
+        Tablero tablero = juego.getTablero();
 
+        Assert.assertTrue(tablero.getContenido(2,2).equals(HoloSpark.instancia()));
 
 
     }
