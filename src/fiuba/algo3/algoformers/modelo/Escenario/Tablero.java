@@ -86,7 +86,5 @@ public class Tablero {
         tablero[posx_origen][posy_origen].setContenido(ContenidoVacio.getInstance());
     }
 
-    public void transformarPersonaje(AlgoFormer algoFormer) {
-        algoFormer.transformar();
-    }
+
 }

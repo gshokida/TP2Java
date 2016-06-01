@@ -22,4 +22,9 @@ public class Juego {
 
         this.tablero = new Tablero(filas, columnas);
     }
+
+
+    public Tablero getTablero (){
+        return this.tablero;
+    }
 }
