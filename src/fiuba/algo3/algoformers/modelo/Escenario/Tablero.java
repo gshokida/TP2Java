@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
@@ -20,8 +21,8 @@ public class Tablero {
         this.tablero = new Casillero[x][y];
         this.posx = x;
         this.posy = y;
-        this.posxElementoMedio = x/2;
-        this.posyElementoMedio = y/2;
+        this.posxElementoMedio = (x-1)/2;
+        this.posyElementoMedio = (y-1)/2;
 
         for(int i = 0; i < x; i++)
             for(int j = 0; j < y; j++) {
@@ -29,6 +30,7 @@ public class Tablero {
                 this.tablero[i][j].setContenido(ContenidoVacio.getInstance());
             }
 
+        this.setContenido(HoloSpark.instancia(), posxElementoMedio, posyElementoMedio);
     }
 
 
