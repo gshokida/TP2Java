@@ -4,10 +4,12 @@ import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoEx
 import fiuba.algo3.algoformers.modelo.Escenario.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
+import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -125,9 +127,15 @@ public class IntegracionAlgoformerEntrega1 {
     @Test
     public void nombredeTest()  {
 
-        Juego juego1 = new Juego("Pepe", "Pablo", 4, 4);
+        Juego juego = new Juego("Pepe", "Pablo", 4, 4);
 
-        juego1.situarPersonajes();
+        juego.comenzarNuevoJuego();
+
+
+        Jugador jugador1 = juego.getJugador1();
+        Jugador jugador2 = juego.getJugador2();
+
+
 
 
 
