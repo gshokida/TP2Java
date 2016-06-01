@@ -13,6 +13,8 @@ public abstract class AlgoFormer extends Contenido {
     protected int puntosDeVida;
     protected AlgoformerEstado estado;
     protected Bando bando;
+    private int posx;
+    private int posy;
 
     public String getNombre() {
         return nombre;
@@ -36,6 +38,11 @@ public abstract class AlgoFormer extends Contenido {
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
+    }
+
+    public void setPosicion(int posx, int posy) {
+        this.posx = posx;
+        this.posy = posy;
     }
 
     public void atacar(AlgoFormer enemigo) throws NoSePermiteElFuegoAmistosoError {

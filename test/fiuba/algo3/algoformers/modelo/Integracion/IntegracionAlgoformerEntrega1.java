@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
+import fiuba.algo3.algoformers.modelo.Escenario.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
@@ -16,7 +17,7 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(8, 8);
         Optimus optimus = new Optimus();
 
-        tablero.setContenido(optimus, 0, 0);
+        tablero.setPersonaje(optimus, 0, 0);
 
         assertEquals(optimus, tablero.getContenido(0, 0));
     }
@@ -25,12 +26,12 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_Muevo_VerificoPosicion_Punto1(){
         Tablero tablero = new Tablero(8, 8);
         Optimus optimus = new Optimus();
+        tablero.setContenido(optimus, 0, 0);
 
-        //tablero.setContenido(optimus, 0, 0);
+        //tablero.moverPersonaje(optimus,2,2);
 
-        //optimus.mover(1, 1);
-
-        //assertEquals(optimus, tablero.getContenido(1, 1));
+        //assertEquals(optimus, tablero.getContenido(2, 2));
+        //assertEquals(ContenidoVacio.getInstance(), tablero.getContenido(0,0));
     }
 
 

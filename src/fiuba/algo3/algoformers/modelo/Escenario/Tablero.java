@@ -1,5 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
+
 /**
  * Created by Rodrigo on 27/05/2016.
  */
@@ -62,9 +65,15 @@ public class Tablero {
 
     }
 
+    public void setPersonaje(AlgoFormer algoFormer, int x, int y) {
+        algoFormer.setPosicion(x,y);
+        this.setContenido(algoFormer,x,y);
+    }
+
     public Contenido getContenido(int x, int y) {
 
         return (tablero[x][y].getContenido());
 
     }
+
 }
