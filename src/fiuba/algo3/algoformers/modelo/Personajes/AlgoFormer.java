@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
@@ -58,4 +59,5 @@ public abstract class AlgoFormer extends Contenido {
             throw new NoSePermiteElFuegoAmistosoError();
         enemigo.puntosDeVida -= estado.getAtaque();
     }
+    public abstract void transformar();
 }

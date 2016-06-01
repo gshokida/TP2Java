@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
 
@@ -76,7 +77,9 @@ public class Tablero {
 
     }
 
-    public void moverPersonaje(AlgoFormer algoFormer, int posx, int posy) {
+    public void moverPersonaje(AlgoFormer algoFormer, int posx, int posy) throws ImposibleMoverseCasilleroOcupadoException {
+        if (tablero[posx][posy].estaOcupado())
+            throw new ImposibleMoverseCasilleroOcupadoException();
         int posx_origen = algoFormer.getPosicionX();
         int posy_origen = algoFormer.getPosicionY();
         setPersonaje(algoFormer,posx,posy);

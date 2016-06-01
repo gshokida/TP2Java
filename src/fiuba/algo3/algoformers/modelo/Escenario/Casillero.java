@@ -36,4 +36,7 @@ public class Casillero {
         return this.superficieAerea;
     }
 
+    public boolean estaOcupado() {
+        return (!getContenido().equals(ContenidoVacio.getInstance()));
+    }
 }
