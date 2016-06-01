@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class CasilleroTest {
     @Test
     public void casilleroNuevoEsVacio(){
-        Contenido contenido = new ContenidoVacio();
+        Contenido contenido = ContenidoVacio.getInstance();
         Casillero casillero = new Casillero();
 
         casillero.setContenido(contenido);

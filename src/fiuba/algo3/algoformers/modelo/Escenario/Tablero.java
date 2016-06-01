@@ -19,6 +19,12 @@ public class Tablero {
         this.posxElementoMedio = x/2;
         this.posyElementoMedio = y/2;
 
+        for(int i = 0; i < x; i++)
+            for(int j = 0; j < y; j++) {
+                this.tablero[i][j] = new Casillero();
+                this.tablero[i][j].setContenido(ContenidoVacio.getInstance());
+            }
+
     }
 
 
@@ -49,7 +55,16 @@ public class Tablero {
 
     }
 
-    //Habria que inicializar todos los casilleros del tablero.
 
+    public void setContenido(Contenido contenido, int x, int y) {
 
+        this.tablero[x][y].setContenido(contenido);
+
+    }
+
+    public void getContenido(Contenido contenido, int x, int y) {
+
+        this.tablero[x][y].setContenido(contenido);
+
+    }
 }
