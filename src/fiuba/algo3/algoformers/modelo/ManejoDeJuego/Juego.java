@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
+import fiuba.algo3.algoformers.modelo.Personajes.*;
 
 /**
  * Created by german.shokida on 31/5/2016.
@@ -26,5 +27,28 @@ public class Juego {
 
     public Tablero getTablero (){
         return this.tablero;
+    }
+
+
+    //ESTO DEBERIA VERSE MAS LINDO, CAPAZ QUE PODEMOS CREAR UNA LISTA Y MANDAR A METODO, AGREGARAUTOBOT y AGREGARDECEPTICONS
+
+    public void situarPersonajes() {
+
+        Optimus optimus = new Optimus();
+        Bumblebee bumblebee = new Bumblebee();
+        Ratchet rathcet = new Ratchet();
+
+
+        Megatron megatron = new Megatron();
+        Bonecrusher bonecrusher = new Bonecrusher();
+        Frenzy frenzy = new Frenzy();
+
+        tablero.setPersonaje(optimus,1, 2);
+        tablero.setPersonaje(bumblebee,0, 1);
+        tablero.setPersonaje(rathcet,0, 3 );
+        tablero.setPersonaje(megatron,2, 3 );
+        tablero.setPersonaje(bonecrusher,4, 1);
+        tablero.setPersonaje(frenzy,4,3 );
+
     }
 }

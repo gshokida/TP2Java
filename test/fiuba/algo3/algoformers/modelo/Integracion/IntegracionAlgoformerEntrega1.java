@@ -125,9 +125,9 @@ public class IntegracionAlgoformerEntrega1 {
     @Test
     public void nombredeTest()  {
 
-        Juego juego1 = new Juego("Pepe", "Pablo", 8, 8);
+        Juego juego1 = new Juego("Pepe", "Pablo", 4, 4);
 
-        Tablero tablero = juego1.getTablero();
+        juego1.situarPersonajes();
 
 
 
