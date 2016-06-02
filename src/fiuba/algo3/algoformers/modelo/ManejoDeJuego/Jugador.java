@@ -22,7 +22,6 @@ public class Jugador {
         return this.nombre == nombre;
     }
 
-
     public void esSuTurno(boolean b) {
         this.turno = b;
     }
@@ -31,21 +30,20 @@ public class Jugador {
         return turno;
     }
 
-    public void setBando(Bando bando) {
-        this.bando = bando;
-    }
-
     public Bando getBando() {
         return bando;
-    }
-
-
-    public void agregarAlgoformers(List<AlgoFormer> personajes) {
-        listaPersonajes = personajes;
     }
 
     public void prepararParaJugar(List<AlgoFormer> algoformers, Bando bando) {
         agregarAlgoformers(algoformers);
         setBando(bando);
+    }
+
+    private void agregarAlgoformers(List<AlgoFormer> personajes) {
+        listaPersonajes = personajes;
+    }
+
+    private void setBando(Bando bando) {
+        this.bando = bando;
     }
 }
