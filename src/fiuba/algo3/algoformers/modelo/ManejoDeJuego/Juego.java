@@ -34,40 +34,13 @@ public class Juego {
         comenzarNuevoJuego();
     }
 
-
-    //ESTO DEBERIA VERSE MAS LINDO, CAPAZ QUE PODEMOS CREAR UNA LISTA Y MANDAR A METODO, AGREGARAUTOBOT y AGREGARDECEPTICONS
-
   private void comenzarNuevoJuego() {
-        Optimus optimus = new Optimus();
-        Bumblebee bumblebee = new Bumblebee();
-        Ratchet rathcet = new Ratchet();
-
-        Megatron megatron = new Megatron();
-        Bonecrusher bonecrusher = new Bonecrusher();
-        Frenzy frenzy = new Frenzy();
-
         List<AlgoFormer> autobots = new LinkedList<>();
-        autobots.add(optimus);
-        autobots.add(bumblebee);
-        autobots.add (rathcet);
-
-        jugadorUno.agregarAlgoformers(autobots);
-        jugadorUno.setBando(BandoAutobots.instancia());
-
         List<AlgoFormer> decepticons = new LinkedList<>();
-        decepticons.add(megatron);
-        decepticons.add(bonecrusher);
-        decepticons.add(frenzy);
+        crearYUbicarAlgoFormers(autobots,decepticons);
 
-        jugadorDos.agregarAlgoformers(autobots);
-        jugadorDos.setBando(BandoDecepticons.instancia());
-
-        tablero.setPersonaje(optimus,0, 0);
-        tablero.setPersonaje(bumblebee,0, 1);
-        tablero.setPersonaje(rathcet,1, 2 );
-        tablero.setPersonaje(megatron,filas-1, columnas-1 );
-        tablero.setPersonaje(bonecrusher,filas-1 , columnas-2);
-        tablero.setPersonaje(frenzy,filas-2,columnas-1);
+        jugadorUno.prepararParaJugar(autobots,BandoAutobots.instancia());
+        jugadorDos.prepararParaJugar(decepticons,BandoDecepticons.instancia());
     }
 
     public Jugador getJugador1() {
@@ -81,4 +54,28 @@ public class Juego {
     public Tablero getTablero (){
         return tablero;
     }
+
+    private void crearYUbicarAlgoFormers(List<AlgoFormer> autobots, List<AlgoFormer> decepticons) {
+        AlgoFormer optimus = new Optimus();
+        AlgoFormer bumblebee = new Bumblebee();
+        AlgoFormer ratchet = new Ratchet();
+        autobots.add(optimus);
+        autobots.add(bumblebee);
+        autobots.add(ratchet);
+
+        AlgoFormer megatron = new Megatron();
+        AlgoFormer bonecrusher = new Bonecrusher();
+        AlgoFormer frenzy = new Frenzy();
+        decepticons.add(megatron);
+        decepticons.add(bonecrusher);
+        decepticons.add(frenzy);
+
+        tablero.setPersonaje(optimus,0, 0);
+        tablero.setPersonaje(bumblebee,0, 1);
+        tablero.setPersonaje(ratchet,1, 2 );
+        tablero.setPersonaje(megatron,filas-1, columnas-1 );
+        tablero.setPersonaje(bonecrusher,filas-1 , columnas-2);
+        tablero.setPersonaje(frenzy,filas-2,columnas-1);
+    }
+
 }
