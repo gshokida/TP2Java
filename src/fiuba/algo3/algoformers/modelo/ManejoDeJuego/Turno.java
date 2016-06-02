@@ -9,7 +9,9 @@ public class Turno {
     Jugador jugador1;
     Jugador jugador2;
 
-    public Turno (){
+    public Turno () {
+        jugador1 = null;
+        jugador2 = null;
     }
 
     //PRE: Debe haber dos Jugadores ya agregados. TEMPORAL
