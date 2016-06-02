@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
 import fiuba.algo3.algoformers.modelo.Contenidos.ContenidoVacio;
+import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.Nube;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
@@ -32,6 +33,16 @@ public class CasilleroTest {
         Casillero casillero = new Casillero();
 
         casillero.setContenido(optimus);
+
+        assertTrue(casillero.estaOcupado());
+    }
+
+    @Test
+    public void testAgregoHoloSparkYDejaDeEstarVacio() {
+        Contenido holoSpark = HoloSpark.instancia();
+        Casillero casillero = new Casillero();
+
+        casillero.setContenido(holoSpark);
 
         assertTrue(casillero.estaOcupado());
     }
