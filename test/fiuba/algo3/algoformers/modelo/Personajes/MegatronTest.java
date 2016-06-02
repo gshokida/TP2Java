@@ -2,6 +2,9 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;

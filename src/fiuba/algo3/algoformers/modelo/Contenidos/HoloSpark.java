@@ -22,10 +22,4 @@ public class HoloSpark implements Contenido{
     public boolean esLaHoloSpark (Contenido contenido){
         return this.equals(contenido);
     }
-
-   public  boolean esAlgoformer (Contenido contenido){
-
-        return this.equals(contenido);
-    }
-
 }

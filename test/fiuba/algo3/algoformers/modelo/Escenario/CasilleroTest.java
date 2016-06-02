@@ -1,10 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.Nube;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.TierraRocosa;
-import fiuba.algo3.algoformers.modelo.Personajes.Optimus;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

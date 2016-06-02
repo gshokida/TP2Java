@@ -1,5 +1,7 @@
-package fiuba.algo3.algoformers.modelo.Personajes;
+package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
