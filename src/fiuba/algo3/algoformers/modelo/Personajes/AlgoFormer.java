@@ -60,7 +60,12 @@ public abstract class AlgoFormer implements Contenido {
             throw new NoSePermiteElFuegoAmistosoException();
         if (distanciaInvalida(enemigo))
             throw new DistanciaEntreAlgoFormersExcedidaException();
-        enemigo.puntosDeVida -= estado.getAtaque();
+        //enemigo.puntosDeVida -= estado.getAtaque();
+        enemigo.recibirDanio(this);
+    }
+
+    protected void recibirDanio(AlgoFormer enemigo) {
+        this.puntosDeVida -= enemigo.getAtaque();
     }
 
     public abstract void transformar();
