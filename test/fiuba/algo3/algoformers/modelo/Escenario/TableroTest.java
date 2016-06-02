@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import org.junit.Assert;
@@ -14,6 +15,11 @@ public class TableroTest {
         Tablero tablero = new Tablero(5,5);
 
         Assert.assertTrue(tablero.tieneTamanio(5*5));
+    }
+
+    @Test(expected=TableroParInvalidoException.class)
+    public void testCrearTableroParLanzaExcepcion(){
+        Tablero tablero = new Tablero(4,4);
     }
 
     @Test

@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.Escenario;
 import fiuba.algo3.algoformers.modelo.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
+import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**
@@ -15,14 +16,17 @@ public class Tablero {
     int posxElementoMedio;
     int posyElementoMedio;
 
-    public  Tablero (int x, int y){
-        tablero = new Casillero[x][y];
-        posx = x;
-        posy = y;
-        posxElementoMedio = (x-1)/2;
-        posyElementoMedio = (y-1)/2;
-        for(int i = 0; i < x; i++)
-            for(int j = 0; j < y; j++) {
+    public  Tablero (int filas, int columnas) {
+        if (!((filas %2 != 0) && (columnas %2 != 0))) {
+            throw new TableroParInvalidoException();
+        }
+        tablero = new Casillero[filas][columnas];
+        posx = filas;
+        posy = columnas;
+        posxElementoMedio = (filas -1)/2;
+        posyElementoMedio = (columnas -1)/2;
+        for(int i = 0; i < filas; i++)
+            for(int j = 0; j < columnas; j++) {
                 tablero[i][j] = new Casillero();
                 tablero[i][j].setContenido(ContenidoVacio.getInstance());
             }

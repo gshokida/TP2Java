@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 public class IntegracionAlgoformerEntrega1 {
     @Test
     public void nuevoTablero_UbicoAlgoFormer_VerificoPosicion_Punto1(){
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
 
         tablero.setPersonaje(optimus, 0, 0);
@@ -36,20 +36,20 @@ public class IntegracionAlgoformerEntrega1 {
     @Test
     public void nuevoTablero_UbicoAlgoFormer_MuevoACasilleroVacio_VerificoPosicion_Punto1()
             throws ImposibleMoverseCasilleroOcupadoException {
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         tablero.setPersonaje(optimus, 0, 0);
 
-        tablero.moverPersonaje(optimus,2,2);
+        tablero.moverPersonaje(optimus,1,2);
 
-        assertEquals(optimus, tablero.getContenido(2, 2));
+        assertEquals(optimus, tablero.getContenido(1, 2));
         assertEquals(ContenidoVacio.getInstance(), tablero.getContenido(0,0));
     }
 
     @Test(expected=ImposibleMoverseCasilleroOcupadoException.class)
     public void nuevoTablero_UbicoAlgoFormer_MuevoACasilleroNoVacio_LanzoException_Punto1()
             throws ImposibleMoverseCasilleroOcupadoException {
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
         tablero.setPersonaje(optimus, 0, 0);
@@ -60,7 +60,7 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void nuevoTablero_UbicoAlgoFormer_VerificoQueSeaHumanoide_Punto2(){
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
 
         tablero.setPersonaje(optimus, 0, 0);
@@ -70,7 +70,7 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void nuevoTablero_UbicoAlgoFormer_VerificoTransformacion_Punto2(){
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         tablero.setPersonaje(optimus, 0, 0);
 
@@ -85,7 +85,7 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void nuevoTablero_UbicoAlgoFormer_VerificoDobleTransformacion_Punto2(){
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         tablero.setPersonaje(optimus, 0, 0);
         optimus.transformar();
@@ -102,7 +102,7 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void nuevoTablero_UbicoAlgoFormerModoAlterno_VerificoPosicion_Punto3(){
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
@@ -113,7 +113,7 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void nuevoTablero_UbicoAlgoFormerModoAlterno_Muevo_VerificoPosicion_Punto3()  {
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
@@ -161,7 +161,7 @@ public class IntegracionAlgoformerEntrega1 {
     @Test
     public void test_UbicarAlgoFormers_SeAtacanConDistanciaValida_Integracion_Punto5()
             throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
         tablero.setPersonaje(optimus, 0, 0);
@@ -181,7 +181,7 @@ public class IntegracionAlgoformerEntrega1 {
     @Test(expected=DistanciaEntreAlgoFormersExcedidaException.class)
     public void test_UbicarAlgoFormers_SeAtacanConDistanciaInvalida_Integracion_Punto5()
             throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
-        Tablero tablero = new Tablero(8, 8);
+        Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
         tablero.setPersonaje(optimus, 0, 0);
