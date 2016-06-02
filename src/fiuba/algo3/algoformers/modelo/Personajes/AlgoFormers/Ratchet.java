@@ -9,13 +9,22 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerre
 public class Ratchet extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
+    private static int ataqueNormal = 5;
+    private static int distanciaAtaqueNormal = 5;
+    private static int velocidadNormal = 1;
+
+    private static int ataqueTransformado = 35;
+    private static int distanciaAtaqueTransformado = 2;
+    private static int velocidadTransformado = 8;
+
+
     public Ratchet() {
         nombre = "Ratchet";
         puntosDeVida = 150;
         bando = BandoAutobots.instancia();
 
-        estado = new AlgoformerEstado(5, 5, 1, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(35, 2, 8, TipoUnidadAerea.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadAerea.instancia());
     }
 
     public void transformar() {
