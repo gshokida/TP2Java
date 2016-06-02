@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.Personajes.*;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
@@ -70,12 +71,12 @@ public class Juego {
         decepticons.add(bonecrusher);
         decepticons.add(frenzy);
 
-        tablero.setPersonaje(optimus,0, 0);
-        tablero.setPersonaje(bumblebee,0, 1);
-        tablero.setPersonaje(ratchet,1, 2 );
-        tablero.setPersonaje(megatron,filas-1, columnas-1 );
-        tablero.setPersonaje(bonecrusher,filas-1 , columnas-2);
-        tablero.setPersonaje(frenzy,filas-2,columnas-1);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
+        tablero.setPersonaje(bumblebee,new Posicion(0, 1));
+        tablero.setPersonaje(ratchet,new Posicion(1, 2));
+        tablero.setPersonaje(megatron, new Posicion(filas-1, columnas-1));
+        tablero.setPersonaje(bonecrusher, new Posicion(filas - 1, columnas - 2));
+        tablero.setPersonaje(frenzy, new Posicion(filas - 2, columnas - 1));
     }
 
 }

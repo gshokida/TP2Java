@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
@@ -147,6 +148,12 @@ public class RatchetTest {
         Ratchet ratchet = new Ratchet();
         Megatron megatron = new Megatron();
         int vidaInicialMegatron = megatron.getPuntosDeVida();
+
+        Posicion posicionRatchet = new Posicion(1, 1);
+        Posicion posicionMegatron = new Posicion(2, 2);
+
+        ratchet.setPosicion(posicionRatchet);
+        megatron.setPosicion(posicionMegatron);
 
         try {
             ratchet.atacar(megatron);

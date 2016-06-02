@@ -91,4 +91,17 @@ public class PosicionTest {
 
         assertEquals(y2, posicion.getY());
     }
+
+    @Test
+    public void obtenerDistaciaHasta_CalculaDistanciaEntrePosiciones(){
+        int x = 5;
+        int y = 4;
+        int x2 = 10;
+        int y2 = 11;
+
+        Posicion posicion = new Posicion(x, y);
+        Posicion otraPosicion = new Posicion(x2, y2);
+
+        assertEquals(7, posicion.obtenerDistanciaHasta(otraPosicion));
+    }
 }

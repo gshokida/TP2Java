@@ -13,66 +13,51 @@ public class Tablero {
     Casillero tablero [] [];
     int posx;
     int posy;
-    int posxElementoMedio;
-    int posyElementoMedio;
 
     public  Tablero (int filas, int columnas) {
         if (!((filas %2 != 0) && (columnas %2 != 0))) {
             throw new TableroParInvalidoException();
         }
+
         tablero = new Casillero[filas][columnas];
         posx = filas;
         posy = columnas;
-        posxElementoMedio = (filas -1)/2;
-        posyElementoMedio = (columnas -1)/2;
+
         for(int i = 0; i < filas; i++)
             for(int j = 0; j < columnas; j++) {
                 tablero[i][j] = new Casillero();
                 tablero[i][j].setContenido(ContenidoVacio.getInstance());
             }
-        setContenido(HoloSpark.instancia(), posxElementoMedio, posyElementoMedio);
+
+        Posicion posicionHoloSpark = new Posicion((filas - 1) / 2, (columnas - 1) / 2);
+
+        setContenido(HoloSpark.instancia(), posicionHoloSpark);
     }
 
-    public boolean tieneTamanio(int i) {
-        return ((posx * posy)== i);
+    public void setContenido(Contenido contenido, Posicion posicion) {
+        tablero[posicion.getX()][posicion.getY()].setContenido(contenido);
     }
 
-    public int medio() {
-        return (posxElementoMedio * posyElementoMedio);
+    public void setPersonaje(AlgoFormer algoFormer, Posicion posicion) {
+        algoFormer.setPosicion(posicion);
+        setContenido(algoFormer, posicion);
     }
 
-    public Casillero devolverElementoMedio (){
-        return (tablero [posxElementoMedio] [posyElementoMedio]);
-    }
-    //METODO SOLO PARA TEST
-
-    public void llenarCasilleroDelMedio ( Casillero casillero) {
-        tablero [posxElementoMedio] [posyElementoMedio] = casillero;
+    public Casillero getCasillero(Posicion posicion) {
+        return tablero[posicion.getX()][posicion.getY()];
     }
 
-    public void setContenido(Contenido contenido, int x, int y) {
-        tablero[x][y].setContenido(contenido);
-    }
-
-    public void setPersonaje(AlgoFormer algoFormer, int x, int y) {
-        algoFormer.setPosicion(x,y);
-        setContenido(algoFormer,x,y);
-    }
-
-    public Contenido getContenido(int x, int y) {
-        return (tablero[x][y].getContenido());
-    }
-
-    public void moverPersonaje(AlgoFormer algoFormer, int posx, int posy) throws ImposibleMoverseCasilleroOcupadoException {
-        if (casilleroOcupado(posx,posy))
+    public void moverPersonaje(AlgoFormer algoFormer, Posicion nuevaPosicion) throws ImposibleMoverseCasilleroOcupadoException {
+        if (casilleroOcupado(nuevaPosicion))
             throw new ImposibleMoverseCasilleroOcupadoException();
-        int posx_origen = algoFormer.getPosicionX();
-        int posy_origen = algoFormer.getPosicionY();
-        setPersonaje(algoFormer,posx,posy);
-        tablero[posx_origen][posy_origen].setContenido(ContenidoVacio.getInstance());
+
+        Posicion posicionOrigen = algoFormer.getPosicion();
+        setPersonaje(algoFormer, nuevaPosicion);
+
+        tablero[posicionOrigen.getX()][posicionOrigen.getY()].setContenido(ContenidoVacio.getInstance());
     }
 
-    public boolean casilleroOcupado(int x, int y) {
-        return (tablero[x][y].estaOcupado());
+    public boolean casilleroOcupado(Posicion posicion) {
+        return (tablero[posicion.getX()][posicion.getY()].estaOcupado());
     }
 }

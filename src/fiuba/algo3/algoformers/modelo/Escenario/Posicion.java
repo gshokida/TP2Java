@@ -1,5 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.max;
+
 /**
  * Created by german.shokida on 2/6/2016.
  */
@@ -29,5 +32,12 @@ public class Posicion {
 
     public int getX() {
         return this.x;
+    }
+
+    public int obtenerDistanciaHasta(Posicion otraPosicion) {
+        int distanciaX = abs(this.getX() - otraPosicion.getX());
+        int distanciaY = abs(this.getY() - otraPosicion.getY());
+
+        return max(distanciaX, distanciaY);
     }
 }

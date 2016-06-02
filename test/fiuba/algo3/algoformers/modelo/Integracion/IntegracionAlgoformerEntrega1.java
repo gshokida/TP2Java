@@ -5,6 +5,7 @@ import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaE
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
@@ -28,9 +29,9 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
 
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
 
-        assertEquals(optimus, tablero.getContenido(0, 0));
+        assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getContenido());
     }
 
     @Test
@@ -38,12 +39,12 @@ public class IntegracionAlgoformerEntrega1 {
             throws ImposibleMoverseCasilleroOcupadoException {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
 
-        tablero.moverPersonaje(optimus,1,2);
+        tablero.moverPersonaje(optimus, new Posicion(1, 2));
 
-        assertEquals(optimus, tablero.getContenido(1, 2));
-        assertEquals(ContenidoVacio.getInstance(), tablero.getContenido(0,0));
+        assertEquals(optimus, tablero.getCasillero(new Posicion(1, 2)).getContenido());
+        assertEquals(ContenidoVacio.getInstance(), tablero.getCasillero(new Posicion(0, 0)).getContenido());
     }
 
     @Test(expected=ImposibleMoverseCasilleroOcupadoException.class)
@@ -52,10 +53,10 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
-        tablero.setPersonaje(optimus, 0, 0);
-        tablero.setPersonaje(megatron, 2, 2);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
+        tablero.setPersonaje(megatron, new Posicion(2, 2));
 
-        tablero.moverPersonaje(optimus,2,2);
+        tablero.moverPersonaje(optimus, new Posicion(2, 2));
     }
 
     @Test
@@ -63,7 +64,7 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
 
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
 
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
     }
@@ -72,7 +73,7 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoTransformacion_Punto2(){
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
 
         optimus.transformar();
 
@@ -87,7 +88,7 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoDobleTransformacion_Punto2(){
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
         optimus.transformar();
 
         optimus.transformar();
@@ -106,9 +107,9 @@ public class IntegracionAlgoformerEntrega1 {
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
 
-        assertEquals(optimus, tablero.getContenido(0, 0));
+        assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getContenido());
     }
 
     @Test
@@ -117,15 +118,15 @@ public class IntegracionAlgoformerEntrega1 {
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
-        tablero.setPersonaje(optimus, 0, 0);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
 
         try {
-            tablero.moverPersonaje(optimus, 1, 1);
+            tablero.moverPersonaje(optimus, new Posicion(1, 1));
         } catch (ImposibleMoverseCasilleroOcupadoException e) {
             e.printStackTrace();
         }
 
-        assertEquals(optimus, tablero.getContenido(1, 1));
+        assertEquals(optimus, tablero.getCasillero(new Posicion(1, 1)).getContenido());
     }
 
 
@@ -148,14 +149,14 @@ public class IntegracionAlgoformerEntrega1 {
 
         Tablero tablero = juego.getTablero();
 
-        Assert.assertTrue(tablero.getContenido(2,2).esLaHoloSpark(HoloSpark.instancia()));
+        Assert.assertTrue(tablero.getCasillero(new Posicion(2, 2)).getContenido().esLaHoloSpark(HoloSpark.instancia()));
 
-        Assert.assertTrue(tablero.casilleroOcupado(0,0));
-        Assert.assertTrue(tablero.casilleroOcupado(0,1));
-        Assert.assertTrue(tablero.casilleroOcupado(1,2));
-        Assert.assertTrue(tablero.casilleroOcupado(4,4));
-        Assert.assertTrue(tablero.casilleroOcupado(4,3));
-        Assert.assertTrue(tablero.casilleroOcupado(3,4));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(0, 0)));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(0, 1)));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(1, 2)));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(4, 4)));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(4, 3)));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(3, 4)));
     }
 
     @Test
@@ -164,8 +165,8 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
-        tablero.setPersonaje(optimus, 0, 0);
-        tablero.setPersonaje(megatron, 2, 2);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
+        tablero.setPersonaje(megatron, new Posicion(2, 2));
 
         optimus.atacar(megatron);
 
@@ -184,8 +185,8 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
-        tablero.setPersonaje(optimus, 0, 0);
-        tablero.setPersonaje(megatron, 3, 3);
+        tablero.setPersonaje(optimus, new Posicion(0, 0));
+        tablero.setPersonaje(megatron, new Posicion(3, 3));
 
         optimus.atacar(megatron);
     }

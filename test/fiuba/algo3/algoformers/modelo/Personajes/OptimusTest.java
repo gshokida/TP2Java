@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
@@ -144,6 +145,12 @@ public class OptimusTest {
         Optimus optimus = new Optimus();
         Megatron megatron = new Megatron();
         int vidaInicialMegatron = megatron.getPuntosDeVida();
+
+        Posicion posicionOptimus = new Posicion(1, 1);
+        Posicion posicionMegatron = new Posicion(2, 2);
+
+        optimus.setPosicion(posicionOptimus);
+        megatron.setPosicion(posicionMegatron);
 
         try {
             optimus.atacar(megatron);
