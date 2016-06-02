@@ -29,7 +29,7 @@ public class PosicionTest {
     }
 
     @Test
-    public void actualizarPosicion_GuardaLosValoresX(){
+    public void actualizarPosicion_ConValoresPredefinidos_GuardaLosValoresX(){
         int x = 5;
         int y = 4;
 
@@ -44,7 +44,7 @@ public class PosicionTest {
     }
 
     @Test
-    public void actualizarPosicion_GuardaLosValoresY(){
+    public void actualizarPosicion_ConValoresPredefinidos_GuardaLosValoresY(){
         int x = 5;
         int y = 4;
 
@@ -54,6 +54,40 @@ public class PosicionTest {
         int y2 = 11;
 
         posicion.actualizarPosicion(x2, y2);
+
+        assertEquals(y2, posicion.getY());
+    }
+
+    @Test
+    public void actualizarPosicion_enviandoOtraPosicion_GuardaLosValoresX(){
+        int x = 5;
+        int y = 4;
+
+        Posicion posicion = new Posicion(x, y);
+
+        int x2 = 10;
+        int y2 = 11;
+
+        Posicion otraPosicion = new Posicion(x2, y2);
+
+        posicion.actualizarPosicion(otraPosicion);
+
+        assertEquals(x2, posicion.getX());
+    }
+
+    @Test
+    public void actualizarPosicion_enviandoOtraPosicion_GuardaLosValoresY(){
+        int x = 5;
+        int y = 4;
+
+        Posicion posicion = new Posicion(x, y);
+
+        int x2 = 10;
+        int y2 = 11;
+
+        Posicion otraPosicion = new Posicion(x2, y2);
+
+        posicion.actualizarPosicion(otraPosicion);
 
         assertEquals(y2, posicion.getY());
     }
