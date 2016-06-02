@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo.Contenidos;
+package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 

@@ -1,10 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
-import fiuba.algo3.algoformers.modelo.Contenidos.HoloSpark;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.HoloSpark;
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
-import fiuba.algo3.algoformers.modelo.Contenidos.ContenidoVacio;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
