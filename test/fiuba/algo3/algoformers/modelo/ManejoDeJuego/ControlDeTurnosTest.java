@@ -10,7 +10,10 @@ import static org.junit.Assert.assertEquals;
 public class ControlDeTurnosTest {
     @Test
     public void nuevoControlDeTurnos_getNumeroTurno_ComienzaUno(){
-        ControlDeTurnos controlDeTurnos = new ControlDeTurnos();
+        Jugador jugadorUno = new Jugador();
+        Jugador jugadorDos = new Jugador();
+
+        ControlDeTurnos controlDeTurnos = new ControlDeTurnos(jugadorUno, jugadorDos);
 
         assertEquals(1, controlDeTurnos.getNumeroTurno());
     }
