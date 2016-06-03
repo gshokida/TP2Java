@@ -30,6 +30,9 @@ public class ControlDeTurnos {
 
     public void avanzarTurno() {
         this.numeroTurno++;
+        Jugador jugadorAuxiliar = this.jugadorActivo;
+        this.jugadorActivo = this.jugadorEnEspera;
+        this.jugadorEnEspera = jugadorAuxiliar;
     }
 
     public Turno getTurno() {

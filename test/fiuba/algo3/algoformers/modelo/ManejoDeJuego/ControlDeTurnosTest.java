@@ -34,7 +34,7 @@ public class ControlDeTurnosTest {
     }
 
     @Test
-    public void avanzaTurno_getTurno_ContieneAlgunoDeLosDosJugadores(){
+    public void nuevoTurno_getTurno_ContieneAlgunoDeLosDosJugadores(){
         Jugador jugadorUno = new Jugador();
         Jugador jugadorDos = new Jugador();
 
@@ -43,5 +43,25 @@ public class ControlDeTurnosTest {
         Turno turnoActual = controlDeTurnos.getTurno();
 
         assertTrue(turnoActual.getJugador().equals(jugadorUno) || turnoActual.getJugador().equals(jugadorDos));
+    }
+
+    @Test
+    public void avanzaTurno_getTurno_ContieneAlOtroJugador(){
+        Jugador jugadorUno = new Jugador();
+        Jugador jugadorDos = new Jugador();
+        ControlDeTurnos controlDeTurnos = new ControlDeTurnos(jugadorUno, jugadorDos);
+        Turno turno = controlDeTurnos.getTurno();
+        Jugador jugadorActivo = turno.getJugador();
+
+        controlDeTurnos.avanzarTurno();
+        Turno turnoActual = controlDeTurnos.getTurno();
+
+        if(jugadorActivo.equals(jugadorUno)) {
+            assertTrue(turnoActual.getJugador().equals(jugadorDos));
+        }else{
+            assertTrue(turnoActual.getJugador().equals(jugadorUno));
+        }
+
+
     }
 }
