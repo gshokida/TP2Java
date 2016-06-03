@@ -9,14 +9,12 @@ import java.util.Random;
  */
 public class ControlDeTurnos {
     private int numeroTurno;
-    private Jugador jugadorActivo;
-    private Jugador jugadorEnEspera;
     private Cola<Jugador> jugadores;
 
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
         this.numeroTurno = 0;
         Random randomGenerator = new Random();
-        this.jugadores = new Cola<Jugador>();
+        this.jugadores = new Cola<>();
 
         if(randomGenerator.nextBoolean()) {
             this.jugadores.enqueue(jugadorUno);
@@ -34,11 +32,8 @@ public class ControlDeTurnos {
     public Turno getTurno() {
         Jugador jugador = this.jugadores.dequeue();
         Turno turno = new Turno(jugador);
-
         this.jugadores.enqueue(jugador);
-
         this.numeroTurno++;
-
         return turno;
     }
 }
