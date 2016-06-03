@@ -20,4 +20,31 @@ public class ColaTest {
         Cola<String> cola = new Cola<String>();
         assertEquals(cola.size(), 0);
     }
+
+    @Test
+    public void encolarItem_SumaUnoAlTamanio(){
+        Cola<String> cola = new Cola<String>();
+
+        cola.enqueue("primero");
+
+        int tamanio = cola.size();
+
+        cola.enqueue("hola");
+
+        assertEquals(cola.size(), tamanio + 1);
+    }
+
+    @Test
+    public void desencolarItem_RestaUnoAlTamanio(){
+        Cola<String> cola = new Cola<String>();
+
+        cola.enqueue("primero");
+        cola.enqueue("hola");
+
+        int tamanio = cola.size();
+
+        String dequeue = cola.dequeue();
+
+        assertEquals(cola.size(), tamanio - 1);
+    }
 }
