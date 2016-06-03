@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * Created by german.shokida on 31/5/2016.
  */
 public class Juego {
-    private Turno turno;
+    private ControlDeTurnos controlDeTurnos;
     private Tablero tablero;
     private Jugador jugadorUno;
     private Jugador jugadorDos;
@@ -28,9 +28,8 @@ public class Juego {
         jugadorDos = new Jugador();
         jugadorUno.addNombre(nombreJugadorUno);
         jugadorDos.addNombre(nombreJugadorDos);
-        turno = new Turno();
-        turno.agregarJugador1(jugadorUno);
-        turno.agregarJugador2(jugadorDos);
+        this.controlDeTurnos = new ControlDeTurnos(jugadorUno, jugadorDos);
+
         tablero = new Tablero(filas, columnas);
         comenzarNuevoJuego();
     }

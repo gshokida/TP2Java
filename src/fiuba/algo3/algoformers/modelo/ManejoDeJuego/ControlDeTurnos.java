@@ -31,4 +31,10 @@ public class ControlDeTurnos {
     public void avanzarTurno() {
         this.numeroTurno++;
     }
+
+    public Turno getTurno() {
+        Turno turno = new Turno(this.jugadorActivo);
+
+        return turno;
+    }
 }
