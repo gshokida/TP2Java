@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
@@ -157,7 +157,7 @@ public class BonecrusherTest {
             bonecrusher.atacar(optimus);
         } catch (NoSePermiteElFuegoAmistosoException error) {
             fail();
-        } catch (DistanciaEntreAlgoFormersExcedidaException e) {
+        } catch (DistanciaExcedidaException e) {
             fail();
         }
 
@@ -175,7 +175,7 @@ public class BonecrusherTest {
         }
         catch (NoSePermiteElFuegoAmistosoException error) {
             success();
-        } catch (DistanciaEntreAlgoFormersExcedidaException e) {
+        } catch (DistanciaExcedidaException e) {
             fail();
         }
     }

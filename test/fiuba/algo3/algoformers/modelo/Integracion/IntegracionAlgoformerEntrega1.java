@@ -1,7 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.HoloSpark;
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
@@ -161,7 +161,7 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void test_UbicarAlgoFormers_SeAtacanConDistanciaValida_Integracion_Punto5()
-            throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
+            throws NoSePermiteElFuegoAmistosoException, DistanciaExcedidaException {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();
@@ -179,9 +179,9 @@ public class IntegracionAlgoformerEntrega1 {
         assertEquals(megatron.getPuntosDeVida(),500);
     }
 
-    @Test(expected=DistanciaEntreAlgoFormersExcedidaException.class)
+    @Test(expected=DistanciaExcedidaException.class)
     public void test_UbicarAlgoFormers_SeAtacanConDistanciaInvalida_Integracion_Punto5()
-            throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
+            throws NoSePermiteElFuegoAmistosoException, DistanciaExcedidaException {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
         AlgoFormer megatron = new Megatron();

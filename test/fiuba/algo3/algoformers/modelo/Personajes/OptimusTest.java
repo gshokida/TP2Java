@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
@@ -156,7 +156,7 @@ public class OptimusTest {
             optimus.atacar(megatron);
         } catch (NoSePermiteElFuegoAmistosoException error) {
             fail();
-        } catch (DistanciaEntreAlgoFormersExcedidaException e) {
+        } catch (DistanciaExcedidaException e) {
             fail();
         }
 
@@ -174,7 +174,7 @@ public class OptimusTest {
         }
         catch (NoSePermiteElFuegoAmistosoException error) {
             success();
-        } catch (DistanciaEntreAlgoFormersExcedidaException e) {
+        } catch (DistanciaExcedidaException e) {
             fail();
         }
     }

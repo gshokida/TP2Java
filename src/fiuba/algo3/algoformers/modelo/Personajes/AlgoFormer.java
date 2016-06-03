@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaEntreAlgoFormersExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
@@ -50,11 +50,11 @@ public abstract class AlgoFormer implements Contenido {
         this.posicion = posicion;
     }
 
-    public void atacar(AlgoFormer enemigo) throws NoSePermiteElFuegoAmistosoException, DistanciaEntreAlgoFormersExcedidaException {
+    public void atacar(AlgoFormer enemigo) throws NoSePermiteElFuegoAmistosoException, DistanciaExcedidaException {
         if (bando.esMismoBando(enemigo.bando))
             throw new NoSePermiteElFuegoAmistosoException();
         if (distanciaInvalida(enemigo))
-            throw new DistanciaEntreAlgoFormersExcedidaException();
+            throw new DistanciaExcedidaException();
         //enemigo.puntosDeVida -= estado.getAtaque();
         enemigo.recibirDanio(this);
     }

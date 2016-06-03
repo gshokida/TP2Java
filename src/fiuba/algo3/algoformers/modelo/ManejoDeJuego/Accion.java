@@ -5,3 +5,4 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
  */
 public interface Accion {
 }
+
