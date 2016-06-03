@@ -13,7 +13,9 @@ public class TurnoTest {
     public void nuevoTurno_GuardoElJugador(){
         Jugador jugador = new Jugador();
         jugador.addNombre("pepe");
+
         Turno turno = new Turno(jugador);
+
         assertEquals(jugador, turno.getJugador());
     }
 }
