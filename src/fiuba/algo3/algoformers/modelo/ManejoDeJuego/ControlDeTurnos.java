@@ -28,4 +28,7 @@ public class ControlDeTurnos {
     }
 
 
+    public void avanzarTurno() {
+        this.numeroTurno++;
+    }
 }

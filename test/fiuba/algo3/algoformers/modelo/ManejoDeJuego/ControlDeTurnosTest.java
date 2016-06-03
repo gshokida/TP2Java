@@ -17,4 +17,18 @@ public class ControlDeTurnosTest {
 
         assertEquals(1, controlDeTurnos.getNumeroTurno());
     }
+
+    @Test
+    public void avanzaTurno_getNumeroTurno_SumaUnoAlNumeroAnterior(){
+        Jugador jugadorUno = new Jugador();
+        Jugador jugadorDos = new Jugador();
+
+        ControlDeTurnos controlDeTurnos = new ControlDeTurnos(jugadorUno, jugadorDos);
+
+        int numeroAnterior = controlDeTurnos.getNumeroTurno();
+
+        controlDeTurnos.avanzarTurno();
+
+        assertEquals(numeroAnterior + 1, controlDeTurnos.getNumeroTurno());
+    }
 }

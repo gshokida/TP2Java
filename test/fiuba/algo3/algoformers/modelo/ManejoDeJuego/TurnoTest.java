@@ -8,35 +8,10 @@ import org.junit.Test;
  */
 public class TurnoTest {
     @Test
-    public void testDecideQueJugadorLeToca(){
-        Turno turno = new Turno();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
-        jugador1.addNombre("Pepe");
-        jugador2.addNombre("Penelope");
-
-        turno.agregarJugador1(jugador1);
-        turno.agregarJugador2(jugador2);
-        turno.inicializar();
-
-        Assert.assertTrue(jugador1.puedeJugar());
-        Assert.assertFalse(jugador2.puedeJugar());
-    }
-
-    @Test
     public void testAvanzarTurnoCambiaElOrdenDeJugador(){
         Turno turno = new Turno();
-        Jugador jugador1 = new Jugador();
-        Jugador jugador2 = new Jugador();
-        jugador1.addNombre("Pepe");
-        jugador2.addNombre("Penelope");
-        turno.agregarJugador1 (jugador1);
-        turno.agregarJugador2 (jugador2);
+        Jugador jugador = new Jugador();
 
-        turno.inicializar();
-        turno.avanzarTurno();
 
-        Assert.assertTrue(jugador2.puedeJugar());
-        Assert.assertFalse(jugador1.puedeJugar());
     }
 }
