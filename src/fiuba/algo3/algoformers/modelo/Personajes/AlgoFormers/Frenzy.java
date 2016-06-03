@@ -8,18 +8,16 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerre
 public class Frenzy extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
-    private static int ataqueNormal = 10;
-    private static int distanciaAtaqueNormal = 5;
-    private static int velocidadNormal = 2;
-
-    private static int ataqueTransformado = 25;
-    private static int distanciaAtaqueTransformado = 2;
-    private static int velocidadTransformado = 6;
-
     public Frenzy() {
         nombre = "Frenzy";
         puntosDeVida = 400;
         bando = BandoDecepticons.instancia();
+        int ataqueNormal = 10;
+        int distanciaAtaqueNormal = 5;
+        int velocidadNormal = 2;
+        int ataqueTransformado = 25;
+        int distanciaAtaqueTransformado = 2;
+        int velocidadTransformado = 6;
 
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.instancia());

@@ -7,7 +7,7 @@ import java.util.LinkedList;
  */
 public class Cola<T> {
 
-    private LinkedList<T> list = new LinkedList<T>();
+    private LinkedList<T> list = new LinkedList<>();
 
     public void enqueue(T item) {
         list.addLast(item);
@@ -25,7 +25,7 @@ public class Cola<T> {
         return list.size();
     }
 
-    public void queue(Cola<? extends T> q) {
+    public void queue(Cola<T> q) {
         while (q.hasItems())
             list.addLast(q.dequeue());
     }

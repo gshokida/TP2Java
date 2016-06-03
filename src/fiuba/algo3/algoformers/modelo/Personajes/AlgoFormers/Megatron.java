@@ -9,18 +9,16 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerre
 public class Megatron extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
-    private static int ataqueNormal = 10;
-    private static int distanciaAtaqueNormal = 3;
-    private static int velocidadNormal = 1;
-
-    private static int ataqueTransformado = 55;
-    private static int distanciaAtaqueTransformado = 2;
-    private static int velocidadTransformado = 8;
-
     public Megatron() {
         nombre = "Megatron";
         puntosDeVida = 550;
         bando = BandoDecepticons.instancia();
+        int ataqueNormal = 10;
+        int distanciaAtaqueNormal = 3;
+        int velocidadNormal = 1;
+        int ataqueTransformado = 55;
+        int distanciaAtaqueTransformado = 2;
+        int velocidadTransformado = 8;
 
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadAerea.instancia());
