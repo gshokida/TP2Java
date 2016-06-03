@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
+import fiuba.algo3.algoformers.modelo.Utils.Cola;
+
 import java.util.Random;
 
 /**
@@ -9,17 +11,19 @@ public class ControlDeTurnos {
     private int numeroTurno;
     private Jugador jugadorActivo;
     private Jugador jugadorEnEspera;
+    private Cola<Jugador> jugadores;
 
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
-        this.numeroTurno = 1;
+        this.numeroTurno = 0;
         Random randomGenerator = new Random();
+        this.jugadores = new Cola<Jugador>();
 
         if(randomGenerator.nextBoolean()) {
-            this.jugadorActivo = jugadorUno;
-            this.jugadorEnEspera = jugadorDos;
+            this.jugadores.enqueue(jugadorUno);
+            this.jugadores.enqueue(jugadorDos);
         }else{
-            this.jugadorActivo = jugadorDos;
-            this.jugadorEnEspera = jugadorUno;
+            this.jugadores.enqueue(jugadorDos);
+            this.jugadores.enqueue(jugadorUno);
         }
     }
 
@@ -27,16 +31,13 @@ public class ControlDeTurnos {
         return numeroTurno;
     }
 
-
-    public void avanzarTurno() {
-        this.numeroTurno++;
-        Jugador jugadorAuxiliar = this.jugadorActivo;
-        this.jugadorActivo = this.jugadorEnEspera;
-        this.jugadorEnEspera = jugadorAuxiliar;
-    }
-
     public Turno getTurno() {
-        Turno turno = new Turno(this.jugadorActivo);
+        Jugador jugador = this.jugadores.dequeue();
+        Turno turno = new Turno(jugador);
+
+        this.jugadores.enqueue(jugador);
+
+        this.numeroTurno++;
 
         return turno;
     }

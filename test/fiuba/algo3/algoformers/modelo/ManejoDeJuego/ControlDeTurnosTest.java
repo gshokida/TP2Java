@@ -10,13 +10,13 @@ import static org.junit.Assert.assertTrue;
  */
 public class ControlDeTurnosTest {
     @Test
-    public void nuevoControlDeTurnos_getNumeroTurno_ComienzaUno(){
+    public void nuevoControlDeTurnos_getNumeroTurno_ComienzaEnCero(){
         Jugador jugadorUno = new Jugador();
         Jugador jugadorDos = new Jugador();
 
         ControlDeTurnos controlDeTurnos = new ControlDeTurnos(jugadorUno, jugadorDos);
 
-        assertEquals(1, controlDeTurnos.getNumeroTurno());
+        assertEquals(0, controlDeTurnos.getNumeroTurno());
     }
 
     @Test
@@ -28,7 +28,7 @@ public class ControlDeTurnosTest {
 
         int numeroAnterior = controlDeTurnos.getNumeroTurno();
 
-        controlDeTurnos.avanzarTurno();
+        Turno turnoNuevo = controlDeTurnos.getTurno();
 
         assertEquals(numeroAnterior + 1, controlDeTurnos.getNumeroTurno());
     }
@@ -53,7 +53,6 @@ public class ControlDeTurnosTest {
         Turno turno = controlDeTurnos.getTurno();
         Jugador jugadorActivo = turno.getJugador();
 
-        controlDeTurnos.avanzarTurno();
         Turno turnoActual = controlDeTurnos.getTurno();
 
         if(jugadorActivo.equals(jugadorUno)) {
@@ -73,10 +72,8 @@ public class ControlDeTurnosTest {
         Turno turno = controlDeTurnos.getTurno();
         Jugador jugadorActivo = turno.getJugador();
 
-        controlDeTurnos.avanzarTurno();
-        controlDeTurnos.avanzarTurno();
-
         Turno turnoActual = controlDeTurnos.getTurno();
+        turnoActual = controlDeTurnos.getTurno();
 
         if(jugadorActivo.equals(jugadorUno)) {
             assertTrue(turnoActual.getJugador().equals(jugadorUno));

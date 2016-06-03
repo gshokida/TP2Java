@@ -24,9 +24,4 @@ public class Cola<T> {
     public int size() {
         return list.size();
     }
-
-    public void queue(Cola<T> q) {
-        while (q.hasItems())
-            list.addLast(q.dequeue());
-    }
 }
