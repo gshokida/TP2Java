@@ -12,7 +12,7 @@ public class Megatron extends AlgoFormer {
     public Megatron() {
         nombre = "Megatron";
         puntosDeVida = 550;
-        bando = BandoDecepticons.instancia();
+        bando = BandoDecepticons.getInstance();
         int ataqueNormal = 10;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;
@@ -20,8 +20,8 @@ public class Megatron extends AlgoFormer {
         int distanciaAtaqueTransformado = 2;
         int velocidadTransformado = 8;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadAerea.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadAerea.getInstance());
     }
 
     public void transformar() {

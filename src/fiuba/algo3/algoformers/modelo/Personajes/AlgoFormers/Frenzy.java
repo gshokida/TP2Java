@@ -11,7 +11,7 @@ public class Frenzy extends AlgoFormer {
     public Frenzy() {
         nombre = "Frenzy";
         puntosDeVida = 400;
-        bando = BandoDecepticons.instancia();
+        bando = BandoDecepticons.getInstance();
         int ataqueNormal = 10;
         int distanciaAtaqueNormal = 5;
         int velocidadNormal = 2;
@@ -19,8 +19,8 @@ public class Frenzy extends AlgoFormer {
         int distanciaAtaqueTransformado = 2;
         int velocidadTransformado = 6;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.getInstance());
     }
 
     public void transformar() {

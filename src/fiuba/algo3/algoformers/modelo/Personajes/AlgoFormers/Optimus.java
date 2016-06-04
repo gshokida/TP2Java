@@ -11,7 +11,7 @@ public class Optimus extends AlgoFormer {
     public Optimus() {
         nombre = "Optimus Prime";
         puntosDeVida = 500;
-        bando = BandoAutobots.instancia();
+        bando = BandoAutobots.getInstance();
         int ataqueNormal = 50;
         int distanciaAtaqueNormal = 2;
         int velocidadNormal = 2;
@@ -19,8 +19,8 @@ public class Optimus extends AlgoFormer {
         int distanciaAtaqueTransformado = 4;
         int velocidadTransformado = 5;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadTerrestre.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadTerrestre.getInstance());
     }
 
     public void transformar() {

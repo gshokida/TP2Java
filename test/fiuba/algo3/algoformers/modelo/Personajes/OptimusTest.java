@@ -1,11 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
-import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -128,7 +127,7 @@ public class OptimusTest {
     public void nuevaInstancia_tipoUnidad_esTerrestre() {
         Optimus optimus = new Optimus();
 
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 
     @Test
@@ -137,45 +136,39 @@ public class OptimusTest {
 
         optimus.transformar();
 
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 
     @Test
-    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+    public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Optimus optimus = new Optimus();
-        Megatron megatron = new Megatron();
-        int vidaInicialMegatron = megatron.getPuntosDeVida();
-
-        Posicion posicionOptimus = new Posicion(1, 1);
-        Posicion posicionMegatron = new Posicion(2, 2);
-
-        optimus.setPosicion(posicionOptimus);
-        megatron.setPosicion(posicionMegatron);
+        Bando bandoOptimus = optimus.getBando();
+        Bando bandoEnemigo = ((bandoOptimus == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
+        int vidaInicialOptimus = optimus.getPuntosDeVida();
+        int puntosDeAtaque = 10;
 
         try {
-            optimus.atacar(megatron);
-        } catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        } catch (DistanciaExcedidaException e) {
+            optimus.recibirAtaque(puntosDeAtaque,bandoEnemigo);
+        }
+        catch (NoSePermiteElFuegoAmistosoException error) {
             fail();
         }
 
-        assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - optimus.getAtaque());
+        assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - puntosDeAtaque);
     }
 
     @Test
-    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+    public void recibirAtaqueDeMismoBando_lanzaError() {
         Optimus optimus = new Optimus();
-        Bumblebee bumblebee = new Bumblebee();
+        Bando bandoOptimus = optimus.getBando();
+        int puntosDeAtaque = 10;
 
         try {
-            optimus.atacar(bumblebee);
+            optimus.recibirAtaque(puntosDeAtaque,bandoOptimus);
             fail();
         }
         catch (NoSePermiteElFuegoAmistosoException error) {
             success();
-        } catch (DistanciaExcedidaException e) {
-            fail();
         }
     }
 

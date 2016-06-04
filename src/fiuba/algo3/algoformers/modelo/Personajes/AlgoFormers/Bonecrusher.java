@@ -11,7 +11,7 @@ public class Bonecrusher extends AlgoFormer {
     public Bonecrusher() {
         nombre = "Bonecrusher";
         puntosDeVida = 200;
-        bando = BandoDecepticons.instancia();
+        bando = BandoDecepticons.getInstance();
         int ataqueNormal = 30;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;
@@ -19,8 +19,8 @@ public class Bonecrusher extends AlgoFormer {
         int distanciaAtaqueTransformado = 3;
         int velocidadTransformado = 8;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.getInstance());
     }
 
     public void transformar() {

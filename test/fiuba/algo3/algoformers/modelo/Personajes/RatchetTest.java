@@ -1,11 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
-import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
@@ -131,7 +130,7 @@ public class RatchetTest {
     public void nuevaInstancia_tipoUnidad_esTerrestre() {
         Ratchet algoFormer = new Ratchet();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 
     @Test
@@ -140,45 +139,39 @@ public class RatchetTest {
 
         algoFormer.transformar();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.instancia()));
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
     }
 
     @Test
-    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+    public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Ratchet ratchet = new Ratchet();
-        Megatron megatron = new Megatron();
-        int vidaInicialMegatron = megatron.getPuntosDeVida();
-
-        Posicion posicionRatchet = new Posicion(1, 1);
-        Posicion posicionMegatron = new Posicion(2, 2);
-
-        ratchet.setPosicion(posicionRatchet);
-        megatron.setPosicion(posicionMegatron);
+        Bando bandoRatchet = ratchet.getBando();
+        Bando bandoEnemigo = ((bandoRatchet == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
+        int vidaInicialRatchet = ratchet.getPuntosDeVida();
+        int puntosDeAtaque = 10;
 
         try {
-            ratchet.atacar(megatron);
-        } catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        } catch (DistanciaExcedidaException e) {
+            ratchet.recibirAtaque(puntosDeAtaque,bandoEnemigo);
+        }
+        catch (NoSePermiteElFuegoAmistosoException error) {
             fail();
         }
 
-        assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - ratchet.getAtaque());
+        assertEquals(ratchet.getPuntosDeVida(), vidaInicialRatchet - puntosDeAtaque);
     }
 
     @Test
-    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+    public void recibirAtaqueDeMismoBando_lanzaError() {
         Ratchet ratchet = new Ratchet();
-        Bumblebee bumblebee = new Bumblebee();
+        Bando bandoRatchet = ratchet.getBando();
+        int puntosDeAtaque = 10;
 
         try {
-            ratchet.atacar(bumblebee);
+            ratchet.recibirAtaque(puntosDeAtaque,bandoRatchet);
             fail();
         }
         catch (NoSePermiteElFuegoAmistosoException error) {
             success();
-        } catch (DistanciaExcedidaException e) {
-            fail();
         }
     }
 

@@ -8,7 +8,7 @@ public class TipoUnidadTerrestre implements TipoUnidad {
 
     private TipoUnidadTerrestre() {}
 
-    public static TipoUnidadTerrestre instancia() {
+    public static TipoUnidadTerrestre getInstance() {
         return unicaInstancia;
     }
 

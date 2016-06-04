@@ -6,7 +6,7 @@ package fiuba.algo3.algoformers.modelo.Personajes.Bandos;
 public class BandoDecepticons implements Bando {
     private static BandoDecepticons unicaInstancia = new BandoDecepticons();
     private BandoDecepticons() {}
-    public static BandoDecepticons instancia() {
+    public static BandoDecepticons getInstance() {
         return unicaInstancia;
     }
 

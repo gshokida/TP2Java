@@ -1,9 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
 import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
-import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.HoloSpark;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,7 +27,7 @@ public class TableroTest {
     public void testTablero_EstaOcupadoCasilleroDelMedio_ConHoloSpark(){
         Tablero tablero = new Tablero(5,5);
 
-        Assert.assertEquals(HoloSpark.instancia(), tablero.getCasillero(new Posicion(2, 2)).getContenido());
+        Assert.assertEquals(ChispaSuprema.getInstance(), tablero.getCasillero(new Posicion(2, 2)).getContenido());
     }
 
     @Test

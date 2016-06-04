@@ -10,15 +10,15 @@ import static org.junit.Assert.assertTrue;
 public class BandoAutobotsTest {
     @Test
     public void bandoAutobot_esMismoBandoQue_bandoAutobot() {
-        Bando bando = BandoAutobots.instancia();
+        Bando bando = BandoAutobots.getInstance();
 
-        assertTrue(bando.esMismoBando(BandoAutobots.instancia()));
+        assertTrue(bando.esMismoBando(BandoAutobots.getInstance()));
     }
 
     @Test
     public void bandoAutobot_noEsMismoBandoQue_bandoDecepticon() {
-        Bando bando = BandoAutobots.instancia();
+        Bando bando = BandoAutobots.getInstance();
 
-        assertTrue(!bando.esMismoBando(BandoDecepticons.instancia()));
+        assertTrue(!bando.esMismoBando(BandoDecepticons.getInstance()));
     }
 }

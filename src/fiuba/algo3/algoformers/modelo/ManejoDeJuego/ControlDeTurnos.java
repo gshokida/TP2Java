@@ -14,7 +14,7 @@ public class ControlDeTurnos {
 
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
         this.numeroTurno = 0;
-        this.jugadores = new Cola<Jugador>();
+        this.jugadores = new Cola<>();
         this.elegirQuienVaPrimero(jugadorUno, jugadorDos);
     }
 

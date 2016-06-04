@@ -11,7 +11,7 @@ public class Bumblebee extends AlgoFormer {
     public Bumblebee() {
         nombre = "Bumblebee";
         puntosDeVida = 350;
-        bando = BandoAutobots.instancia();
+        bando = BandoAutobots.getInstance();
         int ataqueNormal = 40;
         int distanciaAtaqueNormal = 1;
         int velocidadNormal = 2;
@@ -19,8 +19,8 @@ public class Bumblebee extends AlgoFormer {
         int distanciaAtaqueTransformado = 3;
         int velocidadTransformado = 5;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.getInstance());
     }
 
     public void transformar() {

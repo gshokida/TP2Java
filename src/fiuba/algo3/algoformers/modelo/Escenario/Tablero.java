@@ -1,7 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
-import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.HoloSpark;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
@@ -27,9 +27,9 @@ public class Tablero {
             for(int j = 0; j < columnas; j++)
                 tablero[i][j] = new Casillero(new Posicion(i,j));
 
-        Posicion posicionHoloSpark = new Posicion((filas - 1) / 2, (columnas - 1) / 2);
+        Posicion posicionChispaSuprema = new Posicion((filas - 1) / 2, (columnas - 1) / 2);
 
-        setContenido(HoloSpark.instancia(), posicionHoloSpark);
+        setContenido(ChispaSuprema.getInstance(), posicionChispaSuprema);
     }
 
     public void setContenido(Contenido contenido, Posicion posicion) {

@@ -11,29 +11,29 @@ import static org.junit.Assert.assertTrue;
 public class AlgoformerEstadoTest {
     @Test
     public void nuevaInstancia_ataque_tieneValorIndicado() {
-        AlgoformerEstado estado = new AlgoformerEstado(15,4,4, TipoUnidadTerrestre.instancia());
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,4, TipoUnidadTerrestre.getInstance());
 
         assertTrue(estado.getAtaque() == 15f);
     }
 
     @Test
     public void nuevaInstancia_distanciaDeAtaque_tieneValorIndicado() throws Exception {
-        AlgoformerEstado estado = new AlgoformerEstado(15,4,5, TipoUnidadTerrestre.instancia());
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,5, TipoUnidadTerrestre.getInstance());
 
         assertTrue(estado.getDistanciaDeAtaque() == 4);
     }
 
     @Test
     public void nuevaInstancia_velocidad_tieneValorIndicado() {
-        AlgoformerEstado estado = new AlgoformerEstado(15,4,5, TipoUnidadTerrestre.instancia());
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,5, TipoUnidadTerrestre.getInstance());
 
         assertTrue(estado.getVelocidad() == 5);
     }
 
     @Test
     public void esTipoUnidad_enviandoElMismoTipoQueSeUsoEnElConstructor_daVerdadero() throws Exception {
-        AlgoformerEstado estado = new AlgoformerEstado(15,4,5,TipoUnidadTerrestre.instancia());
+        AlgoformerEstado estado = new AlgoformerEstado(15,4,5,TipoUnidadTerrestre.getInstance());
 
-        assertTrue(estado.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        assertTrue(estado.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 }

@@ -35,12 +35,12 @@ public class Juego {
     }
 
   private void comenzarNuevoJuego() {
-        List<AlgoFormer> autobots = new LinkedList<AlgoFormer>();
-        List<AlgoFormer> decepticons = new LinkedList<AlgoFormer>();
+        List<AlgoFormer> autobots = new LinkedList<>();
+        List<AlgoFormer> decepticons = new LinkedList<>();
         crearYUbicarAlgoFormers(autobots,decepticons);
 
-        jugadorUno.prepararParaJugar(autobots,BandoAutobots.instancia());
-        jugadorDos.prepararParaJugar(decepticons,BandoDecepticons.instancia());
+        jugadorUno.prepararParaJugar(autobots,BandoAutobots.getInstance());
+        jugadorDos.prepararParaJugar(decepticons,BandoDecepticons.getInstance());
     }
 
     public Jugador getJugador1() {

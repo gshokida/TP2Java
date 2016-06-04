@@ -8,7 +8,7 @@ public class TipoUnidadAerea implements TipoUnidad {
 
     private TipoUnidadAerea() {}
 
-    public static TipoUnidadAerea instancia() {
+    public static TipoUnidadAerea getInstance() {
         return unicaInstancia;
     }
 

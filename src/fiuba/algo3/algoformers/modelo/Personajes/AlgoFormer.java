@@ -1,12 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
-import static java.lang.Math.abs;
 
 /**
  * Created by german.shokida on 24/5/2016.
@@ -42,6 +40,10 @@ public abstract class AlgoFormer implements Contenido {
         return estado.esTipoUnidad(tipoUnidad);
     }
 
+    public Bando getBando() {
+        return bando;
+    }
+
     public Posicion getPosicion() {
         return this.posicion;
     }
@@ -50,26 +52,20 @@ public abstract class AlgoFormer implements Contenido {
         this.posicion = posicion;
     }
 
-    public void atacar(AlgoFormer enemigo) throws NoSePermiteElFuegoAmistosoException, DistanciaExcedidaException {
-        if (bando.esMismoBando(enemigo.bando))
+    @Override
+    public void recibirAtaque(int puntosDeAtaque, Bando bandoAtacante) throws NoSePermiteElFuegoAmistosoException {
+        if (bando.esMismoBando(bandoAtacante))
             throw new NoSePermiteElFuegoAmistosoException();
-        if (distanciaInvalida(enemigo))
-            throw new DistanciaExcedidaException();
-        //enemigo.puntosDeVida -= estado.getAtaque();
-        enemigo.recibirDanio(this);
+        recibirDanio(puntosDeAtaque);
     }
 
-    protected void recibirDanio(AlgoFormer enemigo) {
-        this.puntosDeVida -= enemigo.getAtaque();
+    public void recibirDanio(int puntosDeAtaque) {
+        this.puntosDeVida -= (puntosDeAtaque);
     }
 
     public abstract void transformar();
 
-    public boolean esLaHoloSpark (Contenido contenido){
+    public boolean esLaChispaSuprema(Contenido contenido){
         return this.equals(contenido);
-    }
-
-    private boolean distanciaInvalida(AlgoFormer enemigo) {
-        return(this.getPosicion().obtenerDistanciaHasta(enemigo.getPosicion()) > getDistanciaDeAtaque());
     }
 }

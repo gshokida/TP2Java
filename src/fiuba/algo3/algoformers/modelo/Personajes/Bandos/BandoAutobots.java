@@ -9,7 +9,7 @@ public class BandoAutobots implements Bando {
     private BandoAutobots() {
     }
 
-    public static BandoAutobots instancia() {
+    public static BandoAutobots getInstance() {
         return unicaInstancia;
     }
 

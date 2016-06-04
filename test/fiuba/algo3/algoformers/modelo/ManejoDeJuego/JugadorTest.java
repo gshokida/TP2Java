@@ -41,23 +41,23 @@ public class JugadorTest {
     public void test_Jugador_Es_Autobot(){
         Jugador jugador1 = new Jugador();
         jugador1.addNombre("Pepe");
-        List<AlgoFormer> algoFormers = new LinkedList<AlgoFormer>();
+        List<AlgoFormer> algoFormers = new LinkedList<>();
         algoFormers.add(new Optimus());
 
-        jugador1.prepararParaJugar(algoFormers,BandoAutobots.instancia());
+        jugador1.prepararParaJugar(algoFormers,BandoAutobots.getInstance());
 
-        Assert.assertTrue(jugador1.getBando().equals(BandoAutobots.instancia()));
+        Assert.assertTrue(jugador1.getBando().equals(BandoAutobots.getInstance()));
     }
 
     @Test
     public void test_Jugador_Es_Decepticon(){
         Jugador jugador1 = new Jugador();
         jugador1.addNombre("Pepe");
-        List<AlgoFormer> algoFormers = new LinkedList<AlgoFormer>();
+        List<AlgoFormer> algoFormers = new LinkedList<>();
         algoFormers.add(new Megatron());
 
-        jugador1.prepararParaJugar(algoFormers, BandoDecepticons.instancia());
+        jugador1.prepararParaJugar(algoFormers, BandoDecepticons.getInstance());
 
-        Assert.assertTrue(jugador1.getBando().equals(BandoDecepticons.instancia()));
+        Assert.assertTrue(jugador1.getBando().equals(BandoDecepticons.getInstance()));
     }
 }

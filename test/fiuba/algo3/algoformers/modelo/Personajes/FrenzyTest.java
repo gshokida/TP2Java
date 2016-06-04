@@ -1,11 +1,10 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
-import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -130,7 +129,7 @@ public class FrenzyTest {
     public void nuevaInstancia_tipoUnidad_esTerrestre() {
         Frenzy algoFormer = new Frenzy();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 
     @Test
@@ -139,45 +138,39 @@ public class FrenzyTest {
 
         algoFormer.transformar();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.instancia()));
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 
     @Test
-    public void atacar_restaVidaDeEnemigo_elValorDeAtaque() {
+    public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Frenzy frenzy = new Frenzy();
-        Optimus optimus = new Optimus();
-        int vidaInicialOptimus = optimus.getPuntosDeVida();
-
-        Posicion posicionOptimus = new Posicion(1, 1);
-        Posicion posicionFrenzy = new Posicion(2, 2);
-
-        optimus.setPosicion(posicionOptimus);
-        frenzy.setPosicion(posicionFrenzy);
+        Bando bandoFrenzy = frenzy.getBando();
+        Bando bandoEnemigo = ((bandoFrenzy == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
+        int vidaInicialFrenzy = frenzy.getPuntosDeVida();
+        int puntosDeAtaque = 10;
 
         try {
-            frenzy.atacar(optimus);
-        } catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        } catch (DistanciaExcedidaException e) {
+            frenzy.recibirAtaque(puntosDeAtaque,bandoEnemigo);
+        }
+        catch (NoSePermiteElFuegoAmistosoException error) {
             fail();
         }
 
-        assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - frenzy.getAtaque());
+        assertEquals(frenzy.getPuntosDeVida(), vidaInicialFrenzy - puntosDeAtaque);
     }
 
     @Test
-    public void atacar_cuandoLaUnidadEsUnAliado_daError () {
+    public void recibirAtaqueDeMismoBando_lanzaError() {
         Frenzy frenzy = new Frenzy();
-        Bonecrusher bonecrusher = new Bonecrusher();
+        Bando bandoFrenzy = frenzy.getBando();
+        int puntosDeAtaque = 10;
 
         try {
-            frenzy.atacar(bonecrusher);
+            frenzy.recibirAtaque(puntosDeAtaque,bandoFrenzy);
             fail();
         }
         catch (NoSePermiteElFuegoAmistosoException error) {
             success();
-        } catch (DistanciaExcedidaException e) {
-            fail();
         }
     }
 

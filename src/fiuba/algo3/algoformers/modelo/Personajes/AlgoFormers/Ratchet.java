@@ -12,7 +12,7 @@ public class Ratchet extends AlgoFormer {
     public Ratchet() {
         nombre = "Ratchet";
         puntosDeVida = 150;
-        bando = BandoAutobots.instancia();
+        bando = BandoAutobots.getInstance();
         int ataqueNormal = 5;
         int distanciaAtaqueNormal = 5;
         int velocidadNormal = 1;
@@ -20,8 +20,8 @@ public class Ratchet extends AlgoFormer {
         int distanciaAtaqueTransformado = 2;
         int velocidadTransformado = 8;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.instancia());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadAerea.instancia());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadAerea.getInstance());
     }
 
     public void transformar() {
