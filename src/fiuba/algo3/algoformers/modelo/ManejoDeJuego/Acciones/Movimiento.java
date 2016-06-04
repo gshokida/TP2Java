@@ -26,4 +26,8 @@ public class Movimiento implements Accion {
         casilleroDestino.setContenido(casilleroActual.getContenido());
         casilleroActual.setContenido(ContenidoVacio.getInstance());
     }
+
+    public boolean quedanMovimientos() {
+        return true;
+    }
 }

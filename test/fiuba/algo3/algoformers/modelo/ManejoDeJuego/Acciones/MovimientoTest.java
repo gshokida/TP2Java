@@ -102,6 +102,16 @@ public class MovimientoTest {
         }
     }
 
+    @Test
+    public void nuevoMovimiento_quedanMovimientos_esVerdadero(){
+        int distanciaMaxima = 5;
+
+        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
+        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+
+        assertTrue(movimiento.quedanMovimientos());
+    }
+
     private void succes() {
         assertTrue(true);
     }
