@@ -35,8 +35,8 @@ public class Juego {
     }
 
   private void comenzarNuevoJuego() {
-        List<AlgoFormer> autobots = new LinkedList<>();
-        List<AlgoFormer> decepticons = new LinkedList<>();
+        List<AlgoFormer> autobots = new LinkedList<AlgoFormer>();
+        List<AlgoFormer> decepticons = new LinkedList<AlgoFormer>();
         crearYUbicarAlgoFormers(autobots,decepticons);
 
         jugadorUno.prepararParaJugar(autobots,BandoAutobots.instancia());

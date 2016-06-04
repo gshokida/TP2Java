@@ -41,7 +41,7 @@ public class JugadorTest {
     public void test_Jugador_Es_Autobot(){
         Jugador jugador1 = new Jugador();
         jugador1.addNombre("Pepe");
-        List<AlgoFormer> algoFormers = new LinkedList<>();
+        List<AlgoFormer> algoFormers = new LinkedList<AlgoFormer>();
         algoFormers.add(new Optimus());
 
         jugador1.prepararParaJugar(algoFormers,BandoAutobots.instancia());
@@ -53,7 +53,7 @@ public class JugadorTest {
     public void test_Jugador_Es_Decepticon(){
         Jugador jugador1 = new Jugador();
         jugador1.addNombre("Pepe");
-        List<AlgoFormer> algoFormers = new LinkedList<>();
+        List<AlgoFormer> algoFormers = new LinkedList<AlgoFormer>();
         algoFormers.add(new Megatron());
 
         jugador1.prepararParaJugar(algoFormers, BandoDecepticons.instancia());

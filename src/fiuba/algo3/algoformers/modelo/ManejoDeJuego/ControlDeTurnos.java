@@ -14,7 +14,7 @@ public class ControlDeTurnos {
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
         this.numeroTurno = 0;
         Random randomGenerator = new Random();
-        this.jugadores = new Cola<>();
+        this.jugadores = new Cola<Jugador>();
 
         if(randomGenerator.nextBoolean()) {
             this.jugadores.enqueue(jugadorUno);

@@ -7,7 +7,7 @@ import java.util.LinkedList;
  */
 public class Cola<T> {
 
-    private LinkedList<T> list = new LinkedList<>();
+    private LinkedList<T> list = new LinkedList<T>();
 
     public void enqueue(T item) {
         list.addLast(item);
