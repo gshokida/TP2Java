@@ -1,13 +1,10 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
-import fiuba.algo3.algoformers.modelo.Errores.AtaqueAChispaSupremaNoValidoException;
-import fiuba.algo3.algoformers.modelo.Errores.AtaqueAContenidoVacioNoValidoException;
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 
 /**
  * Created by gaston.tulipani on 04/06/2016.
@@ -19,7 +16,7 @@ public class Ataque implements Accion {
         this.casilleroOrigen = casilleroOrigen;
     }
 
-    public void atacarA(Casillero casilleroDestino) throws DistanciaExcedidaException, AtaqueAContenidoVacioNoValidoException, AtaqueAChispaSupremaNoValidoException, NoSePermiteElFuegoAmistosoException {
+    public void atacarA(Casillero casilleroDestino) throws DistanciaExcedidaException, NoSePermiteElFuegoAmistosoException {
         int distancia = casilleroOrigen.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
 
         if(!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance())) {

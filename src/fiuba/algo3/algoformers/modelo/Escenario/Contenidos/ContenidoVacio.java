@@ -1,8 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
-import fiuba.algo3.algoformers.modelo.Errores.AtaqueAContenidoVacioNoValidoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 
 /**
  * Created by german.shokida on 27/5/2016.

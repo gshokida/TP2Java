@@ -35,7 +35,7 @@ public class CasilleroTest {
 
         casillero.setAlgoformer(optimus);
 
-        assertTrue(casillero.estaOcupado());
+        assertEquals(casillero.getAlgoformer(),optimus);
     }
 
     @Test

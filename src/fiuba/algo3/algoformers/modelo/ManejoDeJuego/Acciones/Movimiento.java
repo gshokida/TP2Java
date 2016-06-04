@@ -29,8 +29,8 @@ public class Movimiento implements Accion {
 
         movimientosRestantes -= distancia;
 
-        casilleroDestino.setContenido(casilleroActual.getContenido());
-        casilleroActual.setContenido(ContenidoVacio.getInstance());
+        casilleroDestino.setAlgoformer(casilleroActual.getAlgoformer());
+        casilleroActual.setAlgoformer(NoOcupado.getInstance());
     }
 
     public boolean quedanMovimientos() {

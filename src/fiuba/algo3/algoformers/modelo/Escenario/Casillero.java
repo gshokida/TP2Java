@@ -55,7 +55,7 @@ public class Casillero {
     }
 
     public boolean estaOcupado() {
-        return (!getContenido().equals(ContenidoVacio.getInstance()));
+        return (!getContenido().equals(ContenidoVacio.getInstance()))||(!getAlgoformer().equals(NoOcupado.getInstance()));
     }
 
     public Posicion getPosicion() { return posicion; }

@@ -1,8 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
-import fiuba.algo3.algoformers.modelo.Errores.AtaqueAChispaSupremaNoValidoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 
 /**
  * Created by Rodrigo on 01/06/2016.

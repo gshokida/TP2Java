@@ -17,8 +17,8 @@ import static org.junit.Assert.*;
 public class MovimientoTest {
     @Test
     public void moverHasta_conCasilleroDestinoADistanciaMenorALaDistanciaMaxima_poneConenidoEnDestino() {
-        int distanciaMaxima = 5;
         AlgoFormer algoFormer = new Optimus();
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
@@ -39,8 +39,8 @@ public class MovimientoTest {
 
     @Test
     public void moverHasta_conCasilleroDestinoADistanciaMenorALaDistanciaMaxima_vaciaPrimerCasillero() {
-        int distanciaMaxima = 5;
         AlgoFormer algoFormer = new Optimus();
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
@@ -61,11 +61,13 @@ public class MovimientoTest {
 
     @Test
     public void moverHasta_conCasilleroDestinoADistanciaMayorALaDistanciaMaxima_lanzaError() {
-        int distanciaMaxima = 5;
+        AlgoFormer algoFormer = new Optimus();
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima + 1,0));
 
+        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -81,12 +83,15 @@ public class MovimientoTest {
 
     @Test
     public void moverHasta_haciendoVariasEscalas_superandoDistanciaMaximaDesdeOrigenHastaDestinoFinal_lanzaError() {
-        int distanciaMaxima = 5;
+        AlgoFormer algoFormer = new Optimus();
+        algoFormer.transformar(); //No existe AlgoFormer con velocidad 3 sin transformar
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestinoIntermedio = new Casillero(new Posicion(2,0));
         Casillero casilleroDestinoFinal = new Casillero(new Posicion(distanciaMaxima + 1, 0));
 
+        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -109,9 +114,11 @@ public class MovimientoTest {
 
     @Test
     public void nuevoMovimiento_quedanMovimientos_esVerdadero(){
-        int distanciaMaxima = 5;
+        AlgoFormer algoFormer = new Optimus();
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
+        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         assertTrue(movimiento.quedanMovimientos());
@@ -119,11 +126,13 @@ public class MovimientoTest {
 
     @Test
     public void quedanMovimientos_cuandoSeMovioDistanciaMenorAMaxima_esVerdadero() {
-        int distanciaMaxima = 5;
+        AlgoFormer algoFormer = new Optimus();
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
+        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -138,11 +147,13 @@ public class MovimientoTest {
 
     @Test
     public void quedanMovimientos_cuandoSeMovioDistanciaMaxima_esFalso() {
-        int distanciaMaxima = 5;
+        AlgoFormer algoFormer = new Optimus();
+        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
 
+        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {

@@ -33,7 +33,7 @@ public class IntegracionAlgoformerEntrega1 {
 
         tablero.setAlgoformer(optimus, new Posicion(0, 0));
 
-        assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getContenido());
+        assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getAlgoformer());
     }
 
 /*    @Test
@@ -124,7 +124,7 @@ public class IntegracionAlgoformerEntrega1 {
 
         tablero.setAlgoformer(optimus, new Posicion(0, 0));
 
-        assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getContenido());
+        assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getAlgoformer());
     }
 
     @Test
