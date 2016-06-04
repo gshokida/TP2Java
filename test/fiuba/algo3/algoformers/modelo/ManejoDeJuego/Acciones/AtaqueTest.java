@@ -30,24 +30,15 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1,0));
 
-        casilleroOrigen.setContenido(algoFormerAtacante);
-        casilleroDestino.setContenido(algoFormerAtacado);
+        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        casilleroDestino.setAlgoformer(algoFormerAtacado);
 
-        Ataque ataque = new Ataque(casilleroOrigen, distanciaDeAtaqueMaxima, puntosDeAtaque, algoFormerAtacante.getBando());
+        Ataque ataque = new Ataque(casilleroOrigen);
 
         try {
             ataque.atacarA(casilleroDestino);
         }
-        catch (DistanciaExcedidaException error) {
-            fail();
-        }
-        catch (AtaqueAContenidoVacioNoValidoException error) {
-            fail();
-        }
-        catch (AtaqueAChispaSupremaNoValidoException error) {
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
+        catch (DistanciaExcedidaException | NoSePermiteElFuegoAmistosoException | AtaqueAChispaSupremaNoValidoException | AtaqueAContenidoVacioNoValidoException error) {
             fail();
         }
 
@@ -64,10 +55,10 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima + 1, 0));
 
-        casilleroOrigen.setContenido(algoFormerAtacante);
-        casilleroDestino.setContenido(algoFormerAtacado);
+        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        casilleroDestino.setAlgoformer(algoFormerAtacado);
 
-        Ataque ataque = new Ataque(casilleroOrigen, distanciaDeAtaqueMaxima, puntosDeAtaque, algoFormerAtacante.getBando());
+        Ataque ataque = new Ataque(casilleroOrigen);
         try {
             ataque.atacarA(casilleroDestino);
             fail();
@@ -75,13 +66,7 @@ public class AtaqueTest {
         catch (DistanciaExcedidaException error) {
             succes();
         }
-        catch (AtaqueAContenidoVacioNoValidoException error) {
-            fail();
-        }
-        catch (AtaqueAChispaSupremaNoValidoException error) {
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
+        catch (AtaqueAContenidoVacioNoValidoException | AtaqueAChispaSupremaNoValidoException | NoSePermiteElFuegoAmistosoException error) {
             fail();
         }
     }
@@ -95,24 +80,18 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1, 0));
 
-        casilleroOrigen.setContenido(algoFormerAtacante);
+        casilleroOrigen.setAlgoformer(algoFormerAtacante);
 
-        Ataque ataque = new Ataque(casilleroOrigen, distanciaDeAtaqueMaxima, puntosDeAtaque, algoFormerAtacante.getBando());
+        Ataque ataque = new Ataque(casilleroOrigen);
         try {
             ataque.atacarA(casilleroDestino);
             fail();
         }
-        catch (DistanciaExcedidaException error) {
+        catch (DistanciaExcedidaException | AtaqueAChispaSupremaNoValidoException | NoSePermiteElFuegoAmistosoException error) {
             fail();
         }
         catch (AtaqueAContenidoVacioNoValidoException error) {
             succes();
-        }
-        catch (AtaqueAChispaSupremaNoValidoException error) {
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
         }
     }
 
@@ -125,25 +104,18 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1, 0));
 
-        casilleroOrigen.setContenido(algoFormerAtacante);
+        casilleroOrigen.setAlgoformer(algoFormerAtacante);
         casilleroDestino.setContenido(ChispaSuprema.getInstance());
 
-        Ataque ataque = new Ataque(casilleroOrigen, distanciaDeAtaqueMaxima, puntosDeAtaque, algoFormerAtacante.getBando());
+        Ataque ataque = new Ataque(casilleroOrigen);
         try {
             ataque.atacarA(casilleroDestino);
             fail();
         }
-        catch (DistanciaExcedidaException error) {
+        catch (DistanciaExcedidaException | AtaqueAContenidoVacioNoValidoException | NoSePermiteElFuegoAmistosoException error) {
             fail();
-        }
-        catch (AtaqueAContenidoVacioNoValidoException error) {
-            fail();
-        }
-        catch (AtaqueAChispaSupremaNoValidoException error) {
+        } catch (AtaqueAChispaSupremaNoValidoException error) {
             succes();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
         }
     }
 
@@ -157,24 +129,17 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1,0));
 
-        casilleroOrigen.setContenido(algoFormerAtacante);
-        casilleroDestino.setContenido(algoFormerAtacado);
+        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        casilleroDestino.setAlgoformer(algoFormerAtacado);
 
-        Ataque ataque = new Ataque(casilleroOrigen, distanciaDeAtaqueMaxima, puntosDeAtaque, algoFormerAtacante.getBando());
+        Ataque ataque = new Ataque(casilleroOrigen);
 
         try {
             ataque.atacarA(casilleroDestino);
         }
-        catch (DistanciaExcedidaException error) {
+        catch (DistanciaExcedidaException | AtaqueAContenidoVacioNoValidoException | AtaqueAChispaSupremaNoValidoException error) {
             fail();
-        }
-        catch (AtaqueAContenidoVacioNoValidoException error) {
-            fail();
-        }
-        catch (AtaqueAChispaSupremaNoValidoException error) {
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
+        } catch (NoSePermiteElFuegoAmistosoException error) {
             succes();
         }
     }

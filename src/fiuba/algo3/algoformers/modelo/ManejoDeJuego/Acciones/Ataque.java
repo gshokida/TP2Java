@@ -6,6 +6,7 @@ import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 
 /**
@@ -13,21 +14,23 @@ import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
  */
 public class Ataque implements Accion {
     private Casillero casilleroOrigen;
-    private int distanciaDeAtaqueMaxima;
-    private int puntosDeAtaque;
-    private Bando bandoAtacante;
 
-    public Ataque(Casillero casilleroOrigen, int distanciaDeAtaqueMaxima, int puntosDeAtaque, Bando bandoAtacante) {
+    public Ataque(Casillero casilleroOrigen) {
         this.casilleroOrigen = casilleroOrigen;
-        this.distanciaDeAtaqueMaxima = distanciaDeAtaqueMaxima;
-        this.puntosDeAtaque = puntosDeAtaque;
-        this.bandoAtacante = bandoAtacante;
     }
 
     public void atacarA(Casillero casilleroDestino) throws DistanciaExcedidaException, AtaqueAContenidoVacioNoValidoException, AtaqueAChispaSupremaNoValidoException, NoSePermiteElFuegoAmistosoException {
         int distancia = casilleroOrigen.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
-        if (distancia > distanciaDeAtaqueMaxima)
-            throw new DistanciaExcedidaException();
-        casilleroDestino.getContenido().recibirAtaque(puntosDeAtaque,bandoAtacante);
+
+        if(!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance())) {
+            if (distancia > casilleroOrigen.getAlgoformer().getDistanciaDeAtaque())
+                throw new DistanciaExcedidaException();
+
+            if (casilleroOrigen.getAlgoformer().getBando().esMismoBando(casilleroDestino.getAlgoformer().getBando()))
+                throw new NoSePermiteElFuegoAmistosoException();
+
+            // Se realiza el calculo con los bonus y/o efectos de las superficies
+            casilleroDestino.getAlgoformer().recibirAtaque(casilleroOrigen.getAlgoformer().getAtaque());
+        }
     }
 }

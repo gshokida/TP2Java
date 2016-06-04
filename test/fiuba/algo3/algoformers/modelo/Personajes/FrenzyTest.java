@@ -149,29 +149,9 @@ public class FrenzyTest {
         int vidaInicialFrenzy = frenzy.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
-        try {
-            frenzy.recibirAtaque(puntosDeAtaque,bandoEnemigo);
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        }
+        frenzy.recibirAtaque(puntosDeAtaque);
 
         assertEquals(frenzy.getPuntosDeVida(), vidaInicialFrenzy - puntosDeAtaque);
-    }
-
-    @Test
-    public void recibirAtaqueDeMismoBando_lanzaError() {
-        Frenzy frenzy = new Frenzy();
-        Bando bandoFrenzy = frenzy.getBando();
-        int puntosDeAtaque = 10;
-
-        try {
-            frenzy.recibirAtaque(puntosDeAtaque,bandoFrenzy);
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            success();
-        }
     }
 
     private void success() {

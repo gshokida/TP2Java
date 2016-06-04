@@ -149,29 +149,9 @@ public class BumblebeeTest {
         int vidaInicialBumblebee = bumblebee.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
-        try {
-            bumblebee.recibirAtaque(puntosDeAtaque,bandoEnemigo);
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        }
+        bumblebee.recibirAtaque(puntosDeAtaque);
 
         assertEquals(bumblebee.getPuntosDeVida(), vidaInicialBumblebee - puntosDeAtaque);
-    }
-
-    @Test
-    public void recibirAtaqueDeMismoBando_lanzaError() {
-        Bumblebee bumblebee = new Bumblebee();
-        Bando bandoBumblebee = bumblebee.getBando();
-        int puntosDeAtaque = 10;
-
-        try {
-            bumblebee.recibirAtaque(puntosDeAtaque,bandoBumblebee);
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            success();
-        }
     }
 
     private void success() {

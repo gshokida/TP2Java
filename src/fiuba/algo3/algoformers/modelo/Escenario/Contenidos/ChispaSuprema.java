@@ -24,9 +24,4 @@ public class ChispaSuprema implements Contenido{
     public boolean esLaChispaSuprema(Contenido contenido){
         return this.equals(contenido);
     }
-
-    @Override
-    public void recibirAtaque(int puntosDeAtaque, Bando bandoAtacante) throws AtaqueAChispaSupremaNoValidoException {
-        throw new AtaqueAChispaSupremaNoValidoException();
-    }
 }

@@ -36,23 +36,12 @@ public class Tablero {
         tablero[posicion.getX()][posicion.getY()].setContenido(contenido);
     }
 
-    public void setPersonaje(AlgoFormer algoFormer, Posicion posicion) {
-        algoFormer.setPosicion(posicion);
-        setContenido(algoFormer, posicion);
+    public void setAlgoformer(AlgoFormer algoformer, Posicion posicion) {
+        tablero[posicion.getX()][posicion.getY()].setAlgoformer(algoformer);
     }
 
     public Casillero getCasillero(Posicion posicion) {
         return tablero[posicion.getX()][posicion.getY()];
-    }
-
-    public void moverPersonaje(AlgoFormer algoFormer, Posicion nuevaPosicion) throws ImposibleMoverseCasilleroOcupadoException {
-        if (casilleroOcupado(nuevaPosicion))
-            throw new ImposibleMoverseCasilleroOcupadoException();
-
-        Posicion posicionOrigen = algoFormer.getPosicion();
-        setPersonaje(algoFormer, nuevaPosicion);
-
-        tablero[posicionOrigen.getX()][posicionOrigen.getY()].setContenido(ContenidoVacio.getInstance());
     }
 
     public boolean casilleroOcupado(Posicion posicion) {

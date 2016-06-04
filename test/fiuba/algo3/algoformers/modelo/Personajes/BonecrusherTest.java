@@ -149,29 +149,9 @@ public class BonecrusherTest {
         int vidaInicialBonecrusher = bonecrusher.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
-        try {
-            bonecrusher.recibirAtaque(puntosDeAtaque,bandoEnemigo);
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        }
+        bonecrusher.recibirAtaque(puntosDeAtaque);
 
         assertEquals(bonecrusher.getPuntosDeVida(), vidaInicialBonecrusher - puntosDeAtaque);
-    }
-
-    @Test
-    public void recibirAtaqueDeMismoBando_lanzaError() {
-        Bonecrusher bonecrusher = new Bonecrusher();
-        Bando bandoBonecrusher = bonecrusher.getBando();
-        int puntosDeAtaque = 10;
-
-        try {
-            bonecrusher.recibirAtaque(puntosDeAtaque,bandoBonecrusher);
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            success();
-        }
     }
 
     private void success() {

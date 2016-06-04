@@ -150,29 +150,9 @@ public class RatchetTest {
         int vidaInicialRatchet = ratchet.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
-        try {
-            ratchet.recibirAtaque(puntosDeAtaque,bandoEnemigo);
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        }
+        ratchet.recibirAtaque(puntosDeAtaque);
 
         assertEquals(ratchet.getPuntosDeVida(), vidaInicialRatchet - puntosDeAtaque);
-    }
-
-    @Test
-    public void recibirAtaqueDeMismoBando_lanzaError() {
-        Ratchet ratchet = new Ratchet();
-        Bando bandoRatchet = ratchet.getBando();
-        int puntosDeAtaque = 10;
-
-        try {
-            ratchet.recibirAtaque(puntosDeAtaque,bandoRatchet);
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            success();
-        }
     }
 
     private void success() {

@@ -6,6 +6,7 @@ import fiuba.algo3.algoformers.modelo.Escenario.Superficies.Nube;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.TierraRocosa;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import org.junit.Test;
 
@@ -29,10 +30,10 @@ public class CasilleroTest {
 
     @Test
     public void testAgregoAlgoFormerYDejaDeEstarVacio() {
-        Contenido optimus = new Optimus();
+        AlgoFormer optimus = new Optimus();
         Casillero casillero = new Casillero(new Posicion(0,0));
 
-        casillero.setContenido(optimus);
+        casillero.setAlgoformer(optimus);
 
         assertTrue(casillero.estaOcupado());
     }

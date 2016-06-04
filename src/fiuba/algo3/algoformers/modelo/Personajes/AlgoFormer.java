@@ -9,12 +9,11 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 /**
  * Created by german.shokida on 24/5/2016.
  */
-public abstract class AlgoFormer implements Contenido {
+public abstract class AlgoFormer {
     protected String nombre;
     protected int puntosDeVida;
     protected AlgoformerEstado estado;
     protected Bando bando;
-    private Posicion posicion;
 
     public String getNombre() {
         return nombre;
@@ -44,18 +43,7 @@ public abstract class AlgoFormer implements Contenido {
         return bando;
     }
 
-    public Posicion getPosicion() {
-        return this.posicion;
-    }
-
-    public void setPosicion(Posicion posicion) {
-        this.posicion = posicion;
-    }
-
-    @Override
-    public void recibirAtaque(int puntosDeAtaque, Bando bandoAtacante) throws NoSePermiteElFuegoAmistosoException {
-        if (bando.esMismoBando(bandoAtacante))
-            throw new NoSePermiteElFuegoAmistosoException();
+    public void recibirAtaque(int puntosDeAtaque) {
         recibirDanio(puntosDeAtaque);
     }
 
@@ -64,8 +52,4 @@ public abstract class AlgoFormer implements Contenido {
     }
 
     public abstract void transformar();
-
-    public boolean esLaChispaSuprema(Contenido contenido){
-        return this.equals(contenido);
-    }
 }

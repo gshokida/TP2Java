@@ -70,12 +70,12 @@ public class Juego {
         decepticons.add(bonecrusher);
         decepticons.add(frenzy);
 
-        tablero.setPersonaje(optimus, new Posicion(0, 0));
-        tablero.setPersonaje(bumblebee,new Posicion(0, 1));
-        tablero.setPersonaje(ratchet,new Posicion(1, 2));
-        tablero.setPersonaje(megatron, new Posicion(filas-1, columnas-1));
-        tablero.setPersonaje(bonecrusher, new Posicion(filas - 1, columnas - 2));
-        tablero.setPersonaje(frenzy, new Posicion(filas - 2, columnas - 1));
+        tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        tablero.setAlgoformer(bumblebee,new Posicion(0, 1));
+        tablero.setAlgoformer(ratchet,new Posicion(1, 2));
+        tablero.setAlgoformer(megatron, new Posicion(filas-1, columnas-1));
+        tablero.setAlgoformer(bonecrusher, new Posicion(filas - 1, columnas - 2));
+        tablero.setAlgoformer(frenzy, new Posicion(filas - 2, columnas - 1));
     }
 
 }

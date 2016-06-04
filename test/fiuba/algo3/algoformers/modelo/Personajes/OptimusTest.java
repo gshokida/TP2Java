@@ -147,29 +147,9 @@ public class OptimusTest {
         int vidaInicialOptimus = optimus.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
-        try {
-            optimus.recibirAtaque(puntosDeAtaque,bandoEnemigo);
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        }
+        optimus.recibirAtaque(puntosDeAtaque);
 
         assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - puntosDeAtaque);
-    }
-
-    @Test
-    public void recibirAtaqueDeMismoBando_lanzaError() {
-        Optimus optimus = new Optimus();
-        Bando bandoOptimus = optimus.getBando();
-        int puntosDeAtaque = 10;
-
-        try {
-            optimus.recibirAtaque(puntosDeAtaque,bandoOptimus);
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            success();
-        }
     }
 
     private void success() {

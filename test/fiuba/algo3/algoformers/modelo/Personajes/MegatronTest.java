@@ -153,29 +153,9 @@ public class MegatronTest {
         int vidaInicialMegatron = megatron.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
-        try {
-            megatron.recibirAtaque(puntosDeAtaque,bandoEnemigo);
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            fail();
-        }
+        megatron.recibirAtaque(puntosDeAtaque);
 
         assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - puntosDeAtaque);
-    }
-
-    @Test
-    public void recibirAtaqueDeMismoBando_lanzaError() {
-        Megatron megatron = new Megatron();
-        Bando bandoMegatron = megatron.getBando();
-        int puntosDeAtaque = 10;
-
-        try {
-            megatron.recibirAtaque(puntosDeAtaque,bandoMegatron);
-            fail();
-        }
-        catch (NoSePermiteElFuegoAmistosoException error) {
-            success();
-        }
     }
 
     private void success() {

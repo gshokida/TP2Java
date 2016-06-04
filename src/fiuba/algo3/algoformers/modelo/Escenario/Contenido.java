@@ -10,6 +10,4 @@ import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
  */
 public interface Contenido {
      boolean esLaChispaSuprema(Contenido contenido);
-
-     void recibirAtaque(int puntosDeAtaque, Bando bandoAtacante) throws AtaqueAContenidoVacioNoValidoException, AtaqueAChispaSupremaNoValidoException, NoSePermiteElFuegoAmistosoException;
 }
