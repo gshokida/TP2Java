@@ -20,7 +20,7 @@ public class CasilleroTest {
     @Test
     public void casilleroNuevoEsVacio(){
         Contenido contenido = ContenidoVacio.getInstance();
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setContenido(contenido);
 
@@ -30,7 +30,7 @@ public class CasilleroTest {
     @Test
     public void testAgregoAlgoFormerYDejaDeEstarVacio() {
         Contenido optimus = new Optimus();
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setContenido(optimus);
 
@@ -40,7 +40,7 @@ public class CasilleroTest {
     @Test
     public void testAgregoHoloSparkYDejaDeEstarVacio() {
         Contenido holoSpark = HoloSpark.instancia();
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setContenido(holoSpark);
 
@@ -50,7 +50,7 @@ public class CasilleroTest {
     @Test
     public void casilleroNuevoConSuperficieDeTierra(){
         SuperficieTerrestre tierraRocosa = TierraRocosa.getInstance();
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setSuperficieTerreste(tierraRocosa);
 
@@ -60,7 +60,7 @@ public class CasilleroTest {
     @Test
     public void casilleroNuevoConSuperficieAerea(){
         SuperficieAerea nube = Nube.getInstance();
-        Casillero casillero = new Casillero();
+        Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setSuperficieAerea(nube);
 

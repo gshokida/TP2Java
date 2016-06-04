@@ -11,7 +11,12 @@ public class Casillero {
     private Contenido contenido;
     private SuperficieTerrestre superficieTerreste;
     private SuperficieAerea superficieAerea;
+    private Posicion posicion;
 
+    public Casillero(Posicion posicion) {
+        this.contenido = ContenidoVacio.getInstance();
+        this.posicion = posicion;
+    }
 
     public void setContenido(Contenido contenido){
         this.contenido = contenido;
@@ -40,4 +45,6 @@ public class Casillero {
     public boolean estaOcupado() {
         return (!getContenido().equals(ContenidoVacio.getInstance()));
     }
+
+    public Posicion getPosicion() { return posicion; }
 }

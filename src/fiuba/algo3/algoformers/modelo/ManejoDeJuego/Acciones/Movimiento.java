@@ -1,17 +1,29 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
-import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**
  * Created by gaston.tulipani on 03/06/2016.
  */
 public class Movimiento implements Accion {
-    public Movimiento(AlgoFormer algoFormer, Posicion posicionDestino) throws DistanciaExcedidaException {
-        if (algoFormer.getPosicion().obtenerDistanciaHasta(posicionDestino) > algoFormer.getVelocidad())
+    private int movimientosRestantes;
+    private Casillero casilleroActual;
+
+    public Movimiento(Casillero casilleroOrigen, int distanciaTotal) {
+        this.movimientosRestantes = distanciaTotal;
+        this.casilleroActual = casilleroOrigen;
+    }
+
+    public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException {
+        int distancia = casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
+        if (distancia > movimientosRestantes)
             throw new DistanciaExcedidaException();
-        algoFormer.setPosicion(posicionDestino);
+        movimientosRestantes -= distancia;
+
+        casilleroDestino.setContenido(casilleroActual.getContenido());
+        casilleroActual.setContenido(ContenidoVacio.getInstance());
     }
 }

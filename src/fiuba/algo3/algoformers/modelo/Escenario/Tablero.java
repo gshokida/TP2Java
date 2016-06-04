@@ -24,10 +24,8 @@ public class Tablero {
         posy = columnas;
 
         for(int i = 0; i < filas; i++)
-            for(int j = 0; j < columnas; j++) {
-                tablero[i][j] = new Casillero();
-                tablero[i][j].setContenido(ContenidoVacio.getInstance());
-            }
+            for(int j = 0; j < columnas; j++)
+                tablero[i][j] = new Casillero(new Posicion(i,j));
 
         Posicion posicionHoloSpark = new Posicion((filas - 1) / 2, (columnas - 1) / 2);
 
