@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class TurnoTest {
     @Test
-    public void nuevoTurno_GuardoElJugador(){
+    public void testnuevoTurno_GuardoElJugador(){
         Jugador jugador = new Jugador();
         jugador.addNombre("pepe");
 
