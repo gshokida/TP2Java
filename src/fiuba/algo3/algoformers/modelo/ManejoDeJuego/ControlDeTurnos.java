@@ -10,11 +10,29 @@ import java.util.Random;
 public class ControlDeTurnos {
     private int numeroTurno;
     private Cola<Jugador> jugadores;
+    private Turno turnoActual;
 
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
         this.numeroTurno = 0;
-        Random randomGenerator = new Random();
         this.jugadores = new Cola<Jugador>();
+        this.elegirQuienVaPrimero(jugadorUno, jugadorDos);
+    }
+
+    public int getNumeroTurno() {
+        return numeroTurno;
+    }
+
+    public Turno getTurno() {
+        return turnoActual;
+    }
+
+    public void pasarTurno() {
+        this.actualizarTurnoActual();
+        this.numeroTurno++;
+    }
+
+    private void elegirQuienVaPrimero(Jugador jugadorUno, Jugador jugadorDos) {
+        Random randomGenerator = new Random();
 
         if(randomGenerator.nextBoolean()) {
             this.jugadores.enqueue(jugadorUno);
@@ -23,17 +41,13 @@ public class ControlDeTurnos {
             this.jugadores.enqueue(jugadorDos);
             this.jugadores.enqueue(jugadorUno);
         }
+
+        this.actualizarTurnoActual();
     }
 
-    public int getNumeroTurno() {
-        return numeroTurno;
-    }
-
-    public Turno getTurno() {
+    private void actualizarTurnoActual() {
         Jugador jugador = this.jugadores.dequeue();
-        Turno turno = new Turno(jugador);
         this.jugadores.enqueue(jugador);
-        this.numeroTurno++;
-        return turno;
+        this.turnoActual = new Turno(jugador);
     }
 }

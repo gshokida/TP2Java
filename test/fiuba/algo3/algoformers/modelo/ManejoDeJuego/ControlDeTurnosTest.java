@@ -20,7 +20,7 @@ public class ControlDeTurnosTest {
     }
 
     @Test
-    public void avanzaTurno_getNumeroTurno_SumaUnoAlNumeroAnterior(){
+    public void pasarTurno_getNumeroTurno_SumaUnoAlNumeroAnterior(){
         Jugador jugadorUno = new Jugador();
         Jugador jugadorDos = new Jugador();
 
@@ -28,7 +28,7 @@ public class ControlDeTurnosTest {
 
         int numeroAnterior = controlDeTurnos.getNumeroTurno();
 
-        Turno turnoNuevo = controlDeTurnos.getTurno();
+        controlDeTurnos.pasarTurno();
 
         assertEquals(numeroAnterior + 1, controlDeTurnos.getNumeroTurno());
     }
@@ -46,13 +46,15 @@ public class ControlDeTurnosTest {
     }
 
     @Test
-    public void avanzaTurno_getTurno_ContieneAlOtroJugador(){
+    public void pasarTurno_getTurno_ContieneAlOtroJugador(){
         Jugador jugadorUno = new Jugador();
         Jugador jugadorDos = new Jugador();
         ControlDeTurnos controlDeTurnos = new ControlDeTurnos(jugadorUno, jugadorDos);
+
         Turno turno = controlDeTurnos.getTurno();
         Jugador jugadorActivo = turno.getJugador();
 
+        controlDeTurnos.pasarTurno();
         Turno turnoActual = controlDeTurnos.getTurno();
 
         if(jugadorActivo.equals(jugadorUno)) {
@@ -60,8 +62,6 @@ public class ControlDeTurnosTest {
         }else{
             assertTrue(turnoActual.getJugador().equals(jugadorUno));
         }
-
-
     }
 
     @Test
@@ -72,15 +72,14 @@ public class ControlDeTurnosTest {
         Turno turno = controlDeTurnos.getTurno();
         Jugador jugadorActivo = turno.getJugador();
 
+        controlDeTurnos.pasarTurno();
+        controlDeTurnos.pasarTurno();
         Turno turnoActual = controlDeTurnos.getTurno();
-        turnoActual = controlDeTurnos.getTurno();
 
         if(jugadorActivo.equals(jugadorUno)) {
             assertTrue(turnoActual.getJugador().equals(jugadorUno));
         }else{
             assertTrue(turnoActual.getJugador().equals(jugadorDos));
         }
-
-
     }
 }
