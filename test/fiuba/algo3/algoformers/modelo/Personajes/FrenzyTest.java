@@ -1,6 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -143,9 +148,17 @@ public class FrenzyTest {
         Optimus optimus = new Optimus();
         int vidaInicialOptimus = optimus.getPuntosDeVida();
 
+        Posicion posicionOptimus = new Posicion(1, 1);
+        Posicion posicionFrenzy = new Posicion(2, 2);
+
+        optimus.setPosicion(posicionOptimus);
+        frenzy.setPosicion(posicionFrenzy);
+
         try {
             frenzy.atacar(optimus);
-        } catch (NoSePermiteElFuegoAmistosoError error) {
+        } catch (NoSePermiteElFuegoAmistosoException error) {
+            fail();
+        } catch (DistanciaExcedidaException e) {
             fail();
         }
 
@@ -161,8 +174,10 @@ public class FrenzyTest {
             frenzy.atacar(bonecrusher);
             fail();
         }
-        catch (NoSePermiteElFuegoAmistosoError error) {
+        catch (NoSePermiteElFuegoAmistosoException error) {
             success();
+        } catch (DistanciaExcedidaException e) {
+            fail();
         }
     }
 

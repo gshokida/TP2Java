@@ -5,7 +5,10 @@ package fiuba.algo3.algoformers.modelo.Personajes.Bandos;
  */
 public class BandoAutobots implements Bando {
     private static BandoAutobots unicaInstancia = new BandoAutobots();
-    private BandoAutobots() {}
+
+    private BandoAutobots() {
+    }
+
     public static BandoAutobots instancia() {
         return unicaInstancia;
     }

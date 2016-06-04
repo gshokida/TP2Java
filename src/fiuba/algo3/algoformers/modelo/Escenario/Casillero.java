@@ -1,5 +1,9 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
+
 /**
  * Created by german.shokida on 27/5/2016.
  */
@@ -8,12 +12,13 @@ public class Casillero {
     private SuperficieTerrestre superficieTerreste;
     private SuperficieAerea superficieAerea;
 
+
     public void setContenido(Contenido contenido){
         this.contenido = contenido;
     }
 
     public Contenido getContenido(){
-        return this.contenido;
+        return contenido;
     }
 
     public void setSuperficieTerreste(SuperficieTerrestre superficieTerreste) {
@@ -21,7 +26,7 @@ public class Casillero {
     }
 
     public SuperficieTerrestre getSuperficieTerreste() {
-        return this.superficieTerreste;
+        return superficieTerreste;
     }
 
     public void setSuperficieAerea(SuperficieAerea superficieAerea) {
@@ -29,6 +34,10 @@ public class Casillero {
     }
 
     public SuperficieAerea getSuperficieAerea() {
-        return this.superficieAerea;
+        return superficieAerea;
+    }
+
+    public boolean estaOcupado() {
+        return (!getContenido().equals(ContenidoVacio.getInstance()));
     }
 }

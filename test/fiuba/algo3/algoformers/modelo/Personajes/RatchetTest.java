@@ -1,6 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoError;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
@@ -144,9 +149,17 @@ public class RatchetTest {
         Megatron megatron = new Megatron();
         int vidaInicialMegatron = megatron.getPuntosDeVida();
 
+        Posicion posicionRatchet = new Posicion(1, 1);
+        Posicion posicionMegatron = new Posicion(2, 2);
+
+        ratchet.setPosicion(posicionRatchet);
+        megatron.setPosicion(posicionMegatron);
+
         try {
             ratchet.atacar(megatron);
-        } catch (NoSePermiteElFuegoAmistosoError error) {
+        } catch (NoSePermiteElFuegoAmistosoException error) {
+            fail();
+        } catch (DistanciaExcedidaException e) {
             fail();
         }
 
@@ -162,8 +175,10 @@ public class RatchetTest {
             ratchet.atacar(bumblebee);
             fail();
         }
-        catch (NoSePermiteElFuegoAmistosoError error) {
+        catch (NoSePermiteElFuegoAmistosoException error) {
             success();
+        } catch (DistanciaExcedidaException e) {
+            fail();
         }
     }
 

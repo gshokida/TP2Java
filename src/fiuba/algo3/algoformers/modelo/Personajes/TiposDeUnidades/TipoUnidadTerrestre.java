@@ -5,7 +5,9 @@ package fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades;
  */
 public class TipoUnidadTerrestre implements TipoUnidad {
     private static TipoUnidadTerrestre unicaInstancia = new TipoUnidadTerrestre();
+
     private TipoUnidadTerrestre() {}
+
     public static TipoUnidadTerrestre instancia() {
         return unicaInstancia;
     }

@@ -1,55 +1,63 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.HoloSpark;
+import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
+import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+
 /**
  * Created by Rodrigo on 27/05/2016.
  */
 public class Tablero {
-
     Casillero tablero [] [];
     int posx;
     int posy;
-    int posxElementoMedio;
-    int posyElementoMedio;
 
-    public  Tablero (int x, int y){
+    public  Tablero (int filas, int columnas) {
+        if (!((filas %2 != 0) && (columnas %2 != 0))) {
+            throw new TableroParInvalidoException();
+        }
 
-        this.tablero = new Casillero[x][y];
-        this.posx = x;
-        this.posy = y;
-        this.posxElementoMedio = x/2;
-        this.posyElementoMedio = y/2;
+        tablero = new Casillero[filas][columnas];
+        posx = filas;
+        posy = columnas;
 
+        for(int i = 0; i < filas; i++)
+            for(int j = 0; j < columnas; j++) {
+                tablero[i][j] = new Casillero();
+                tablero[i][j].setContenido(ContenidoVacio.getInstance());
+            }
+
+        Posicion posicionHoloSpark = new Posicion((filas - 1) / 2, (columnas - 1) / 2);
+
+        setContenido(HoloSpark.instancia(), posicionHoloSpark);
     }
 
-
-    public boolean tieneTamanio(int i) {
-
-        return ((this.posx * this.posy)== i);
-
+    public void setContenido(Contenido contenido, Posicion posicion) {
+        tablero[posicion.getX()][posicion.getY()].setContenido(contenido);
     }
 
-    public int medio() {
-
-        return (this.posxElementoMedio * this.posyElementoMedio);
-
+    public void setPersonaje(AlgoFormer algoFormer, Posicion posicion) {
+        algoFormer.setPosicion(posicion);
+        setContenido(algoFormer, posicion);
     }
 
-
-    public Casillero devolverElementoMedio (){
-
-        return (this.tablero [this.posxElementoMedio] [this.posyElementoMedio]);
-
+    public Casillero getCasillero(Posicion posicion) {
+        return tablero[posicion.getX()][posicion.getY()];
     }
 
-    //METODO SOLO PARA TEST
+    public void moverPersonaje(AlgoFormer algoFormer, Posicion nuevaPosicion) throws ImposibleMoverseCasilleroOcupadoException {
+        if (casilleroOcupado(nuevaPosicion))
+            throw new ImposibleMoverseCasilleroOcupadoException();
 
-    public void llenarCasilleroDelMedio ( Casillero casillero) {
+        Posicion posicionOrigen = algoFormer.getPosicion();
+        setPersonaje(algoFormer, nuevaPosicion);
 
-        this.tablero [this.posxElementoMedio] [this.posyElementoMedio] = casillero;
-
+        tablero[posicionOrigen.getX()][posicionOrigen.getY()].setContenido(ContenidoVacio.getInstance());
     }
 
-    //Habria que inicializar todos los casilleros del tablero.
-
-
+    public boolean casilleroOcupado(Posicion posicion) {
+        return (tablero[posicion.getX()][posicion.getY()].estaOcupado());
+    }
 }

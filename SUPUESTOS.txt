@@ -1,6 +1,8 @@
 Un archivo para que anoten todos los supuestos que se les van ocurriendo.
 
 
-
+Juego -> El Jugador 1 es del Bando de los Autobots.
+Juego -> El Jugador 2 es del Bando de los Decepticons.
 Turno -> El Jugador 1 es el primero en mover.
 Turno -> El turno empieza en 1, no en 0.
+Tablero -> El tablero debe tener filas y columnas pares.
