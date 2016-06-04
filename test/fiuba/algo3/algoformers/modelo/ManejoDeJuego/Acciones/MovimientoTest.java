@@ -112,6 +112,25 @@ public class MovimientoTest {
         assertTrue(movimiento.quedanMovimientos());
     }
 
+    @Test
+    public void quedanMovimientos_cuandoSeMovioDistanciaMenorAMaxima_esVerdadero() {
+        int distanciaMaxima = 5;
+
+        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
+        Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
+
+        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+        }
+        catch (DistanciaExcedidaException error) {
+            fail();
+        }
+        
+        assertTrue(movimiento.quedanMovimientos());
+    }
+
     private void succes() {
         assertTrue(true);
     }
