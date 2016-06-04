@@ -28,6 +28,6 @@ public class Movimiento implements Accion {
     }
 
     public boolean quedanMovimientos() {
-        return true;
+        return movimientosRestantes > 0;
     }
 }
