@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -97,7 +98,6 @@ public class TransformacionTest {
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 
-    //
     @Test
     public void transformacionUnaVez_bumblebee_dejaVidaEnTrescientosCincuenta() {
         AlgoFormer algoFormer = new Bumblebee();
@@ -175,6 +175,90 @@ public class TransformacionTest {
     @Test
     public void transformacionUnaVez_bumblebee_cambiarTipoUnidad_esTerrestre() {
         AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    }
+
+    @Test
+    public void transformacionUnaVez_frenzy_dejaVidaEnCuatrocientos() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getPuntosDeVida(), 400);
+    }
+
+    @Test
+    public void transformacionUnaVez_frenzy_cambiaAtaqueADiez() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 10);
+    }
+
+    @Test
+    public void transformacionUnaVez_frenzy_cambiaDistanciaDeAtaqueATres() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 3);
+    }
+
+    @Test
+    public void transformacionUnaVez_frenzy_cambiaVelocidadASeis() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getVelocidad(), 6);
+    }
+
+    @Test
+    public void transformacionDosVeces_frenzy_cambiaAtaqueADiez() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 10);
+    }
+
+    @Test
+    public void transformacionDosVeces_frenzy_cambiaDistanciaDeAtaqueACinco() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 5);
+    }
+
+    @Test
+    public void transformacionDosVeces_frenzy_cambiaVelocidadADos() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+
+        assertEquals(algoFormer.getVelocidad(), 2);
+    }
+
+    @Test
+    public void transformacionUnaVez_frenzy_cambiarTipoUnidad_esTerrestre() {
+        AlgoFormer algoFormer = new Frenzy();
         Transformacion transformacion = new Transformacion(algoFormer);
 
         transformacion.aplicarTransformacion();
