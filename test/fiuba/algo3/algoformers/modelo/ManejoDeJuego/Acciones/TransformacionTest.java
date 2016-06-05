@@ -29,4 +29,14 @@ public class TransformacionTest {
 
         assertEquals(algoFormer.getAtaque(), 30);
     }
+
+    @Test
+    public void transformacionunaVez_bonecrusher_cambiaDistanciaDeAtaqueATres() {
+        Bonecrusher algoFormer = new Bonecrusher();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 3);
+    }
 }
