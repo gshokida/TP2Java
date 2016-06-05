@@ -4,6 +4,8 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -193,23 +195,23 @@ public class TransformacionTest {
     }
 
     @Test
-    public void transformacionUnaVez_frenzy_cambiaAtaqueADiez() {
+    public void transformacionUnaVez_frenzy_cambiaAtaqueAVeinticinco() {
         AlgoFormer algoFormer = new Frenzy();
         Transformacion transformacion = new Transformacion(algoFormer);
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 10);
+        assertEquals(algoFormer.getAtaque(), 25);
     }
 
     @Test
-    public void transformacionUnaVez_frenzy_cambiaDistanciaDeAtaqueATres() {
+    public void transformacionUnaVez_frenzy_cambiaDistanciaDeAtaqueADos() {
         AlgoFormer algoFormer = new Frenzy();
         Transformacion transformacion = new Transformacion(algoFormer);
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getDistanciaDeAtaque(), 3);
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 2);
     }
 
     @Test
@@ -264,5 +266,89 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    }
+
+    @Test
+    public void transformacionUnaVez_megatron_dejaVidaEnQuinientosCincuenta() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getPuntosDeVida(), 550);
+    }
+
+    @Test
+    public void transformacionUnaVez_megatron_cambiaAtaqueACincuentaYCinco() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 55);
+    }
+
+    @Test
+    public void transformacionUnaVez_megatron_cambiaDistanciaDeAtaqueADos() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 2);
+    }
+
+    @Test
+    public void transformacionUnaVez_megatron_cambiaVelocidadAOcho() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getVelocidad(), 8);
+    }
+
+    @Test
+    public void transformacionDosVeces_megatron_cambiaAtaqueADiez() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 10);
+    }
+
+    @Test
+    public void transformacionDosVeces_megatron_cambiaDistanciaDeAtaqueATres() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 3);
+    }
+
+    @Test
+    public void transformacionDosVeces_megatron_cambiaVelocidadAUno() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+
+        assertEquals(algoFormer.getVelocidad(), 1);
+    }
+
+    @Test
+    public void transformacionUnaVez_megatron_cambiarTipoUnidad_esAerea() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
     }
 }

@@ -58,7 +58,7 @@ public class FrenzyTest {
     }
 
     @Test
-    public void cambiarModo_unaVez_cambiaAtaqueADies() {
+    public void cambiarModo_unaVez_cambiaAtaqueAVeinticinco() {
         Frenzy algoFormer = new Frenzy();
 
         algoFormer.transformar();
