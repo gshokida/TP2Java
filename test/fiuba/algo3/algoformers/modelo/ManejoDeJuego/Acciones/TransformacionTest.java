@@ -1,10 +1,7 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
@@ -350,5 +347,89 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
+    }
+
+    @Test
+    public void transformacionUnaVez_optimus_dejaVidaEnQuinientos() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getPuntosDeVida(), 500);
+    }
+
+    @Test
+    public void transformacionUnaVez_optimus_cambiaAtaqueAQuince() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 15);
+    }
+
+    @Test
+    public void transformacionUnaVez_optimus_cambiaDistanciaDeAtaqueACuatro() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 4);
+    }
+
+    @Test
+    public void transformacionUnaVez_optimus_cambiaVelocidadACinco() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getVelocidad(), 5);
+    }
+
+    @Test
+    public void transformacionDosVeces_optimus_cambiaAtaqueACincuenta() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 50);
+    }
+
+    @Test
+    public void transformacionDosVeces_optimus_cambiaDistanciaDeAtaqueADos() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 2);
+    }
+
+    @Test
+    public void transformacionDosVeces_optimus_cambiaVelocidadADos() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+
+        assertEquals(algoFormer.getVelocidad(), 2);
+    }
+
+    @Test
+    public void transformacionUnaVez_optimus_cambiarTipoUnidad_esTerrestre() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 }
