@@ -32,11 +32,21 @@ public class TransformacionTest {
 
     @Test
     public void transformacionunaVez_bonecrusher_cambiaDistanciaDeAtaqueATres() {
-        Bonecrusher algoFormer = new Bonecrusher();
+        AlgoFormer algoFormer = new Bonecrusher();
         Transformacion transformacion = new Transformacion(algoFormer);
 
         transformacion.aplicarTransformacion();
 
         assertEquals(algoFormer.getDistanciaDeAtaque(), 3);
+    }
+
+    @Test
+    public void transformacionunaVez_bonecrusher_cambiaVelocidadAOcho() {
+        AlgoFormer algoFormer = new Bonecrusher();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getVelocidad(), 8);
     }
 }
