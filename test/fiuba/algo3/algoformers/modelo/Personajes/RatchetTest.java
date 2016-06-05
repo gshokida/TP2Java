@@ -50,7 +50,7 @@ public class RatchetTest {
     }
 
     @Test
-    public void cambiarModo_unaVez_dejaVidaEnTrescientosCincuenta() {
+    public void cambiarModo_unaVez_dejaVidaEnCientoCincuenta() {
         Ratchet algoFormer = new Ratchet();
 
         algoFormer.transformar();

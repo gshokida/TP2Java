@@ -432,4 +432,88 @@ public class TransformacionTest {
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
+
+    @Test
+    public void transformacionUnaVez_ratchet_dejaVidaEnCientoCincuenta() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getPuntosDeVida(), 150);
+    }
+
+    @Test
+    public void transformacionUnaVez_ratchet_cambiaAtaqueATreintaYCinco() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 35);
+    }
+
+    @Test
+    public void transformacionUnaVez_ratchet_cambiaDistanciaDeAtaqueADos() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 2);
+    }
+
+    @Test
+    public void transformacionUnaVez_ratchet_cambiaVelocidadAOcho() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getVelocidad(), 8);
+    }
+
+    @Test
+    public void transformacionDosVeces_ratchet_cambiaAtaqueACinco() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 5);
+    }
+
+    @Test
+    public void transformacionDosVeces_ratchet_cambiaDistanciaDeAtaqueACinco() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 5);
+    }
+
+    @Test
+    public void transformacionDosVeces_ratchet_cambiaVelocidadAUno() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+
+        assertEquals(algoFormer.getVelocidad(), 1);
+    }
+
+    @Test
+    public void transformacionUnaVez_ratchet_cambiarTipoUnidad_esAerea() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
+    }
 }
