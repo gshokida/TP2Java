@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -89,6 +90,91 @@ public class TransformacionTest {
     @Test
     public void transformacionUnaVez_bonecrusher_cambiarTipoUnidad_esTerrestre() {
         AlgoFormer algoFormer = new Bonecrusher();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    }
+
+    //
+    @Test
+    public void transformacionUnaVez_bumblebee_dejaVidaEnTrescientosCincuenta() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getPuntosDeVida(), 350);
+    }
+
+    @Test
+    public void transformacionUnaVez_bumblebee_cambiaAtaqueAVeinte() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 20);
+    }
+
+    @Test
+    public void transformacionUnaVez_bumblebee_cambiaDistanciaDeAtaqueATres() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 3);
+    }
+
+    @Test
+    public void transformacionUnaVez_bumblebee_cambiaVelocidadACinco() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getVelocidad(), 5);
+    }
+
+    @Test
+    public void transformacionDosVeces_bumblebee_cambiaAtaqueACuarenta() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 40);
+    }
+
+    @Test
+    public void transformacionDosVeces_bumblebee_cambiaDistanciaDeAtaqueAUno() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getDistanciaDeAtaque(), 1);
+    }
+
+    @Test
+    public void transformacionDosVeces_bumblebee_cambiaVelocidadADos() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+        transformacion.aplicarTransformacion();
+
+
+        assertEquals(algoFormer.getVelocidad(), 2);
+    }
+
+    @Test
+    public void transformacionUnaVez_bumblebee_cambiarTipoUnidad_esTerrestre() {
+        AlgoFormer algoFormer = new Bumblebee();
         Transformacion transformacion = new Transformacion(algoFormer);
 
         transformacion.aplicarTransformacion();
