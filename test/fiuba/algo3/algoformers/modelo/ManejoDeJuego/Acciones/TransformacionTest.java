@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
 import org.junit.Test;
 
@@ -11,11 +12,21 @@ import static org.junit.Assert.assertEquals;
 public class TransformacionTest {
     @Test
     public void transformacionunaVez_bonecrusher_dejaVidaEnDoscientos() {
-        Bonecrusher algoFormer = new Bonecrusher();
+        AlgoFormer algoFormer = new Bonecrusher();
         Transformacion transformacion = new Transformacion(algoFormer);
 
         transformacion.aplicarTransformacion();
 
         assertEquals(algoFormer.getPuntosDeVida(), 200);
+    }
+
+    @Test
+    public void transformacionunaVez_bonecrusher_cambiaAtaqueATreinta() {
+        AlgoFormer algoFormer = new Bonecrusher();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertEquals(algoFormer.getAtaque(), 30);
     }
 }
