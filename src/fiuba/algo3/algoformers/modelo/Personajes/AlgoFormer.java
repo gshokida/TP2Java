@@ -2,6 +2,8 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficie;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.Modo;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
 /**
@@ -36,6 +38,10 @@ public abstract class AlgoFormer {
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
+    }
+
+    public boolean esModo(Modo modo) {
+        return true;
     }
 
     public Bando getBando() {

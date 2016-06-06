@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
@@ -98,6 +99,16 @@ public class TransformacionTest {
     }
 
     @Test
+    public void transformacionUnaVez_bonecrusher_cambiaModoAAlterno() {
+        AlgoFormer algoFormer = new Bonecrusher();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+    }
+
+    @Test
     public void transformacionUnaVez_bumblebee_dejaVidaEnTrescientosCincuenta() {
         AlgoFormer algoFormer = new Bumblebee();
         Transformacion transformacion = new Transformacion(algoFormer);
@@ -179,6 +190,16 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    }
+
+    @Test
+    public void transformacionUnaVez_bumblebee_cambiaModoAAlterno() {
+        AlgoFormer algoFormer = new Bumblebee();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
     }
 
     @Test
@@ -266,6 +287,16 @@ public class TransformacionTest {
     }
 
     @Test
+    public void transformacionUnaVez_frenzy_cambiaModoAAlterno() {
+        AlgoFormer algoFormer = new Frenzy();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+    }
+
+    @Test
     public void transformacionUnaVez_megatron_dejaVidaEnQuinientosCincuenta() {
         AlgoFormer algoFormer = new Megatron();
         Transformacion transformacion = new Transformacion(algoFormer);
@@ -347,6 +378,16 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
+    }
+
+    @Test
+    public void transformacionUnaVez_megatron_cambiaModoAAlterno() {
+        AlgoFormer algoFormer = new Megatron();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
     }
 
     @Test
@@ -434,6 +475,16 @@ public class TransformacionTest {
     }
 
     @Test
+    public void transformacionUnaVez_optimus_cambiaModoAAlterno() {
+        AlgoFormer algoFormer = new Optimus();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+    }
+
+    @Test
     public void transformacionUnaVez_ratchet_dejaVidaEnCientoCincuenta() {
         AlgoFormer algoFormer = new Ratchet();
         Transformacion transformacion = new Transformacion(algoFormer);
@@ -515,5 +566,15 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
+    }
+
+    @Test
+    public void transformacionUnaVez_ratchet_cambiaModoAAlterno() {
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+
+        transformacion.aplicarTransformacion();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
     }
 }
