@@ -1,16 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class FrenzyTest {
     @Test
@@ -24,7 +19,7 @@ public class FrenzyTest {
     public void nuevaInstancia_puntosDeVida_valeCuatrocientos() {
         Frenzy algoFormer = new Frenzy();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 400);
+        assertEquals(algoFormer.getPuntosDeVida(), 400, 0D);
     }
 
     @Test
@@ -54,7 +49,7 @@ public class FrenzyTest {
 
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 400);
+        assertEquals(algoFormer.getPuntosDeVida(), 400, 0D);
     }
 
     @Test
@@ -144,17 +139,11 @@ public class FrenzyTest {
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Frenzy frenzy = new Frenzy();
-        Bando bandoFrenzy = frenzy.getBando();
-        Bando bandoEnemigo = ((bandoFrenzy == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
-        int vidaInicialFrenzy = frenzy.getPuntosDeVida();
+        double vidaInicialFrenzy = frenzy.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
         frenzy.recibirAtaque(puntosDeAtaque);
 
-        assertEquals(frenzy.getPuntosDeVida(), vidaInicialFrenzy - puntosDeAtaque);
-    }
-
-    private void success() {
-        assertTrue(true);
+        assertEquals(frenzy.getPuntosDeVida(), vidaInicialFrenzy - puntosDeAtaque, 0D);
     }
 }

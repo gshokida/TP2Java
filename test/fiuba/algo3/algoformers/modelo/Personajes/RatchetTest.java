@@ -1,17 +1,12 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class RatchetTest {
     @Test
@@ -39,7 +34,7 @@ public class RatchetTest {
     public void nuevaInstancia_puntosDeVida_valeCientoCincuenta() {
         Ratchet algoFormer = new Ratchet();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 150);
+        assertEquals(algoFormer.getPuntosDeVida(), 150, 0D);
     }
 
     @Test
@@ -55,7 +50,7 @@ public class RatchetTest {
 
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 150);
+        assertEquals(algoFormer.getPuntosDeVida(), 150, 0D);
     }
 
     @Test
@@ -145,17 +140,11 @@ public class RatchetTest {
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Ratchet ratchet = new Ratchet();
-        Bando bandoRatchet = ratchet.getBando();
-        Bando bandoEnemigo = ((bandoRatchet == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
-        int vidaInicialRatchet = ratchet.getPuntosDeVida();
+        double vidaInicialRatchet = ratchet.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
         ratchet.recibirAtaque(puntosDeAtaque);
 
-        assertEquals(ratchet.getPuntosDeVida(), vidaInicialRatchet - puntosDeAtaque);
-    }
-
-    private void success() {
-        assertTrue(true);
+        assertEquals(ratchet.getPuntosDeVida(), vidaInicialRatchet - puntosDeAtaque, 0D);
     }
 }

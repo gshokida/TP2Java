@@ -1,10 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -36,7 +32,7 @@ public class OptimusTest {
     public void nuevaInstancia_puntosDeVida_valeQuinientos() {
         Optimus optimus = new Optimus();
 
-        assertEquals(optimus.getPuntosDeVida(), 500);
+        assertEquals(optimus.getPuntosDeVida(), 500, 0D);
     }
 
     @Test
@@ -52,7 +48,7 @@ public class OptimusTest {
 
         optimus.transformar();
 
-        assertEquals(optimus.getPuntosDeVida(), 500);
+        assertEquals(optimus.getPuntosDeVida(), 500, 0D);
     }
 
     @Test
@@ -142,17 +138,11 @@ public class OptimusTest {
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Optimus optimus = new Optimus();
-        Bando bandoOptimus = optimus.getBando();
-        Bando bandoEnemigo = ((bandoOptimus == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
-        int vidaInicialOptimus = optimus.getPuntosDeVida();
+        double vidaInicialOptimus = optimus.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
         optimus.recibirAtaque(puntosDeAtaque);
 
-        assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - puntosDeAtaque);
-    }
-
-    private void success() {
-        assertTrue(true);
+        assertEquals(optimus.getPuntosDeVida(), vidaInicialOptimus - puntosDeAtaque, 0D);
     }
 }

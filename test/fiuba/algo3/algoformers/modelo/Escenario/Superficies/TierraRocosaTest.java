@@ -27,7 +27,7 @@ public class TierraRocosaTest {
             fail();
         }
 
-        assertEquals(500, optimus.getPuntosDeVida());
+        assertEquals(500, optimus.getPuntosDeVida(), 0D);
         assertEquals(50, optimus.getAtaque());
         assertEquals(2, optimus.getDistanciaDeAtaque());
         assertEquals(2, optimus.getVelocidad());
@@ -47,7 +47,7 @@ public class TierraRocosaTest {
             fail();
         }
 
-        assertEquals(500, optimus.getPuntosDeVida());
+        assertEquals(500, optimus.getPuntosDeVida(), 0D);
         assertEquals(15, optimus.getAtaque());
         assertEquals(4, optimus.getDistanciaDeAtaque());
         assertEquals(5, optimus.getVelocidad());
@@ -64,7 +64,7 @@ public class TierraRocosaTest {
             fail();
         }
 
-        assertEquals(350, bumblebee.getPuntosDeVida());
+        assertEquals(350, bumblebee.getPuntosDeVida(), 0D);
         assertEquals(40, bumblebee.getAtaque());
         assertEquals(1, bumblebee.getDistanciaDeAtaque());
         assertEquals(2, bumblebee.getVelocidad());
@@ -84,7 +84,7 @@ public class TierraRocosaTest {
             fail();
         }
 
-        assertEquals(350, bumblebee.getPuntosDeVida());
+        assertEquals(350, bumblebee.getPuntosDeVida(), 0D);
         assertEquals(20, bumblebee.getAtaque());
         assertEquals(3, bumblebee.getDistanciaDeAtaque());
         assertEquals(5, bumblebee.getVelocidad());

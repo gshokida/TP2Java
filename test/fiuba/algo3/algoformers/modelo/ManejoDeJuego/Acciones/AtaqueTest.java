@@ -25,7 +25,7 @@ public class AtaqueTest {
         AlgoFormer algoFormerAtacado = new Megatron();
         int distanciaDeAtaqueMaxima = algoFormerAtacante.getDistanciaDeAtaque();
         int puntosDeAtaque = algoFormerAtacante.getAtaque();
-        int puntosDeVidaInicial = algoFormerAtacado.getPuntosDeVida();
+        double puntosDeVidaInicial = algoFormerAtacado.getPuntosDeVida();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1,0));
@@ -42,7 +42,7 @@ public class AtaqueTest {
             fail();
         }
 
-        assertEquals(algoFormerAtacado.getPuntosDeVida(), puntosDeVidaInicial - puntosDeAtaque);
+        assertEquals(algoFormerAtacado.getPuntosDeVida(), puntosDeVidaInicial - puntosDeAtaque, 0D);
     }
 
     @Test

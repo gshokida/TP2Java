@@ -1,16 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class BonecrusherTest {
     @Test
@@ -24,7 +19,7 @@ public class BonecrusherTest {
     public void nuevaInstancia_puntosDeVida_valeDoscientos() {
         Bonecrusher algoFormer = new Bonecrusher();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 200);
+        assertEquals(algoFormer.getPuntosDeVida(), 200, 0D);
     }
 
     @Test
@@ -54,7 +49,7 @@ public class BonecrusherTest {
 
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 200);
+        assertEquals(algoFormer.getPuntosDeVida(), 200, 0D);
     }
 
     @Test
@@ -144,17 +139,11 @@ public class BonecrusherTest {
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Bonecrusher bonecrusher = new Bonecrusher();
-        Bando bandoBonecrusher = bonecrusher.getBando();
-        Bando bandoEnemigo = ((bandoBonecrusher == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
-        int vidaInicialBonecrusher = bonecrusher.getPuntosDeVida();
+        double vidaInicialBonecrusher = bonecrusher.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
         bonecrusher.recibirAtaque(puntosDeAtaque);
 
-        assertEquals(bonecrusher.getPuntosDeVida(), vidaInicialBonecrusher - puntosDeAtaque);
-    }
-
-    private void success() {
-        assertTrue(true);
+        assertEquals(bonecrusher.getPuntosDeVida(), vidaInicialBonecrusher - puntosDeAtaque, 0D);
     }
 }

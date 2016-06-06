@@ -10,7 +10,7 @@ public class EfectoSuperficieEspinas implements EfectoSuperficie {
     private int porcentaje = 5;
 
     public void aplicarEfecto(AlgoFormer algoformer){
-        int danio = algoformer.getPuntosDeVida() * this.porcentaje / 100;
+        double danio = algoformer.getPuntosDeVida() * this.porcentaje / 100;
         algoformer.recibirDanio(danio);
     }
 

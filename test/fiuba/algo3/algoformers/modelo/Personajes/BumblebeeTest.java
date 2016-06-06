@@ -1,16 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class BumblebeeTest {
     @Test
@@ -38,7 +33,7 @@ public class BumblebeeTest {
     public void nuevaInstancia_puntosDeVida_valeTrescientosCincuenta() {
         Bumblebee bumblebee = new Bumblebee();
 
-        assertEquals(bumblebee.getPuntosDeVida(), 350);
+        assertEquals(bumblebee.getPuntosDeVida(), 350, 0D);
     }
 
     @Test
@@ -54,7 +49,7 @@ public class BumblebeeTest {
 
         bumblebee.transformar();
 
-        assertEquals(bumblebee.getPuntosDeVida(), 350);
+        assertEquals(bumblebee.getPuntosDeVida(), 350, 0D);
     }
 
     @Test
@@ -144,17 +139,11 @@ public class BumblebeeTest {
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Bumblebee bumblebee = new Bumblebee();
-        Bando bandoBumblebee = bumblebee.getBando();
-        Bando bandoEnemigo = ((bandoBumblebee == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
-        int vidaInicialBumblebee = bumblebee.getPuntosDeVida();
+        double vidaInicialBumblebee = bumblebee.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
         bumblebee.recibirAtaque(puntosDeAtaque);
 
-        assertEquals(bumblebee.getPuntosDeVida(), vidaInicialBumblebee - puntosDeAtaque);
-    }
-
-    private void success() {
-        assertTrue(true);
+        assertEquals(bumblebee.getPuntosDeVida(), vidaInicialBumblebee - puntosDeAtaque, 0D);
     }
 }

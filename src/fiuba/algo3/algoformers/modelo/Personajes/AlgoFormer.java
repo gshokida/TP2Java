@@ -12,7 +12,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
  */
 public abstract class AlgoFormer {
     protected String nombre;
-    protected int puntosDeVida;
+    protected double puntosDeVida;
     protected AlgoformerEstado estado;
     protected Bando bando;
     protected EfectoSuperficie efectoSuperficieRecibido;
@@ -21,7 +21,7 @@ public abstract class AlgoFormer {
         return nombre;
     }
 
-    public int getPuntosDeVida() {
+    public double getPuntosDeVida() {
         return puntosDeVida;
     }
 
@@ -49,7 +49,7 @@ public abstract class AlgoFormer {
         recibirDanio(puntosDeAtaque);
     }
 
-    public void recibirDanio(int puntosDeAtaque) {
+    public void recibirDanio(double puntosDeAtaque) {
         this.puntosDeVida -= (puntosDeAtaque);
     }
 

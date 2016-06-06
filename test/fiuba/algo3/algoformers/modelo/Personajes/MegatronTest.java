@@ -1,10 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
@@ -42,7 +38,7 @@ public class MegatronTest {
     public void nuevaInstancia_puntosDeVida_valeQuinientosCincuenta() {
         Megatron megatron = new Megatron();
 
-        assertEquals(megatron.getPuntosDeVida(), 550);
+        assertEquals(megatron.getPuntosDeVida(), 550, 0D);
     }
 
     @Test
@@ -58,7 +54,7 @@ public class MegatronTest {
 
         megatron.transformar();
 
-        assertEquals(megatron.getPuntosDeVida(), 550);
+        assertEquals(megatron.getPuntosDeVida(), 550, 0D);
     }
 
     @Test
@@ -148,17 +144,11 @@ public class MegatronTest {
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {
         Megatron megatron = new Megatron();
-        Bando bandoMegatron = megatron.getBando();
-        Bando bandoEnemigo = ((bandoMegatron == BandoAutobots.getInstance()) ? BandoDecepticons.getInstance() : BandoAutobots.getInstance());
-        int vidaInicialMegatron = megatron.getPuntosDeVida();
+        double vidaInicialMegatron = megatron.getPuntosDeVida();
         int puntosDeAtaque = 10;
 
         megatron.recibirAtaque(puntosDeAtaque);
 
-        assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - puntosDeAtaque);
-    }
-
-    private void success() {
-        assertTrue(true);
+        assertEquals(megatron.getPuntosDeVida(), vidaInicialMegatron - puntosDeAtaque, 0D);
     }
 }

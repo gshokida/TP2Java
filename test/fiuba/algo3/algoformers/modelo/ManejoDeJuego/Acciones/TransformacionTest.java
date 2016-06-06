@@ -20,7 +20,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 200);
+        assertEquals(algoFormer.getPuntosDeVida(), 200, 0D);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 350);
+        assertEquals(algoFormer.getPuntosDeVida(), 350, 0D);
     }
 
     @Test
@@ -188,7 +188,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 400);
+        assertEquals(algoFormer.getPuntosDeVida(), 400, 0D);
     }
 
     @Test
@@ -272,7 +272,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 550);
+        assertEquals(algoFormer.getPuntosDeVida(), 550, 0D);
     }
 
     @Test
@@ -356,7 +356,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 500);
+        assertEquals(algoFormer.getPuntosDeVida(), 500, 0D);
     }
 
     @Test
@@ -440,7 +440,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getPuntosDeVida(), 150);
+        assertEquals(algoFormer.getPuntosDeVida(), 150, 0D);
     }
 
     @Test
