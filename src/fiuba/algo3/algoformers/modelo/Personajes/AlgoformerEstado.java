@@ -12,12 +12,14 @@ public class AlgoformerEstado {
     private int distanciaDeAtaque;
     private int velocidad;
     private TipoUnidad tipoUnidad;
+    private Modo modo;
 
     public AlgoformerEstado(int ataque, int distanciaDeAtaque, int velocidad, TipoUnidad tipoUnidad, Modo modo) {
         this.ataque = ataque;
         this.distanciaDeAtaque = distanciaDeAtaque;
         this.velocidad = velocidad;
         this.tipoUnidad = tipoUnidad;
+        this.modo = modo;
     }
 
     public int getAtaque() {
@@ -37,6 +39,6 @@ public class AlgoformerEstado {
     }
 
     public boolean esModo(Modo modo) {
-        return true;
+        return this.modo.esModo(modo);
     }
 }
