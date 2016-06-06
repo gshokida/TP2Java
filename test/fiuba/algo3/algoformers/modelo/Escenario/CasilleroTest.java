@@ -60,7 +60,7 @@ public class CasilleroTest {
 
     @Test
     public void casilleroNuevoConSuperficieAerea(){
-        SuperficieAerea nube = Nube.getInstance();
+        SuperficieAerea nube = new Nube();
         Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setSuperficieAerea(nube);

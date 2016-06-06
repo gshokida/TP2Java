@@ -103,11 +103,11 @@ public class TierraRocosaTest {
             tierraRocosa.interactuar(ratchet);
             fail();
         }catch (NoPuedeInteractuarConSuperficieException ex){
-            succes();
+            success();
         }
     }
 
-    private void succes() {
+    private void success() {
         assertTrue(true);
     }
 }
