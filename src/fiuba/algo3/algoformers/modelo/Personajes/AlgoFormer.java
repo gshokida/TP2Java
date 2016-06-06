@@ -41,7 +41,7 @@ public abstract class AlgoFormer {
     }
 
     public boolean esModo(Modo modo) {
-        return true;
+        return estado.esModo(modo);
     }
 
     public Bando getBando() {
