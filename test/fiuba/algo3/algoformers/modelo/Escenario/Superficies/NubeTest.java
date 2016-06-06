@@ -3,8 +3,7 @@ package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -17,51 +16,180 @@ import static org.junit.Assert.fail;
 public class NubeTest {
     @Test
     public void ratchetEnModoAvion_NoEsAfectadoPorNube(){
-        AlgoFormer ratchet = new Ratchet();
+        AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea nube = new Nube();
 
-        Transformacion transformacion = new Transformacion(ratchet);
+        Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
 
         try {
-            nube.interactuar(ratchet);
+            nube.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
         }
 
-        assertEquals(150, ratchet.getPuntosDeVida());
-        assertEquals(35, ratchet.getAtaque());
-        assertEquals(2, ratchet.getDistanciaDeAtaque());
-        assertEquals(8, ratchet.getVelocidad());
+        assertEquals(150, algoFormer.getPuntosDeVida(), 0D);
+        assertEquals(35, algoFormer.getAtaque());
+        assertEquals(2, algoFormer.getDistanciaDeAtaque());
+        assertEquals(8, algoFormer.getVelocidad());
+    }
+
+    @Test
+    public void ratchetEnModoHumanoide_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Ratchet();
+        SuperficieAerea nube = new Nube();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
     }
 
     @Test
     public void megatronEnModoAvion_NoEsAfectadoPorNube(){
-        AlgoFormer megatron = new Megatron();
+        AlgoFormer algoFormer = new Megatron();
         SuperficieAerea nube = new Nube();
 
-        Transformacion transformacion = new Transformacion(megatron);
+        Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
 
         try {
-            nube.interactuar(megatron);
+            nube.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
         }
 
-        assertEquals(550, megatron.getPuntosDeVida());
-        assertEquals(55, megatron.getAtaque());
-        assertEquals(2, megatron.getDistanciaDeAtaque());
-        assertEquals(8, megatron.getVelocidad());
+        assertEquals(550, algoFormer.getPuntosDeVida(), 0D);
+        assertEquals(55, algoFormer.getAtaque());
+        assertEquals(2, algoFormer.getDistanciaDeAtaque());
+        assertEquals(8, algoFormer.getVelocidad());
     }
 
     @Test
     public void megatronEnModoHumanoide_LaSuperficieNoAfectaAUnidadesTerrestres(){
-        AlgoFormer megatron = new Megatron();
+        AlgoFormer algoFormer = new Megatron();
         SuperficieAerea nube = new Nube();
 
         try {
-            nube.interactuar(megatron);
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void optimusEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Optimus();
+        SuperficieAerea nube = new Nube();
+
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void optimusEnModoHumanoide_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Optimus();
+        SuperficieAerea nube = new Nube();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void bumblebeeEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Bumblebee();
+        SuperficieAerea nube = new Nube();
+
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void bumblebeeEnModoHumanoide_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Bumblebee();
+        SuperficieAerea nube = new Nube();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void bonecrusherEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Bonecrusher();
+        SuperficieAerea nube = new Nube();
+
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void bonecrusherEnModoHumanoide_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Bonecrusher();
+        SuperficieAerea nube = new Nube();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void frenzyEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Frenzy();
+        SuperficieAerea nube = new Nube();
+
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+
+        try {
+            nube.interactuar(algoFormer);
+            fail();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void frenzyEnModoHumanoide_LaSuperficieNoAfectaAUnidadesTerrestres(){
+        AlgoFormer algoFormer = new Frenzy();
+        SuperficieAerea nube = new Nube();
+
+        try {
+            nube.interactuar(algoFormer);
             fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             success();
