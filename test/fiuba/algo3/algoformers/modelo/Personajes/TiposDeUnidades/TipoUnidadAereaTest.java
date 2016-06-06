@@ -10,12 +10,12 @@ import static org.junit.Assert.assertTrue;
  */
 public class TipoUnidadAereaTest {
     @Test
-    public void esTipoUnidad_siSeEnviaASiMismo_esVerdadero() throws Exception {
+    public void esTipoUnidad_siSeEnviaASiMismo_esVerdadero() {
         assertTrue(TipoUnidadAerea.getInstance().esTipoUnidad(TipoUnidadAerea.getInstance()));
     }
 
     @Test
-    public void esTipoUniad_siSeEnviaTipoDeUnidadDistinto_esFalso() throws Exception {
+    public void esTipoUniad_siSeEnviaTipoDeUnidadDistinto_esFalso() {
         assertFalse(TipoUnidadAerea.getInstance().esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
 }
