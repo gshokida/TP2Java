@@ -41,4 +41,8 @@ public class AlgoformerEstado {
     public boolean esModo(Modo modo) {
         return this.modo.esModo(modo);
     }
+
+    public void disminuirAtaque(double disminucionAtaque) {
+        this.ataque -= disminucionAtaque;
+    }
 }

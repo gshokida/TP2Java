@@ -56,6 +56,10 @@ public abstract class AlgoFormer {
         this.puntosDeVida -= (puntosDeAtaque);
     }
 
+    public void disminuirAtaque(double disminucionAtaque) {
+        this.estado.disminuirAtaque(disminucionAtaque);
+    }
+
     public void recibirEfectoSuperficies(EfectoSuperficie efectoSuperficie) {
         this.efectoSuperficieRecibido = efectoSuperficie;
     }
