@@ -3,12 +3,12 @@ package fiuba.algo3.algoformers.modelo.Personajes.Modos;
 /**
  * Created by gaston.tulipani on 06/06/2016.
  */
-public class ModoHumanoide implements Modo {
-    private static ModoHumanoide unicaInstancia = new ModoHumanoide();
+public class ModoAlterno implements Modo {
+    private static ModoAlterno unicaInstancia = new ModoAlterno();
 
-    private ModoHumanoide() {}
+    private ModoAlterno() {}
 
-    public static ModoHumanoide getInstance() {
+    public static ModoAlterno getInstance() {
         return unicaInstancia;
     }
 
