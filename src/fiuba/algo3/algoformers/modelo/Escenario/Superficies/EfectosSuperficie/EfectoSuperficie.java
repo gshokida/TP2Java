@@ -7,4 +7,5 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
  */
 public interface EfectoSuperficie {
     void aplicarEfecto(AlgoFormer algoformer);
+    int duracionEfecto();
 }

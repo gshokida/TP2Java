@@ -1,12 +1,16 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Created by german.shokida on 6/6/2016.
@@ -17,7 +21,11 @@ public class TierraRocosaTest {
         AlgoFormer optimus = new Optimus();
         TierraRocosa tierraRocosa = new TierraRocosa();
 
-        tierraRocosa.interactuar(optimus);
+        try {
+            tierraRocosa.interactuar(optimus);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         assertEquals(500, optimus.getPuntosDeVida());
         assertEquals(50, optimus.getAtaque());
@@ -33,7 +41,11 @@ public class TierraRocosaTest {
 
         transformacion.aplicarTransformacion();
 
-        tierraRocosa.interactuar(optimus);
+        try {
+            tierraRocosa.interactuar(optimus);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         assertEquals(500, optimus.getPuntosDeVida());
         assertEquals(15, optimus.getAtaque());
@@ -46,7 +58,11 @@ public class TierraRocosaTest {
         AlgoFormer bumblebee = new Bumblebee();
         TierraRocosa tierraRocosa = new TierraRocosa();
 
-        tierraRocosa.interactuar(bumblebee);
+        try {
+            tierraRocosa.interactuar(bumblebee);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         assertEquals(350, bumblebee.getPuntosDeVida());
         assertEquals(40, bumblebee.getAtaque());
@@ -55,18 +71,43 @@ public class TierraRocosaTest {
     }
 
     @Test
-    public void superficieRocosaNoAplicaNingunEfectoSobreBumblebeeTransformado(){
+    public void superficieRocosaNoAplicaNingunEfectoSobreBumblebeeTransformado() {
         AlgoFormer bumblebee = new Bumblebee();
         TierraRocosa tierraRocosa = new TierraRocosa();
         Transformacion transformacion = new Transformacion(bumblebee);
 
         transformacion.aplicarTransformacion();
 
-        tierraRocosa.interactuar(bumblebee);
+        try {
+            tierraRocosa.interactuar(bumblebee);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         assertEquals(350, bumblebee.getPuntosDeVida());
         assertEquals(20, bumblebee.getAtaque());
         assertEquals(3, bumblebee.getDistanciaDeAtaque());
         assertEquals(5, bumblebee.getVelocidad());
+    }
+
+    @Test
+    public void superficieRocosaNoAplicaNingunEfectoSobreRatchetTransformado_NoPuedeInteractuarConUnidadAerea(){
+        AlgoFormer ratchet = new Ratchet();
+        TierraRocosa tierraRocosa = new TierraRocosa();
+
+        Transformacion transformacion = new Transformacion(ratchet);
+
+        transformacion.aplicarTransformacion();
+
+        try {
+            tierraRocosa.interactuar(ratchet);
+            fail();
+        }catch (NoPuedeInteractuarConSuperficieException ex){
+            succes();
+        }
+    }
+
+    private void succes() {
+        assertTrue(true);
     }
 }
