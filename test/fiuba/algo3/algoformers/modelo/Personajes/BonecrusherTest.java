@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bonecrusher;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -134,6 +135,15 @@ public class BonecrusherTest {
         algoFormer.transformar();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    }
+
+    @Test
+    public void cambiarModo_modo_esModoAlterno() {
+        Bonecrusher algoFormer = new Bonecrusher();
+
+        algoFormer.transformar();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
     }
 
     @Test

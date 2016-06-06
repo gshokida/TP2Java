@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -134,6 +135,15 @@ public class BumblebeeTest {
         bumblebee.transformar();
 
         assertTrue(bumblebee.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    }
+
+    @Test
+    public void cambiarModo_modo_esModoAlterno() {
+        Bumblebee algoFormer = new Bumblebee();
+
+        algoFormer.transformar();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
     }
 
     @Test

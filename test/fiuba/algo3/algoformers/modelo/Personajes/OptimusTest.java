@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
 
@@ -134,6 +135,16 @@ public class OptimusTest {
 
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
     }
+
+    @Test
+    public void cambiarModo_modo_esModoAlterno() {
+        Optimus algoFormer = new Optimus();
+
+        algoFormer.transformar();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+    }
+
 
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {

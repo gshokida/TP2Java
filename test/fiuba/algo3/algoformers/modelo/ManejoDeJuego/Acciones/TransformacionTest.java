@@ -645,4 +645,6 @@ public class TransformacionTest {
 
         assertFalse(algoFormer.esModo(ModoAlterno.getInstance()));
     }
+
+
 }

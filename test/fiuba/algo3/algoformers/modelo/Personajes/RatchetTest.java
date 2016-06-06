@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 import org.junit.Test;
@@ -135,6 +136,15 @@ public class RatchetTest {
         algoFormer.transformar();
 
         assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
+    }
+
+    @Test
+    public void cambiarModo_modo_esModoAlterno() {
+        Ratchet algoFormer = new Ratchet();
+
+        algoFormer.transformar();
+
+        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
     }
 
     @Test
