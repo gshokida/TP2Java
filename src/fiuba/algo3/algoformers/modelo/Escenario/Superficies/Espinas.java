@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficie;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficieEspinas;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**
@@ -8,6 +10,10 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 public class Espinas implements SuperficieTerrestre {
 
     public void interactuar(AlgoFormer algoformer) {
+        EfectoSuperficie efecto = new EfectoSuperficieEspinas();
 
+        algoformer.recibirEfectoSuperficies(efecto);
+
+        algoformer.ejecutarEfecto();
     }
 }

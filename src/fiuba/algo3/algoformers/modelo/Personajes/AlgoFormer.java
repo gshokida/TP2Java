@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.Personajes;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficie;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
@@ -14,6 +15,7 @@ public abstract class AlgoFormer {
     protected int puntosDeVida;
     protected AlgoformerEstado estado;
     protected Bando bando;
+    protected EfectoSuperficie efectoSuperficieRecibido;
 
     public String getNombre() {
         return nombre;
@@ -51,5 +53,13 @@ public abstract class AlgoFormer {
         this.puntosDeVida -= (puntosDeAtaque);
     }
 
+    public void recibirEfectoSuperficies(EfectoSuperficie efectoSuperficie) {
+        this.efectoSuperficieRecibido = efectoSuperficie;
+    }
+
     public abstract void transformar();
+
+    public void ejecutarEfecto() {
+        this.efectoSuperficieRecibido.aplicarEfecto(this);
+    }
 }
