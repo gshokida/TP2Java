@@ -1,20 +1,13 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+
 /**
  * Created by german.shokida on 30/5/2016.
  */
 public class Espinas implements SuperficieTerrestre {
-    private static SuperficieTerrestre espina;
 
-    private Espinas() {
+    public void interactuar(AlgoFormer algoformer) {
 
-    }
-
-    public static SuperficieTerrestre getInstance() {
-        if (Espinas.espina == null) {
-            Espinas.espina = new Espinas();
-        }
-
-        return Espinas.espina;
     }
 }

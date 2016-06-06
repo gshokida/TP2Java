@@ -50,7 +50,7 @@ public class CasilleroTest {
 
     @Test
     public void casilleroNuevoConSuperficieDeTierra(){
-        SuperficieTerrestre tierraRocosa = TierraRocosa.getInstance();
+        SuperficieTerrestre tierraRocosa = new TierraRocosa();
         Casillero casillero = new Casillero(new Posicion(0,0));
 
         casillero.setSuperficieTerreste(tierraRocosa);
