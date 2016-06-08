@@ -8,10 +8,13 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
  */
 public class EfectoTormentaPsionica implements EfectoSuperficieAtaque {
     private int porcentaje = 40;
+    private int ataqueSacado;
 
     public EfectoTormentaPsionica() {}
 
     @Override
     public void aplicarEfecto(AlgoFormer algoformer){
+        this.ataqueSacado = algoformer.getAtaque() * porcentaje / 100;
+        algoformer.debilitar(ataqueSacado);
     }
 }

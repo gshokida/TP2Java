@@ -45,4 +45,8 @@ public class AlgoformerEstado {
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
 }

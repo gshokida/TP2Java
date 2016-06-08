@@ -83,6 +83,11 @@ public abstract class AlgoFormer {
         this.estado.setVelocidad(0);
     }
 
+    public void debilitar(int ataqueSacado) {
+        int ataqueActual = this.estado.getAtaque();
+        this.estado.setAtaque(ataqueActual - ataqueSacado);
+    }
+
     public boolean sePuedeMover() {
         this.aplicarEfectos(efectosDeMovimiento);
         return (estado.getVelocidad() != 0);
