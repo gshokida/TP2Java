@@ -1,6 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie;
 
-import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficieAtaque;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**

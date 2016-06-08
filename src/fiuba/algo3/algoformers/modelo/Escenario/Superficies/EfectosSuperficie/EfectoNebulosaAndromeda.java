@@ -13,9 +13,17 @@ public class EfectoNebulosaAndromeda implements EfectoSuperficieMovimiento {
         this.duracion = 3;
     }
 
+    public int getDuracion() {
+        return duracion;
+    }
+
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
         this.velocidadSacada = algoformer.getVelocidad();
         algoformer.frenar();
+    }
+
+    public void pasarTurno() {
+        this.duracion--;
     }
 }
