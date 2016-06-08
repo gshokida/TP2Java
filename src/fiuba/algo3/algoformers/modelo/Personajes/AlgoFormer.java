@@ -1,11 +1,13 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficie;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficieAtaque;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficieMovimiento;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.Modo;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -16,8 +18,8 @@ public abstract class AlgoFormer {
     protected double puntosDeVida;
     protected AlgoformerEstado estado;
     protected Bando bando;
-    protected List<EfectoSuperficieAtaque> efectosDeAtaque;
-    protected List<EfectoSuperficieMovimiento> efectosDeMovimiento;
+    protected List<EfectoSuperficie> efectosDeAtaque;
+    protected List<EfectoSuperficie> efectosDeMovimiento;
 
     public String getNombre() {
         return nombre;
@@ -37,6 +39,14 @@ public abstract class AlgoFormer {
 
     public int getVelocidad() {
         return estado.getVelocidad();
+    }
+
+    private void aplicarEfectos(List<EfectoSuperficie> efectosDeSuperficie) {
+        Iterator<EfectoSuperficie> iterador = efectosDeSuperficie.iterator();
+        while (iterador.hasNext()) {
+            EfectoSuperficie efecto = iterador.next();
+            efecto.aplicarEfecto(this);
+        }
     }
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
@@ -68,4 +78,13 @@ public abstract class AlgoFormer {
     }
 
     public abstract void transformar();
+
+    public void frenar() {
+        this.estado.setVelocidad(0);
+    }
+
+    public boolean sePuedeMover() {
+        this.aplicarEfectos(efectosDeMovimiento);
+        return (estado.getVelocidad() != 0);
+    }
 }

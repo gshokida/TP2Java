@@ -8,6 +8,6 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 public class EfectoNebulosaAndromeda implements EfectoSuperficieMovimiento {
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
-
+        algoformer.frenar();
     }
 }

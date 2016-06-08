@@ -42,7 +42,7 @@ public class AlgoformerEstado {
         return this.modo.esModo(modo);
     }
 
-    public void disminuirAtaque(double disminucionAtaque) {
-        this.ataque -= disminucionAtaque;
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
     }
 }
