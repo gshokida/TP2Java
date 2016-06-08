@@ -1,6 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosInstantaneo.EfectoPantano;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosInstantaneo.EfectoSuperficieInstantaneo;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -23,16 +25,12 @@ public class EfectoPantanoTest {
     @Test
     public void elAutobot_Esta_Empantanado() {
         AlgoFormer algoFormer = new Optimus();
-        SuperficieTerrestre pantano = new Pantano();
+        EfectoSuperficieInstantaneo pantano = new EfectoPantano();
         algoFormer.transformar();
 
 
-        try {
-            pantano.interactuar(algoFormer);
-            success();
-        } catch (NoPuedeInteractuarConSuperficieException e) {
-            fail();
-        }
+        pantano.aplicarEfecto(algoFormer);
+
 
         Assert.assertEquals(algoFormer.getEstado(), EstadoEmpantanado.getUnicaInstancia());
 
@@ -42,16 +40,12 @@ public class EfectoPantanoTest {
     @Test
     public void elAutobot_No_Esta_Empantanado_Despues_De_Pasar_Por_Terreno_Rocoso() {
         AlgoFormer algoFormer = new Optimus();
-        SuperficieTerrestre pantano = new Pantano();
+        EfectoSuperficieInstantaneo pantano = new EfectoPantano();
         algoFormer.transformar();
 
 
-        try {
-            pantano.interactuar(algoFormer);
-            success();
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        pantano.aplicarEfecto(algoFormer);
 
-        }
 
         SuperficieTerrestre rocoso = new TierraRocosa();
 
@@ -70,16 +64,12 @@ public class EfectoPantanoTest {
     @Test
     public void elAutobot_No_Esta_Empantanado_Despues_De_Pasar_Por_Terreno_Espinoso() {
         AlgoFormer algoFormer = new Optimus();
-        SuperficieTerrestre pantano = new Pantano();
+        EfectoSuperficieInstantaneo pantano = new EfectoPantano();
         algoFormer.transformar();
 
 
-        try {
-            pantano.interactuar(algoFormer);
-            success();
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+            pantano.aplicarEfecto(algoFormer);
 
-        }
 
         SuperficieTerrestre espinas = new Espinas();
 
