@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
+package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
@@ -6,6 +6,6 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 /**
  * Created by german.shokida on 27/5/2016.
  */
-public interface SuperficieTerrestre {
+public interface SuperficieAerea {
     void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException;
 }

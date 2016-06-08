@@ -7,6 +7,8 @@ import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
+import java.util.LinkedList;
+
 public class Optimus extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
@@ -14,6 +16,8 @@ public class Optimus extends AlgoFormer {
         nombre = "Optimus Prime";
         puntosDeVida = 500;
         bando = BandoAutobots.getInstance();
+        efectosDeAtaque = new LinkedList<>();
+        efectosDeMovimiento = new LinkedList<>();
         int ataqueNormal = 50;
         int distanciaAtaqueNormal = 2;
         int velocidadNormal = 2;

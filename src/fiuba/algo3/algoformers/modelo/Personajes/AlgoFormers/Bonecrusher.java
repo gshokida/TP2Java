@@ -7,6 +7,9 @@ import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Bonecrusher extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
@@ -14,6 +17,8 @@ public class Bonecrusher extends AlgoFormer {
         nombre = "Bonecrusher";
         puntosDeVida = 200;
         bando = BandoDecepticons.getInstance();
+        efectosDeAtaque = new LinkedList<>();
+        efectosDeMovimiento = new LinkedList<>();
         int ataqueNormal = 30;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;

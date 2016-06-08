@@ -8,6 +8,8 @@ import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
+import java.util.LinkedList;
+
 public class Megatron extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
@@ -15,6 +17,8 @@ public class Megatron extends AlgoFormer {
         nombre = "Megatron";
         puntosDeVida = 550;
         bando = BandoDecepticons.getInstance();
+        efectosDeAtaque = new LinkedList<>();
+        efectosDeMovimiento = new LinkedList<>();
         int ataqueNormal = 10;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;

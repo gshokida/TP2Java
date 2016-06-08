@@ -1,6 +1,7 @@
-package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
+package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**

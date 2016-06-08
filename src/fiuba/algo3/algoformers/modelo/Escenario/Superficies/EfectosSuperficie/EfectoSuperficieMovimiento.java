@@ -3,8 +3,9 @@ package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**
- * Created by german.shokida on 6/6/2016.
+ * Created by Familia on 07/06/2016.
  */
-public interface EfectoSuperficie {
+public interface EfectoSuperficieMovimiento extends EfectoSuperficie {
+    @Override
     void aplicarEfecto(AlgoFormer algoformer);
 }

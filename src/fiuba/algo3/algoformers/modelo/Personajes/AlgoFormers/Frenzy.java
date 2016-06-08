@@ -7,6 +7,8 @@ import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
+import java.util.LinkedList;
+
 public class Frenzy extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
@@ -14,6 +16,8 @@ public class Frenzy extends AlgoFormer {
         nombre = "Frenzy";
         puntosDeVida = 400;
         bando = BandoDecepticons.getInstance();
+        efectosDeAtaque = new LinkedList<>();
+        efectosDeMovimiento = new LinkedList<>();
         int ataqueNormal = 10;
         int distanciaAtaqueNormal = 5;
         int velocidadNormal = 2;

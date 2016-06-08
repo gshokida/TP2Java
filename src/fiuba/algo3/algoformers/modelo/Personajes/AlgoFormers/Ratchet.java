@@ -8,6 +8,8 @@ import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
+import java.util.LinkedList;
+
 public class Ratchet extends AlgoFormer {
     private AlgoformerEstado estadoInactivo;
 
@@ -15,6 +17,8 @@ public class Ratchet extends AlgoFormer {
         nombre = "Ratchet";
         puntosDeVida = 150;
         bando = BandoAutobots.getInstance();
+        efectosDeAtaque = new LinkedList<>();
+        efectosDeMovimiento = new LinkedList<>();
         int ataqueNormal = 5;
         int distanciaAtaqueNormal = 5;
         int velocidadNormal = 1;

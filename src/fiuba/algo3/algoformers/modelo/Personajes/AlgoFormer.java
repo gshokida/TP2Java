@@ -1,10 +1,12 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
-import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficie;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficieAtaque;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficieMovimiento;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.Modo;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
+
+import java.util.List;
 
 /**
  * Created by german.shokida on 24/5/2016.
@@ -14,7 +16,8 @@ public abstract class AlgoFormer {
     protected double puntosDeVida;
     protected AlgoformerEstado estado;
     protected Bando bando;
-    protected EfectoSuperficie efectoSuperficieRecibido;
+    protected List<EfectoSuperficieAtaque> efectosDeAtaque;
+    protected List<EfectoSuperficieMovimiento> efectosDeMovimiento;
 
     public String getNombre() {
         return nombre;
@@ -56,17 +59,13 @@ public abstract class AlgoFormer {
         this.puntosDeVida -= (puntosDeAtaque);
     }
 
-    public void disminuirAtaque(double disminucionAtaque) {
-        this.estado.disminuirAtaque(disminucionAtaque);
+    public void agregarEfecto(EfectoSuperficieAtaque efectoDeAtaque) {
+        this.efectosDeAtaque.add(efectoDeAtaque);
     }
 
-    public void recibirEfectoSuperficies(EfectoSuperficie efectoSuperficie) {
-        this.efectoSuperficieRecibido = efectoSuperficie;
+    public void agregarEfecto(EfectoSuperficieMovimiento efectoDeMovimiento) {
+        this.efectosDeMovimiento.add(efectoDeMovimiento);
     }
 
     public abstract void transformar();
-
-    public void ejecutarEfecto() {
-        this.efectoSuperficieRecibido.aplicarEfecto(this);
-    }
 }
