@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.TierraRocosa;
@@ -56,6 +57,34 @@ public class EfectoPantanoTest {
 
         try {
             rocoso.interactuar(algoFormer);
+            success();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+
+        Assert.assertEquals(algoFormer.getEstado(), EstadoMovimientoNominal.getUnicaInstancia());
+
+
+    }
+
+    @Test
+    public void elAutobot_No_Esta_Empantanado_Despues_De_Pasar_Por_Terreno_Espinoso() {
+        AlgoFormer algoFormer = new Optimus();
+        SuperficieTerrestre pantano = new Pantano();
+        algoFormer.transformar();
+
+
+        try {
+            pantano.interactuar(algoFormer);
+            success();
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+
+        }
+
+        SuperficieTerrestre espinas = new Espinas();
+
+        try {
+            espinas.interactuar(algoFormer);
             success();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
