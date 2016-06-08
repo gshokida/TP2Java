@@ -17,8 +17,7 @@ public class Ratchet extends AlgoFormer {
         nombre = "Ratchet";
         puntosDeVida = 150;
         bando = BandoAutobots.getInstance();
-        efectosDeAtaque = new LinkedList<>();
-        efectosDeMovimiento = new LinkedList<>();
+        efectos = new LinkedList<>();
         int ataqueNormal = 5;
         int distanciaAtaqueNormal = 5;
         int velocidadNormal = 1;

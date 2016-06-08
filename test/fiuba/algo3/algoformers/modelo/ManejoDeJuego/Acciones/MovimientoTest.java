@@ -214,6 +214,48 @@ public class MovimientoTest {
         }
     }
 
+    @Test
+    public void ratchetAlterno_EfectoNebulosaAndromeda_pasaTurno_nuevoMovimiento_lanzaError(){
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+        SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
+        try {
+            nebulosaAndromeda.interactuar(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+        int distanciaMaxima = algoFormer.getVelocidad();
+        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
+        casilleroOrigen.setAlgoformer(algoFormer);
+        Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
+        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+
+        algoFormer.pasarTurno();
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+    }
+
     private void succes() {
         assertTrue(true);
     }

@@ -1,6 +1,5 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

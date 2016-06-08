@@ -16,8 +16,7 @@ public class Bumblebee extends AlgoFormer {
         nombre = "Bumblebee";
         puntosDeVida = 350;
         bando = BandoAutobots.getInstance();
-        efectosDeAtaque = new LinkedList<>();
-        efectosDeMovimiento = new LinkedList<>();
+        efectos = new LinkedList<>();
         int ataqueNormal = 40;
         int distanciaAtaqueNormal = 1;
         int velocidadNormal = 2;

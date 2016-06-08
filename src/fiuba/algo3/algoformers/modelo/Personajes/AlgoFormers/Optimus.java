@@ -16,8 +16,7 @@ public class Optimus extends AlgoFormer {
         nombre = "Optimus Prime";
         puntosDeVida = 500;
         bando = BandoAutobots.getInstance();
-        efectosDeAtaque = new LinkedList<>();
-        efectosDeMovimiento = new LinkedList<>();
+        efectos = new LinkedList<>();
         int ataqueNormal = 50;
         int distanciaAtaqueNormal = 2;
         int velocidadNormal = 2;

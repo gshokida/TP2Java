@@ -17,8 +17,7 @@ public class Bonecrusher extends AlgoFormer {
         nombre = "Bonecrusher";
         puntosDeVida = 200;
         bando = BandoDecepticons.getInstance();
-        efectosDeAtaque = new LinkedList<>();
-        efectosDeMovimiento = new LinkedList<>();
+        efectos = new LinkedList<>();
         int ataqueNormal = 30;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;

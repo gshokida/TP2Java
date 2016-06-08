@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable.EfectoNebulosaAndromeda;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +17,5 @@ public class EfectoNebulosaAndromedaTest {
         efecto.pasarTurno();
 
         assertEquals(duracionEfecto - 1, efecto.getDuracion());
-
     }
 }

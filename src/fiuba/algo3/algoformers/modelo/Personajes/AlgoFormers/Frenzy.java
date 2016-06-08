@@ -16,8 +16,7 @@ public class Frenzy extends AlgoFormer {
         nombre = "Frenzy";
         puntosDeVida = 400;
         bando = BandoDecepticons.getInstance();
-        efectosDeAtaque = new LinkedList<>();
-        efectosDeMovimiento = new LinkedList<>();
+        efectos = new LinkedList<>();
         int ataqueNormal = 10;
         int distanciaAtaqueNormal = 5;
         int velocidadNormal = 2;

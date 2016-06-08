@@ -1,7 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoSuperficie;
-import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectoEspinas;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosInstantaneo.EfectoEspinas;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 
 /**
