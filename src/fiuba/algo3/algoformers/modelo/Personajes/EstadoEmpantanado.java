@@ -15,6 +15,8 @@ public class EstadoEmpantanado implements Estado {
 
     }
 
+    public boolean esEmpantanado(Estado estado) {
+        return this.equals(estado);
 
-
+    }
 }

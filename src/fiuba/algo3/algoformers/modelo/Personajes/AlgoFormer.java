@@ -17,6 +17,8 @@ public abstract class AlgoFormer {
     protected Bando bando;
     protected AlgoformerEstado estado;
     protected List<EfectoSuperficieDurable> efectos;
+    protected Estado estadoAlgoformer;
+
 
     public String getNombre() {
         return nombre;
@@ -94,4 +96,31 @@ public abstract class AlgoFormer {
         efecto.revertirEfecto(this);
         this.efectos.remove(efecto);
     }
+
+    public void setEstado(Estado estado) {
+
+        this.estadoAlgoformer = estado;
+
+    }
+
+    public Estado getEstado (){
+
+        return this.estadoAlgoformer;
+
+    }
+
+    public int getCostoDeMovimiento(){
+
+        if (this.getEstado().esEmpantanado(EstadoEmpantanado.getUnicaInstancia())){
+
+            return 2;
+
+        }else{
+
+            return 1;
+        }
+
+
+    }
+
 }

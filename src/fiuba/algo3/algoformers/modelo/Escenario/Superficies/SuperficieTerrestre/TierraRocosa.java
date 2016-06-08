@@ -1,7 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
-import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.EstadoMovimientoNominal;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 
@@ -10,7 +10,11 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea
  */
 public class TierraRocosa implements SuperficieTerrestre {
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {
-        if(algoformer.esTipoUnidad(TipoUnidadAerea.getInstance()))
+        if(algoformer.esTipoUnidad(TipoUnidadAerea.getInstance())) {
             throw new NoPuedeInteractuarConSuperficieException();
+        }
+
+        algoformer.setEstado(EstadoMovimientoNominal.getUnicaInstancia());
+
     }
 }

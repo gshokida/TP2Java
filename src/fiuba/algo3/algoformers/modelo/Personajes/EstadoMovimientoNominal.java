@@ -16,5 +16,11 @@ public class EstadoMovimientoNominal implements Estado {
 
     }
 
+    public boolean esEmpantanado (Estado estado){
+
+        return this.equals(estado);
+
+    }
+
 
 }

@@ -13,11 +13,22 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 public class Movimiento implements Accion {
     private int movimientosRestantes;
     private Casillero casilleroActual;
+    private int costoMoviemiento;
 
     public Movimiento(Casillero casilleroOrigen, int distanciaTotal) {
         this.movimientosRestantes = distanciaTotal;
         this.casilleroActual = casilleroOrigen;
+        this.costoMoviemiento = 1;
     }
+
+
+    public Movimiento(Casillero casilleroOrigen, int distanciaTotal, int costoDeMoviemiento) {
+        this.movimientosRestantes = distanciaTotal;
+        this.casilleroActual = casilleroOrigen;
+        this.costoMoviemiento = costoDeMoviemiento;
+    }
+
+
 
     public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException, ImposibleMoverseEfectoPresente {
         if (!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance()))
@@ -27,7 +38,7 @@ public class Movimiento implements Accion {
             throw new DistanciaExcedidaException();
         if (!casilleroActual.getAlgoformer().sePuedeMover())
             throw new ImposibleMoverseEfectoPresente();
-        movimientosRestantes -= distancia;
+        movimientosRestantes -= (distancia*this.costoMoviemiento);
 
         casilleroDestino.setAlgoformer(casilleroActual.getAlgoformer());
         casilleroActual.setAlgoformer(NoOcupado.getInstance());
