@@ -8,7 +8,16 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 public class EfectoPantano implements EfectoSuperficieDurable {
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {    }
+
+    @Override
+    public void revertirEfecto(AlgoFormer algoFormer) {    }
+
     @Override
     public void pasarTurno() {    }
+
+    @Override
+    public boolean finalizo() {
+        return false;
+    }
 }
 

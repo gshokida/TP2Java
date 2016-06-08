@@ -6,11 +6,10 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
  * Created by Familia on 07/06/2016.
  */
 public class EfectoNebulosaAndromeda implements EfectoSuperficieDurable {
-    private int velocidadSacada;
-    private int duracion;
+    private int velocidadSacada = 0;
+    private int duracion = 3;
 
     public EfectoNebulosaAndromeda () {
-        this.duracion = 3;
     }
 
     public int getDuracion() {
@@ -19,12 +18,24 @@ public class EfectoNebulosaAndromeda implements EfectoSuperficieDurable {
 
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
-        this.velocidadSacada = algoformer.getVelocidad();
-        algoformer.frenar();
+        if (this.velocidadSacada == 0) {
+            this.velocidadSacada = algoformer.getVelocidad();
+            algoformer.frenar(velocidadSacada);
+        }
+    }
+
+    @Override
+    public void revertirEfecto(AlgoFormer algoFormer) {
+        algoFormer.acelerar(velocidadSacada);
     }
 
     @Override
     public void pasarTurno() {
         this.duracion--;
+    }
+
+    @Override
+    public boolean finalizo() {
+        return (this.duracion == 0);
     }
 }

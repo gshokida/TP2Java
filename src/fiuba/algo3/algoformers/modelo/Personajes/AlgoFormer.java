@@ -14,78 +14,62 @@ import java.util.List;
 public abstract class AlgoFormer {
     protected String nombre;
     protected double puntosDeVida;
-    protected AlgoformerEstado estado;
     protected Bando bando;
+    protected AlgoformerEstado estado;
     protected List<EfectoSuperficieDurable> efectos;
 
     public String getNombre() {
         return nombre;
     }
-
     public double getPuntosDeVida() {
         return puntosDeVida;
     }
-
     public int getAtaque() {
         return estado.getAtaque();
     }
-
     public int getDistanciaDeAtaque() {
         return estado.getDistanciaDeAtaque();
     }
-
     public int getVelocidad() {
         return estado.getVelocidad();
     }
-
-    private void aplicarEfectos(List<EfectoSuperficieDurable> efectosDeSuperficie) {
-        Iterator<EfectoSuperficieDurable> iterador = efectosDeSuperficie.iterator();
-        while (iterador.hasNext()) {
-            EfectoSuperficieDurable efecto = iterador.next();
-            efecto.aplicarEfecto(this);
-        }
+    public Bando getBando() {
+        return bando;
     }
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
     }
-
     public boolean esModo(Modo modo) {
         return estado.esModo(modo);
-    }
-
-    public Bando getBando() {
-        return bando;
     }
 
     public void recibirAtaque(int puntosDeAtaque) {
         recibirDanio(puntosDeAtaque);
     }
-
     public void recibirDanio(double puntosDeAtaque) {
         this.puntosDeVida -= (puntosDeAtaque);
     }
 
+    public abstract void transformar();
+
     public void agregarEfecto(EfectoSuperficieDurable efecto) {
         this.efectos.add(efecto);
     }
-
-    public abstract void transformar();
-
-    public void frenar() {
-        this.estado.setVelocidad(0);
+    public void frenar(int velocidadSacada) {
+        this.estado.disminuirVelocidad(velocidadSacada);
     }
-
+    public void acelerar(int velocidadSacada) {
+        this.estado.aumentarVelocidad(velocidadSacada);
+    }
     public void debilitar(int ataqueSacado) {
         int ataqueActual = this.estado.getAtaque();
         this.estado.setAtaque(ataqueActual - ataqueSacado);
     }
-
     public boolean sePuedeMover() {
         this.aplicarEfectos(efectos);
         return (estado.getVelocidad() != 0);
     }
-
     public void pasarTurno() {
         pasarTurno(efectos);
     }
@@ -95,7 +79,19 @@ public abstract class AlgoFormer {
         while (iterador.hasNext()) {
             EfectoSuperficieDurable efecto = iterador.next();
             efecto.pasarTurno();
+            if (efecto.finalizo())
+                eliminarEfecto(efecto);
         }
-
+    }
+    private void aplicarEfectos(List<EfectoSuperficieDurable> efectosDeSuperficie) {
+        Iterator<EfectoSuperficieDurable> iterador = efectosDeSuperficie.iterator();
+        while (iterador.hasNext()) {
+            EfectoSuperficieDurable efecto = iterador.next();
+            efecto.aplicarEfecto(this);
+        }
+    }
+    private void eliminarEfecto(EfectoSuperficieDurable efecto) {
+        efecto.revertirEfecto(this);
+        this.efectos.remove(efecto);
     }
 }

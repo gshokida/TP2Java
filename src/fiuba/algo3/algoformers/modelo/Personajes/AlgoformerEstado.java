@@ -42,11 +42,15 @@ public class AlgoformerEstado {
         return this.modo.esModo(modo);
     }
 
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
-
     public void setAtaque(int ataque) {
         this.ataque = ataque;
+    }
+
+    public void disminuirVelocidad(int velocidadSacada) {
+        this.velocidad -= velocidadSacada;
+    }
+
+    public void aumentarVelocidad(int velocidadSacada) {
+        this.velocidad += velocidadSacada;
     }
 }

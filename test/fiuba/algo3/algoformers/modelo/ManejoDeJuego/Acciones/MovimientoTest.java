@@ -35,10 +35,8 @@ public class MovimientoTest {
         try {
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente ex) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
 
         assertEquals(casilleroDestino.getAlgoformer(), algoFormer);
@@ -58,10 +56,8 @@ public class MovimientoTest {
         try {
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente ex) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
 
         assertEquals(casilleroOrigen.getContenido(), ContenidoVacio.getInstance());
@@ -85,10 +81,8 @@ public class MovimientoTest {
         }
         catch (DistanciaExcedidaException ex) {
             succes();
-        } catch (ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
     }
 
@@ -120,10 +114,8 @@ public class MovimientoTest {
         }
         catch (DistanciaExcedidaException ex) {
             succes();
-        } catch (ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
     }
 
@@ -153,10 +145,8 @@ public class MovimientoTest {
         try {
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente error) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
 
         assertTrue(movimiento.quedanMovimientos());
@@ -176,10 +166,8 @@ public class MovimientoTest {
         try {
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente error) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
 
         assertFalse(movimiento.quedanMovimientos());
@@ -254,6 +242,127 @@ public class MovimientoTest {
         catch (ImposibleMoverseEfectoPresente error) {
             succes();
         }
+    }
+
+    @Test
+    public void ratchetAlterno_EfectoNebulosaAndromeda_pasaTurnoDosVeces_nuevoMovimiento_lanzaError(){
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+        SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
+        try {
+            nebulosaAndromeda.interactuar(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+        int distanciaMaxima = algoFormer.getVelocidad();
+        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
+        casilleroOrigen.setAlgoformer(algoFormer);
+        Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
+        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+
+        algoFormer.pasarTurno();
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+
+        algoFormer.pasarTurno();
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+    }
+
+    @Test
+    public void ratchetAlterno_EfectoNebulosaAndromeda_pasaTurnoTresVeces_nuevoMovimiento_verificoCasilleroDestino(){
+        AlgoFormer algoFormer = new Ratchet();
+        Transformacion transformacion = new Transformacion(algoFormer);
+        transformacion.aplicarTransformacion();
+        SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
+        try {
+            nebulosaAndromeda.interactuar(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+        int distanciaMaxima = algoFormer.getVelocidad();
+        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
+        casilleroOrigen.setAlgoformer(algoFormer);
+        Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
+        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+
+        algoFormer.pasarTurno();
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+
+        algoFormer.pasarTurno();
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+            fail();
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+        catch (ImposibleMoverseEfectoPresente error) {
+            succes();
+        }
+
+        algoFormer.pasarTurno();
+
+        try {
+            movimiento.moverHasta(casilleroDestino);
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente error) {
+            fail();
+        }
+
+        assertEquals(casilleroDestino.getAlgoformer(), algoFormer);
     }
 
     private void succes() {

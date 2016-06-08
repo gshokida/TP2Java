@@ -9,5 +9,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 public interface EfectoSuperficieDurable extends EfectoSuperficie {
     @Override
     void aplicarEfecto(AlgoFormer algoformer);
+    void revertirEfecto(AlgoFormer algoFormer);
     void pasarTurno();
+    boolean finalizo();
 }

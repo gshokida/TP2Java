@@ -16,6 +16,15 @@ public class EfectoTormentaPsionica implements EfectoSuperficieDurable {
         this.ataqueSacado = algoformer.getAtaque() * porcentaje / 100;
         algoformer.debilitar(ataqueSacado);
     }
+
+    @Override
+    public void revertirEfecto(AlgoFormer algoFormer) {    }
+
     @Override
     public void pasarTurno() {    }
+
+    @Override
+    public boolean finalizo() {
+        return false;
+    }
 }
