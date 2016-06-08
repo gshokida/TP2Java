@@ -6,6 +6,9 @@ import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.modelo.Personajes.Estado;
+import fiuba.algo3.algoformers.modelo.Personajes.EstadoEmpantanado;
+import fiuba.algo3.algoformers.modelo.Personajes.EstadoMovimientoNominal;
 
 /**
  * Created by gaston.tulipani on 03/06/2016.
@@ -13,20 +16,15 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 public class Movimiento implements Accion {
     private int movimientosRestantes;
     private Casillero casilleroActual;
-    private int costoMoviemiento;
+
 
     public Movimiento(Casillero casilleroOrigen, int distanciaTotal) {
         this.movimientosRestantes = distanciaTotal;
         this.casilleroActual = casilleroOrigen;
-        this.costoMoviemiento = 1;
     }
 
 
-    public Movimiento(Casillero casilleroOrigen, int distanciaTotal, int costoDeMoviemiento) {
-        this.movimientosRestantes = distanciaTotal;
-        this.casilleroActual = casilleroOrigen;
-        this.costoMoviemiento = costoDeMoviemiento;
-    }
+
 
 
 
@@ -38,10 +36,28 @@ public class Movimiento implements Accion {
             throw new DistanciaExcedidaException();
         if (!casilleroActual.getAlgoformer().sePuedeMover())
             throw new ImposibleMoverseEfectoPresente();
-        movimientosRestantes -= (distancia*this.costoMoviemiento);
+        movimientosRestantes -= (distancia*this.calcularCostoMovimiento());
 
         casilleroDestino.setAlgoformer(casilleroActual.getAlgoformer());
         casilleroActual.setAlgoformer(NoOcupado.getInstance());
+        casilleroActual = casilleroDestino;
+
+
+    }
+
+
+private  int calcularCostoMovimiento(){
+
+        if (this.casilleroActual.getAlgoformer().getEstado().esEmpantanado(EstadoEmpantanado.getUnicaInstancia())){
+
+            return 2;
+
+        }else{
+
+            return 1;
+        }
+
+
     }
 
     public boolean quedanMovimientos() {

@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.EstadoMovimientoNominal;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
@@ -27,6 +28,9 @@ public class Ratchet extends AlgoFormer {
 
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance(), ModoHumanoide.getInstance());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadAerea.getInstance(), ModoAlterno.getInstance());
+
+        this.estadoAlgoformer = EstadoMovimientoNominal.getUnicaInstancia();
+
     }
 
     public void transformar() {
