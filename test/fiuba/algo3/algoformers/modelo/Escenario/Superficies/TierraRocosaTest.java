@@ -27,7 +27,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(500, optimus.getPuntosDeVida(), 0D);
-        assertEquals(50, optimus.getAtaque());
+        assertEquals(50, optimus.getAtaque(), 0D);
         assertEquals(2, optimus.getDistanciaDeAtaque());
         assertEquals(2, optimus.getVelocidad());
     }
@@ -47,7 +47,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(500, optimus.getPuntosDeVida(), 0D);
-        assertEquals(15, optimus.getAtaque());
+        assertEquals(15, optimus.getAtaque(), 0D);
         assertEquals(4, optimus.getDistanciaDeAtaque());
         assertEquals(5, optimus.getVelocidad());
     }
@@ -64,7 +64,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(350, bumblebee.getPuntosDeVida(), 0D);
-        assertEquals(40, bumblebee.getAtaque());
+        assertEquals(40, bumblebee.getAtaque(), 0D);
         assertEquals(1, bumblebee.getDistanciaDeAtaque());
         assertEquals(2, bumblebee.getVelocidad());
     }
@@ -84,7 +84,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(350, bumblebee.getPuntosDeVida(), 0D);
-        assertEquals(20, bumblebee.getAtaque());
+        assertEquals(20, bumblebee.getAtaque(), 0D);
         assertEquals(3, bumblebee.getDistanciaDeAtaque());
         assertEquals(5, bumblebee.getVelocidad());
     }
@@ -101,7 +101,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(150, ratchet.getPuntosDeVida(), 0D);
-        assertEquals(5, ratchet.getAtaque());
+        assertEquals(5, ratchet.getAtaque(), 0D);
         assertEquals(5, ratchet.getDistanciaDeAtaque());
         assertEquals(1, ratchet.getVelocidad());
     }
@@ -135,7 +135,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(550, megatron.getPuntosDeVida(), 0D);
-        assertEquals(10, megatron.getAtaque());
+        assertEquals(10, megatron.getAtaque(), 0D);
         assertEquals(3, megatron.getDistanciaDeAtaque());
         assertEquals(1, megatron.getVelocidad());
     }
@@ -169,7 +169,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(200, bonecrusher.getPuntosDeVida(), 0D);
-        assertEquals(30, bonecrusher.getAtaque());
+        assertEquals(30, bonecrusher.getAtaque(), 0D);
         assertEquals(3, bonecrusher.getDistanciaDeAtaque());
         assertEquals(1, bonecrusher.getVelocidad());
     }
@@ -189,7 +189,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(200, bonecrusher.getPuntosDeVida(), 0D);
-        assertEquals(30, bonecrusher.getAtaque());
+        assertEquals(30, bonecrusher.getAtaque(), 0D);
         assertEquals(3, bonecrusher.getDistanciaDeAtaque());
         assertEquals(8, bonecrusher.getVelocidad());
     }
@@ -206,7 +206,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(400, frenzy.getPuntosDeVida(), 0D);
-        assertEquals(10, frenzy.getAtaque());
+        assertEquals(10, frenzy.getAtaque(), 0D);
         assertEquals(5, frenzy.getDistanciaDeAtaque());
         assertEquals(2, frenzy.getVelocidad());
     }
@@ -226,7 +226,7 @@ public class TierraRocosaTest {
         }
 
         assertEquals(400, frenzy.getPuntosDeVida(), 0D);
-        assertEquals(25, frenzy.getAtaque());
+        assertEquals(25, frenzy.getAtaque(), 0D);
         assertEquals(2, frenzy.getDistanciaDeAtaque());
         assertEquals(6, frenzy.getVelocidad());
     }

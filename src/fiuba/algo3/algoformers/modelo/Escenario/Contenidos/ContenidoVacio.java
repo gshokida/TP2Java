@@ -8,14 +8,11 @@ import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 public class ContenidoVacio implements Contenido {
     private static Contenido contenidoVacio;
 
-    private ContenidoVacio() {
-
-    }
+    private ContenidoVacio() {    }
 
     public static Contenido getInstance() {
         if (ContenidoVacio.contenidoVacio == null)
             ContenidoVacio.contenidoVacio = new ContenidoVacio();
-
         return ContenidoVacio.contenidoVacio;
     }
 

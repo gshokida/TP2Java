@@ -94,7 +94,7 @@ public class IntegracionAlgoformerEntrega1 {
         optimus.transformar();
 
         assertEquals(optimus.getPuntosDeVida(),500, 0D);
-        assertEquals(optimus.getAtaque(),15);
+        assertEquals(optimus.getAtaque(),15, 0D);
         assertEquals(optimus.getDistanciaDeAtaque(),4);
         assertEquals(optimus.getVelocidad(),5);
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
@@ -110,7 +110,7 @@ public class IntegracionAlgoformerEntrega1 {
         optimus.transformar();
 
         assertEquals(optimus.getPuntosDeVida(),500, 0D);
-        assertEquals(optimus.getAtaque(),50);
+        assertEquals(optimus.getAtaque(),50, 0D);
         assertEquals(optimus.getDistanciaDeAtaque(),2);
         assertEquals(optimus.getVelocidad(),2);
         assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));

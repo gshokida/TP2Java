@@ -1,20 +1,19 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.Modos.Modo;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
 /**
  * Created by Hennico on 23/5/2016.
  */
 public class AlgoformerEstado {
-    private int ataque;
+    private double ataque;
     private int distanciaDeAtaque;
     private int velocidad;
     private TipoUnidad tipoUnidad;
     private Modo modo;
 
-    public AlgoformerEstado(int ataque, int distanciaDeAtaque, int velocidad, TipoUnidad tipoUnidad, Modo modo) {
+    public AlgoformerEstado(double ataque, int distanciaDeAtaque, int velocidad, TipoUnidad tipoUnidad, Modo modo) {
         this.ataque = ataque;
         this.distanciaDeAtaque = distanciaDeAtaque;
         this.velocidad = velocidad;
@@ -22,7 +21,7 @@ public class AlgoformerEstado {
         this.modo = modo;
     }
 
-    public int getAtaque() {
+    public double getAtaque() {
         return ataque;
     }
 
@@ -42,7 +41,7 @@ public class AlgoformerEstado {
         return this.modo.esModo(modo);
     }
 
-    public void setAtaque(int ataque) {
+    public void setAtaque(double ataque) {
         this.ataque = ataque;
     }
 

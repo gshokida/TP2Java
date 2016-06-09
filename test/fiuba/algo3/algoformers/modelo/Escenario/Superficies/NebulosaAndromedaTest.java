@@ -23,7 +23,7 @@ public class NebulosaAndromedaTest {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         double puntosDeVida = algoFormer.getPuntosDeVida();
-        int ataque = algoFormer.getAtaque();
+        double ataque = algoFormer.getAtaque();
         int distanciaDeAtaque = algoFormer.getDistanciaDeAtaque();
         int velocidad = algoFormer.getVelocidad();
 
@@ -34,7 +34,7 @@ public class NebulosaAndromedaTest {
         }
 
         assertEquals(puntosDeVida, algoFormer.getPuntosDeVida(),0D);
-        assertEquals(ataque, algoFormer.getAtaque());
+        assertEquals(ataque, algoFormer.getAtaque(), 0D);
         assertEquals(distanciaDeAtaque, algoFormer.getDistanciaDeAtaque());
         assertEquals(velocidad, algoFormer.getVelocidad());
     }

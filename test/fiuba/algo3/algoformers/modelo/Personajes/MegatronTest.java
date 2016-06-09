@@ -46,7 +46,7 @@ public class MegatronTest {
     public void nuevaInstancia_ataque_valeDiez() {
         Megatron megatron = new Megatron();
 
-        assertEquals(megatron.getAtaque(), 10);
+        assertEquals(megatron.getAtaque(), 10, 0D);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class MegatronTest {
 
         megatron.transformar();
 
-        assertEquals(megatron.getAtaque(), 55);
+        assertEquals(megatron.getAtaque(), 55, 0D);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class MegatronTest {
         megatron.transformar();
         megatron.transformar();
 
-        assertEquals(megatron.getAtaque(), 10);
+        assertEquals(megatron.getAtaque(), 10, 0D);
     }
 
     @Test

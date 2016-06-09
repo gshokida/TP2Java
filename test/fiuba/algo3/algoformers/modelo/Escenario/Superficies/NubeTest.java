@@ -31,7 +31,7 @@ public class NubeTest {
         }
 
         assertEquals(150, algoFormer.getPuntosDeVida(), 0D);
-        assertEquals(35, algoFormer.getAtaque());
+        assertEquals(35, algoFormer.getAtaque(), 0D);
         assertEquals(2, algoFormer.getDistanciaDeAtaque());
         assertEquals(8, algoFormer.getVelocidad());
     }
@@ -64,7 +64,7 @@ public class NubeTest {
         }
 
         assertEquals(550, algoFormer.getPuntosDeVida(), 0D);
-        assertEquals(55, algoFormer.getAtaque());
+        assertEquals(55, algoFormer.getAtaque(), 0D);
         assertEquals(2, algoFormer.getDistanciaDeAtaque());
         assertEquals(8, algoFormer.getVelocidad());
     }

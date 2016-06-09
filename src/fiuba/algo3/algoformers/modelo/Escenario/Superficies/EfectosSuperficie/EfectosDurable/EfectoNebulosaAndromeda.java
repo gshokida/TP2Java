@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
 
 /**
  * Created by Familia on 07/06/2016.
@@ -15,10 +16,6 @@ public class EfectoNebulosaAndromeda extends EfectoSuperficieDurable {
     public EfectoNebulosaAndromeda () {
         this.hashCode = EfectoNebulosaAndromeda.hashSeed;
         EfectoNebulosaAndromeda.hashSeed++;
-    }
-
-    public int getDuracion() {
-        return duracion;
     }
 
     @Override

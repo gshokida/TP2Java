@@ -24,7 +24,7 @@ public class AtaqueTest {
         AlgoFormer algoFormerAtacante = new Optimus();
         AlgoFormer algoFormerAtacado = new Megatron();
         int distanciaDeAtaqueMaxima = algoFormerAtacante.getDistanciaDeAtaque();
-        int puntosDeAtaque = algoFormerAtacante.getAtaque();
+        double puntosDeAtaque = algoFormerAtacante.getAtaque();
         double puntosDeVidaInicial = algoFormerAtacado.getPuntosDeVida();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));

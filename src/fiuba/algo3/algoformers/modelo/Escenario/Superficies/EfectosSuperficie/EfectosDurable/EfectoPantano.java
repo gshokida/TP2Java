@@ -11,6 +11,7 @@ public class EfectoPantano extends EfectoSuperficieDurable {
 
     private int hashCode;
     private int velocidadSacada = 0;
+    private boolean finalizo = false;
 
     public EfectoPantano() {
         this.hashCode = EfectoPantano.hashSeed;
@@ -30,18 +31,16 @@ public class EfectoPantano extends EfectoSuperficieDurable {
             algoformer.frenar(velocidadSacada);
         }
     }
-
     @Override
     public void revertirEfecto(AlgoFormer algoFormer) {
         algoFormer.acelerar(velocidadSacada);
     }
 
     @Override
-    public void pasarTurno() {    }
-
+    public void pasarTurno() { }
     @Override
     public boolean finalizo() {
-        return false;
+        return this.finalizo;
     }
 
     @Override

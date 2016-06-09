@@ -24,8 +24,8 @@ public abstract class AlgoFormer {
     public double getPuntosDeVida() {
         return puntosDeVida;
     }
-    public int getAtaque() {
-        return estado.getAtaque();
+    public double getAtaque() {
+        return (this.estado.getAtaque());
     }
     public int getDistanciaDeAtaque() {
         return estado.getDistanciaDeAtaque();
@@ -44,7 +44,7 @@ public abstract class AlgoFormer {
         return estado.esModo(modo);
     }
 
-    public void recibirAtaque(int puntosDeAtaque) {
+    public void recibirAtaque(double puntosDeAtaque) {
         recibirDanio(puntosDeAtaque);
     }
     public void recibirDanio(double puntosDeAtaque) {
@@ -63,16 +63,20 @@ public abstract class AlgoFormer {
     public void acelerar(int velocidadSacada) {
         this.estado.aumentarVelocidad(velocidadSacada);
     }
-    public void debilitar(int ataqueSacado) {
-        int ataqueActual = this.estado.getAtaque();
+    public void debilitar(double ataqueSacado) {
+        double ataqueActual = this.estado.getAtaque();
         this.estado.setAtaque(ataqueActual - ataqueSacado);
     }
     public boolean sePuedeMover() {
-        this.aplicarEfectos(efectos);
-        return (estado.getVelocidad() != 0);
+        this.aplicarEfectos(this.efectos);
+        return (this.estado.getVelocidad() != 0);
     }
     public void pasarTurno() {
         pasarTurno(efectos);
+    }
+    public double calcularAtaque() {
+        this.aplicarEfectos(this.efectos);
+        return (this.estado.getAtaque());
     }
 
     private void pasarTurno(List<EfectoSuperficieDurable> efectosDeMovimiento) {

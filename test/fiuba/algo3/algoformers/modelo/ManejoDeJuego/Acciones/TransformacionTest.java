@@ -33,7 +33,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 30);
+        assertEquals(algoFormer.getAtaque(), 30, 0D);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 30);
+        assertEquals(algoFormer.getAtaque(), 30, 0D);
     }
 
     @Test
@@ -138,7 +138,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 20);
+        assertEquals(algoFormer.getAtaque(), 20, 0D);
     }
 
     @Test
@@ -189,7 +189,7 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 40);
+        assertEquals(algoFormer.getAtaque(), 40, 0D);
     }
 
     @Test
@@ -243,7 +243,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 25);
+        assertEquals(algoFormer.getAtaque(), 25, 0D);
     }
 
     @Test
@@ -294,7 +294,7 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 10);
+        assertEquals(algoFormer.getAtaque(), 10, 0D);
     }
 
     @Test
@@ -348,7 +348,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 55);
+        assertEquals(algoFormer.getAtaque(), 55, 0D);
     }
 
     @Test
@@ -399,7 +399,7 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 10);
+        assertEquals(algoFormer.getAtaque(), 10, 0D);
     }
 
     @Test
@@ -453,7 +453,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 15);
+        assertEquals(algoFormer.getAtaque(), 15, 0D);
     }
 
     @Test
@@ -504,7 +504,7 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 50);
+        assertEquals(algoFormer.getAtaque(), 50, 0D);
     }
 
     @Test
@@ -558,7 +558,7 @@ public class TransformacionTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 35);
+        assertEquals(algoFormer.getAtaque(), 35, 0D);
     }
 
     @Test
@@ -609,7 +609,7 @@ public class TransformacionTest {
         transformacion.aplicarTransformacion();
         transformacion.aplicarTransformacion();
 
-        assertEquals(algoFormer.getAtaque(), 5);
+        assertEquals(algoFormer.getAtaque(), 5, 0D);
     }
 
     @Test

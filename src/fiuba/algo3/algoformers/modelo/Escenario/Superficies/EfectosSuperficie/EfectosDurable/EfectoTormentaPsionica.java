@@ -10,7 +10,7 @@ public class EfectoTormentaPsionica extends EfectoSuperficieDurable {
 
     private int hashCode;
     private int porcentaje = 40;
-    private int ataqueSacado = 0;
+    private double ataqueSacado = 0;
 
     public EfectoTormentaPsionica() {
         this.hashCode = EfectoTormentaPsionica.hashSeed;

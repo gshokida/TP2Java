@@ -27,7 +27,7 @@ public class BonecrusherTest {
     public void nuevaInstancia_ataque_valeTreinta() {
         Bonecrusher algoFormer = new Bonecrusher();
 
-        assertEquals(algoFormer.getAtaque(), 30);
+        assertEquals(algoFormer.getAtaque(), 30, 0D);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class BonecrusherTest {
 
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getAtaque(), 30);
+        assertEquals(algoFormer.getAtaque(), 30, 0D);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class BonecrusherTest {
         algoFormer.transformar();
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getAtaque(), 30);
+        assertEquals(algoFormer.getAtaque(), 30, 0D);
     }
 
     @Test

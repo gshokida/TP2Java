@@ -41,7 +41,7 @@ public class BumblebeeTest {
     public void nuevaInstancia_ataque_valeCuarenta() {
         Bumblebee bumblebee = new Bumblebee();
 
-        assertEquals(bumblebee.getAtaque(), 40);
+        assertEquals(bumblebee.getAtaque(), 40, 0D);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class BumblebeeTest {
 
         bumblebee.transformar();
 
-        assertEquals(bumblebee.getAtaque(), 20);
+        assertEquals(bumblebee.getAtaque(), 20, 0D);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class BumblebeeTest {
         bumblebee.transformar();
         bumblebee.transformar();
 
-        assertEquals(bumblebee.getAtaque(), 40);
+        assertEquals(bumblebee.getAtaque(), 40, 0D);
     }
 
     @Test

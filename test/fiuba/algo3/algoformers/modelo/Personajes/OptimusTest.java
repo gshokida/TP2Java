@@ -40,7 +40,7 @@ public class OptimusTest {
     public void nuevaInstancia_ataque_valeCincuenta() {
         Optimus optimus = new Optimus();
 
-        assertEquals(optimus.getAtaque(), 50);
+        assertEquals(optimus.getAtaque(), 50, 0D);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class OptimusTest {
 
         optimus.transformar();
 
-        assertEquals(optimus.getAtaque(), 15);
+        assertEquals(optimus.getAtaque(), 15, 0D);
     }
 
     @Test
@@ -96,7 +96,7 @@ public class OptimusTest {
         optimus.transformar();
         optimus.transformar();
 
-        assertEquals(optimus.getAtaque(), 50);
+        assertEquals(optimus.getAtaque(), 50, 0D);
     }
 
     @Test

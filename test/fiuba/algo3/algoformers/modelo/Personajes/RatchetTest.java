@@ -42,7 +42,7 @@ public class RatchetTest {
     public void nuevaInstancia_ataque_valeCinco() {
         Ratchet algoFormer = new Ratchet();
 
-        assertEquals(algoFormer.getAtaque(), 5);
+        assertEquals(algoFormer.getAtaque(), 5, 0D);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class RatchetTest {
 
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getAtaque(), 35);
+        assertEquals(algoFormer.getAtaque(), 35, 0D);
     }
 
     @Test
@@ -98,7 +98,7 @@ public class RatchetTest {
         algoFormer.transformar();
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getAtaque(), 5);
+        assertEquals(algoFormer.getAtaque(), 5, 0D);
     }
 
     @Test

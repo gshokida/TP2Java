@@ -22,7 +22,7 @@ public class TormentaPsionicaTest {
 
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
-        int ataqueAlterno = algoFormer.getAtaque();
+        double ataqueAlterno = algoFormer.getAtaque();
 
         try {
             tormentaPsionica.interactuar(algoFormer);
@@ -30,14 +30,14 @@ public class TormentaPsionicaTest {
             fail();
         }
 
-        assertEquals(ataqueAlterno, algoFormer.getAtaque());
+        assertEquals(ataqueAlterno, algoFormer.getAtaque(), 0D);
     }
 
     @Test
     public void tormentaPsionicaEnModoAlterno_atraviesaTormentaPsionica_noDisminuyeAtaqueDeModoHumanoide() {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea tormentaPsionica = new TormentaPsionica();
-        int ataqueHumanoide = algoFormer.getAtaque();
+        double ataqueHumanoide = algoFormer.getAtaque();
 
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
@@ -50,7 +50,7 @@ public class TormentaPsionicaTest {
 
         transformacion.aplicarTransformacion();
 
-        assertEquals(ataqueHumanoide, algoFormer.getAtaque());
+        assertEquals(ataqueHumanoide, algoFormer.getAtaque(), 0D);
     }
 
 

@@ -27,7 +27,7 @@ public class FrenzyTest {
     public void nuevaInstancia_ataque_valeDies() {
         Frenzy algoFormer = new Frenzy();
 
-        assertEquals(algoFormer.getAtaque(), 10);
+        assertEquals(algoFormer.getAtaque(), 10, 0D);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class FrenzyTest {
 
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getAtaque(), 25);
+        assertEquals(algoFormer.getAtaque(), 25, 0D);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class FrenzyTest {
         algoFormer.transformar();
         algoFormer.transformar();
 
-        assertEquals(algoFormer.getAtaque(), 10);
+        assertEquals(algoFormer.getAtaque(), 10, 0D);
     }
 
     @Test

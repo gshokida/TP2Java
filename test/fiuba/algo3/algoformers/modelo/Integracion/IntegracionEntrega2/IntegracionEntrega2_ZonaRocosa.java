@@ -18,7 +18,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by gaston.tulipani on 09/06/2016.
  */
-public class IntegracionEntrega2ZonaRocosa {
+public class IntegracionEntrega2_ZonaRocosa {
     @Test
     public void optimusHumanoideAtraviesaSinProblemas_verificoPosicionFinal() {
 

@@ -15,7 +15,6 @@ public class TormentaPsionica implements SuperficieAerea {
             throw new NoPuedeInteractuarConSuperficieException();
         }
         EfectoSuperficieDurable efecto = new EfectoTormentaPsionica();
-
         algoformer.agregarEfecto(efecto);
     }
 }
