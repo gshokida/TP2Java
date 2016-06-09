@@ -1,66 +1,43 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
+import fiuba.algo3.algoformers.modelo.Errores.*;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
-import fiuba.algo3.algoformers.modelo.Personajes.Estado;
-import fiuba.algo3.algoformers.modelo.Personajes.EstadoEmpantanado;
-import fiuba.algo3.algoformers.modelo.Personajes.EstadoMovimientoNominal;
 
 /**
  * Created by gaston.tulipani on 03/06/2016.
  */
 public class Movimiento implements Accion {
+    private int velocidadOriginal;
     private int movimientosRestantes;
     private Casillero casilleroActual;
 
-
-    public Movimiento(Casillero casilleroOrigen, int distanciaTotal) {
-        this.movimientosRestantes = distanciaTotal;
+    public Movimiento(Casillero casilleroOrigen, int distanciaMovimiento) {
+        this.velocidadOriginal = distanciaMovimiento;
+        this.movimientosRestantes = distanciaMovimiento;
         this.casilleroActual = casilleroOrigen;
     }
-
-
-
-
-
 
     public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException, ImposibleMoverseEfectoPresente {
         if (!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance()))
             throw new ImposibleMoverseCasilleroOcupadoException();
-        int distancia = casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
-        if (distancia > movimientosRestantes)
+        int distancia = this.casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
+        if (distancia > this.movimientosRestantes)
             throw new DistanciaExcedidaException();
-        if (!casilleroActual.getAlgoformer().sePuedeMover())
+        if (!this.casilleroActual.getAlgoformer().sePuedeMover())
             throw new ImposibleMoverseEfectoPresente();
-        movimientosRestantes -= (distancia*this.calcularCostoMovimiento());
-
-        casilleroDestino.setAlgoformer(casilleroActual.getAlgoformer());
-        casilleroActual.setAlgoformer(NoOcupado.getInstance());
-        casilleroActual = casilleroDestino;
-
-
+        this.movimientosRestantes -= (distancia * costoMovimiento());
+        casilleroDestino.setAlgoformer(this.casilleroActual.getAlgoformer());
+        this.casilleroActual.setAlgoformer(NoOcupado.getInstance());
+        this.casilleroActual = casilleroDestino;
     }
 
-
-private  int calcularCostoMovimiento(){
-
-        if (this.casilleroActual.getAlgoformer().getEstado().esEmpantanado(EstadoEmpantanado.getUnicaInstancia())){
-
-            return 2;
-
-        }else{
-
-            return 1;
-        }
-
-
+    private int costoMovimiento() {
+        return ((velocidadOriginal == casilleroActual.getAlgoformer().getVelocidad()) ? 1 : 2);
     }
 
     public boolean quedanMovimientos() {
-        return movimientosRestantes > 0;
+        return movimientosRestantes > (costoMovimiento() - 1);
     }
 }

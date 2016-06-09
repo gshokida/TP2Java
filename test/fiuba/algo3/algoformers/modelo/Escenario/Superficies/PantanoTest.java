@@ -7,7 +7,6 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 /**
@@ -15,84 +14,74 @@ import static org.junit.Assert.fail;
  */
 public class PantanoTest {
     @Test
-    public void optimusEnModoHumanoide_NoPuedeAtravesarPantano_lanzaError() {
+    public void optimusEnModoHumanoide_PuedeIngresarAPantano_noLanzaError() {
         AlgoFormer algoFormer = new Optimus();
         SuperficieTerrestre pantano = new Pantano();
 
         try {
             pantano.interactuar(algoFormer);
-            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
-            success();
+            fail();
         }
     }
 
     @Test
-    public void bumblebeeEnModoHumanoide_NoPuedeAtravesarPantano_lanzaError() {
+    public void bumblebeeEnModoHumanoide_PuedeIngresarAPantano_noLanzaError() {
         AlgoFormer algoFormer = new Bumblebee();
         SuperficieTerrestre pantano = new Pantano();
 
         try {
             pantano.interactuar(algoFormer);
-            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
-            success();
+            fail();
         }
     }
 
     @Test
-    public void ratchetEnModoHumanoide_NoPuedeAtravesarPantano_lanzaError() {
+    public void ratchetEnModoHumanoide_PuedeIngresarAPantano_noLanzaError() {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieTerrestre pantano = new Pantano();
 
         try {
             pantano.interactuar(algoFormer);
-            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
-            success();
+            fail();
         }
     }
 
     @Test
-    public void megatronEnModoHumanoide_NoPuedeAtravesarPantano_lanzaError() {
+    public void megatronEnModoHumanoide_PuedeIngresarAPantano_noLanzaError() {
         AlgoFormer algoFormer = new Megatron();
         SuperficieTerrestre pantano = new Pantano();
 
         try {
             pantano.interactuar(algoFormer);
-            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
-            success();
+            fail();
         }
     }
 
     @Test
-    public void bonecrusherEnModoHumanoide_NoPuedeAtravesarPantano_lanzaError() {
+    public void bonecrusherEnModoHumanoide_PuedeIngresarAPantano_noLanzaError() {
         AlgoFormer algoFormer = new Bonecrusher();
         SuperficieTerrestre pantano = new Pantano();
 
         try {
             pantano.interactuar(algoFormer);
-            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
-            success();
+            fail();
         }
     }
 
     @Test
-    public void frenzyEnModoHumanoide_NoPuedeAtravesarPantano_lanzaError() {
+    public void frenzyEnModoHumanoide_PuedeIngresarAPantano_noLanzaError() {
         AlgoFormer algoFormer = new Frenzy();
         SuperficieTerrestre pantano = new Pantano();
 
         try {
             pantano.interactuar(algoFormer);
-            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
-            success();
+            fail();
         }
-    }
-
-    private void success() {
-        assertTrue(true);
     }
 }

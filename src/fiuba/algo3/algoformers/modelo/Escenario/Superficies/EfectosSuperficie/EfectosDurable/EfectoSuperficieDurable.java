@@ -6,10 +6,14 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 /**
  * Created by gaston.tulipani on 08/06/2016.
  */
-public interface EfectoSuperficieDurable extends EfectoSuperficie {
+public abstract class EfectoSuperficieDurable implements EfectoSuperficie {
     @Override
-    void aplicarEfecto(AlgoFormer algoformer);
-    void revertirEfecto(AlgoFormer algoFormer);
-    void pasarTurno();
-    boolean finalizo();
+    public abstract void aplicarEfecto(AlgoFormer algoformer);
+    public abstract void revertirEfecto(AlgoFormer algoFormer);
+    public abstract void pasarTurno();
+    public abstract boolean finalizo();
+    @Override
+    public abstract boolean equals(Object o);
+    @Override
+    public abstract int hashCode();
 }

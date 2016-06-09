@@ -1,53 +1,57 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
 
 /**
  * Created by Familia on 07/06/2016.
  */
-public class EfectoNebulosaAndromeda extends EfectoSuperficieDurable {
+public class EfectoPantano extends EfectoSuperficieDurable {
     static int hashSeed = 0;
 
     private int hashCode;
     private int velocidadSacada = 0;
-    private int duracion = 3;
 
-    public EfectoNebulosaAndromeda () {
-        this.hashCode = EfectoNebulosaAndromeda.hashSeed;
-        EfectoNebulosaAndromeda.hashSeed++;
-    }
-
-    public int getDuracion() {
-        return duracion;
+    public EfectoPantano() {
+        this.hashCode = EfectoPantano.hashSeed;
+        EfectoPantano.hashSeed++;
     }
 
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
         if (this.velocidadSacada == 0) {
-            this.velocidadSacada = algoformer.getVelocidad();
+            if (algoformer.esModo(ModoHumanoide.getInstance())) {
+                this.velocidadSacada = algoformer.getVelocidad();
+            }
+            else {
+                double velocidadActual = algoformer.getVelocidad();
+                this.velocidadSacada = (int)Math.ceil(velocidadActual / 2);
+            }
             algoformer.frenar(velocidadSacada);
         }
     }
+
     @Override
     public void revertirEfecto(AlgoFormer algoFormer) {
         algoFormer.acelerar(velocidadSacada);
     }
 
     @Override
-    public void pasarTurno() {
-        this.duracion--;
-    }
+    public void pasarTurno() {    }
+
     @Override
     public boolean finalizo() {
-        return (this.duracion == 0);
+        return false;
     }
 
     @Override
     public boolean equals(Object o) {
-        return (o instanceof EfectoNebulosaAndromeda);
+        return (o instanceof EfectoPantano);
     }
     @Override
     public int hashCode() {
         return this.hashCode;
     }
+
 }
+

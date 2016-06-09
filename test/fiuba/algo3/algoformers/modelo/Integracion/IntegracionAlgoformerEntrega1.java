@@ -1,10 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
+import fiuba.algo3.algoformers.modelo.Errores.*;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
@@ -147,12 +145,8 @@ public class IntegracionAlgoformerEntrega1 {
         try {
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente ex) {
             fail();
-        } catch (ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
 
         assertEquals(optimus, casilleroDestino.getAlgoformer());
@@ -161,7 +155,6 @@ public class IntegracionAlgoformerEntrega1 {
 
     @Test
     public void test_Crear_NuevoJuego_Integracion_Punto4()  {
-
         Juego juego = new Juego("Pepe", "Pablo", 5, 5);
 
         Jugador jugador1 = juego.getJugador1();
