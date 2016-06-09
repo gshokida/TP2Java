@@ -1,7 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable;
 
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**
  * Created by Familia on 07/06/2016.

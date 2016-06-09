@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 
 import java.util.List;

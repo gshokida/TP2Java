@@ -1,7 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
-
 /**
  * Created by German on 04/06/2016.
  */

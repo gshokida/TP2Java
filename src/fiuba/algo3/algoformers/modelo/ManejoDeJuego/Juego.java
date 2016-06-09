@@ -2,7 +2,6 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
-import fiuba.algo3.algoformers.modelo.Personajes.*;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
