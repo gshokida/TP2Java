@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.Integracion;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
@@ -62,8 +63,16 @@ public class IntegracionAlgoformerEntrega1 {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(optimus);
-        casilleroDestino.setAlgoformer(megatron);
+        try {
+            casilleroOrigen.setAlgoformer(optimus);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+        try {
+            casilleroDestino.setAlgoformer(megatron);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
@@ -140,7 +149,11 @@ public class IntegracionAlgoformerEntrega1 {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(optimus);
+        try {
+            casilleroOrigen.setAlgoformer(optimus);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 

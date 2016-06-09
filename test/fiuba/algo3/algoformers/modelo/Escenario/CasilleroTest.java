@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
@@ -10,9 +11,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by german.shokida on 27/5/2016.
@@ -33,7 +32,11 @@ public class CasilleroTest {
         AlgoFormer optimus = new Optimus();
         Casillero casillero = new Casillero(new Posicion(0,0));
 
-        casillero.setAlgoformer(optimus);
+        try {
+            casillero.setAlgoformer(optimus);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         assertEquals(casillero.getAlgoformer(),optimus);
     }

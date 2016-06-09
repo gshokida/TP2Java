@@ -28,7 +28,11 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
@@ -50,7 +54,11 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -72,7 +80,11 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima + 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -96,7 +108,11 @@ public class MovimientoTest {
         Casillero casilleroDestinoIntermedio = new Casillero(new Posicion(2,0));
         Casillero casilleroDestinoFinal = new Casillero(new Posicion(distanciaMaxima + 1, 0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -125,7 +141,11 @@ public class MovimientoTest {
         int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         assertTrue(movimiento.quedanMovimientos());
@@ -139,7 +159,11 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -160,7 +184,11 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
         try {
@@ -186,7 +214,11 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
@@ -215,7 +247,11 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
@@ -257,7 +293,11 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 
@@ -312,7 +352,11 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
 

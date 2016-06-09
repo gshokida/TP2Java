@@ -25,7 +25,7 @@ public class NebulosaAndromedaTest {
         double puntosDeVida = algoFormer.getPuntosDeVida();
         int ataque = algoFormer.getAtaque();
         int distanciaDeAtaque = algoFormer.getDistanciaDeAtaque();
-        int velocidad = algoFormer.getVelocidad();
+
 
         try {
             nebulosaAndromeda.interactuar(algoFormer);
@@ -36,6 +36,6 @@ public class NebulosaAndromedaTest {
         assertEquals(puntosDeVida, algoFormer.getPuntosDeVida(),0D);
         assertEquals(ataque, algoFormer.getAtaque());
         assertEquals(distanciaDeAtaque, algoFormer.getDistanciaDeAtaque());
-        assertEquals(velocidad, algoFormer.getVelocidad());
+        assertEquals(0, algoFormer.getVelocidad());
     }
 }

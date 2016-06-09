@@ -6,6 +6,7 @@ import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Torm
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,7 +17,7 @@ import static org.junit.Assert.fail;
  */
 public class TormentaPsionicaTest {
     @Test
-    public void tormentaPsionicaEnModoAlterno_atraviesaTormentaPsionica_noDisminuyeAtaqueAtaqueDelEstado() {
+    public void tormentaPsionicaEnModoAlterno_atraviesaTormentaPsionica_DisminuyeElAtaqueDelEstadoAlterno() {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea tormentaPsionica = new TormentaPsionica();
 
@@ -30,7 +31,7 @@ public class TormentaPsionicaTest {
             fail();
         }
 
-        assertEquals(ataqueAlterno, algoFormer.getAtaque());
+        Assert.assertTrue(ataqueAlterno > algoFormer.getAtaque());
     }
 
     @Test

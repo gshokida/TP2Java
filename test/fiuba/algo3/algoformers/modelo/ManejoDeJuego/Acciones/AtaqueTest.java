@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
@@ -30,8 +31,16 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
-        casilleroDestino.setAlgoformer(algoFormerAtacado);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+           fail();
+        }
+        try {
+            casilleroDestino.setAlgoformer(algoFormerAtacado);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail ();
+        }
 
         Ataque ataque = new Ataque(casilleroOrigen);
 
@@ -54,8 +63,16 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima + 1, 0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
-        casilleroDestino.setAlgoformer(algoFormerAtacado);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+        try {
+            casilleroDestino.setAlgoformer(algoFormerAtacado);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Ataque ataque = new Ataque(casilleroOrigen);
         try {
@@ -78,7 +95,11 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1, 0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Ataque ataque = new Ataque(casilleroOrigen);
         try {
@@ -99,7 +120,11 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1, 0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Ataque ataque = new Ataque(casilleroOrigen);
         try {
@@ -120,7 +145,11 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1, 0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         casilleroDestino.setContenido(ChispaSuprema.getInstance());
 
         Ataque ataque = new Ataque(casilleroOrigen);
@@ -142,7 +171,11 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0, 0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1, 0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
         casilleroDestino.setContenido(ChispaSuprema.getInstance());
 
         Ataque ataque = new Ataque(casilleroOrigen);
@@ -165,8 +198,16 @@ public class AtaqueTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaDeAtaqueMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormerAtacante);
-        casilleroDestino.setAlgoformer(algoFormerAtacado);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormerAtacante);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
+        try {
+            casilleroDestino.setAlgoformer(algoFormerAtacado);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            fail();
+        }
 
         Ataque ataque = new Ataque(casilleroOrigen);
 

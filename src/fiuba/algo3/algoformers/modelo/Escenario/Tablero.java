@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
@@ -37,7 +38,11 @@ public class Tablero {
     }
 
     public void setAlgoformer(AlgoFormer algoformer, Posicion posicion) {
-        tablero[posicion.getX()][posicion.getY()].setAlgoformer(algoformer);
+        try {
+            tablero[posicion.getX()][posicion.getY()].setAlgoformer(algoformer);
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            e.printStackTrace();
+        }
     }
 
     public Casillero getCasillero(Posicion posicion) {

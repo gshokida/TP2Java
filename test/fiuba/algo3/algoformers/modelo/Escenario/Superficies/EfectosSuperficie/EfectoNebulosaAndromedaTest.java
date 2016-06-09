@@ -33,7 +33,7 @@ public class EfectoNebulosaAndromedaTest {
 
         Assert.assertEquals(megatron.getVelocidad(), 0);
 
-
+        Assert.assertFalse(megatron.sePuedeMover());
     }
 
 

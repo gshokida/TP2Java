@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
@@ -31,15 +32,30 @@ public class Movimiento implements Accion {
     public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException, ImposibleMoverseEfectoPresente {
         if (!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance()))
             throw new ImposibleMoverseCasilleroOcupadoException();
+
+
         int distancia = casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
+
         if (distancia > movimientosRestantes)
             throw new DistanciaExcedidaException();
+
         if (!casilleroActual.getAlgoformer().sePuedeMover())
             throw new ImposibleMoverseEfectoPresente();
+
+
         movimientosRestantes -= (distancia*this.calcularCostoMovimiento());
 
-        casilleroDestino.setAlgoformer(casilleroActual.getAlgoformer());
-        casilleroActual.setAlgoformer(NoOcupado.getInstance());
+
+        try {
+            casilleroDestino.setAlgoformer(casilleroActual.getAlgoformer());
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            throw new ImposibleMoverseCasilleroOcupadoException();
+        }
+        try {
+            casilleroActual.setAlgoformer(NoOcupado.getInstance());
+        } catch (NoPuedeInteractuarConSuperficieException e) {
+            throw new ImposibleMoverseCasilleroOcupadoException();
+        }
         casilleroActual = casilleroDestino;
 
 

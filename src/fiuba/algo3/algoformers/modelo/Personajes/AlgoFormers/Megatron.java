@@ -25,6 +25,8 @@ public class Megatron extends AlgoFormer {
         int ataqueTransformado = 55;
         int distanciaAtaqueTransformado = 2;
         int velocidadTransformado = 8;
+        fueDebilitado = false;
+
 
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance(), ModoHumanoide.getInstance());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadAerea.getInstance(), ModoAlterno.getInstance());

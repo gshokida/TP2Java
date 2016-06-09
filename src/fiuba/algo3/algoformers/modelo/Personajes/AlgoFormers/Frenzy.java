@@ -24,6 +24,8 @@ public class Frenzy extends AlgoFormer {
         int ataqueTransformado = 25;
         int distanciaAtaqueTransformado = 2;
         int velocidadTransformado = 6;
+        fueDebilitado = false;
+
 
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance(), ModoHumanoide.getInstance());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.getInstance(), ModoAlterno.getInstance());

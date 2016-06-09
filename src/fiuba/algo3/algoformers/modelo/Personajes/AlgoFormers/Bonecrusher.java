@@ -25,7 +25,7 @@ public class Bonecrusher extends AlgoFormer {
         int ataqueTransformado = 30;
         int distanciaAtaqueTransformado = 3;
         int velocidadTransformado = 8;
-
+        fueDebilitado = false;
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance(), ModoHumanoide.getInstance());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.getInstance(), ModoAlterno.getInstance());
 

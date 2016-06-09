@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.Escenario;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAereaVacia;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -35,7 +36,7 @@ public class Casillero {
         return contenido;
     }
 
-    public void setAlgoformer(AlgoFormer algoformer){
+    public void setAlgoformer(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {
 
 
         if (algoformer.equals(NoOcupado.getInstance())){
@@ -51,6 +52,9 @@ public class Casillero {
                 try {
                     this.superficieAerea.interactuar(algoformer);
                 } catch (NoPuedeInteractuarConSuperficieException e1) {
+
+                    throw new NoPuedeInteractuarConSuperficieException();
+
                 }
             }
 

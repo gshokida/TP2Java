@@ -24,6 +24,7 @@ public class Bumblebee extends AlgoFormer {
         int ataqueTransformado = 20;
         int distanciaAtaqueTransformado = 3;
         int velocidadTransformado = 5;
+        fueDebilitado = false;
 
         estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance(), ModoHumanoide.getInstance());
         estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado, velocidadTransformado, TipoUnidadTerrestre.getInstance(), ModoAlterno.getInstance());
