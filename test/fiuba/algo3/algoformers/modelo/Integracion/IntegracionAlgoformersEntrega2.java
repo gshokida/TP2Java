@@ -536,6 +536,7 @@ public class IntegracionAlgoformersEntrega2 {
             fail();
         } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
             fail();
+
         }
 
 
