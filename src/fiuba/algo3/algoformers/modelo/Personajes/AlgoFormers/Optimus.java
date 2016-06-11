@@ -2,9 +2,8 @@ package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 
 import java.util.LinkedList;
 
@@ -23,8 +22,8 @@ public class Optimus extends AlgoFormer {
         int distanciaAtaqueTransformado = 4;
         int velocidadTransformado = 5;
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, TipoUnidadTerrestre.getInstance(), ModoHumanoide.getInstance());
-        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, TipoUnidadTerrestre.getInstance(), ModoAlterno.getInstance());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, new TipoUnidadHumanoide());
+        estadoInactivo = new AlgoformerEstado(ataqueTransformado, distanciaAtaqueTransformado ,velocidadTransformado, new TipoUnidadVehiculo());
     }
 
     public void transformar() {

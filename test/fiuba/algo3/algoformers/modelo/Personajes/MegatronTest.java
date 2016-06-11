@@ -1,14 +1,12 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeronave;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 /**
  * Created by german.shokida on 24/5/2016.
@@ -127,28 +125,19 @@ public class MegatronTest {
     }
 
     @Test
-    public void nuevaInstancia_tipoUnidad_esTerrestre() {
+    public void nuevaInstancia_tipoUnidad_esHumanoide() {
         Megatron megatron = new Megatron();
 
-        assertTrue(megatron.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(megatron.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
     @Test
-    public void cambiarModo_tipoUnidad_esAerea() {
+    public void cambiarModo_tipoUnidad_esAeronave() {
         Megatron megatron = new Megatron();
 
         megatron.transformar();
 
-        assertTrue(megatron.esTipoUnidad(TipoUnidadAerea.getInstance()));
-    }
-
-    @Test
-    public void cambiarModo_modo_esModoAlterno() {
-        Megatron algoFormer = new Megatron();
-
-        algoFormer.transformar();
-
-        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+        assertTrue(megatron.esTipoUnidad(new TipoUnidadAeronave()));
     }
 
     @Test

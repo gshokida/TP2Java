@@ -1,11 +1,12 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class OptimusTest {
     @Test
@@ -121,30 +122,20 @@ public class OptimusTest {
     }
 
     @Test
-    public void nuevaInstancia_tipoUnidad_esTerrestre() {
+    public void nuevaInstancia_tipoUnidad_esHumanoide() {
         Optimus optimus = new Optimus();
 
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(optimus.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
     @Test
-    public void cambiarModo_tipoUnidad_esTerrestre() {
+    public void cambiarModo_tipoUnidad_esVehiculo() {
         Optimus optimus = new Optimus();
 
         optimus.transformar();
 
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(optimus.esTipoUnidad(new TipoUnidadVehiculo()));
     }
-
-    @Test
-    public void cambiarModo_modo_esModoAlterno() {
-        Optimus algoFormer = new Optimus();
-
-        algoFormer.transformar();
-
-        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
-    }
-
 
     @Test
     public void recibirAtaqueDeBandoEnemigo_restaVida_elValorDeAtaque() {

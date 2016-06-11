@@ -1,8 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Bumblebee;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -122,28 +122,19 @@ public class BumblebeeTest {
     }
 
     @Test
-    public void nuevaInstancia_tipoUnidad_esTerrestre() {
+    public void nuevaInstancia_tipoUnidad_esHumanoide() {
         Bumblebee bumblebee = new Bumblebee();
 
-        assertTrue(bumblebee.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(bumblebee.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
     @Test
-    public void cambiarModo_tipoUnidad_esTerrestre() {
+    public void cambiarModo_tipoUnidad_esVehiculo() {
         Bumblebee bumblebee = new Bumblebee();
 
         bumblebee.transformar();
 
-        assertTrue(bumblebee.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
-    }
-
-    @Test
-    public void cambiarModo_modo_esModoAlterno() {
-        Bumblebee algoFormer = new Bumblebee();
-
-        algoFormer.transformar();
-
-        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+        assertTrue(bumblebee.esTipoUnidad(new TipoUnidadVehiculo()));
     }
 
     @Test

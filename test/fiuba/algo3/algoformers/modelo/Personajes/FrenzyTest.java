@@ -1,8 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Frenzy;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -122,28 +122,19 @@ public class FrenzyTest {
     }
 
     @Test
-    public void nuevaInstancia_tipoUnidad_esTerrestre() {
+    public void nuevaInstancia_tipoUnidad_esHumanoide() {
         Frenzy algoFormer = new Frenzy();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(algoFormer.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
     @Test
-    public void cambiarModo_tipoUnidad_esTerrestre() {
+    public void cambiarModo_tipoUnidad_esVehiculo() {
         Frenzy algoFormer = new Frenzy();
 
         algoFormer.transformar();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
-    }
-
-    @Test
-    public void cambiarModo_modo_esModoAlterno() {
-        Frenzy algoFormer = new Frenzy();
-
-        algoFormer.transformar();
-
-        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+        assertTrue(algoFormer.esTipoUnidad(new TipoUnidadVehiculo()));
     }
 
     @Test

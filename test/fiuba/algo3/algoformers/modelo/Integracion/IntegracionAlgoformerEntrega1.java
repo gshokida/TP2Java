@@ -1,6 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
-import fiuba.algo3.algoformers.modelo.Errores.*;
+import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
+import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
@@ -9,16 +11,16 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
-import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
+import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by german.shokida on 31/5/2016.
@@ -81,7 +83,7 @@ public class IntegracionAlgoformerEntrega1 {
 
         tablero.setAlgoformer(optimus, new Posicion(0, 0));
 
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(optimus.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
     @Test
@@ -96,7 +98,7 @@ public class IntegracionAlgoformerEntrega1 {
         assertEquals(optimus.getAtaque(),15, 0D);
         assertEquals(optimus.getDistanciaDeAtaque(),4);
         assertEquals(optimus.getVelocidad(),5);
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(optimus.esTipoUnidad(new TipoUnidadVehiculo()));
     }
 
     @Test
@@ -112,7 +114,7 @@ public class IntegracionAlgoformerEntrega1 {
         assertEquals(optimus.getAtaque(),50, 0D);
         assertEquals(optimus.getDistanciaDeAtaque(),2);
         assertEquals(optimus.getVelocidad(),2);
-        assertTrue(optimus.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(optimus.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
 

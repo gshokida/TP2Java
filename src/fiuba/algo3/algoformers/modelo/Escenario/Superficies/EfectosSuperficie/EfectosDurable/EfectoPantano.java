@@ -1,7 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
 
 /**
  * Created by Familia on 07/06/2016.
@@ -21,7 +21,7 @@ public class EfectoPantano extends EfectoSuperficieDurable {
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
         if (this.velocidadSacada == 0) {
-            if (algoformer.esModo(ModoHumanoide.getInstance())) {
+            if (algoformer.esTipoUnidad(new TipoUnidadHumanoide())) {
                 this.velocidadSacada = algoformer.getVelocidad();
             }
             else {

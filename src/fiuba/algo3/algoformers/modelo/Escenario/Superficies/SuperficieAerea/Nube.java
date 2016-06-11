@@ -10,7 +10,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerre
 public class Nube implements SuperficieAerea {
 
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {
-        if(algoformer.esTipoUnidad(TipoUnidadTerrestre.getInstance()))
+        if(algoformer.esTipoUnidad(new TipoUnidadTerrestre()))
             throw new NoPuedeInteractuarConSuperficieException();
     }
 }

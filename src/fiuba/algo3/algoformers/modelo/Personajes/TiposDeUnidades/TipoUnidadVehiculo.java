@@ -1,12 +1,13 @@
 package fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades;
 
 /**
- * Created by Hennico on 23/5/2016.
+ * Created by Hennico on 11/6/2016.
  */
-public class TipoUnidadTerrestre extends TipoUnidad {
+public class TipoUnidadVehiculo extends TipoUnidadTerrestre {
+    @Override
     protected boolean sonIguales(TipoUnidad tipoUnidad) {
         try {
-            TipoUnidadTerrestre prueba = (TipoUnidadTerrestre)tipoUnidad;
+            TipoUnidadVehiculo prueba = (TipoUnidadVehiculo)tipoUnidad;
             return true;
         }
         catch(Exception error) {

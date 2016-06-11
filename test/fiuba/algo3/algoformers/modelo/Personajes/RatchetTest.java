@@ -1,9 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Personajes;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.ModoAlterno;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAerea;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeronave;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -123,28 +122,19 @@ public class RatchetTest {
     }
 
     @Test
-    public void nuevaInstancia_tipoUnidad_esTerrestre() {
+    public void nuevaInstancia_tipoUnidad_esHumanoide() {
         Ratchet algoFormer = new Ratchet();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+        assertTrue(algoFormer.esTipoUnidad(new TipoUnidadHumanoide()));
     }
 
     @Test
-    public void cambiarModo_tipoUnidad_esAerea() {
+    public void cambiarModo_tipoUnidad_esAeronave() {
         Ratchet algoFormer = new Ratchet();
 
         algoFormer.transformar();
 
-        assertTrue(algoFormer.esTipoUnidad(TipoUnidadAerea.getInstance()));
-    }
-
-    @Test
-    public void cambiarModo_modo_esModoAlterno() {
-        Ratchet algoFormer = new Ratchet();
-
-        algoFormer.transformar();
-
-        assertTrue(algoFormer.esModo(ModoAlterno.getInstance()));
+        assertTrue(algoFormer.esTipoUnidad(new TipoUnidadAeronave()));
     }
 
     @Test

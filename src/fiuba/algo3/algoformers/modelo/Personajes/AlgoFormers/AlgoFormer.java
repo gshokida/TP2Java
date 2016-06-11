@@ -3,7 +3,6 @@ package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable.EfectoSuperficieDurable;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
-import fiuba.algo3.algoformers.modelo.Personajes.Modos.Modo;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
 import java.util.Iterator;
@@ -40,9 +39,6 @@ public abstract class AlgoFormer {
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
-    }
-    public boolean esModo(Modo modo) {
-        return estado.esModo(modo);
     }
 
     public void recibirAtaque(double puntosDeAtaque) {

@@ -10,12 +10,19 @@ import static org.junit.Assert.assertTrue;
  */
 public class TipoUnidadTerrestreTest {
     @Test
-    public void esTipoUnidad_siSeEnviaASiMismo_esVerdadero() {
-        assertTrue(TipoUnidadTerrestre.getInstance().esTipoUnidad(TipoUnidadTerrestre.getInstance()));
+    public void esTipoUnidad_enviandoHumanoide_esFalso() {
+        assertFalse(new TipoUnidadTerrestre().esTipoUnidad(new TipoUnidadHumanoide()));
     }
-
     @Test
-    public void esTipoUniad_siSeEnviaTipoDeUnidadDistinto_esFalso() {
-        assertFalse(TipoUnidadTerrestre.getInstance().esTipoUnidad(TipoUnidadAerea.getInstance()));
+    public void esTipoUnidad_enviandoVehiculo_esFalso() {
+        assertFalse(new TipoUnidadTerrestre().esTipoUnidad(new TipoUnidadVehiculo()));
+    }
+    @Test
+    public void esTipoUnidad_enviandoAeronave_esFalso() {
+        assertFalse(new TipoUnidadTerrestre().esTipoUnidad(new TipoUnidadAeronave()));
+    }
+    @Test
+    public void esTipoUnidad_enviandoTerrestre_esVerdadero() {
+        assertTrue(new TipoUnidadTerrestre().esTipoUnidad(new TipoUnidadTerrestre()));
     }
 }
