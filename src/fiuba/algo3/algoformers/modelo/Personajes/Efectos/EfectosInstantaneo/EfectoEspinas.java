@@ -1,11 +1,11 @@
-package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosInstantaneo;
+package fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosInstantaneo;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**
  * Created by german.shokida on 6/6/2016.
  */
-public class EfectoEspinas implements EfectoSuperficieInstantaneo {
+public class EfectoEspinas implements EfectoInstantaneo {
     private int porcentaje = 5;
 
     @Override

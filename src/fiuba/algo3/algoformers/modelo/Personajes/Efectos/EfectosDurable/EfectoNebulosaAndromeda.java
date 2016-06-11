@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable;
+package fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 

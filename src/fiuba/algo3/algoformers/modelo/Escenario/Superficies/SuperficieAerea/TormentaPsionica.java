@@ -1,8 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
-import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable.EfectoSuperficieDurable;
-import fiuba.algo3.algoformers.modelo.Escenario.Superficies.EfectosSuperficie.EfectosDurable.EfectoTormentaPsionica;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoSuperficieDurable;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoTormentaPsionica;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
