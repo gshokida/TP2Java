@@ -84,6 +84,11 @@ public abstract class AlgoFormer {
         return (this.estado.getAtaque());
     }
 
+    public int calcularVelocidad() {
+        this.aplicarEfectos(this.efectos);
+        return (this.estado.getVelocidad());
+    }
+
     private void pasarTurno(List<EfectoDurable> efectos) {
         Iterator<EfectoDurable> iterador = efectos.iterator();
         while (iterador.hasNext()) {

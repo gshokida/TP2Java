@@ -3,32 +3,31 @@ package fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**
- * Created by German on 11/06/2016.
+ * Created by German on 12/06/2016.
  */
-public class EfectoDobleCanion extends EfectoDurable {
+public class EfectoFlash extends EfectoDurable {
     static int hashSeed = 0;
     private int hashCode;
-    private int multiplicador = 2;
+    private int velocidadAgregada = 0;
     private int duracion;
-    private double ataqueAgregado = 0;
 
-    public EfectoDobleCanion(int duracion){
+    public EfectoFlash(int duracion) {
         this.duracion = duracion;
-        this.hashCode = EfectoDobleCanion.hashSeed;
-        EfectoDobleCanion.hashSeed++;
+        this.hashCode = EfectoFlash.hashSeed;
+        EfectoFlash.hashSeed++;
     }
 
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
-        if (this.ataqueAgregado == 0) {
-            this.ataqueAgregado = algoformer.getAtaque();
-            algoformer.multiplicarAtaque(this.multiplicador);
+        if (this.velocidadAgregada == 0) {
+            this.velocidadAgregada = algoformer.getVelocidad() * 2;
+            algoformer.acelerar(velocidadAgregada);
         }
     }
 
     @Override
     public void revertirEfecto(AlgoFormer algoFormer) {
-        //algoFormer.dividirAtaque(this.multiplicador);
+        algoFormer.frenar(this.velocidadAgregada);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class EfectoDobleCanion extends EfectoDurable {
 
     @Override
     public boolean equals(Object o) {
-        return (o instanceof EfectoDobleCanion);
+        return (o instanceof EfectoFlash);
     }
 
     @Override
