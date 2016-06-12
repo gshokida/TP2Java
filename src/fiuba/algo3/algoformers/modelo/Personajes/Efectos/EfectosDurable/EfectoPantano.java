@@ -6,7 +6,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHuman
 /**
  * Created by Familia on 07/06/2016.
  */
-public class EfectoPantano extends EfectoSuperficieDurable {
+public class EfectoPantano extends EfectoDurable {
     static int hashSeed = 0;
 
     private int hashCode;

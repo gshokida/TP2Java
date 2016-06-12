@@ -6,7 +6,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 /**
  * Created by gaston.tulipani on 08/06/2016.
  */
-public abstract class EfectoSuperficieDurable implements Efecto {
+public abstract class EfectoDurable implements Efecto {
     @Override
     public abstract void aplicarEfecto(AlgoFormer algoformer);
     public abstract void revertirEfecto(AlgoFormer algoFormer);

@@ -5,7 +5,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 /**
  * Created by gaston.tulipani on 06/06/2016.
  */
-public class EfectoTormentaPsionica extends EfectoSuperficieDurable {
+public class EfectoTormentaPsionica extends EfectoDurable {
     static int hashSeed = 0;
 
     private int hashCode;

@@ -1,7 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoSuperficieDurable;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoDurable;
 import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoTormentaPsionica;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
@@ -14,7 +14,7 @@ public class TormentaPsionica implements SuperficieAerea {
         if (algoformer.esTipoUnidad(new TipoUnidadTerrestre())) {
             throw new NoPuedeInteractuarConSuperficieException();
         }
-        EfectoSuperficieDurable efecto = new EfectoTormentaPsionica();
+        EfectoDurable efecto = new EfectoTormentaPsionica();
         algoformer.agregarEfecto(efecto);
     }
 }

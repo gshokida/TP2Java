@@ -3,36 +3,39 @@ package fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**
- * Created by Familia on 07/06/2016.
+ * Created by German on 11/06/2016.
  */
-public class EfectoNebulosaAndromeda extends EfectoDurable {
+public class EfectoDobleCanion extends EfectoDurable {
     static int hashSeed = 0;
-
     private int hashCode;
-    private int velocidadSacada = 0;
-    private int duracion = 3;
+    private int multiplicador = 2;
+    private int duracion;
+    private double ataqueAgregado = 0;
 
-    public EfectoNebulosaAndromeda () {
+    public EfectoDobleCanion(int duracion){
+        this.duracion = duracion;
         this.hashCode = EfectoNebulosaAndromeda.hashSeed;
-        EfectoNebulosaAndromeda.hashSeed++;
+        EfectoDobleCanion.hashSeed++;
     }
 
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
-        if (this.velocidadSacada == 0) {
-            this.velocidadSacada = algoformer.getVelocidad();
-            algoformer.frenar(velocidadSacada);
+        if (this.ataqueAgregado == 0) {
+            this.ataqueAgregado = algoformer.getAtaque();
+            algoformer.multiplicarAtaque(this.multiplicador);
         }
     }
+
     @Override
     public void revertirEfecto(AlgoFormer algoFormer) {
-        algoFormer.acelerar(velocidadSacada);
+        //algoFormer.dividirAtaque(this.multiplicador);
     }
 
     @Override
     public void pasarTurno() {
         this.duracion--;
     }
+
     @Override
     public boolean finalizo() {
         return (this.duracion == 0);
@@ -40,8 +43,9 @@ public class EfectoNebulosaAndromeda extends EfectoDurable {
 
     @Override
     public boolean equals(Object o) {
-        return (o instanceof EfectoNebulosaAndromeda);
+        return (o instanceof EfectoDobleCanion);
     }
+
     @Override
     public int hashCode() {
         return this.hashCode;
