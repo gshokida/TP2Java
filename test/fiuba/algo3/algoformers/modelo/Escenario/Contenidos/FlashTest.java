@@ -20,4 +20,20 @@ public class FlashTest {
 
         assertEquals(velocidadConBonus, optimus.calcularVelocidad());
     }
+
+    @Test
+    public void aplicarFlashAAlgoformerDuraTresTurnos(){
+        int valocidadOptimus = 2;
+
+        Flash efectoFlash = new Flash();
+        AlgoFormer algoformer = new Optimus();
+
+        efectoFlash.interactuar(algoformer);
+
+        algoformer.pasarTurno();
+        algoformer.pasarTurno();
+        algoformer.pasarTurno();
+
+        assertEquals(valocidadOptimus, algoformer.calcularVelocidad());
+    }
 }
