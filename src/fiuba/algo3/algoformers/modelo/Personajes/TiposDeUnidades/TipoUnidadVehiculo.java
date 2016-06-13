@@ -6,12 +6,6 @@ package fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades;
 public class TipoUnidadVehiculo extends TipoUnidadTerrestre {
     @Override
     protected boolean sonIguales(TipoUnidad tipoUnidad) {
-        try {
-            TipoUnidadVehiculo prueba = (TipoUnidadVehiculo)tipoUnidad;
-            return true;
-        }
-        catch(Exception error) {
-            return false;
-        }
+        return tipoUnidad instanceof TipoUnidadVehiculo;
     }
 }

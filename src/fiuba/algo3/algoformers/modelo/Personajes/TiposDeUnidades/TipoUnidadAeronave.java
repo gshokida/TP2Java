@@ -5,12 +5,6 @@ package fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades;
  */
 public class TipoUnidadAeronave extends TipoUnidad {
     protected boolean sonIguales(TipoUnidad tipoUnidad) {
-        try {
-            TipoUnidadAeronave prueba = (TipoUnidadAeronave) tipoUnidad;
-            return true;
-        }
-        catch(Exception error) {
-            return false;
-        }
+        return tipoUnidad instanceof TipoUnidadAeronave;
     }
 }
