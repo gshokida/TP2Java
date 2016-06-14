@@ -5,18 +5,24 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 /**
  * Created by Familia on 07/06/2016.
  */
-public class EfectoNebulosaAndromeda extends EfectoDurable {
-    static int hashSeed = 0;
+public class EfectoNebulosaAndromeda extends EfectoTemporal {
+    private int velocidadAnterior;
 
-    private int hashCode;
-    private int velocidadSacada = 0;
-    private int duracion = 3;
-
-    public EfectoNebulosaAndromeda () {
-        this.hashCode = EfectoNebulosaAndromeda.hashSeed;
-        EfectoNebulosaAndromeda.hashSeed++;
+    public EfectoNebulosaAndromeda (int duracion) {
+        super(duracion);
     }
 
+    protected void aplicarse() {
+        AlgoFormer afectado = getAfectado();
+        this.velocidadAnterior = afectado.getVelocidad();
+        afectado.setVelocidad(0);
+    }
+
+    protected void revertirse() {
+        AlgoFormer afectado = getAfectado();
+        afectado.setVelocidad(this.velocidadAnterior);
+    }
+    /*
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
         if (this.velocidadSacada == 0) {
@@ -28,22 +34,5 @@ public class EfectoNebulosaAndromeda extends EfectoDurable {
     public void revertirEfecto(AlgoFormer algoFormer) {
         algoFormer.acelerar(velocidadSacada);
     }
-
-    @Override
-    public void pasarTurno() {
-        this.duracion--;
-    }
-    @Override
-    public boolean finalizo() {
-        return (this.duracion == 0);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return (o instanceof EfectoNebulosaAndromeda);
-    }
-    @Override
-    public int hashCode() {
-        return this.hashCode;
-    }
+    */
 }

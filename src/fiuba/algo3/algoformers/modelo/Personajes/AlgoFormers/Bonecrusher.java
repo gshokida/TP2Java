@@ -1,6 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
@@ -14,7 +13,7 @@ public class Bonecrusher extends AlgoFormer {
         nombre = "Bonecrusher";
         puntosDeVida = 200;
         bando = BandoDecepticons.getInstance();
-        efectos = new LinkedList<>();
+        efectosActivos = new LinkedList<>();
         int ataqueNormal = 30;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;

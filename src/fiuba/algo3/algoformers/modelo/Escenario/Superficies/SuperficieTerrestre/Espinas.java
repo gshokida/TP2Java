@@ -11,11 +11,13 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeron
  */
 public class Espinas implements SuperficieTerrestre {
 
+    private int porcentajeDanio = 5;
+
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {
         if (algoformer.esTipoUnidad(new TipoUnidadAeronave())) {
             throw new NoPuedeInteractuarConSuperficieException();
         }
-        Efecto efecto = new EfectoEspinas();
+        Efecto efecto = new EfectoEspinas(this.porcentajeDanio);
 
         efecto.aplicarEfecto(algoformer);
     }

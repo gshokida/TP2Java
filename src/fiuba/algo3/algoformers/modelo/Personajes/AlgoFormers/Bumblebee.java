@@ -1,6 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoAutobots;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
@@ -14,7 +13,7 @@ public class Bumblebee extends AlgoFormer {
         nombre = "Bumblebee";
         puntosDeVida = 350;
         bando = BandoAutobots.getInstance();
-        efectos = new LinkedList<>();
+        efectosActivos = new LinkedList<>();
         int ataqueNormal = 40;
         int distanciaAtaqueNormal = 1;
         int velocidadNormal = 2;

@@ -2,7 +2,7 @@ package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoPantano;
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoDurable;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoTemporal;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeronave;
 
@@ -15,7 +15,7 @@ public class Pantano implements SuperficieTerrestre {
         if (algoformer.esTipoUnidad(new TipoUnidadAeronave())) {
             throw new NoPuedeInteractuarConSuperficieException();
         }
-        EfectoDurable efecto = new EfectoPantano();
+        EfectoTemporal efecto = new EfectoPantano(3);
         algoformer.agregarEfecto(efecto);
     }
 }

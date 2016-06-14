@@ -7,4 +7,6 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
  */
 public interface Efecto {
     void aplicarEfecto(AlgoFormer algoformer);
+    void revertirEfecto(AlgoFormer algoformer);
+    void pasarTurno();
 }

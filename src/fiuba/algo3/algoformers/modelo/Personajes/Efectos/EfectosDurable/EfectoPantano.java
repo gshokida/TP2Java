@@ -6,18 +6,20 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHuman
 /**
  * Created by Familia on 07/06/2016.
  */
-public class EfectoPantano extends EfectoDurable {
-    static int hashSeed = 0;
+public class EfectoPantano extends EfectoTemporal {
 
-    private int hashCode;
-    private int velocidadSacada = 0;
-    private boolean finalizo = false;
-
-    public EfectoPantano() {
-        this.hashCode = EfectoPantano.hashSeed;
-        EfectoPantano.hashSeed++;
+    public EfectoPantano(int duracion) {
+        super(duracion);
     }
 
+    protected void aplicarse() {
+
+    }
+
+    protected void revertirse() {
+
+    }
+    /*
     @Override
     public void aplicarEfecto(AlgoFormer algoformer) {
         if (this.velocidadSacada == 0) {
@@ -35,22 +37,6 @@ public class EfectoPantano extends EfectoDurable {
     public void revertirEfecto(AlgoFormer algoFormer) {
         algoFormer.acelerar(velocidadSacada);
     }
-
-    @Override
-    public void pasarTurno() { }
-    @Override
-    public boolean finalizo() {
-        return this.finalizo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return (o instanceof EfectoPantano);
-    }
-    @Override
-    public int hashCode() {
-        return this.hashCode;
-    }
-
+    */
 }
 

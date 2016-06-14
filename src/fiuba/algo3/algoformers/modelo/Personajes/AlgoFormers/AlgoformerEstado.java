@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modelo.Personajes;
+package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
 
@@ -36,6 +36,10 @@ public class AlgoformerEstado {
 
     public void setAtaque(double ataque) {
         this.ataque = ataque;
+    }
+
+    public void setVelocidad(int velocidad) {
+        this.velocidad = velocidad;
     }
 
     public void disminuirVelocidad(int velocidadSacada) {
