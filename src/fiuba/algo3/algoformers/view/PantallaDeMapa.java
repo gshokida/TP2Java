@@ -23,10 +23,6 @@ public class PantallaDeMapa extends BorderPane {
         generarContenidos(ancho, alto);
 
         this.setCenter(generarGrilla(ancho, alto));
-
-        Image pastoFondo = new Image(ImageHelper.getImagePath("PastoFondo.png"));
-        BackgroundImage fondo = new BackgroundImage(pastoFondo, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        this.setBackground(new Background(fondo));
     }
 
     private HBox generarGrilla(int ancho, int alto) {
@@ -37,8 +33,8 @@ public class PantallaDeMapa extends BorderPane {
             for (int j = 0; j < alto; j++) {
                 HBox cajaUnidad = new HBox(contenidos[i-1][j]);
 
-                cajaUnidad.setPrefWidth(tamanio);
-                cajaUnidad.setPrefHeight(tamanio);
+                cajaUnidad.setPrefWidth(tamanio + 2.5d);
+                cajaUnidad.setPrefHeight(tamanio + 2.5d);
                 cajaUnidad.setAlignment(Pos.CENTER);
 
                 horizontal[j] = cajaUnidad;
@@ -54,7 +50,7 @@ public class PantallaDeMapa extends BorderPane {
         vertical[0].setPrefWidth(160);
         vertical[0].setAlignment(Pos.CENTER);
 
-        BackgroundImage fondo = new BackgroundImage(new Image(ImageHelper.getImagePath("BarraMenu.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        BackgroundImage fondo = new BackgroundImage(new Image(ImageHelper.getImagePath("BarraMenu.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.ROUND, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         vertical[0].setBackground(new Background(fondo));
 
         HBox pantalla = new HBox(vertical);
@@ -84,6 +80,10 @@ public class PantallaDeMapa extends BorderPane {
 
     private Pane generarPanel(Node... nodes) {
         Pane pane = new Pane(nodes);
+
+        Image pastoFondo = new Image(ImageHelper.getImagePath("PastoFondo.png"));
+        BackgroundImage fondo = new BackgroundImage(pastoFondo, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        pane.setBackground(new Background(fondo));
 
         pane.setPrefHeight(tamanio);
         pane.setPrefWidth(tamanio);

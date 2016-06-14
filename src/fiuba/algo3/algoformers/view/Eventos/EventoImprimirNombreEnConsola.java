@@ -14,7 +14,7 @@ public class EventoImprimirNombreEnConsola implements EventHandler<MouseEvent> {
     }
 
     public void handle(MouseEvent event) {
-        System.out.println("Nombre precionado: " + nombre);
+        System.out.println("Nombre: " + nombre);
         event.consume();
     }
 }

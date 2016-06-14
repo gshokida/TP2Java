@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private static Main instancia;
 
-    private static double PANTALLA_ANCHO = 640D;
-    private static double PANTALLA_ALTO = 480D;
+    private static double PANTALLA_ANCHO = 800D;
+    private static double PANTALLA_ALTO = 600D;
     private Stage stage;
 
     @Override
