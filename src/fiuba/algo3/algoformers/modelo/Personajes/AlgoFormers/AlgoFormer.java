@@ -43,7 +43,7 @@ public abstract class AlgoFormer {
     public void recibirAtaque(double puntosDeAtaque) {
         recibirDanio(puntosDeAtaque);
     }
-    public void recibirDanio(double puntosDeAtaque) {
+    private void recibirDanio(double puntosDeAtaque) {
         this.puntosDeVida -= (puntosDeAtaque);
     }
 
