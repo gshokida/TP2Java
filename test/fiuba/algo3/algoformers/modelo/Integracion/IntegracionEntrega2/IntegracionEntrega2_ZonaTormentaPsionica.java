@@ -2,7 +2,6 @@ package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
@@ -45,7 +44,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Ratchet sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -82,7 +81,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Megatron sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -122,7 +121,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Ratchet sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -131,7 +130,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionTormenta2)); //Ratchet sufre nuevamente TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -171,7 +170,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Megatron sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -180,7 +179,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionTormenta2)); //Megatron sufre nuevamente TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 

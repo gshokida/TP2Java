@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;

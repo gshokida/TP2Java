@@ -19,14 +19,12 @@ public class Movimiento implements Accion {
         this.casilleroActual = casilleroOrigen;
     }
 
-    public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException, ImposibleMoverseEfectoPresente {
+    public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException {
         if (!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance()))
             throw new ImposibleMoverseCasilleroOcupadoException();
         int distancia = this.casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
         if (distancia > this.movimientosRestantes)
             throw new DistanciaExcedidaException();
-        if (!this.casilleroActual.getAlgoformer().sePuedeMover())
-            throw new ImposibleMoverseEfectoPresente();
         this.movimientosRestantes -= (distancia * costoMovimiento());
         casilleroDestino.setAlgoformer(this.casilleroActual.getAlgoformer());
         this.casilleroActual.setAlgoformer(NoOcupado.getInstance());

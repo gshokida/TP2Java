@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.modelo.Escenario;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**
@@ -13,7 +14,7 @@ public class Tablero {
     int posy;
 
     public  Tablero (int filas, int columnas) {
-        if (!((filas %2 != 0) && (columnas %2 != 0))) {
+        if (!((filas % 2 != 0) && (columnas % 2 != 0))) {
             throw new TableroParInvalidoException();
         }
 

@@ -1,6 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
-import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**

@@ -16,13 +16,13 @@ import static org.junit.Assert.fail;
  */
 public class TormentaPsionicaTest {
     @Test
-    public void tormentaPsionicaEnModoAlterno_atraviesaTormentaPsionica_noDisminuyeAtaqueAtaqueDelEstado() {
+    public void tormentaPsionicaEnModoAlterno_atraviesaTormentaPsionica_DisminuyeAtaqueAtaqueDelEstado() {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea tormentaPsionica = new TormentaPsionica();
 
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
-        double ataqueAlterno = algoFormer.getAtaque();
+        double ataqueAlterno = algoFormer.getAtaque() * 60 / 100;
 
         try {
             tormentaPsionica.interactuar(algoFormer);
@@ -52,6 +52,4 @@ public class TormentaPsionicaTest {
 
         assertEquals(ataqueHumanoide, algoFormer.getAtaque(), 0D);
     }
-
-
 }

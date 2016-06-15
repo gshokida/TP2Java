@@ -1,7 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
-import fiuba.algo3.algoformers.modelo.Escenario.Contenido;
-
 /**
  * Created by Rodrigo on 01/06/2016.
  */

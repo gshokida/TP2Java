@@ -2,7 +2,6 @@ package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.TierraRocosa;
@@ -37,7 +36,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -62,7 +61,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -87,7 +86,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -112,7 +111,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -135,7 +134,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -160,7 +159,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -183,7 +182,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -208,7 +207,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -231,7 +230,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -256,7 +255,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -281,7 +280,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -306,7 +305,7 @@ public class IntegracionEntrega2_ZonaRocosa {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 

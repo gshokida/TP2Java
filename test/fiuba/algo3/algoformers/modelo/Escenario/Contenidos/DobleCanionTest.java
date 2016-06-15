@@ -1,8 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
+
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoDobleCanion;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -20,7 +20,7 @@ public class DobleCanionTest {
 
         bonusDobleCanion.interactuar(algoformer);
 
-        assertEquals(ataqueOptimusConEfecto, algoformer.calcularAtaque(), 0D);
+        assertEquals(ataqueOptimusConEfecto, algoformer.getAtaque(), 0D);
     }
 
     @Test
@@ -36,9 +36,35 @@ public class DobleCanionTest {
         algoformer.pasarTurno();
         algoformer.pasarTurno();
 
-        assertEquals(ataqueOptimus, algoformer.calcularAtaque(), 0D);
+        assertEquals(ataqueOptimus, algoformer.getAtaque(), 0D);
     }
-    /*
+
+    @Test
+    public void transformar_acuandoEstaSiendoAfectadoPorUnEfecto_mantieneElEfecto(){
+        double ataqueOptimusTransformadoConEfecto = 15 * 2;
+
+        DobleCanion bonusDobleCanion = new DobleCanion();
+        AlgoFormer algoformer = new Optimus();
+
+        bonusDobleCanion.interactuar(algoformer);
+
+        algoformer.transformar();
+
+        assertEquals(ataqueOptimusTransformadoConEfecto, algoformer.getAtaque(), 0D);
+    }
+
+    @Test
+    public void transformar_acuandoLuegoDeSerAfectadoPorUnEfecto_mantieneElEfecto(){
+        double ataqueOptimusTransformadoConEfecto = 15 * 2;
+
+        DobleCanion bonusDobleCanion = new DobleCanion();
+        AlgoFormer algoformer = new Optimus();
+        algoformer.transformar();
+        bonusDobleCanion.interactuar(algoformer);
+
+        assertEquals(ataqueOptimusTransformadoConEfecto, algoformer.getAtaque(), 0D);
+    }
+
     @Test
     public void aplicarEfectoDobleDosVecesMultiplicaAtaquePorCuatro(){
         double ataqueOptimus = 200;
@@ -50,6 +76,6 @@ public class DobleCanionTest {
         bonusDobleCanion.interactuar(algoformer);
         segundoBonusDobleCanion.interactuar(algoformer);
 
-        assertEquals(ataqueOptimus, algoformer.calcularAtaque(), 0D);
-    }*/
+        assertEquals(ataqueOptimus, algoformer.getAtaque(), 0D);
+    }
 }

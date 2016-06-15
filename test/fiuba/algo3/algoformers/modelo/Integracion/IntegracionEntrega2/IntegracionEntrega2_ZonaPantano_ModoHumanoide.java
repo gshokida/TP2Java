@@ -2,7 +2,6 @@ package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -37,44 +36,11 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
         assertEquals(algoFormer, tablero.getCasillero(posicionDestino).getAlgoformer());
-    }
-
-    @Test
-    public void optimusHumanoideIngresaYNoSePuedeMover_lanzaError() {
-
-        Tablero tablero = new Tablero(3,3);
-        Posicion posicionInicio = new Posicion(0, 0);
-        Posicion posicionDestinoIntermedio = new Posicion(0, 1);
-        Posicion posicionDestinoFinal = new Posicion(0, 2);
-        AlgoFormer algoFormer = new Optimus();
-        SuperficieTerrestre posicionInicio_rocosa = new TierraRocosa();
-        SuperficieTerrestre posicionIntermedia_pantano = new Pantano();
-        SuperficieTerrestre posicionFinal_pantano = new Pantano();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
-        tablero.getCasillero(posicionInicio).setSuperficieTerreste(posicionInicio_rocosa);
-        tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(posicionIntermedia_pantano);
-        tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(posicionFinal_pantano);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
-
-        try {
-            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
-            fail();
-        }
-
-        try {
-            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-            fail();
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
-            success();
-        }
     }
 
     @Test
@@ -93,47 +59,11 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
         assertEquals(algoFormer, tablero.getCasillero(posicionDestino).getAlgoformer());
-    }
-
-    @Test
-    public void bumblebeeHumanoideIngresaYNoSePuedeMover_lanzaError() {
-
-        Tablero tablero = new Tablero(3,3);
-        Posicion posicionInicio = new Posicion(0, 0);
-        Posicion posicionDestinoIntermedio = new Posicion(0, 1);
-        Posicion posicionDestinoFinal = new Posicion(0, 2);
-        AlgoFormer algoFormer = new Bumblebee();
-        SuperficieTerrestre posicionInicio_rocosa = new TierraRocosa();
-        SuperficieTerrestre posicionIntermedia_pantano = new Pantano();
-        SuperficieTerrestre posicionFinal_pantano = new Pantano();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
-        tablero.getCasillero(posicionInicio).setSuperficieTerreste(posicionInicio_rocosa);
-        tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(posicionIntermedia_pantano);
-        tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(posicionFinal_pantano);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
-
-        try {
-            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
-            fail();
-        }
-
-        algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionDestinoIntermedio),algoFormer.getVelocidad());
-
-        try {
-            movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-            fail();
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
-            success();
-        }
     }
 
     @Test
@@ -152,7 +82,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -178,7 +108,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -188,9 +118,9 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
             fail();
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -211,7 +141,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -237,7 +167,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -247,9 +177,9 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
             fail();
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -270,7 +200,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -296,7 +226,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -306,9 +236,9 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
             fail();
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -329,11 +259,82 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
         assertEquals(algoFormer, tablero.getCasillero(posicionDestino).getAlgoformer());
+    }
+
+
+    /*
+    @Test
+    public void bumblebeeHumanoideIngresaYNoSePuedeMover_lanzaError() {
+
+        Tablero tablero = new Tablero(3,3);
+        Posicion posicionInicio = new Posicion(0, 0);
+        Posicion posicionDestinoIntermedio = new Posicion(0, 1);
+        Posicion posicionDestinoFinal = new Posicion(0, 2);
+        AlgoFormer algoFormer = new Bumblebee();
+        SuperficieTerrestre posicionInicio_rocosa = new TierraRocosa();
+        SuperficieTerrestre posicionIntermedia_pantano = new Pantano();
+        SuperficieTerrestre posicionFinal_pantano = new Pantano();
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        tablero.getCasillero(posicionInicio).setSuperficieTerreste(posicionInicio_rocosa);
+        tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(posicionIntermedia_pantano);
+        tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(posicionFinal_pantano);
+        tablero.setAlgoformer(algoFormer,posicionInicio);
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+            fail();
+        }
+
+        algoFormer.pasarTurno();
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionDestinoIntermedio),algoFormer.getVelocidad());
+
+        try {
+            movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
+            fail();
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
+            fail();
+        } catch (DistanciaExcedidaException e) {
+            success();
+        }
+    }
+
+    @Test
+    public void optimusHumanoideIngresaYNoSePuedeMover_lanzaError() {
+
+        Tablero tablero = new Tablero(3,3);
+        Posicion posicionInicio = new Posicion(0, 0);
+        Posicion posicionDestinoIntermedio = new Posicion(0, 1);
+        Posicion posicionDestinoFinal = new Posicion(0, 2);
+        AlgoFormer algoFormer = new Optimus();
+        SuperficieTerrestre posicionInicio_rocosa = new TierraRocosa();
+        SuperficieTerrestre posicionIntermedia_pantano = new Pantano();
+        SuperficieTerrestre posicionFinal_pantano = new Pantano();
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        tablero.getCasillero(posicionInicio).setSuperficieTerreste(posicionInicio_rocosa);
+        tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(posicionIntermedia_pantano);
+        tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(posicionFinal_pantano);
+        tablero.setAlgoformer(algoFormer,posicionInicio);
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+            fail();
+        }
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
+            fail();
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
+            fail();
+        } catch (DistanciaExcedidaException e) {
+            success();
+        }
     }
 
     @Test
@@ -355,7 +356,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -365,13 +366,13 @@ public class IntegracionEntrega2_ZonaPantano_ModoHumanoide {
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
             fail();
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
-
+    */
     private void success() {
         assertTrue(true);
     }

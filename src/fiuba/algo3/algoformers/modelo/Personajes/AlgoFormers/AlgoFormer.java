@@ -1,9 +1,11 @@
 package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoDurable;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.Bando;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Ataques.EfectoAtaque;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Defensivos.EfectoDefensivo;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Efecto;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Movimientos.EfectoMovimiento;
 
 import java.util.Iterator;
 import java.util.List;
@@ -14,9 +16,11 @@ import java.util.List;
 public abstract class AlgoFormer {
     protected String nombre;
     protected double puntosDeVida;
-    protected Bando bando;
     protected AlgoformerEstado estado;
-    protected List<EfectoDurable> efectos;
+    protected Bando bando;
+    protected List<EfectoAtaque> efectosAtaque;
+    protected List<EfectoMovimiento> efectosMovimiento;
+    protected List<EfectoDefensivo> efectosDefensivo;
 
     public String getNombre() {
         return nombre;
@@ -25,88 +29,109 @@ public abstract class AlgoFormer {
         return puntosDeVida;
     }
     public double getAtaque() {
-        return (this.estado.getAtaque());
+        double ataque = this.estado.getAtaque();
+        for (EfectoAtaque efecto : this.efectosAtaque){
+            ataque = efecto.aplicarEfecto(ataque);
+        }
+        return ataque;
     }
     public int getDistanciaDeAtaque() {
         return estado.getDistanciaDeAtaque();
     }
     public int getVelocidad() {
-        return estado.getVelocidad();
+        int velocidad = this.estado.getVelocidad();
+        for (EfectoMovimiento efecto : this.efectosMovimiento){
+            velocidad = efecto.aplicarEfecto(velocidad);
+        }
+        return velocidad;
     }
     public Bando getBando() {
         return bando;
+    }
+
+    public void setPuntosDeVida(double puntosDeVida) {
+        this.puntosDeVida = puntosDeVida;
+    }
+    public void setAtaque(double ataque) {
+        this.estado.setAtaque(ataque);
+    }
+    public void setVelocidad(int velocidad) {
+        this.estado.setVelocidad(velocidad);
+    }
+
+    public void recibirAtaque(double puntosDeAtaque) {
+        double danio = puntosDeAtaque;
+        for (EfectoDefensivo efecto : this.efectosDefensivo){
+            danio = efecto.aplicarEfecto(danio);
+        }
+        recibirDanio(danio);
+    }
+    private void recibirDanio(double puntosDeAtaque) {
+        this.puntosDeVida -= (puntosDeAtaque);
     }
 
     public boolean esTipoUnidad(TipoUnidad tipoUnidad) {
         return estado.esTipoUnidad(tipoUnidad);
     }
 
-    public void recibirAtaque(double puntosDeAtaque) {
-        recibirDanio(puntosDeAtaque);
-    }
-    public void recibirDanio(double puntosDeAtaque) {
-        this.puntosDeVida -= (puntosDeAtaque);
-    }
-
     public abstract void transformar();
 
-    public void agregarEfecto(EfectoDurable efecto) {
-        if (!this.efectos.contains(efecto))
-            this.efectos.add(efecto);
-    }
-    public void frenar(int velocidadSacada) {
-        this.estado.disminuirVelocidad(velocidadSacada);
-    }
-    public void acelerar(int velocidadSacada) {
-        this.estado.aumentarVelocidad(velocidadSacada);
-    }
-    public void debilitar(double ataqueSacado) {
-        double ataqueActual = this.estado.getAtaque();
-        this.estado.setAtaque(ataqueActual - ataqueSacado);
-    }
-    public void multiplicarAtaque(int multiplicador) {
-        double ataqueActual = this.estado.getAtaque();
-        this.estado.setAtaque(ataqueActual * multiplicador);
-    }
-    public void dividirAtaque(int divisor) {
-        double ataqueActual = this.estado.getAtaque();
-        this.estado.setAtaque(ataqueActual / divisor);
-    }
-    public boolean sePuedeMover() {
-        this.aplicarEfectos(this.efectos);
-        return (this.estado.getVelocidad() != 0);
-    }
     public void pasarTurno() {
-        pasarTurno(efectos);
-    }
-    public double calcularAtaque() {
-        this.aplicarEfectos(this.efectos);
-        return (this.estado.getAtaque());
-    }
-
-    public int calcularVelocidad() {
-        this.aplicarEfectos(this.efectos);
-        return (this.estado.getVelocidad());
-    }
-
-    private void pasarTurno(List<EfectoDurable> efectos) {
-        Iterator<EfectoDurable> iterador = efectos.iterator();
-        while (iterador.hasNext()) {
-            EfectoDurable efecto = iterador.next();
+        for(Efecto efecto : this.efectosAtaque)
             efecto.pasarTurno();
-            if (efecto.finalizo())
-                eliminarEfecto(efecto);
+        for(Efecto efecto : this.efectosMovimiento)
+            efecto.pasarTurno();
+        for(Efecto efecto : this.efectosDefensivo)
+            efecto.pasarTurno();
+
+        limpiarEfectos();
+    }
+    private void limpiarEfectos() {
+        Iterator<EfectoMovimiento> efectoMovimientoIterator = this.efectosMovimiento.iterator();
+        Iterator<EfectoDefensivo> efectoDefensivoIteratorIterator = this.efectosDefensivo.iterator();
+        Iterator<EfectoAtaque> efectoAtaqueIteratorIterator = this.efectosAtaque.iterator();
+
+        while (efectoMovimientoIterator.hasNext()) {
+            EfectoMovimiento efecto = efectoMovimientoIterator.next();
+            if(efecto.finalizo())
+                efectoMovimientoIterator.remove();
+        }
+
+        while (efectoDefensivoIteratorIterator.hasNext()) {
+            EfectoDefensivo efecto = efectoDefensivoIteratorIterator.next();
+            if(efecto.finalizo())
+                efectoDefensivoIteratorIterator.remove();
+        }
+
+        while (efectoAtaqueIteratorIterator.hasNext()) {
+            EfectoAtaque efecto = efectoAtaqueIteratorIterator.next();
+            if(efecto.finalizo())
+                efectoAtaqueIteratorIterator.remove();
         }
     }
-    private void aplicarEfectos(List<EfectoDurable> efectos) {
-        Iterator<EfectoDurable> iterador = efectos.iterator();
-        while (iterador.hasNext()) {
-            EfectoDurable efecto = iterador.next();
-            efecto.aplicarEfecto(this);
-        }
+
+    public boolean sePuedeMover() {
+        return (this.getVelocidad() != 0);
     }
-    private void eliminarEfecto(EfectoDurable efecto) {
-        efecto.revertirEfecto(this);
-        this.efectos.remove(efecto);
+
+    public boolean agregarEfectoAtaque(EfectoAtaque efecto) {
+        boolean esAcumulable = true;
+
+        for (EfectoAtaque e : this.efectosAtaque)
+            if (!e.esAcumulableCon(efecto))
+                esAcumulable = false;
+
+        if(esAcumulable && !this.efectosAtaque.contains(efecto))
+            this.efectosAtaque.add(efecto);
+
+        return esAcumulable;
+    }
+    public void agregarEfectoMovimiento(EfectoMovimiento efecto) {
+        if (!this.efectosMovimiento.contains(efecto))
+            this.efectosMovimiento.add(efecto);
+    }
+    public void agregarEfectoDefensivo(EfectoDefensivo efecto) {
+        if (!this.efectosDefensivo.contains(efecto))
+            this.efectosDefensivo.add(efecto);
     }
 }

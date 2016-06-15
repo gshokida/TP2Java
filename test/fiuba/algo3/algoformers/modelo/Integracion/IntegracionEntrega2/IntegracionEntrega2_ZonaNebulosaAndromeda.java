@@ -2,7 +2,6 @@ package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
@@ -41,7 +40,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -69,15 +68,15 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -103,7 +102,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -112,9 +111,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -140,7 +139,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -150,9 +149,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -178,7 +177,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -189,7 +188,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -214,7 +213,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -242,15 +241,15 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -276,7 +275,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -285,9 +284,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -313,7 +312,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -323,9 +322,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -351,7 +350,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -362,7 +361,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 

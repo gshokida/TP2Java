@@ -1,6 +1,5 @@
 package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoformerEstado;
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeronave;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
@@ -14,7 +13,9 @@ public class Megatron extends AlgoFormer {
         nombre = "Megatron";
         puntosDeVida = 550;
         bando = BandoDecepticons.getInstance();
-        efectos = new LinkedList<>();
+        efectosAtaque = new LinkedList<>();
+        efectosMovimiento = new LinkedList<>();
+        efectosDefensivo = new LinkedList<>();
         int ataqueNormal = 10;
         int distanciaAtaqueNormal = 3;
         int velocidadNormal = 1;

@@ -27,7 +27,7 @@ public class Ataque implements Accion {
                 throw new NoSePermiteElFuegoAmistosoException();
 
             // Se realiza el calculo con los bonus y/o efectos de las superficies
-            casilleroDestino.getAlgoformer().recibirAtaque(casilleroOrigen.getAlgoformer().calcularAtaque());
+            casilleroDestino.getAlgoformer().recibirAtaque(casilleroOrigen.getAlgoformer().getAtaque());
         }
     }
 }

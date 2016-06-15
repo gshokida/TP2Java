@@ -2,7 +2,6 @@ package fiuba.algo3.algoformers.modelo.Integracion;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseEfectoPresente;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
@@ -71,8 +70,6 @@ public class IntegracionAlgoformerEntrega1 {
         }
         catch (DistanciaExcedidaException ex) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente imposibleMoverseEfectoPresente) {
-            imposibleMoverseEfectoPresente.printStackTrace();
         }
     }
 
@@ -146,7 +143,7 @@ public class IntegracionAlgoformerEntrega1 {
         try {
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException ex) {
             fail();
         }
 

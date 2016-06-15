@@ -1,8 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Efecto;
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosInstantaneo.EfectoEspinas;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeronave;
 
@@ -11,12 +9,21 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeron
  */
 public class Espinas implements SuperficieTerrestre {
 
+    private int porcentajeDanio = 5;
+
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {
         if (algoformer.esTipoUnidad(new TipoUnidadAeronave())) {
             throw new NoPuedeInteractuarConSuperficieException();
         }
-        Efecto efecto = new EfectoEspinas();
 
-        efecto.aplicarEfecto(algoformer);
+        aplicarEfectoInstantaneo(algoformer);
+    }
+
+    private void aplicarEfectoInstantaneo(AlgoFormer algoformer) {
+        double puntosDeVida = algoformer.getPuntosDeVida();
+
+        puntosDeVida = puntosDeVida - (puntosDeVida * porcentajeDanio / 100);
+
+        algoformer.setPuntosDeVida(puntosDeVida);
     }
 }

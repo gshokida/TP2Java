@@ -1,7 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoDobleCanion;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Ataques.EfectoAtaque;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Ataques.EfectoDobleCanion;
 
 /**
  * Created by German on 11/06/2016.
@@ -11,7 +12,7 @@ public class DobleCanion extends Bonus {
 
     @Override
     public void interactuar(AlgoFormer algoformer) {
-        EfectoDobleCanion efecto = new EfectoDobleCanion(this.duracion);
-        algoformer.agregarEfecto(efecto);
+        EfectoAtaque efecto = new EfectoDobleCanion(this.duracion);
+        algoformer.agregarEfectoAtaque(efecto);
     }
 }

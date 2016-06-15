@@ -38,7 +38,7 @@ public class IntegracionEntrega2_CasosEspeciales {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -51,9 +51,9 @@ public class IntegracionEntrega2_CasosEspeciales {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (ImposibleMoverseCasilleroOcupadoException e) {
             fail();
-        } catch (ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException e) {
             success();
         }
     }
@@ -76,7 +76,7 @@ public class IntegracionEntrega2_CasosEspeciales {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
@@ -88,7 +88,7 @@ public class IntegracionEntrega2_CasosEspeciales {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | ImposibleMoverseEfectoPresente e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
         }
 
