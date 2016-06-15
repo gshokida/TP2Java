@@ -18,7 +18,7 @@ public class FlashTest {
 
         efectoFlash.interactuar(optimus);
 
-        assertEquals(velocidadConBonus, optimus.calcularVelocidad());
+        assertEquals(velocidadConBonus, optimus.getVelocidad());
     }
 
     @Test

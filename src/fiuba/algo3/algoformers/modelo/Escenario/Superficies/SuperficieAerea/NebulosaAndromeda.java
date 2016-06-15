@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Efecto;
 import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoNebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.Personajes.Efectos.EfectosDurable.EfectoTemporal;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
@@ -16,8 +17,8 @@ public class NebulosaAndromeda implements SuperficieAerea {
         if (algoformer.esTipoUnidad(new TipoUnidadTerrestre())) {
             throw new NoPuedeInteractuarConSuperficieException();
         }
-        EfectoTemporal efecto = new EfectoNebulosaAndromeda(this.duracion);
-
+        Efecto efecto = new EfectoNebulosaAndromeda(this.duracion);
+        efecto.aplicarEfecto(algoformer);
         algoformer.agregarEfecto(efecto);
     }
 }
