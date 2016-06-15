@@ -31,7 +31,7 @@ public class IntegracionEntrega2_ZonaPantano_UnidadesAereas {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio), algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_pantano);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -58,7 +58,7 @@ public class IntegracionEntrega2_ZonaPantano_UnidadesAereas {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio), algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_espinas);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);
@@ -90,7 +90,7 @@ public class IntegracionEntrega2_ZonaPantano_UnidadesAereas {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio), algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_pantano);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -117,7 +117,7 @@ public class IntegracionEntrega2_ZonaPantano_UnidadesAereas {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio), algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_espinas);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);

@@ -30,7 +30,7 @@ public class IntegracionEntrega2_CasosEspeciales {
         SuperficieTerrestre superficieFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionFinal).setSuperficieTerreste(superficieFinal_pantano);
@@ -47,7 +47,7 @@ public class IntegracionEntrega2_CasosEspeciales {
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
 
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia),algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia),algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionFinal));
@@ -68,7 +68,7 @@ public class IntegracionEntrega2_CasosEspeciales {
         SuperficieTerrestre superficieInicio_rocosa = new TierraRocosa();
         SuperficieTerrestre superficieIntermedia_pantano = new Pantano();
         SuperficieTerrestre superficieFinal_pantano = new Pantano();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicio_rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(superficieFinal_pantano);
@@ -84,7 +84,7 @@ public class IntegracionEntrega2_CasosEspeciales {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionDestinoIntermedio), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionDestinoIntermedio), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));

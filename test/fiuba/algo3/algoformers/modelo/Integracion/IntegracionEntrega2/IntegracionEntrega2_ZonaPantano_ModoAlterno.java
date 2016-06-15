@@ -28,7 +28,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(pantano);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -55,7 +55,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(superficieFinal_pantano);
@@ -91,7 +91,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinalFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia_1).setSuperficieTerreste(superficieIntermedia_1_pantano);
         tablero.getCasillero(posicionIntermedia_2).setSuperficieTerreste(superficieIntermedia_2_pantano);
@@ -130,7 +130,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(pantano);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -157,7 +157,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(superficieFinal_pantano);
@@ -193,7 +193,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinalFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia_1).setSuperficieTerreste(superficieIntermedia_1_pantano);
         tablero.getCasillero(posicionIntermedia_2).setSuperficieTerreste(superficieIntermedia_2_pantano);
@@ -232,7 +232,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(pantano);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -259,7 +259,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(superficieFinal_pantano);
@@ -295,7 +295,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinalFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia_1).setSuperficieTerreste(superficieIntermedia_1_pantano);
         tablero.getCasillero(posicionIntermedia_2).setSuperficieTerreste(superficieIntermedia_2_pantano);
@@ -340,7 +340,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinalFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia_1).setSuperficieTerreste(superficieIntermedia_1_pantano);
         tablero.getCasillero(posicionIntermedia_2).setSuperficieTerreste(superficieIntermedia_2_pantano);
@@ -386,7 +386,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(pantano);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -413,7 +413,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(superficieFinal_pantano);
@@ -449,7 +449,7 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         SuperficieTerrestre superficieFinalFinal_pantano = new Pantano();
         algoFormer.transformar();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia_1).setSuperficieTerreste(superficieIntermedia_1_pantano);
         tablero.getCasillero(posicionIntermedia_2).setSuperficieTerreste(superficieIntermedia_2_pantano);

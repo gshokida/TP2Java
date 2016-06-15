@@ -63,7 +63,7 @@ public class IntegracionAlgoformerEntrega1 {
         casilleroOrigen.setAlgoformer(optimus);
         casilleroDestino.setAlgoformer(megatron);
 
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, optimus);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -138,7 +138,7 @@ public class IntegracionAlgoformerEntrega1 {
 
         casilleroOrigen.setAlgoformer(optimus);
 
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, optimus);
 
         try {
             movimiento.moverHasta(casilleroDestino);

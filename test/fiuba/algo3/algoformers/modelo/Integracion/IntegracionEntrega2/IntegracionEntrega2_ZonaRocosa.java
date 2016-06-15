@@ -32,7 +32,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
         tablero.setAlgoformer(algoFormer,posicionInicio);
 
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -53,7 +53,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         AlgoFormer algoFormer = new Optimus();
         SuperficieTerrestre rocosa = new TierraRocosa();
         algoFormer.transformar();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
@@ -82,7 +82,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
         tablero.setAlgoformer(algoFormer,posicionInicio);
 
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -103,7 +103,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         AlgoFormer algoFormer = new Optimus();
         SuperficieTerrestre rocosa = new TierraRocosa();
         algoFormer.transformar();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
@@ -130,7 +130,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
         tablero.setAlgoformer(algoFormer,posicionInicio);
 
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -151,7 +151,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieTerrestre rocosa = new TierraRocosa();
         algoFormer.transformar();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
@@ -178,7 +178,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
         tablero.setAlgoformer(algoFormer,posicionInicio);
 
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -199,7 +199,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         AlgoFormer algoFormer = new Megatron();
         SuperficieTerrestre rocosa = new TierraRocosa();
         algoFormer.transformar();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
@@ -226,7 +226,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
         tablero.setAlgoformer(algoFormer,posicionInicio);
 
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -247,7 +247,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         AlgoFormer algoFormer = new Bonecrusher();
         SuperficieTerrestre rocosa = new TierraRocosa();
         algoFormer.transformar();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
@@ -276,7 +276,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
         tablero.setAlgoformer(algoFormer,posicionInicio);
 
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -297,7 +297,7 @@ public class IntegracionEntrega2_ZonaRocosa {
         AlgoFormer algoFormer = new Frenzy();
         SuperficieTerrestre rocosa = new TierraRocosa();
         algoFormer.transformar();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);

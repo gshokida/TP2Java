@@ -29,7 +29,7 @@ public class MovimientoTest {
 
         casilleroOrigen.setAlgoformer(algoFormer);
 
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -50,7 +50,7 @@ public class MovimientoTest {
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
         casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -72,7 +72,7 @@ public class MovimientoTest {
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima + 1,0));
 
         casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -96,7 +96,7 @@ public class MovimientoTest {
         Casillero casilleroDestinoFinal = new Casillero(new Posicion(distanciaMaxima + 1, 0));
 
         casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestinoIntermedio);
@@ -123,7 +123,7 @@ public class MovimientoTest {
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         assertTrue(movimiento.quedanMovimientos());
     }
@@ -137,7 +137,7 @@ public class MovimientoTest {
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
         casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -158,7 +158,7 @@ public class MovimientoTest {
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
 
         casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -185,7 +185,7 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -214,7 +214,7 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -256,7 +256,7 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -311,7 +311,7 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
-        Movimiento movimiento = new Movimiento(casilleroOrigen, distanciaMaxima);
+        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento.moverHasta(casilleroDestino);
@@ -326,7 +326,7 @@ public class MovimientoTest {
 
         algoFormer.pasarTurno();
 
-        Movimiento movimiento2 = new Movimiento(casilleroOrigen, algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento2.moverHasta(casilleroDestino);
@@ -341,7 +341,7 @@ public class MovimientoTest {
 
         algoFormer.pasarTurno();
 
-        Movimiento movimiento3 = new Movimiento(casilleroOrigen, algoFormer.getVelocidad());
+        Movimiento movimiento3 = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento3.moverHasta(casilleroDestino);
@@ -355,7 +355,7 @@ public class MovimientoTest {
         }
 
         algoFormer.pasarTurno();
-        Movimiento movimiento4 = new Movimiento(casilleroOrigen, algoFormer.getVelocidad());
+        Movimiento movimiento4 = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
             movimiento4.moverHasta(casilleroDestino);

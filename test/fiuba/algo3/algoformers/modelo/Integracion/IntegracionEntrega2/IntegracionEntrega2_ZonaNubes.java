@@ -30,7 +30,7 @@ public class IntegracionEntrega2_ZonaNubes {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestino).setSuperficieAerea(superficieFinal);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -57,7 +57,7 @@ public class IntegracionEntrega2_ZonaNubes {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieAerea(superficieIntermedia);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal);
@@ -89,7 +89,7 @@ public class IntegracionEntrega2_ZonaNubes {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestino).setSuperficieAerea(superficieFinal);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -116,7 +116,7 @@ public class IntegracionEntrega2_ZonaNubes {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieAerea(superficieIntermedia);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal);

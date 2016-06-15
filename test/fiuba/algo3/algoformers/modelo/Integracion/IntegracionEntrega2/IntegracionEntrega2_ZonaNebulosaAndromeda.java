@@ -33,7 +33,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestino).setSuperficieAerea(superficieFinal);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -60,7 +60,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -94,7 +94,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -107,7 +107,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         }
 
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -131,7 +131,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -145,7 +145,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         algoFormer.pasarTurno();
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -169,7 +169,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -184,7 +184,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         algoFormer.pasarTurno();
         algoFormer.pasarTurno();
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -206,7 +206,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestino).setSuperficieAerea(superficieFinal);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -233,7 +233,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -267,7 +267,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -280,7 +280,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         }
 
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -304,7 +304,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -318,7 +318,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         algoFormer.pasarTurno();
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));
@@ -342,7 +342,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
         tablero.getCasillero(posicionIntermedia).setSuperficieAerea(superficieIntermedia_nebulosaAndromeda);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal_nube);
@@ -357,7 +357,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         algoFormer.pasarTurno();
         algoFormer.pasarTurno();
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionIntermedia), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionDestinoFinal));

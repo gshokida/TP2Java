@@ -36,7 +36,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -73,7 +73,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta);
         tablero.setAlgoformer(algoFormer,posicionInicio);
@@ -112,7 +112,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta1);
         tablero.getCasillero(posicionTormenta2).setSuperficieAerea(superficieTormenta2);
@@ -126,7 +126,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         }
 
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionTormenta), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionTormenta), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionTormenta2)); //Ratchet sufre nuevamente TormentaPsionica
@@ -161,7 +161,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         Transformacion transformacion = new Transformacion(algoFormer);
         transformacion.aplicarTransformacion();
         algoFormer.pasarTurno();
-        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer.getVelocidad());
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta1);
         tablero.getCasillero(posicionTormenta2).setSuperficieAerea(superficieTormenta2);
@@ -175,7 +175,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         }
 
         algoFormer.pasarTurno();
-        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionTormenta), algoFormer.getVelocidad());
+        Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionTormenta), algoFormer);
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionTormenta2)); //Megatron sufre nuevamente TormentaPsionica
