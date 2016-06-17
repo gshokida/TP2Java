@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
@@ -34,11 +35,11 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -62,17 +63,12 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_espinas);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -93,11 +89,11 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -121,17 +117,12 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_espinas);
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 

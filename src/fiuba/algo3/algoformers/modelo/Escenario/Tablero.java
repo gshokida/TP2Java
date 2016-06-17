@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
@@ -35,7 +36,7 @@ public class Tablero {
         tablero[posicion.getX()][posicion.getY()].setContenido(contenido);
     }
 
-    public void setAlgoformer(AlgoFormer algoformer, Posicion posicion) {
+    public void setAlgoformer(AlgoFormer algoformer, Posicion posicion) throws HumanoideNoPuedeAtravesarPantanoException {
         tablero[posicion.getX()][posicion.getY()].setAlgoformer(algoformer);
     }
 

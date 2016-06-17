@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -30,21 +31,17 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
-        try {
-            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
 
         assertEquals(algoFormer, tablero.getCasillero(posicionDestinoFinal).getAlgoformer());
     }
@@ -63,17 +60,12 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -92,21 +84,17 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
-        try {
-            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
 
         assertEquals(algoFormer, tablero.getCasillero(posicionDestinoFinal).getAlgoformer());
     }
@@ -125,17 +113,12 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -152,13 +135,13 @@ public class IntegracionEntrega2_ZonaRocosa {
         SuperficieTerrestre rocosa = new TierraRocosa();
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -179,17 +162,12 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -206,13 +184,13 @@ public class IntegracionEntrega2_ZonaRocosa {
         SuperficieTerrestre rocosa = new TierraRocosa();
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -233,17 +211,12 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -260,13 +233,14 @@ public class IntegracionEntrega2_ZonaRocosa {
         SuperficieTerrestre rocosa = new TierraRocosa();
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
+
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -287,17 +261,13 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -316,19 +286,14 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -349,17 +314,12 @@ public class IntegracionEntrega2_ZonaRocosa {
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 

@@ -22,7 +22,7 @@ public class Movimiento implements Accion {
         this.casilleroActual = casilleroOrigen;
     }
 
-    public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException {
+    public void moverHasta(Casillero casilleroDestino) throws DistanciaExcedidaException, ImposibleMoverseCasilleroOcupadoException, HumanoideNoPuedeAtravesarPantanoException {
         if (!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance()))
             throw new ImposibleMoverseCasilleroOcupadoException();
 

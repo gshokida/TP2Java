@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -7,6 +8,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 /**
@@ -20,8 +22,11 @@ public class PantanoTest {
 
         try {
             pantano.interactuar(algoFormer);
+            fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            success();
         }
     }
 
@@ -34,6 +39,8 @@ public class PantanoTest {
             pantano.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            success();
         }
     }
 
@@ -46,6 +53,8 @@ public class PantanoTest {
             pantano.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            success();
         }
     }
 
@@ -58,6 +67,8 @@ public class PantanoTest {
             pantano.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            success();
         }
     }
 
@@ -70,6 +81,8 @@ public class PantanoTest {
             pantano.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            success();
         }
     }
 
@@ -82,6 +95,12 @@ public class PantanoTest {
             pantano.interactuar(algoFormer);
         } catch (NoPuedeInteractuarConSuperficieException e) {
             fail();
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            success();
         }
+    }
+
+    private void success() {
+        assertTrue(true);
     }
 }

@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
@@ -39,12 +40,12 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
-        tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
+            tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Ratchet sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -76,12 +77,12 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
-        tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
+            tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Megatron sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -116,12 +117,12 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta1);
         tablero.getCasillero(posicionTormenta2).setSuperficieAerea(superficieTormenta2);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
-        tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
+            tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Ratchet sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -130,7 +131,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionTormenta2)); //Ratchet sufre nuevamente TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -165,12 +166,12 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta1);
         tablero.getCasillero(posicionTormenta2).setSuperficieAerea(superficieTormenta2);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
-        tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
+            tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Megatron sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -179,7 +180,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             movimiento2.moverHasta(tablero.getCasillero(posicionTormenta2)); //Megatron sufre nuevamente TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 

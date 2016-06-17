@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.*;
@@ -17,7 +18,7 @@ public class Juego {
     private Jugador jugadorUno;
     private Jugador jugadorDos;
     private int filas;
-    private  int columnas;
+    private int columnas;
 
     public Juego(String nombreJugadorUno, String nombreJugadorDos, int filas, int columnas) {
         //VERIFICAR
@@ -33,13 +34,13 @@ public class Juego {
         comenzarNuevoJuego();
     }
 
-  private void comenzarNuevoJuego() {
+    private void comenzarNuevoJuego() {
         List<AlgoFormer> autobots = new LinkedList<>();
         List<AlgoFormer> decepticons = new LinkedList<>();
-        crearYUbicarAlgoFormers(autobots,decepticons);
+        crearYUbicarAlgoFormers(autobots, decepticons);
 
-        jugadorUno.prepararParaJugar(autobots,BandoAutobots.getInstance());
-        jugadorDos.prepararParaJugar(decepticons,BandoDecepticons.getInstance());
+        jugadorUno.prepararParaJugar(autobots, BandoAutobots.getInstance());
+        jugadorDos.prepararParaJugar(decepticons, BandoDecepticons.getInstance());
     }
 
     public Jugador getJugador1() {
@@ -50,7 +51,7 @@ public class Juego {
         return jugadorDos;
     }
 
-    public Tablero getTablero (){
+    public Tablero getTablero() {
         return tablero;
     }
 
@@ -69,12 +70,15 @@ public class Juego {
         decepticons.add(bonecrusher);
         decepticons.add(frenzy);
 
-        tablero.setAlgoformer(optimus, new Posicion(0, 0));
-        tablero.setAlgoformer(bumblebee,new Posicion(0, 1));
-        tablero.setAlgoformer(ratchet,new Posicion(1, 2));
-        tablero.setAlgoformer(megatron, new Posicion(filas-1, columnas-1));
-        tablero.setAlgoformer(bonecrusher, new Posicion(filas - 1, columnas - 2));
-        tablero.setAlgoformer(frenzy, new Posicion(filas - 2, columnas - 1));
+        try {
+            tablero.setAlgoformer(optimus, new Posicion(0, 0));
+            tablero.setAlgoformer(bumblebee, new Posicion(0, 1));
+            tablero.setAlgoformer(ratchet, new Posicion(1, 2));
+            tablero.setAlgoformer(megatron, new Posicion(filas - 1, columnas - 1));
+            tablero.setAlgoformer(bonecrusher, new Posicion(filas - 1, columnas - 2));
+            tablero.setAlgoformer(frenzy, new Posicion(filas - 2, columnas - 1));
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            e.printStackTrace();
+        }
     }
-
 }

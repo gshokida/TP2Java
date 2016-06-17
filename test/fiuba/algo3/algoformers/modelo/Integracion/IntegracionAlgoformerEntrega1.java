@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Integracion;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
@@ -30,7 +31,11 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
 
-        tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        try {
+            tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            fail();
+        }
 
         assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getAlgoformer());
     }
@@ -60,15 +65,14 @@ public class IntegracionAlgoformerEntrega1 {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(optimus);
-        casilleroDestino.setAlgoformer(megatron);
-
         Movimiento movimiento = new Movimiento(casilleroOrigen, optimus);
 
         try {
+            casilleroOrigen.setAlgoformer(optimus);
+            casilleroDestino.setAlgoformer(megatron);
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException ex) {
+        catch (DistanciaExcedidaException | HumanoideNoPuedeAtravesarPantanoException ex) {
             fail();
         }
     }
@@ -78,7 +82,11 @@ public class IntegracionAlgoformerEntrega1 {
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
 
-        tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        try {
+            tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            fail();
+        }
 
         assertTrue(optimus.esTipoUnidad(new TipoUnidadHumanoide()));
     }
@@ -87,7 +95,12 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoTransformacion_Punto2(){
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
-        tablero.setAlgoformer(optimus, new Posicion(0, 0));
+
+        try {
+            tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            fail();
+        }
 
         optimus.transformar();
 
@@ -102,7 +115,11 @@ public class IntegracionAlgoformerEntrega1 {
     public void nuevoTablero_UbicoAlgoFormer_VerificoDobleTransformacion_Punto2(){
         Tablero tablero = new Tablero(5, 5);
         AlgoFormer optimus = new Optimus();
-        tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        try {
+            tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            fail();
+        }
         optimus.transformar();
 
         optimus.transformar();
@@ -121,7 +138,11 @@ public class IntegracionAlgoformerEntrega1 {
         AlgoFormer optimus = new Optimus();
         optimus.transformar();
 
-        tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        try {
+            tablero.setAlgoformer(optimus, new Posicion(0, 0));
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            fail();
+        }
 
         assertEquals(optimus, tablero.getCasillero(new Posicion(0, 0)).getAlgoformer());
     }
@@ -136,14 +157,14 @@ public class IntegracionAlgoformerEntrega1 {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
 
-        casilleroOrigen.setAlgoformer(optimus);
 
         Movimiento movimiento = new Movimiento(casilleroOrigen, optimus);
 
         try {
+            casilleroOrigen.setAlgoformer(optimus);
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException ex) {
             fail();
         }
 

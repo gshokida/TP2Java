@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -20,7 +21,7 @@ public class EspinasTest {
 
         try {
             espinas.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -34,7 +35,7 @@ public class EspinasTest {
 
         try {
             espinas.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -48,7 +49,7 @@ public class EspinasTest {
 
         try {
             espinas.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -62,7 +63,7 @@ public class EspinasTest {
 
         try {
             espinas.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -76,7 +77,7 @@ public class EspinasTest {
 
         try {
             espinas.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -90,7 +91,7 @@ public class EspinasTest {
 
         try {
             espinas.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 

@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
@@ -33,11 +34,11 @@ public class IntegracionEntrega2_ZonaNubes {
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestino).setSuperficieAerea(superficieFinal);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -61,17 +62,13 @@ public class IntegracionEntrega2_ZonaNubes {
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieAerea(superficieIntermedia);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
+
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -92,11 +89,11 @@ public class IntegracionEntrega2_ZonaNubes {
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestino).setSuperficieAerea(superficieFinal);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -120,17 +117,12 @@ public class IntegracionEntrega2_ZonaNubes {
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieAerea(superficieIntermedia);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieAerea(superficieFinal);
-        tablero.setAlgoformer(algoFormer,posicionInicio);
 
         try {
+            tablero.setAlgoformer(algoFormer,posicionInicio);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 

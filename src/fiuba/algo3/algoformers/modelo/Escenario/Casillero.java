@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario;
 
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
@@ -36,7 +37,7 @@ public class Casillero {
         return contenido;
     }
 
-    public void setAlgoformer(AlgoFormer algoformer) {
+    public void setAlgoformer(AlgoFormer algoformer) throws HumanoideNoPuedeAtravesarPantanoException {
         if (algoformer.equals(NoOcupado.getInstance())){
             this.algoformer = algoformer;
         }

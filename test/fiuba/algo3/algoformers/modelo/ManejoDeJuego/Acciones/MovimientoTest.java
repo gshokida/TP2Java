@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
+import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
@@ -30,14 +31,14 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
-
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException ex) {
             fail();
         }
 
@@ -52,13 +53,13 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException ex) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException ex) {
             fail();
         }
 
@@ -74,16 +75,16 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima + 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
         catch (DistanciaExcedidaException ex) {
-            succes();
-        } catch (ImposibleMoverseCasilleroOcupadoException e) {
+            success();
+        } catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
     }
@@ -93,7 +94,6 @@ public class MovimientoTest {
         Tablero tablero = new Tablero(7,7);
         AlgoFormer algoFormer = new Optimus();
         algoFormer.transformar(); //No existe AlgoFormer con velocidad 3 sin transformar
-        int distanciaMaxima = algoFormer.getVelocidad();
 
         Posicion posicionOrigen = new Posicion(0,0);
         Posicion posicionDestinoIntermedio = new Posicion(1,0);
@@ -103,42 +103,18 @@ public class MovimientoTest {
         Posicion posicionDestinoFinal = new Posicion(5, 0);
         Posicion posicionExcedida = new Posicion(6, 0);
 
-        tablero.setAlgoformer(algoFormer, posicionOrigen);
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionOrigen), algoFormer);
 
         try {
+            tablero.setAlgoformer(algoFormer, posicionOrigen);
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedioDos));
-        }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedioTres));
-        }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedioCuatro));
-        }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
-            fail();
-        }
-
-        try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
 
@@ -147,8 +123,8 @@ public class MovimientoTest {
             fail();
         }
         catch (DistanciaExcedidaException ex) {
-            succes();
-        } catch (ImposibleMoverseCasilleroOcupadoException e) {
+            success();
+        } catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
     }
@@ -156,10 +132,13 @@ public class MovimientoTest {
     @Test
     public void nuevoMovimiento_quedanMovimientos_esVerdadero(){
         AlgoFormer algoFormer = new Optimus();
-        int distanciaMaxima = algoFormer.getVelocidad();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
+        try {
+            casilleroOrigen.setAlgoformer(algoFormer);
+        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+            fail();
+        }
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         assertTrue(movimiento.quedanMovimientos());
@@ -173,13 +152,13 @@ public class MovimientoTest {
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
         Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
 
-        casilleroOrigen.setAlgoformer(algoFormer);
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
 
@@ -190,7 +169,6 @@ public class MovimientoTest {
     public void quedanMovimientos_cuandoSeMovioDistanciaMaxima_esFalso() {
         Tablero tablero = new Tablero(3,3);
         AlgoFormer algoFormer = new Optimus();
-        int distanciaMaxima = algoFormer.getVelocidad();
 
         Posicion posicionOrigen = new Posicion(0,0);
         Posicion posicionDestinoIntermedio = new Posicion(1,0);
@@ -202,21 +180,18 @@ public class MovimientoTest {
         tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
         tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
 
-        tablero.setAlgoformer(algoFormer,posicionOrigen);
+
 
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionOrigen), algoFormer);
 
         try {
-            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
-        }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
-            fail();
-        }
+            tablero.setAlgoformer(algoFormer,posicionOrigen);
 
-        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
+
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
 
@@ -236,19 +211,19 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
     }
 
@@ -265,19 +240,19 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
 
         algoFormer.pasarTurno();
@@ -286,11 +261,11 @@ public class MovimientoTest {
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
     }
 
@@ -307,19 +282,19 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
 
         algoFormer.pasarTurno();
@@ -328,11 +303,11 @@ public class MovimientoTest {
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
 
         algoFormer.pasarTurno();
@@ -341,11 +316,11 @@ public class MovimientoTest {
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
     }
 
@@ -362,19 +337,19 @@ public class MovimientoTest {
         }
         int distanciaMaxima = algoFormer.getVelocidad();
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        casilleroOrigen.setAlgoformer(algoFormer);
         Casillero casilleroDestino = new Casillero(new Posicion(1,0));
         Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
 
         try {
+            casilleroOrigen.setAlgoformer(algoFormer);
             movimiento.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
 
         algoFormer.pasarTurno();
@@ -385,11 +360,11 @@ public class MovimientoTest {
             movimiento2.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
 
         algoFormer.pasarTurno();
@@ -400,11 +375,11 @@ public class MovimientoTest {
             movimiento3.moverHasta(casilleroDestino);
             fail();
         }
-        catch (ImposibleMoverseCasilleroOcupadoException error) {
+        catch (ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
         catch (DistanciaExcedidaException error) {
-            succes();
+            success();
         }
 
         algoFormer.pasarTurno();
@@ -413,14 +388,14 @@ public class MovimientoTest {
         try {
             movimiento4.moverHasta(casilleroDestino);
         }
-        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException error) {
             fail();
         }
 
         assertEquals(casilleroDestino.getAlgoformer(), algoFormer);
     }
 
-    private void succes() {
+    private void success() {
         assertTrue(true);
     }
 }
