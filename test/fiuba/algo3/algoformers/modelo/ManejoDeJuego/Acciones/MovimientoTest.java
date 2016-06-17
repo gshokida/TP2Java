@@ -90,26 +90,60 @@ public class MovimientoTest {
 
     @Test
     public void moverHasta_haciendoVariasEscalas_superandoDistanciaMaximaDesdeOrigenHastaDestinoFinal_lanzaError() {
+        Tablero tablero = new Tablero(7,7);
         AlgoFormer algoFormer = new Optimus();
         algoFormer.transformar(); //No existe AlgoFormer con velocidad 3 sin transformar
         int distanciaMaxima = algoFormer.getVelocidad();
 
-        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        Casillero casilleroDestinoIntermedio = new Casillero(new Posicion(2,0));
-        Casillero casilleroDestinoFinal = new Casillero(new Posicion(distanciaMaxima + 1, 0));
+        Posicion posicionOrigen = new Posicion(0,0);
+        Posicion posicionDestinoIntermedio = new Posicion(1,0);
+        Posicion posicionDestinoIntermedioDos = new Posicion(2,0);
+        Posicion posicionDestinoIntermedioTres = new Posicion(3,0);
+        Posicion posicionDestinoIntermedioCuatro = new Posicion(4,0);
+        Posicion posicionDestinoFinal = new Posicion(5, 0);
+        Posicion posicionExcedida = new Posicion(6, 0);
 
-        casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
+        tablero.setAlgoformer(algoFormer, posicionOrigen);
+
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionOrigen), algoFormer);
 
         try {
-            movimiento.moverHasta(casilleroDestinoIntermedio);
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
         }
         catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
             fail();
         }
 
         try {
-            movimiento.moverHasta(casilleroDestinoFinal);
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedioDos));
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedioTres));
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedioCuatro));
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionExcedida));
             fail();
         }
         catch (DistanciaExcedidaException ex) {
