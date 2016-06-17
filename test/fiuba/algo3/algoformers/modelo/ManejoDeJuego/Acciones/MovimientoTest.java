@@ -8,6 +8,9 @@ import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.TierraRocosa;
+import fiuba.algo3.algoformers.modelo.Escenario.Tablero;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Ratchet;
@@ -151,17 +154,33 @@ public class MovimientoTest {
 
     @Test
     public void quedanMovimientos_cuandoSeMovioDistanciaMaxima_esFalso() {
+        Tablero tablero = new Tablero(3,3);
         AlgoFormer algoFormer = new Optimus();
         int distanciaMaxima = algoFormer.getVelocidad();
 
-        Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima,0));
+        Posicion posicionOrigen = new Posicion(0,0);
+        Posicion posicionDestinoIntermedio = new Posicion(1,0);
+        Posicion posicionDestinoFinal = new Posicion(2,0);
 
-        casilleroOrigen.setAlgoformer(algoFormer);
-        Movimiento movimiento = new Movimiento(casilleroOrigen, algoFormer);
+        SuperficieTerrestre rocosa = new TierraRocosa();
+
+        tablero.getCasillero(posicionOrigen).setSuperficieTerreste(rocosa);
+        tablero.getCasillero(posicionDestinoIntermedio).setSuperficieTerreste(rocosa);
+        tablero.getCasillero(posicionDestinoFinal).setSuperficieTerreste(rocosa);
+
+        tablero.setAlgoformer(algoFormer,posicionOrigen);
+
+        Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionOrigen), algoFormer);
 
         try {
-            movimiento.moverHasta(casilleroDestino);
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoIntermedio));
+        }
+        catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
+            fail();
+        }
+
+        try {
+            movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
         }
         catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException error) {
             fail();

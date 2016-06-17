@@ -134,7 +134,7 @@ public class IntegracionAlgoformerEntrega1 {
         optimus.transformar();
 
         Casillero casilleroOrigen = new Casillero(new Posicion(0,0));
-        Casillero casilleroDestino = new Casillero(new Posicion(distanciaMaxima - 1,0));
+        Casillero casilleroDestino = new Casillero(new Posicion(1,0));
 
         casilleroOrigen.setAlgoformer(optimus);
 

@@ -14,5 +14,6 @@ public class DobleCanion extends Bonus {
     public void interactuar(AlgoFormer algoformer) {
         EfectoAtaque efecto = new EfectoDobleCanion(this.duracion);
         algoformer.agregarEfectoAtaque(efecto);
+        //observadoresDeBonus.bonusConsumido(this);
     }
 }

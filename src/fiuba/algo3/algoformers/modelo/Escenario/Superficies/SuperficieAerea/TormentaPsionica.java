@@ -9,7 +9,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerre
 /**
  * Created by german.shokida on 30/5/2016.
  */
-public class TormentaPsionica implements SuperficieAerea {
+public class TormentaPsionica extends SuperficieAerea {
     private int porcentaje = 40;
 
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {

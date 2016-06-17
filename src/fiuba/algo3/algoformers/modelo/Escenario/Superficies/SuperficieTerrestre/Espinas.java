@@ -7,7 +7,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeron
 /**
  * Created by german.shokida on 30/5/2016.
  */
-public class Espinas implements SuperficieTerrestre {
+public class Espinas extends SuperficieTerrestre {
 
     private int porcentajeDanio = 5;
 

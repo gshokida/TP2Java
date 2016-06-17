@@ -7,18 +7,17 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeron
 /**
  * Created by german.shokida on 30/5/2016.
  */
-public class Pantano implements SuperficieTerrestre {
+public class Pantano extends SuperficieTerrestre {
 
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {
         if (algoformer.esTipoUnidad(new TipoUnidadAeronave())) {
             throw new NoPuedeInteractuarConSuperficieException();
         }
 
-        aplicarEfectoInstantaneo(algoformer);
     }
 
-    private void aplicarEfectoInstantaneo(AlgoFormer algoformer) {
-        int velocidadAlgoformer = algoformer.getVelocidad();
-        algoformer.setVelocidad(velocidadAlgoformer - 1);
+    @Override
+    public int obtenerCostoMovimiento (){
+        return 2;
     }
 }

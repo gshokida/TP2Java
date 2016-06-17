@@ -9,7 +9,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerre
 /**
  * Created by german.shokida on 30/5/2016.
  */
-public class NebulosaAndromeda implements SuperficieAerea {
+public class NebulosaAndromeda extends SuperficieAerea {
     private int duracion = 3;
 
     public void interactuar(AlgoFormer algoformer) throws NoPuedeInteractuarConSuperficieException {

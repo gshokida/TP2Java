@@ -112,11 +112,10 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+            success();
         }
-
-        assertFalse(movimiento.quedanMovimientos());
     }
 
     @Test
@@ -214,11 +213,10 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
 
         try {
             movimiento.moverHasta(tablero.getCasillero(posicionDestinoFinal));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
             fail();
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+            success();
         }
-
-        assertFalse(movimiento.quedanMovimientos());
     }
 
     @Test
@@ -475,5 +473,9 @@ public class IntegracionEntrega2_ZonaPantano_ModoAlterno {
         }
 
         assertFalse(movimiento.quedanMovimientos());
+    }
+
+    private void success() {
+        assertTrue(true);
     }
 }

@@ -5,6 +5,8 @@ import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidad;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadAeronave;
 
 /**
  * Created by gaston.tulipani on 03/06/2016.
@@ -24,12 +26,22 @@ public class Movimiento implements Accion {
         if (!casilleroDestino.getAlgoformer().equals(NoOcupado.getInstance()))
             throw new ImposibleMoverseCasilleroOcupadoException();
 
-        int distancia = this.casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion());
+        if (this.casilleroActual.getPosicion().obtenerDistanciaHasta(casilleroDestino.getPosicion()) > 1){
+            throw new DistanciaExcedidaException();
+        }
 
-        if (distancia > this.getMovimientosRestantes())
+        int costoMovimiento;
+
+        if(this.algoFormer.esTipoUnidad(new TipoUnidadAeronave()))
+            costoMovimiento = casilleroDestino.getSuperficieAerea().obtenerCostoMovimiento();
+        else
+            costoMovimiento = casilleroDestino.getSuperficieTerreste().obtenerCostoMovimiento();
+
+        if (costoMovimiento > this.getMovimientosRestantes())
             throw new DistanciaExcedidaException();
 
-        this.totalMovimientos += (distancia);
+        this.totalMovimientos += costoMovimiento;
+
         casilleroDestino.setAlgoformer(this.casilleroActual.getAlgoformer());
         this.casilleroActual.setAlgoformer(NoOcupado.getInstance());
         this.casilleroActual = casilleroDestino;
@@ -40,6 +52,8 @@ public class Movimiento implements Accion {
     }
 
     public boolean quedanMovimientos() {
-        return this.algoFormer.getVelocidad() > this.totalMovimientos;
+        return this.totalMovimientos < this.algoFormer.getVelocidad();
     }
 }
+
+
