@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * Created by Rodrigo on 08/06/2016.
  */
 public class IntegracionEntrega2_CasosEspeciales {
-    /*
+
     @Test
     public void optimusAlternoNoIngresaAPantanoSinProblemas_seTransforma_lanzaError() {
 
@@ -36,18 +36,24 @@ public class IntegracionEntrega2_CasosEspeciales {
         tablero.getCasillero(posicionIntermedia).setSuperficieTerreste(superficieIntermedia_pantano);
         tablero.getCasillero(posicionFinal).setSuperficieTerreste(superficieFinal_pantano);
 
+        Transformacion transformacionPrimera = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacionPrimera.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         } catch (HumanoideNoPuedeAtravesarPantanoException e) {
             success();
         }
 
         algoFormer.pasarTurno();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionIntermedia), algoFormer);
+        try {
+            transformacion.aplicarTransformacion();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
+        }
         algoFormer.pasarTurno();
 
         Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
@@ -57,7 +63,7 @@ public class IntegracionEntrega2_CasosEspeciales {
         } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
-    }*/
+    }
 
     @Test
     public void optimusHumanoideNoIngresaAPantano_seTransforma_sePuedeMover_verificoPosicionFinal() {
@@ -82,8 +88,12 @@ public class IntegracionEntrega2_CasosEspeciales {
         }
 
         algoFormer.pasarTurno();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
+        try {
+            transformacion.aplicarTransformacion();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
+        }
         algoFormer.pasarTurno();
         Movimiento movimiento2 = new Movimiento(tablero.getCasillero(posicionInicio), algoFormer);
 

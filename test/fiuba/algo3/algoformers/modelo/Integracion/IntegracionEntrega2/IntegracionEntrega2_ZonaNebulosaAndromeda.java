@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
@@ -31,8 +32,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea superficieInicial = new Nube();
         SuperficieAerea superficieFinal = new NebulosaAndromeda();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
@@ -40,8 +40,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -58,8 +59,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -68,8 +68,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -92,8 +93,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -102,8 +102,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -129,8 +130,8 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
+
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -139,10 +140,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException e) {
-            fail();
-        } catch (HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | NoPuedeTransformarseEnHumanoideException | HumanoideNoPuedeAtravesarPantanoException e) {
             fail();
         }
 
@@ -169,8 +169,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -179,8 +178,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -206,8 +206,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         AlgoFormer algoFormer = new Megatron();
         SuperficieAerea superficieInicial = new Nube();
         SuperficieAerea superficieFinal = new NebulosaAndromeda();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
@@ -216,8 +215,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         try {
 
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -234,8 +234,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -244,8 +243,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -268,8 +268,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -278,8 +277,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -305,8 +305,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -315,8 +314,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -343,8 +343,7 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
         SuperficieAerea superficieInicial_nube = new Nube();
         SuperficieAerea superficieIntermedia_nebulosaAndromeda = new NebulosaAndromeda();
         SuperficieAerea superficieFinal_nube = new Nube();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial_nube);
@@ -353,8 +352,9 @@ public class IntegracionEntrega2_ZonaNebulosaAndromeda {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia)); //me muevo al casillero con NebulosaAndromeda y sufro efecto
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 

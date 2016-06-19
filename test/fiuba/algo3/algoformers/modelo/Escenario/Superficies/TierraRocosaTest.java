@@ -1,6 +1,9 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideException;
+import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.TierraRocosa;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
@@ -36,13 +39,14 @@ public class TierraRocosaTest {
     public void superficieRocosaNoAplicaNingunEfectoSobreOptimusTransformado(){
         AlgoFormer optimus = new Optimus();
         TierraRocosa tierraRocosa = new TierraRocosa();
-        Transformacion transformacion = new Transformacion(optimus);
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, optimus);
 
-        transformacion.aplicarTransformacion();
 
         try {
+            transformacion.aplicarTransformacion();
             tierraRocosa.interactuar(optimus);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -73,13 +77,14 @@ public class TierraRocosaTest {
     public void superficieRocosaNoAplicaNingunEfectoSobreBumblebeeTransformado() {
         AlgoFormer bumblebee = new Bumblebee();
         TierraRocosa tierraRocosa = new TierraRocosa();
-        Transformacion transformacion = new Transformacion(bumblebee);
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, bumblebee);
 
-        transformacion.aplicarTransformacion();
 
         try {
+            transformacion.aplicarTransformacion();
             tierraRocosa.interactuar(bumblebee);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -111,15 +116,18 @@ public class TierraRocosaTest {
         AlgoFormer ratchet = new Ratchet();
         TierraRocosa tierraRocosa = new TierraRocosa();
 
-        Transformacion transformacion = new Transformacion(ratchet);
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, ratchet);
 
-        transformacion.aplicarTransformacion();
 
         try {
+            transformacion.aplicarTransformacion();
             tierraRocosa.interactuar(ratchet);
             fail();
         }catch (NoPuedeInteractuarConSuperficieException ex){
             success();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
         }
     }
 
@@ -145,15 +153,18 @@ public class TierraRocosaTest {
         AlgoFormer megatron = new Megatron();
         TierraRocosa tierraRocosa = new TierraRocosa();
 
-        Transformacion transformacion = new Transformacion(megatron);
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, megatron);
 
-        transformacion.aplicarTransformacion();
 
         try {
+            transformacion.aplicarTransformacion();
             tierraRocosa.interactuar(megatron);
             fail();
         }catch (NoPuedeInteractuarConSuperficieException ex){
             success();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
         }
     }
 
@@ -178,13 +189,14 @@ public class TierraRocosaTest {
     public void superficieRocosaNoAplicaNingunEfectoSobreBonecrusherTransformado() {
         AlgoFormer bonecrusher = new Bonecrusher();
         TierraRocosa tierraRocosa = new TierraRocosa();
-        Transformacion transformacion = new Transformacion(bonecrusher);
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, bonecrusher);
 
-        transformacion.aplicarTransformacion();
 
         try {
+            transformacion.aplicarTransformacion();
             tierraRocosa.interactuar(bonecrusher);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -215,13 +227,14 @@ public class TierraRocosaTest {
     public void superficieRocosaNoAplicaNingunEfectoSobreFrenzyTransformado() {
         AlgoFormer frenzy = new Frenzy();
         TierraRocosa tierraRocosa = new TierraRocosa();
-        Transformacion transformacion = new Transformacion(frenzy);
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, frenzy);
 
-        transformacion.aplicarTransformacion();
 
         try {
+            transformacion.aplicarTransformacion();
             tierraRocosa.interactuar(frenzy);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 

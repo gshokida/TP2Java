@@ -1,9 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
-import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoException;
+import fiuba.algo3.algoformers.modelo.Errores.*;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
@@ -34,8 +31,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         AlgoFormer algoFormerEnemigo= new Megatron();
         SuperficieAerea superficieInicial = new Nube();
         SuperficieAerea superficieTormenta = new TormentaPsionica();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
@@ -43,9 +39,10 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Ratchet sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -62,7 +59,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
     }
 
     @Test
-    public void megatronAlternoSufreTormentaPsionica_atacaARatchet_verificoPoderDeAtaqueDisminuyo40Porciento() {
+    public void megatronAlternoSufreTormentaPsionica_atacaARatchet_verificoPoderDeAtaqueDisminuyo40Porciento() throws NoPuedeTransformarseEnHumanoideException {
         Tablero tablero = new Tablero(3,3);
         Posicion posicionInicio = new Posicion(0, 0);
         Posicion posicionTormenta = new Posicion(0, 1);
@@ -71,8 +68,8 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         AlgoFormer algoFormerEnemigo= new Ratchet();
         SuperficieAerea superficieInicial = new Nube();
         SuperficieAerea superficieTormenta = new TormentaPsionica();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
+
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
@@ -80,6 +77,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Megatron sufre la TormentaPsionica
         } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
@@ -110,8 +108,7 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         SuperficieAerea superficieInicial = new Nube();
         SuperficieAerea superficieTormenta1 = new TormentaPsionica();
         SuperficieAerea superficieTormenta2 = new TormentaPsionica();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
@@ -120,9 +117,10 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Ratchet sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -159,19 +157,20 @@ public class IntegracionEntrega2_ZonaTormentaPsionica {
         SuperficieAerea superficieInicial = new Nube();
         SuperficieAerea superficieTormenta1 = new TormentaPsionica();
         SuperficieAerea superficieTormenta2 = new TormentaPsionica();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieAerea(superficieInicial);
         tablero.getCasillero(posicionTormenta).setSuperficieAerea(superficieTormenta1);
         tablero.getCasillero(posicionTormenta2).setSuperficieAerea(superficieTormenta2);
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             tablero.setAlgoformer(algoFormerEnemigo,posicionEnemigo);
             movimiento.moverHasta(tablero.getCasillero(posicionTormenta)); //Megatron sufre la TormentaPsionica
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 

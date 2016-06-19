@@ -1,6 +1,9 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideException;
+import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.TormentaPsionica;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
@@ -20,13 +23,16 @@ public class TormentaPsionicaTest {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea tormentaPsionica = new TormentaPsionica();
 
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
-        double ataqueAlterno = algoFormer.getAtaque() * 60 / 100;
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
+
+        double ataqueAlterno = 0;
 
         try {
+            transformacion.aplicarTransformacion();
+            ataqueAlterno  = algoFormer.getAtaque() * 60 / 100;
             tormentaPsionica.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -39,16 +45,17 @@ public class TormentaPsionicaTest {
         SuperficieAerea tormentaPsionica = new TormentaPsionica();
         double ataqueHumanoide = algoFormer.getAtaque();
 
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             tormentaPsionica.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+            transformacion.aplicarTransformacion();
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
-        transformacion.aplicarTransformacion();
 
         assertEquals(ataqueHumanoide, algoFormer.getAtaque(), 0D);
     }

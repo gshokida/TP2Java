@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.modelo.Integracion.IntegracionEntrega2;
 import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
 import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
 import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideException;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
@@ -29,8 +30,7 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         AlgoFormer algoFormer = new Ratchet();
         SuperficieTerrestre superficieInicial_rocosa = new TierraRocosa();
         SuperficieTerrestre superficieFinal_espinas = new Espinas();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
@@ -38,8 +38,9 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -56,8 +57,7 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         SuperficieTerrestre superficieInicial_rocosa = new TierraRocosa();
         SuperficieTerrestre superficieIntermedia_espinas = new Espinas();
         SuperficieTerrestre superficieFinal_espinas = new Espinas();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
@@ -66,9 +66,10 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -83,8 +84,7 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         AlgoFormer algoFormer = new Megatron();
         SuperficieTerrestre superficieInicial_rocosa = new TierraRocosa();
         SuperficieTerrestre superficieFinal_espinas = new Espinas();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
@@ -92,8 +92,9 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
 
         try {
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -110,8 +111,7 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         SuperficieTerrestre superficieInicial_rocosa = new TierraRocosa();
         SuperficieTerrestre superficieIntermedia_espinas = new Espinas();
         SuperficieTerrestre superficieFinal_espinas = new Espinas();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(tablero.getCasillero(posicionInicio), algoFormer);
         algoFormer.pasarTurno();
         Movimiento movimiento = new Movimiento(tablero.getCasillero(posicionInicio),algoFormer);
         tablero.getCasillero(posicionInicio).setSuperficieTerreste(superficieInicial_rocosa);
@@ -119,10 +119,11 @@ public class IntegracionEntrega2_ZonaEspinas_UnidadesAereas {
         tablero.getCasillero(posicionDestino).setSuperficieTerreste(superficieFinal_espinas);
 
         try {
-            movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
             tablero.setAlgoformer(algoFormer,posicionInicio);
+            transformacion.aplicarTransformacion();
+            movimiento.moverHasta(tablero.getCasillero(posicionIntermedia));
             movimiento.moverHasta(tablero.getCasillero(posicionDestino));
-        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException e) {
+        } catch (DistanciaExcedidaException | ImposibleMoverseCasilleroOcupadoException | HumanoideNoPuedeAtravesarPantanoException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 

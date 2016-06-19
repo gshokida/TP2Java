@@ -1,6 +1,9 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Superficies;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideException;
+import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Nube;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
@@ -19,13 +22,14 @@ public class NubeTest {
     public void ratchetEnModoAvion_NoEsAfectadoPorNube(){
         AlgoFormer algoFormer = new Ratchet();
         SuperficieAerea nube = new Nube();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
 
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             nube.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -52,13 +56,14 @@ public class NubeTest {
     public void megatronEnModoAvion_NoEsAfectadoPorNube(){
         AlgoFormer algoFormer = new Megatron();
         SuperficieAerea nube = new Nube();
-
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        casillero.setSuperficieAerea(nube);
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             nube.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
 
@@ -85,15 +90,17 @@ public class NubeTest {
     public void optimusEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
         AlgoFormer algoFormer = new Optimus();
         SuperficieAerea nube = new Nube();
-
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             nube.interactuar(algoFormer);
             fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             success();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
         }
     }
 
@@ -114,15 +121,17 @@ public class NubeTest {
     public void bumblebeeEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
         AlgoFormer algoFormer = new Bumblebee();
         SuperficieAerea nube = new Nube();
-
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             nube.interactuar(algoFormer);
             fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             success();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
         }
     }
 
@@ -143,15 +152,18 @@ public class NubeTest {
     public void bonecrusherEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
         AlgoFormer algoFormer = new Bonecrusher();
         SuperficieAerea nube = new Nube();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
 
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             nube.interactuar(algoFormer);
             fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             success();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
         }
     }
 
@@ -172,15 +184,18 @@ public class NubeTest {
     public void frenzyEnModoAlterno_LaSuperficieNoAfectaAUnidadesTerrestres(){
         AlgoFormer algoFormer = new Frenzy();
         SuperficieAerea nube = new Nube();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
 
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
 
         try {
+            transformacion.aplicarTransformacion();
             nube.interactuar(algoFormer);
             fail();
         } catch (NoPuedeInteractuarConSuperficieException e) {
             success();
+        } catch (NoPuedeTransformarseEnHumanoideException e) {
+            fail();
         }
     }
 

@@ -1,9 +1,6 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones;
 
-import fiuba.algo3.algoformers.modelo.Errores.DistanciaExcedidaException;
-import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoException;
-import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoException;
-import fiuba.algo3.algoformers.modelo.Errores.NoPuedeInteractuarConSuperficieException;
+import fiuba.algo3.algoformers.modelo.Errores.*;
 import fiuba.algo3.algoformers.modelo.Escenario.Casillero;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ContenidoVacio;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
@@ -201,12 +198,13 @@ public class MovimientoTest {
     @Test
     public void ratchetAlterno_EfectoNebulosaAndromeda_nuevoMovimiento_lanzaError(){
         AlgoFormer algoFormer = new Ratchet();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
         SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
         try {
+            transformacion.aplicarTransformacion();
             nebulosaAndromeda.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
         int distanciaMaxima = algoFormer.getVelocidad();
@@ -230,12 +228,13 @@ public class MovimientoTest {
     @Test
     public void ratchetAlterno_EfectoNebulosaAndromeda_pasaTurno_nuevoMovimiento_lanzaError(){
         AlgoFormer algoFormer = new Ratchet();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
         SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
         try {
+            transformacion.aplicarTransformacion();
             nebulosaAndromeda.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
         int distanciaMaxima = algoFormer.getVelocidad();
@@ -272,12 +271,13 @@ public class MovimientoTest {
     @Test
     public void ratchetAlterno_EfectoNebulosaAndromeda_pasaTurnoDosVeces_nuevoMovimiento_lanzaError(){
         AlgoFormer algoFormer = new Ratchet();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
         SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
         try {
+            transformacion.aplicarTransformacion();
             nebulosaAndromeda.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
         int distanciaMaxima = algoFormer.getVelocidad();
@@ -327,12 +327,13 @@ public class MovimientoTest {
     @Test
     public void ratchetAlterno_EfectoNebulosaAndromeda_pasaTurnoTresVeces_nuevoMovimiento_verificoCasilleroDestino(){
         AlgoFormer algoFormer = new Ratchet();
-        Transformacion transformacion = new Transformacion(algoFormer);
-        transformacion.aplicarTransformacion();
+        Casillero casillero = new Casillero(new Posicion(0, 0));
+        Transformacion transformacion = new Transformacion(casillero, algoFormer);
         SuperficieAerea nebulosaAndromeda = new NebulosaAndromeda();
         try {
+            transformacion.aplicarTransformacion();
             nebulosaAndromeda.interactuar(algoFormer);
-        } catch (NoPuedeInteractuarConSuperficieException e) {
+        } catch (NoPuedeInteractuarConSuperficieException | NoPuedeTransformarseEnHumanoideException e) {
             fail();
         }
         int distanciaMaxima = algoFormer.getVelocidad();
