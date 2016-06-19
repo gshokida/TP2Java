@@ -54,4 +54,43 @@ public class BurbujaInmaculadaTest {
 
         assertEquals(vidaOptimusConDanio, algoFormer.getPuntosDeVida(), 0D);
     }
+
+    @Test
+    public void burbujaInmaculadaEsAcumulable(){
+        AlgoFormer algoFormer = new Optimus();
+        BurbujaInmaculada bonusBurbuja = new BurbujaInmaculada();
+        double vidaOptimus = 500;
+        bonusBurbuja.interactuar(algoFormer);
+
+        algoFormer.pasarTurno();
+
+        BurbujaInmaculada bonusBurbujaDos = new BurbujaInmaculada();
+        bonusBurbujaDos.interactuar(algoFormer);
+
+        algoFormer.pasarTurno();
+
+        algoFormer.recibirAtaque(50);
+
+        assertEquals(vidaOptimus, algoFormer.getPuntosDeVida(), 0D);
+    }
+
+    @Test
+    public void burbujaInmaculadaEsAcumulableVerificarFinDelBonus(){
+        AlgoFormer algoFormer = new Optimus();
+        BurbujaInmaculada bonusBurbuja = new BurbujaInmaculada();
+        double vidaOptimus = 450;
+        bonusBurbuja.interactuar(algoFormer);
+
+        algoFormer.pasarTurno();
+
+        BurbujaInmaculada bonusBurbujaDos = new BurbujaInmaculada();
+        bonusBurbujaDos.interactuar(algoFormer);
+
+        algoFormer.pasarTurno();
+        algoFormer.pasarTurno();
+
+        algoFormer.recibirAtaque(50);
+
+        assertEquals(vidaOptimus, algoFormer.getPuntosDeVida(), 0D);
+    }
 }
