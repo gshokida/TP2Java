@@ -51,8 +51,20 @@ public class Juego {
         return jugadorDos;
     }
 
+    public int getFilas(){
+        return filas;
+    }
+
+    public int getColumnas() {
+        return columnas;
+    }
+
     public Tablero getTablero() {
         return tablero;
+    }
+
+    public ControlDeTurnos getControlDeTurnos() {
+        return controlDeTurnos;
     }
 
     private void crearYUbicarAlgoFormers(List<AlgoFormer> autobots, List<AlgoFormer> decepticons) {

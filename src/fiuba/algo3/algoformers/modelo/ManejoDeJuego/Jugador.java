@@ -18,6 +18,8 @@ public class Jugador {
         this.nombre = nombre;
     }
 
+    public String getNombre() { return nombre; }
+
     public boolean seLlama(String nombre) {
         return this.nombre == nombre;
     }

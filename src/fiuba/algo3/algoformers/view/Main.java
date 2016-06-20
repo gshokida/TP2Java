@@ -1,5 +1,6 @@
 package fiuba.algo3.algoformers.view;
 
+import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +12,7 @@ public class Main extends Application {
     private static double PANTALLA_ANCHO = 800D;
     private static double PANTALLA_ALTO = 600D;
     private Stage stage;
+    private Juego juego;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -19,7 +21,9 @@ public class Main extends Application {
         stage.setResizable(false);
         instancia = this;
 
-        PantallaDeMapa.activarPantala(15,15,32D);
+        juego = new Juego("Yo","El otro", 15, 15);
+
+        PantallaDeMapa.activarPantala(juego);
     }
 
     public static void cambiarEsena(BorderPane border) {
