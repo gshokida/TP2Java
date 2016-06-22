@@ -7,9 +7,8 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 import fiuba.algo3.algoformers.view2.VistaJuego.PosicionOriginal;
-import fiuba.algo3.algoformers.view2.VistaJuego.VentanaMapa;
+import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 
 /**
@@ -18,12 +17,12 @@ import javafx.event.EventHandler;
 public class EventoMoverse implements EventHandler<ActionEvent> {
 
     private PosicionOriginal posicionOriginal;
-    private VentanaMapa mapa;
+    private PanelCentralMapa mapa;
     private Boolean movio;
     private Movimiento movimiento;
     private Juego juego;
 
-    public EventoMoverse(Juego juego, VentanaMapa mapa, PosicionOriginal posicionOriginal, Boolean movio, Movimiento movimiento){
+    public EventoMoverse(Juego juego, PanelCentralMapa mapa, PosicionOriginal posicionOriginal, Boolean movio, Movimiento movimiento){
 
         this.posicionOriginal = posicionOriginal;
         this.mapa = mapa;

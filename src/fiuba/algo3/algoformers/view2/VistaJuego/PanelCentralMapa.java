@@ -18,7 +18,7 @@ import javafx.scene.layout.GridPane;
 /**
  * Created by Rodrigo on 20/06/2016.
  */
-public class VentanaMapa {
+public class PanelCentralMapa {
 
     private GridPane grilla;
     private Posicion posicion;
@@ -32,7 +32,7 @@ public class VentanaMapa {
 
 
 
-    public VentanaMapa (Juego juego, PosicionOriginal posicionOriginal){
+    public PanelCentralMapa(Juego juego, PosicionOriginal posicionOriginal){
 
         this.juego = juego;
 

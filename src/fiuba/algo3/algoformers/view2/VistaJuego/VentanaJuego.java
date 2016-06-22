@@ -23,7 +23,7 @@ public class VentanaJuego implements Ventana {
     private BorderPane border;
     private Scene scene;
     private Juego juego;
-    private  VentanaMapa mapa;
+    private PanelCentralMapa mapa;
     private PosicionOriginal posicionOriginal;
     private PanelDerecha panelDerecha;
 
@@ -61,7 +61,7 @@ public class VentanaJuego implements Ventana {
 
         this.juego = juego;
 
-        mapa = new VentanaMapa (juego, posicionOriginal);
+        mapa = new PanelCentralMapa(juego, posicionOriginal);
 
         border.setCenter(mapa.getGrilla());
         panelInferior = new PanelInferior(juego, posicionOriginal, mapa);

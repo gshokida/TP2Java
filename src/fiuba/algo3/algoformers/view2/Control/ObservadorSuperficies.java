@@ -6,16 +6,16 @@ import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.Supe
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
 
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
-import fiuba.algo3.algoformers.view2.VistaJuego.VentanaMapa;
+import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 
 /**
  * Created by Rodrigo on 21/06/2016.
  */
 public class ObservadorSuperficies implements Observer {
 
-    VentanaMapa ventana;
+    PanelCentralMapa ventana;
 
-    public ObservadorSuperficies(VentanaMapa ventana){
+    public ObservadorSuperficies(PanelCentralMapa ventana){
 
         this.ventana = ventana;
 

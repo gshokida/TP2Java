@@ -1,22 +1,14 @@
 package fiuba.algo3.algoformers.view2.VistaJuego;
 
-import fiuba.algo3.algoformers.modelo.Errores.*;
-import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Accion;
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Ataque;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.ControlDeTurnos;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoSecuencia;
 import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
 import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
 import fiuba.algo3.algoformers.view2.Eventos.EventoTransformarse;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
@@ -45,7 +37,7 @@ public class PanelInferior {
 
 
 
-    public PanelInferior (Juego juego, PosicionOriginal posicionOriginal, VentanaMapa mapa){
+    public PanelInferior (Juego juego, PosicionOriginal posicionOriginal, PanelCentralMapa mapa){
 
         this.juego = juego;
 
@@ -97,7 +89,7 @@ public class PanelInferior {
 
     }
 
-    private  void comportamiento (PosicionOriginal posicionOriginal, VentanaMapa mapa){
+    private  void comportamiento (PosicionOriginal posicionOriginal, PanelCentralMapa mapa){
 
         moverJugador1.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
 

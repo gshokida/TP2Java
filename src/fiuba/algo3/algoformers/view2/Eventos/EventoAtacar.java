@@ -6,7 +6,7 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Ataque;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 import fiuba.algo3.algoformers.view2.VistaJuego.PosicionOriginal;
-import fiuba.algo3.algoformers.view2.VistaJuego.VentanaMapa;
+import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -18,10 +18,10 @@ public class EventoAtacar  implements EventHandler<ActionEvent> {
 
     private PosicionOriginal posicionOriginal;
     private Juego juego;
-    private VentanaMapa mapa;
+    private PanelCentralMapa mapa;
 
 
-    public EventoAtacar (Juego juego, VentanaMapa mapa, PosicionOriginal posicionOriginal){
+    public EventoAtacar (Juego juego, PanelCentralMapa mapa, PosicionOriginal posicionOriginal){
 
         this.juego = juego;
         this.mapa = mapa;
