@@ -10,6 +10,8 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.ControlDeTurnos;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
+import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
@@ -85,61 +87,9 @@ public class PanelInferior {
     //Cambiar la validacion a un metodo
     private  void comportamiento (PosicionOriginal posicionOriginal, VentanaMapa mapa){
 
-        mover.setOnAction(e -> {
+        mover.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
 
-            if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())) {
-                System.out.println("Accion Invalida");
-            }else {
-
-                if (!movio) {
-
-                    movimiento = new Movimiento(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
-                    movio = true;
-
-                }
-
-                if (movimiento.quedanMovimientos()) {
-
-                    try {
-                        movimiento.moverHasta(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
-                        posicionOriginal.setPosicion(mapa.getPosicionBaldosa());
-                    } catch (DistanciaExcedidaException e1) {
-                        System.out.println("Distancia Exedida");
-                    } catch (ImposibleMoverseCasilleroOcupadoException e1) {
-                        System.out.println("Casillero Ocupado");
-                    } catch (HumanoideNoPuedeAtravesarPantanoException e1) {
-                        System.out.println("Humanoide No Atraviesa Pantano");
-                    }
-                } else {
-
-                    movio = false;
-                    juego.getControlDeTurnos().pasarTurno();
-
-                }
-            }
-        });
-
-
-        atacar.setOnAction(e -> {
-            if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())){
-                System.out.println("Accion Invalida");
-            }else {
-
-
-                Ataque ataque = new Ataque(juego.getTablero().getCasillero(posicionOriginal.getPosicion()));
-
-
-                try {
-                    ataque.atacarA(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
-                    juego.getControlDeTurnos().pasarTurno();
-
-                } catch (NoSePermiteElFuegoAmistosoException e1) {
-                    System.out.println("FuegoAmigoNO");
-                } catch (DistanciaExcedidaException e1) {
-                    System.out.println("DistanciaExecidaNO");
-                }
-            }
-        });
+        atacar.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
 
         transformar.setOnAction(e->{
 
