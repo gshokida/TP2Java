@@ -14,7 +14,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 import fiuba.algo3.algoformers.view2.Control.ObservadorAlgoformer;
 import fiuba.algo3.algoformers.view2.Control.ObservadorContenido;
 import fiuba.algo3.algoformers.view2.Control.ObservadorSuperficies;
-import fiuba.algo3.algoformers.view2.Mapa.Baldosa;
+import fiuba.algo3.algoformers.view2.Utilidades.Baldosa;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 

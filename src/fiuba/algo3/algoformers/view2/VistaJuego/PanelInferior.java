@@ -9,6 +9,7 @@ import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoSecuencia;
 import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
 import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
 import fiuba.algo3.algoformers.view2.Eventos.EventoTransformarse;
+import fiuba.algo3.algoformers.view2.Utilidades.PopUp;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -67,7 +68,6 @@ public class PanelInferior implements Paneles{
         moverJugador2 = new Button("MOVER");
         atacarJugador2 = new Button("ATACAR");
         transformarJugador2 = new Button("TRANSFORMAR");
-
 
         box1.getChildren().addAll(moverJugador1,atacarJugador1,transformarJugador1);
         box2.getChildren().addAll(botonTemporal);

@@ -3,6 +3,7 @@ package fiuba.algo3.algoformers.view2.VistaJuego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoInformacion;
+import fiuba.algo3.algoformers.view2.Utilidades.PopUp;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -29,6 +30,17 @@ public class PanelDerecha implements Paneles{
          juega = new Label("Juega: " +juego.getControlDeTurnos().getJugadorTurnoActual().getNombre());
 
         Button ayuda = new Button("Info");
+
+        ayuda.setOnAction(e-> {
+
+            PopUp alerta = new PopUp();
+            alerta.setTextoAlerta("Como Jugar:", "Para MOVER el personaje, haga doble click arriba del icono, luego, seleccione el casillero" +
+                    "al que desea moverse, para efectuar la accion, presione el boton de movimiento. Para ATACAR, haga doble click en el icono del personaje, luego, presione " +
+                    "el boton de ataque.");
+
+            alerta.cambiarAlertaInformacion();
+            alerta.mostrarAlerta();
+        });
 
         panelDerecha.setAlignment(Pos.CENTER);
         panelDerecha.setPadding(new Insets(0,20,0,0));

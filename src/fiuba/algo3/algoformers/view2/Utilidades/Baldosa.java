@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.view2.Mapa;
+package fiuba.algo3.algoformers.view2.Utilidades;
 
 
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
