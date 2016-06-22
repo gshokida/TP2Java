@@ -28,6 +28,8 @@ public class Ataque implements Accion {
 
             // Se realiza el calculo con los bonus y/o efectos de las superficies
             casilleroDestino.getAlgoformer().recibirAtaque(casilleroOrigen.getAlgoformer().getAtaque());
+            casilleroOrigen.notificar();
+            casilleroDestino.notificar();
         }
     }
 }

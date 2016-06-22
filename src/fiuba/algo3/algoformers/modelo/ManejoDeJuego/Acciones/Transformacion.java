@@ -33,5 +33,8 @@ public class Transformacion implements Accion {
 
             }
         }
+
+        casillero.notificar();
+
     }
 }

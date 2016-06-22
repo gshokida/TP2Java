@@ -44,6 +44,8 @@ public class Movimiento implements Accion {
 
         casilleroDestino.setAlgoformer(this.casilleroActual.getAlgoformer());
         this.casilleroActual.setAlgoformer(NoOcupado.getInstance());
+        casilleroDestino.notificar();
+        casilleroActual.notificar();
         this.casilleroActual = casilleroDestino;
     }
 

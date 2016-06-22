@@ -7,7 +7,7 @@ public class NoOcupado extends AlgoFormer {
 
     private static AlgoFormer noOcupado;
 
-    private NoOcupado() {
+    public NoOcupado() {
 
     }
 
