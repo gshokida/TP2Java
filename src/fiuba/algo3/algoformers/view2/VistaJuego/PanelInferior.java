@@ -97,7 +97,6 @@ public class PanelInferior {
 
     }
 
-    //Cambiar la validacion a un metodo
     private  void comportamiento (PosicionOriginal posicionOriginal, VentanaMapa mapa){
 
         moverJugador1.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
@@ -120,19 +119,12 @@ public class PanelInferior {
         if (juego.getJugador1().getNombre() == jugadorActual.getNombre()) {
 
             box1.setDisable(false);
+            box3.setDisable(true);
 
         }else{
-
-            box1.setDisable(true);
-        }
-
-        if (juego.getJugador2().getNombre() == jugadorActual.getNombre()) {
 
             box3.setDisable(false);
-
-        }else{
-
-            box3.setDisable(true);
+            box1.setDisable(true);
         }
 
     }
