@@ -89,34 +89,34 @@ public class PanelInferior {
 
             if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())) {
                 System.out.println("Accion Invalida");
-            }
+            }else {
 
-            if (!movio){
+                if (!movio) {
 
-                movimiento = new Movimiento(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
-                movio = true;
+                    movimiento = new Movimiento(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
+                    movio = true;
 
-            }
-
-            if (movimiento.quedanMovimientos()) {
-
-                try {
-                    movimiento.moverHasta(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
-                    posicionOriginal.setPosicion(mapa.getPosicionBaldosa());
-                } catch (DistanciaExcedidaException e1) {
-                    System.out.println("Distancia Exedida");
-                } catch (ImposibleMoverseCasilleroOcupadoException e1) {
-                    System.out.println("Casillero Ocupado");
-                } catch (HumanoideNoPuedeAtravesarPantanoException e1) {
-                    System.out.println("Humanoide No Atraviesa Pantano");
                 }
-            }else{
 
-                movio = false;
-                juego.getControlDeTurnos().pasarTurno();
+                if (movimiento.quedanMovimientos()) {
 
+                    try {
+                        movimiento.moverHasta(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
+                        posicionOriginal.setPosicion(mapa.getPosicionBaldosa());
+                    } catch (DistanciaExcedidaException e1) {
+                        System.out.println("Distancia Exedida");
+                    } catch (ImposibleMoverseCasilleroOcupadoException e1) {
+                        System.out.println("Casillero Ocupado");
+                    } catch (HumanoideNoPuedeAtravesarPantanoException e1) {
+                        System.out.println("Humanoide No Atraviesa Pantano");
+                    }
+                } else {
+
+                    movio = false;
+                    juego.getControlDeTurnos().pasarTurno();
+
+                }
             }
-
         });
 
 

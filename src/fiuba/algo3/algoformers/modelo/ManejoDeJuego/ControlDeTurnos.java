@@ -1,22 +1,30 @@
 package fiuba.algo3.algoformers.modelo.ManejoDeJuego;
 
 import fiuba.algo3.algoformers.modelo.Utils.Cola;
+import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoInformacion;
+import fiuba.algo3.algoformers.view2.Control.ObservadorTurnos;
+import fiuba.algo3.algoformers.view2.Control.Observer;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Created by german.shokida on 2/6/2016.
  */
-public class ControlDeTurnos {
+public class ControlDeTurnos implements SubscriptorManejoTurnos{
     private int numeroTurno;
     private Cola<Jugador> jugadores;
     private Turno turnoActual;
     private Jugador jugadorActual;
+    private List<ObservadorTurnos> subscritos;
 
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
         this.numeroTurno = 0;
         this.jugadores = new Cola<>();
         this.elegirQuienVaPrimero(jugadorUno, jugadorDos);
+        subscritos = new LinkedList<>();
+
     }
 
     public int getNumeroTurno() {
@@ -30,6 +38,7 @@ public class ControlDeTurnos {
     public void pasarTurno() {
         this.actualizarTurnoActual();
         this.numeroTurno++;
+        notificar();
     }
 
     private void elegirQuienVaPrimero(Jugador jugadorUno, Jugador jugadorDos) {
@@ -60,4 +69,29 @@ public class ControlDeTurnos {
     }
 
 
+    @Override
+    public void agregarSubscriptor(ObservadorTurnos observer) {
+        subscritos.add(observer);
+    }
+
+    @Override
+    public void borrarSubscriptor(ObservadorTurnos  observer) {
+        this.subscritos.remove(this.subscritos.indexOf(observer));
+    }
+
+    @Override
+    public void notificar() {
+
+        if (!subscritos.isEmpty()) {
+            for (ObservadorTurnos  observados : subscritos) {
+
+                observados.update(jugadorActual.getNombre(),numeroTurno);
+                observados.update(jugadorActual);
+
+            }
+        }
+
+
+
+    }
 }
