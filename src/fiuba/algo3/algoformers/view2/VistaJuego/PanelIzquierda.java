@@ -61,7 +61,7 @@ public class PanelIzquierda implements Paneles {
         if (!algoFormer.equals(NoOcupado.getInstance())) {
             nombre.setText(algoFormer.getNombre());
             vida.setText("Vida: " + algoFormer.getPuntosDeVida());
-            movimiento.setText("Velocidad" + algoFormer.getVelocidad());
+            movimiento.setText("Velocidad: " + algoFormer.getVelocidad());
             ataque.setText("Ataque: " + algoFormer.getAtaque());
         }else {
 

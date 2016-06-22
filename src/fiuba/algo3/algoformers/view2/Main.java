@@ -33,7 +33,7 @@ public class Main extends Application {
             if (!ventanaNombrarJugador.jugadoresFueronIngresados()) {
                 ventanaNombrarJugador.display();
             }
-            juego = new Juego(ventanaNombrarJugador.getNombreJugador1(),ventanaNombrarJugador.getNombreJugador2(),7,7);
+            juego = new Juego(ventanaNombrarJugador.getNombreJugador1(),ventanaNombrarJugador.getNombreJugador2(),5,5);
             ventanaJuego.setJuego(juego);
             stage.setScene(ventanaJuego.getEscena());
 

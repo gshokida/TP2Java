@@ -34,7 +34,7 @@ public class PanelDerecha implements Paneles{
         ayuda.setOnAction(e-> {
 
             PopUp alerta = new PopUp();
-            alerta.setTextoAlerta("Como Jugar:", "Para MOVER el personaje, haga doble click arriba del icono, luego, seleccione el casillero" +
+            alerta.setTextoAlerta("Como Jugar:", "Para MOVER el personaje, haga doble click arriba del icono del personaje en el mapa, luego, seleccione el casillero" +
                     "al que desea moverse, para efectuar la accion, presione el boton de movimiento. Para ATACAR, haga doble click en el icono del personaje, luego, presione " +
                     "el boton de ataque.");
 
