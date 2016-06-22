@@ -1,11 +1,13 @@
 package fiuba.algo3.algoformers.view2.VistaMenuPrincipal;
 
-import javafx.beans.binding.BooleanBinding;
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,12 +21,37 @@ public class VentanaNombrarJugador {
     private TextField nombreJugador1;
     private TextField nombreJugador2;
     private Boolean jugadoresFueronIngresados;
+    private ChoiceBox<String> tamanioMapa;
+    private int columnas;
+    private int filas;
+    private final int DEFAULT = 7;
 
 
     public VentanaNombrarJugador (){
+
         nombreJugador1 = new TextField("Jugador 1");
         nombreJugador2 = new TextField("Jugador 2");
+        tamanioMapa = new ChoiceBox<>(FXCollections.observableArrayList("5x5", "7x7","9x9"));
+        columnas = DEFAULT;
+        filas = DEFAULT;
+
+
+
+        final int[] tamanio = new int [] {5, 7, 9};
+        tamanioMapa.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue observable, Number oldValue, Number newValue) {
+
+                columnas = tamanio[newValue.intValue()];
+                filas = tamanio[newValue.intValue()];
+
+
+            }
+        });
+
+
         jugadoresFueronIngresados = false;
+
 
     }
 
@@ -60,9 +87,14 @@ public class VentanaNombrarJugador {
             ventana.close();
         });
 
+        HBox hbox = new HBox(5);
+        Label selecionarTamanio = new Label("Seleccionar Tamanio Mapa: ");
+
+        hbox.setAlignment(Pos.CENTER);
+        hbox.getChildren().addAll(selecionarTamanio, tamanioMapa);
 
         VBox box = new VBox(20);
-        box.getChildren().addAll(label, nombreJugador1,label2,nombreJugador2,cerrar);
+        box.getChildren().addAll(label, nombreJugador1,label2,nombreJugador2, hbox, cerrar);
         box.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(box);
@@ -83,6 +115,14 @@ public class VentanaNombrarJugador {
 
     }
 
+
+    public int getColumnas(){
+        return columnas;
+    }
+
+    public int getFilas (){
+        return filas;
+    }
 
 
 }
