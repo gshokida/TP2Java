@@ -41,7 +41,7 @@ public class PanelSuperior {
 
     public void setJugador1(Jugador jugador1) {
 
-        //Crear getter de Nombres para Jugador 1 y Jugador 2
+
         this.jugador1.setText(jugador1.getNombre());
 
     }

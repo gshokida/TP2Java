@@ -25,6 +25,7 @@ public class VentanaJuego implements Ventana {
     private Juego juego;
     private  VentanaMapa mapa;
     private PosicionOriginal posicionOriginal;
+    private PanelDerecha panelDerecha;
 
     public VentanaJuego (){
 
@@ -34,7 +35,7 @@ public class VentanaJuego implements Ventana {
 
         scene = new Scene(border, 1024,800);
         scene.getStylesheets().addAll(this.getClass().getResource("Estilos/boton.css").toExternalForm(),
-                this.getClass().getResource("Estilos/optimus.css").toExternalForm());
+            this.getClass().getResource("Estilos/optimus.css").toExternalForm());
 
     }
 
@@ -71,7 +72,9 @@ public class VentanaJuego implements Ventana {
         panelSuperior.setJugador2 (juego.getJugador2());
 
         panelInferior.setControlTurnos (juego.getControlDeTurnos());
+        panelDerecha = new PanelDerecha(juego);
 
+        border.setRight(panelDerecha.getPanelDerecha());
 
 
     }

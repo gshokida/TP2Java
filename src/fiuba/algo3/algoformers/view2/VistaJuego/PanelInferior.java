@@ -22,22 +22,24 @@ import javafx.scene.shape.Circle;
 public class PanelInferior {
 
     private HBox panelInferior;
-    private ComboBox comboBoxJugador1;
+    private Button botonTemporal;
+    private Button botonTemporal2 ;
     private Button mover ;
     private Button atacar ;
     private Button transformar ;
-    private ComboBox comboBoxJugador2 ;
     private Button botonPersonaje ;
     private Button botonPersonaje2;
     private Juego juego;
     private VentanaJuego mapa;
     private ControlDeTurnos controlTurnos;
+    private Movimiento movimiento;
+    private boolean movio;
 
     public PanelInferior (Juego juego, PosicionOriginal posicionOriginal, VentanaMapa mapa){
 
         this.juego = juego;
 
-        panelInferior = new HBox(86);
+        panelInferior = new HBox(100);
 
          botonPersonaje = new Button();
 
@@ -55,19 +57,20 @@ public class PanelInferior {
         VBox box2 = new VBox(20);
         VBox box3 = new VBox(20);
 
-         comboBoxJugador1 = new ComboBox<>();
+         botonTemporal  = new Button("Temporal");
          mover = new Button("MOVER");
          atacar = new Button("ATACAR");
          transformar = new Button("TRANSFORMAR");
-        comboBoxJugador2 = new ComboBox<>();
+         botonTemporal2 = new Button("Temporal");
 
 
-        box1.getChildren().addAll(comboBoxJugador1);
+        box1.getChildren().addAll(botonTemporal);
         box2.getChildren().addAll(mover,atacar,transformar);
-        box3.getChildren().addAll(comboBoxJugador2);
+        box3.getChildren().addAll(botonTemporal2);
 
 
         panelInferior.getChildren().addAll(botonPersonaje,box1,box2,box3,botonPersonaje2);
+        movio = false;
 
         comportamiento(posicionOriginal, mapa);
 
@@ -82,15 +85,20 @@ public class PanelInferior {
     //Cambiar la validacion a un metodo
     private  void comportamiento (PosicionOriginal posicionOriginal, VentanaMapa mapa){
 
-
-
         mover.setOnAction(e -> {
 
-            if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())){
+            if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())) {
                 System.out.println("Accion Invalida");
-            }else {
+            }
 
-                Movimiento movimiento = new Movimiento(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
+            if (!movio){
+
+                movimiento = new Movimiento(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
+                movio = true;
+
+            }
+
+            if (movimiento.quedanMovimientos()) {
 
                 try {
                     movimiento.moverHasta(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
@@ -102,7 +110,13 @@ public class PanelInferior {
                 } catch (HumanoideNoPuedeAtravesarPantanoException e1) {
                     System.out.println("Humanoide No Atraviesa Pantano");
                 }
+            }else{
+
+                movio = false;
+                juego.getControlDeTurnos().pasarTurno();
+
             }
+
         });
 
 
@@ -114,8 +128,10 @@ public class PanelInferior {
 
                 Ataque ataque = new Ataque(juego.getTablero().getCasillero(posicionOriginal.getPosicion()));
 
+
                 try {
                     ataque.atacarA(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
+                    juego.getControlDeTurnos().pasarTurno();
 
                 } catch (NoSePermiteElFuegoAmistosoException e1) {
                     System.out.println("FuegoAmigoNO");
@@ -132,8 +148,10 @@ public class PanelInferior {
             }else {
 
                 Transformacion transformar = new Transformacion(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
+
                 try {
                     transformar.aplicarTransformacion();
+                    juego.getControlDeTurnos().pasarTurno();
                     System.out.println("Transformandose");
                 } catch (NoPuedeTransformarseEnHumanoideException e1) {
                     System.out.println("WachinEstasEmpantanado");

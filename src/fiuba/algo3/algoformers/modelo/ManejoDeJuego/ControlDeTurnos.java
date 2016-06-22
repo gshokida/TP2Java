@@ -11,6 +11,7 @@ public class ControlDeTurnos {
     private int numeroTurno;
     private Cola<Jugador> jugadores;
     private Turno turnoActual;
+    private Jugador jugadorActual;
 
     public ControlDeTurnos(Jugador jugadorUno, Jugador jugadorDos){
         this.numeroTurno = 0;
@@ -47,7 +48,16 @@ public class ControlDeTurnos {
 
     private void actualizarTurnoActual() {
         Jugador jugador = this.jugadores.dequeue();
+        jugadorActual = jugador;
         this.jugadores.enqueue(jugador);
         this.turnoActual = new Turno(jugador);
     }
+
+    public Jugador getJugadorTurnoActual(){
+
+        return jugadorActual;
+
+    }
+
+
 }
