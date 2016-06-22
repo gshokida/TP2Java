@@ -1,0 +1,8 @@
+#boton {
+
+    -fx-background-radius: 0;
+    -fx-background-image: url("Imagenes/TR.png");
+    -fx-background-position: center center;
+
+
+}
