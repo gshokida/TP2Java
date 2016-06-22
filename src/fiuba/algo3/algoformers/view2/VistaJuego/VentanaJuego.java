@@ -24,14 +24,18 @@ public class VentanaJuego implements Ventana {
     private Scene scene;
     private Juego juego;
     private PanelCentralMapa mapa;
-    private PosicionOriginal posicionOriginal;
+    private ContenedorAlgoformerPosicion contenedorAlgoformerPosicion;
     private PanelDerecha panelDerecha;
+    private PanelIzquierda panelIzquierda;
 
     public VentanaJuego (){
 
-        posicionOriginal = new PosicionOriginal();
+        contenedorAlgoformerPosicion = new ContenedorAlgoformerPosicion();
         border = new BorderPane();
         panelSuperior = new PanelSuperior();
+        panelIzquierda = new PanelIzquierda();
+
+        contenedorAlgoformerPosicion.setPaneles(panelIzquierda);
 
         scene = new Scene(border, 1024,800);
         scene.getStylesheets().addAll(this.getClass().getResource("Estilos/boton.css").toExternalForm(),
@@ -49,11 +53,8 @@ public class VentanaJuego implements Ventana {
     @Override
     public void agregarBoton(Button boton) {
         boton.setText("<-");
-        VBox box = new VBox();
-        box.getChildren().addAll(boton);
-        box.setAlignment(Pos.CENTER);
-        box.setPadding(new Insets(0,0,0,10));
-        border.setLeft(box);
+        panelIzquierda.setBotonVolver(boton);
+        border.setLeft(panelIzquierda.getPanelIzquierdo());
 
     }
 
@@ -61,10 +62,10 @@ public class VentanaJuego implements Ventana {
 
         this.juego = juego;
 
-        mapa = new PanelCentralMapa(juego, posicionOriginal);
+        mapa = new PanelCentralMapa(juego, contenedorAlgoformerPosicion);
 
         border.setCenter(mapa.getGrilla());
-        panelInferior = new PanelInferior(juego, posicionOriginal, mapa);
+        panelInferior = new PanelInferior(juego, contenedorAlgoformerPosicion, mapa);
         border.setBottom(panelInferior.getPanelInferior());
         border.setTop(panelSuperior.getPanelSuperior());
 
@@ -74,6 +75,7 @@ public class VentanaJuego implements Ventana {
         panelDerecha = new PanelDerecha(juego);
 
         border.setRight(panelDerecha.getPanelDerecha());
+
 
 
     }

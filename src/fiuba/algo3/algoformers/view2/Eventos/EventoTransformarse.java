@@ -1,11 +1,10 @@
 package fiuba.algo3.algoformers.view2.Eventos;
 
 import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideException;
-import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
-import fiuba.algo3.algoformers.view2.VistaJuego.PosicionOriginal;
+import fiuba.algo3.algoformers.view2.VistaJuego.ContenedorAlgoformerPosicion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -15,13 +14,13 @@ import javafx.event.EventHandler;
 public class EventoTransformarse implements EventHandler<ActionEvent> {
 
 
-    private PosicionOriginal posicionOriginal;
+    private ContenedorAlgoformerPosicion contenedorAlgoformerPosicion;
     private Juego juego;
 
-    public EventoTransformarse (Juego juego, PosicionOriginal posicionOriginal){
+    public EventoTransformarse (Juego juego, ContenedorAlgoformerPosicion contenedorAlgoformerPosicion){
 
         this.juego = juego;
-        this.posicionOriginal = posicionOriginal;
+        this.contenedorAlgoformerPosicion = contenedorAlgoformerPosicion;
     }
 
 
@@ -29,11 +28,11 @@ public class EventoTransformarse implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
 
-        if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())){
+        if (contenedorAlgoformerPosicion.getAlgoFormer().equals(NoOcupado.getInstance())){
             System.out.println("Accion Invalida");
         }else {
 
-            Transformacion transformar = new Transformacion(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
+            Transformacion transformar = new Transformacion(juego.getTablero().getCasillero(contenedorAlgoformerPosicion.getPosicion()), contenedorAlgoformerPosicion.getAlgoFormer());
 
             try {
                 transformar.aplicarTransformacion();

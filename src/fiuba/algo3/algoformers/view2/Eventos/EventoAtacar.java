@@ -5,7 +5,7 @@ import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoExceptio
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Ataque;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
-import fiuba.algo3.algoformers.view2.VistaJuego.PosicionOriginal;
+import fiuba.algo3.algoformers.view2.VistaJuego.ContenedorAlgoformerPosicion;
 import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,16 +16,16 @@ import javafx.event.EventHandler;
 public class EventoAtacar  implements EventHandler<ActionEvent> {
 
 
-    private PosicionOriginal posicionOriginal;
+    private ContenedorAlgoformerPosicion contenedorAlgoformerPosicion;
     private Juego juego;
     private PanelCentralMapa mapa;
 
 
-    public EventoAtacar (Juego juego, PanelCentralMapa mapa, PosicionOriginal posicionOriginal){
+    public EventoAtacar (Juego juego, PanelCentralMapa mapa, ContenedorAlgoformerPosicion contenedorAlgoformerPosicion){
 
         this.juego = juego;
         this.mapa = mapa;
-        this.posicionOriginal = posicionOriginal;
+        this.contenedorAlgoformerPosicion = contenedorAlgoformerPosicion;
 
 
 
@@ -36,12 +36,12 @@ public class EventoAtacar  implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())){
+        if (contenedorAlgoformerPosicion.getAlgoFormer().equals(NoOcupado.getInstance())){
             System.out.println("Accion Invalida");
         }else {
 
 
-            Ataque ataque = new Ataque(juego.getTablero().getCasillero(posicionOriginal.getPosicion()));
+            Ataque ataque = new Ataque(juego.getTablero().getCasillero(contenedorAlgoformerPosicion.getPosicion()));
 
 
             try {

@@ -1,9 +1,12 @@
 package fiuba.algo3.algoformers.view2.VistaJuego;
 
 
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
@@ -18,7 +21,7 @@ import javafx.scene.layout.GridPane;
 /**
  * Created by Rodrigo on 20/06/2016.
  */
-public class PanelCentralMapa {
+public class PanelCentralMapa implements Paneles {
 
     private GridPane grilla;
     private Posicion posicion;
@@ -32,7 +35,7 @@ public class PanelCentralMapa {
 
 
 
-    public PanelCentralMapa(Juego juego, PosicionOriginal posicionOriginal){
+    public PanelCentralMapa(Juego juego, ContenedorAlgoformerPosicion contenedorAlgoformerPosicion){
 
         this.juego = juego;
 
@@ -47,13 +50,13 @@ public class PanelCentralMapa {
 
         for (int i = 0; i < juego.getColumnas(); i++) {
             for (int j = 0; j < juego.getFilas(); j++) {
-                Baldosa baldosa= new Baldosa(i,j);
 
+                Baldosa baldosa= new Baldosa(i,j);
 
                 baldosa.getBaldosa().setOnMouseClicked(e->{ if (e.getClickCount()==1) {
                     this.posicion = baldosa.getPosicion();
                 }else{
-                    cargarPosicion(posicionOriginal);
+                    cargarPosicion(contenedorAlgoformerPosicion);
                 }
                 });
 
@@ -72,12 +75,13 @@ public class PanelCentralMapa {
 
     }
 
-    private void cargarPosicion (PosicionOriginal posicionOriginal) {
+    private void cargarPosicion (ContenedorAlgoformerPosicion contenedorAlgoformerPosicion) {
 
-        posicionOriginal.setAlgoFormer(juego.getTablero().getCasillero(getPosicionBaldosa()).getAlgoformer());
-        posicionOriginal.setPosicion(getPosicionBaldosa());
-        System.out.println(posicionOriginal.getAlgoFormer());
-        System.out.println("Posicion" + posicionOriginal.getPosicion().getX()+"y"+ posicionOriginal.getPosicion().getY());
+        contenedorAlgoformerPosicion.setAlgoFormer(juego.getTablero().getCasillero(getPosicionBaldosa()).getAlgoformer());
+        contenedorAlgoformerPosicion.setPosicion(getPosicionBaldosa());
+        contenedorAlgoformerPosicion.actualizarAlgoformer();
+        System.out.println(contenedorAlgoformerPosicion.getAlgoFormer());
+        System.out.println("Posicion" + contenedorAlgoformerPosicion.getPosicion().getX()+"y"+ contenedorAlgoformerPosicion.getPosicion().getY());
 
     }
 
@@ -86,11 +90,11 @@ public class PanelCentralMapa {
         for (int i = 0; i < juego.getColumnas(); i++) {
             for (int j = 0; j < juego.getFilas(); j++) {
 
-               if(juego.getTablero().getCasillero(baldosas [i] [j].getPosicion()).getAlgoformer().getNombre() == "Optimus Prime"){
 
-                    baldosas [i] [j].setEstilo("optimus");
+                verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getAlgoformer(),baldosas[i][j].getPosicion());
+                verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getContenido(), baldosas[i][j].getPosicion());
 
-               }
+
             }
         }
 
@@ -101,7 +105,6 @@ public class PanelCentralMapa {
 
         for (int i = 0; i < juego.getColumnas(); i++) {
             for (int j = 0; j < juego.getFilas(); j++) {
-
                 juego.getTablero().getCasillero(baldosas [i] [j].getPosicion()).agregarSubscriptor(observadorAlgoformer);
                 juego.getTablero().getCasillero(baldosas [i] [j].getPosicion()).agregarSubscriptor(observadorContenido);
                 juego.getTablero().getCasillero(baldosas [i] [j].getPosicion()).agregarSubscriptor(observadorSuperficies);
@@ -124,32 +127,77 @@ public class PanelCentralMapa {
 
     public void actualizarVista(SuperficieAerea superficie, Posicion posicion) {
 
-
+        verificarCasillero(superficie,posicion);
 
     }
 
     public void actualizarVista(SuperficieTerrestre superficie, Posicion posicion) {
 
-
+        verificarCasillero(superficie,posicion);
 
     }
 
     public void actualizarVista(AlgoFormer algoformer, Posicion posicion) {
 
-        if (algoformer.getNombre() == "Optimus Prime") {
-            baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("optimus");
-        }
-        if (algoformer == NoOcupado.getInstance()){
-            baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("boton");
-        }
+       verificarCasillero(algoformer,posicion);
+
     }
 
     public void actualizarVista(Contenido contenido, Posicion posicion) {
 
-
+        verificarCasillero(contenido,posicion);
 
     }
 
 
+   private void verificarCasillero(AlgoFormer algoformer,Posicion posicion){
 
+       if (algoformer == NoOcupado.getInstance()){
+           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("boton");
+       }
+       if (algoformer.getNombre() == "Optimus Prime") {
+           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("optimus");
+       }
+       if (algoformer.getNombre() == "Megatron"){
+           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("optimus");
+       }
+
+
+   }
+
+    private void verificarCasillero(Contenido contenido,Posicion posicion){
+
+        if (contenido.esLaChispaSuprema(ChispaSuprema.getInstance())){
+
+            baldosas [posicion.getX()] [posicion.getY()].getBaldosa().setId("optimus");
+
+        }
+
+    }
+
+    private void verificarCasillero(SuperficieAerea superficie,Posicion posicion){
+
+       if (superficie instanceof NebulosaAndromeda){
+
+           baldosas [posicion.getX()] [posicion.getY()].getBaldosa().setId("optimus");
+
+       }
+
+    }
+
+    private void verificarCasillero(SuperficieTerrestre superficie,Posicion posicion){
+
+        if (superficie instanceof Pantano){
+
+            baldosas [posicion.getX()] [posicion.getY()].getBaldosa().setId("optimus");
+
+        }
+
+    }
+
+
+    @Override
+    public void actualizarAlgoformers(AlgoFormer algoFormer) {
+
+    }
 }

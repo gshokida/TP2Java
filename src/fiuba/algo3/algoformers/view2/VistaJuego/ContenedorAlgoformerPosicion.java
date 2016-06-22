@@ -4,18 +4,24 @@ import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 
+
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by Rodrigo on 21/06/2016.
  */
-public class PosicionOriginal {
+public class ContenedorAlgoformerPosicion {
 
     private AlgoFormer algoFormer;
     private Posicion posicion;
+    private List<Paneles> listaPaneles;
 
-    public PosicionOriginal(){
+    public ContenedorAlgoformerPosicion(){
 
         algoFormer = NoOcupado.getInstance();
         posicion = new Posicion(0, 0);
+        listaPaneles = new LinkedList<>();
 
     }
 
@@ -41,5 +47,25 @@ public class PosicionOriginal {
 
     }
 
+    public void setPaneles (Paneles panel){
 
+        listaPaneles.add(panel);
+
+    }
+
+
+    public void actualizarAlgoformer() {
+
+        if (!listaPaneles.isEmpty()){
+
+            for (Paneles panel : listaPaneles){
+
+                panel.actualizarAlgoformers(algoFormer);
+
+            }
+
+        }
+
+
+    }
 }

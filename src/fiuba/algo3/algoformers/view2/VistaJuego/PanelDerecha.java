@@ -1,17 +1,19 @@
 package fiuba.algo3.algoformers.view2.VistaJuego;
 
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoInformacion;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
  * Created by Rodrigo on 22/06/2016.
  */
-public class PanelDerecha {
+public class PanelDerecha implements Paneles{
 
     private Label turnoNumero;
     private  Label juega;
@@ -55,6 +57,8 @@ public class PanelDerecha {
     }
 
 
+    @Override
+    public void actualizarAlgoformers(AlgoFormer algoFormer) {
 
-
+    }
 }

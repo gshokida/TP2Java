@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.view2.VistaJuego;
 
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -10,7 +11,7 @@ import javafx.scene.layout.VBox;
 /**
  * Created by Rodrigo on 20/06/2016.
  */
-public class PanelSuperior {
+public class PanelSuperior implements Paneles {
 
     private Label jugador1;
     private Label jugador2;
@@ -53,5 +54,8 @@ public class PanelSuperior {
     }
 
 
+    @Override
+    public void actualizarAlgoformers(AlgoFormer algoFormer) {
 
+    }
 }

@@ -6,7 +6,7 @@ import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoEx
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
-import fiuba.algo3.algoformers.view2.VistaJuego.PosicionOriginal;
+import fiuba.algo3.algoformers.view2.VistaJuego.ContenedorAlgoformerPosicion;
 import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,15 +16,15 @@ import javafx.event.EventHandler;
  */
 public class EventoMoverse implements EventHandler<ActionEvent> {
 
-    private PosicionOriginal posicionOriginal;
+    private ContenedorAlgoformerPosicion contenedorAlgoformerPosicion;
     private PanelCentralMapa mapa;
     private Boolean movio;
     private Movimiento movimiento;
     private Juego juego;
 
-    public EventoMoverse(Juego juego, PanelCentralMapa mapa, PosicionOriginal posicionOriginal, Boolean movio, Movimiento movimiento){
+    public EventoMoverse(Juego juego, PanelCentralMapa mapa, ContenedorAlgoformerPosicion contenedorAlgoformerPosicion, Boolean movio, Movimiento movimiento){
 
-        this.posicionOriginal = posicionOriginal;
+        this.contenedorAlgoformerPosicion = contenedorAlgoformerPosicion;
         this.mapa = mapa;
         this.movio = movio;
         this.movimiento = movimiento;
@@ -35,13 +35,13 @@ public class EventoMoverse implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
 
-        if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())) {
+        if (contenedorAlgoformerPosicion.getAlgoFormer().equals(NoOcupado.getInstance())) {
             System.out.println("Accion Invalida");
         }else {
 
             if (!movio) {
 
-                movimiento = new Movimiento(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
+                movimiento = new Movimiento(juego.getTablero().getCasillero(contenedorAlgoformerPosicion.getPosicion()), contenedorAlgoformerPosicion.getAlgoFormer());
                 movio = true;
 
             }
@@ -50,7 +50,7 @@ public class EventoMoverse implements EventHandler<ActionEvent> {
 
                 try {
                     movimiento.moverHasta(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
-                    posicionOriginal.setPosicion(mapa.getPosicionBaldosa());
+                    contenedorAlgoformerPosicion.setPosicion(mapa.getPosicionBaldosa());
                 } catch (DistanciaExcedidaException e1) {
                     System.out.println("Distancia Exedida");
                 } catch (ImposibleMoverseCasilleroOcupadoException e1) {

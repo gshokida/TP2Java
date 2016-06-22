@@ -4,6 +4,7 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.ControlDeTurnos;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoSecuencia;
 import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
 import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
@@ -16,7 +17,7 @@ import javafx.scene.shape.Circle;
 /**
  * Created by Rodrigo on 20/06/2016.
  */
-public class PanelInferior {
+public class PanelInferior implements Paneles{
 
     private HBox panelInferior;
     private Button botonTemporal;
@@ -37,7 +38,7 @@ public class PanelInferior {
 
 
 
-    public PanelInferior (Juego juego, PosicionOriginal posicionOriginal, PanelCentralMapa mapa){
+    public PanelInferior (Juego juego, ContenedorAlgoformerPosicion contenedorAlgoformerPosicion, PanelCentralMapa mapa){
 
         this.juego = juego;
 
@@ -79,7 +80,7 @@ public class PanelInferior {
         ObservadorTurnoSecuencia obsTurnosSecuencia = new ObservadorTurnoSecuencia(this);
         juego.getControlDeTurnos().agregarSubscriptor(obsTurnosSecuencia);
 
-        comportamiento(posicionOriginal, mapa);
+        comportamiento(contenedorAlgoformerPosicion, mapa);
 
     }
 
@@ -89,19 +90,19 @@ public class PanelInferior {
 
     }
 
-    private  void comportamiento (PosicionOriginal posicionOriginal, PanelCentralMapa mapa){
+    private  void comportamiento (ContenedorAlgoformerPosicion contenedorAlgoformerPosicion, PanelCentralMapa mapa){
 
-        moverJugador1.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
+        moverJugador1.setOnAction(new EventoMoverse(juego,mapa, contenedorAlgoformerPosicion,movio,movimiento));
 
-        atacarJugador1.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
+        atacarJugador1.setOnAction(new EventoAtacar(juego,mapa, contenedorAlgoformerPosicion));
 
-        transformarJugador1.setOnAction(new EventoTransformarse(juego,posicionOriginal));
+        transformarJugador1.setOnAction(new EventoTransformarse(juego, contenedorAlgoformerPosicion));
 
-        moverJugador2.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
+        moverJugador2.setOnAction(new EventoMoverse(juego,mapa, contenedorAlgoformerPosicion,movio,movimiento));
 
-        atacarJugador2.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
+        atacarJugador2.setOnAction(new EventoAtacar(juego,mapa, contenedorAlgoformerPosicion));
 
-        transformarJugador2.setOnAction(new EventoTransformarse(juego,posicionOriginal));
+        transformarJugador2.setOnAction(new EventoTransformarse(juego, contenedorAlgoformerPosicion));
 
     }
 
@@ -118,6 +119,11 @@ public class PanelInferior {
             box3.setDisable(false);
             box1.setDisable(true);
         }
+
+    }
+
+    @Override
+    public void actualizarAlgoformers(AlgoFormer algoFormer) {
 
     }
 }
