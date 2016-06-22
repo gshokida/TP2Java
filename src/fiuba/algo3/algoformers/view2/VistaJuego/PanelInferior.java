@@ -8,8 +8,10 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.ControlDeTurnos;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
+import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoSecuencia;
 import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
 import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
 import fiuba.algo3.algoformers.view2.Eventos.EventoTransformarse;
@@ -26,17 +28,19 @@ public class PanelInferior {
 
     private HBox panelInferior;
     private Button botonTemporal;
-    private Button botonTemporal2 ;
-    private Button mover ;
-    private Button atacar ;
-    private Button transformar ;
+    private Button moverJugador1 ;
+    private Button atacarJugador1 ;
+    private Button transformarJugador1 ;
+    private Button moverJugador2 ;
+    private Button atacarJugador2 ;
+    private Button transformarJugador2 ;
     private Button botonPersonaje ;
     private Button botonPersonaje2;
     private Juego juego;
     private ControlDeTurnos controlTurnos;
     private Movimiento movimiento;
     private boolean movio;
-    private   VBox box1;
+    private VBox box1;
     private VBox box3;
 
 
@@ -64,19 +68,24 @@ public class PanelInferior {
         box3 = new VBox(20);
 
         botonTemporal  = new Button("Temporal");
-        mover = new Button("MOVER");
-        atacar = new Button("ATACAR");
-        transformar = new Button("TRANSFORMAR");
-        botonTemporal2 = new Button("Temporal");
+        moverJugador1 = new Button("MOVER");
+        atacarJugador1 = new Button("ATACAR");
+        transformarJugador1 = new Button("TRANSFORMAR");
+        moverJugador2 = new Button("MOVER");
+        atacarJugador2 = new Button("ATACAR");
+        transformarJugador2 = new Button("TRANSFORMAR");
 
 
-        box1.getChildren().addAll(mover,atacar,transformar);
-        box2.getChildren().addAll();
-        box3.getChildren().addAll(mover,atacar,transformar);
+        box1.getChildren().addAll(moverJugador1,atacarJugador1,transformarJugador1);
+        box2.getChildren().addAll(botonTemporal);
+        box3.getChildren().addAll(moverJugador2,atacarJugador2,transformarJugador2);
 
 
         panelInferior.getChildren().addAll(botonPersonaje,box1,box2,box3,botonPersonaje2);
         movio = false;
+
+        ObservadorTurnoSecuencia obsTurnosSecuencia = new ObservadorTurnoSecuencia(this);
+        juego.getControlDeTurnos().agregarSubscriptor(obsTurnosSecuencia);
 
         comportamiento(posicionOriginal, mapa);
 
@@ -91,13 +100,40 @@ public class PanelInferior {
     //Cambiar la validacion a un metodo
     private  void comportamiento (PosicionOriginal posicionOriginal, VentanaMapa mapa){
 
-        mover.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
+        moverJugador1.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
 
-        atacar.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
+        atacarJugador1.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
 
-        transformar.setOnAction(new EventoTransformarse(juego,posicionOriginal));
+        transformarJugador1.setOnAction(new EventoTransformarse(juego,posicionOriginal));
+
+        moverJugador2.setOnAction(new EventoMoverse(juego,mapa,posicionOriginal,movio,movimiento));
+
+        atacarJugador2.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
+
+        transformarJugador2.setOnAction(new EventoTransformarse(juego,posicionOriginal));
 
     }
 
 
+    public void actualizarOpcionesJugadores(Jugador jugadorActual) {
+
+        if (juego.getJugador1().getNombre() == jugadorActual.getNombre()) {
+
+            box1.setDisable(false);
+
+        }else{
+
+            box1.setDisable(true);
+        }
+
+        if (juego.getJugador2().getNombre() == jugadorActual.getNombre()) {
+
+            box3.setDisable(false);
+
+        }else{
+
+            box3.setDisable(true);
+        }
+
+    }
 }
