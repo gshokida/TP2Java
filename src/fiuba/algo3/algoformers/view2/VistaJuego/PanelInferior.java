@@ -12,6 +12,7 @@ import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
 import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
 import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
+import fiuba.algo3.algoformers.view2.Eventos.EventoTransformarse;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
@@ -32,10 +33,13 @@ public class PanelInferior {
     private Button botonPersonaje ;
     private Button botonPersonaje2;
     private Juego juego;
-    private VentanaJuego mapa;
     private ControlDeTurnos controlTurnos;
     private Movimiento movimiento;
     private boolean movio;
+    private   VBox box1;
+    private VBox box3;
+
+
 
     public PanelInferior (Juego juego, PosicionOriginal posicionOriginal, VentanaMapa mapa){
 
@@ -43,7 +47,7 @@ public class PanelInferior {
 
         panelInferior = new HBox(100);
 
-         botonPersonaje = new Button();
+        botonPersonaje = new Button();
 
         botonPersonaje.setShape(new Circle(100));
         botonPersonaje.setMinSize(200,200);
@@ -55,20 +59,20 @@ public class PanelInferior {
         botonPersonaje2.setMinSize(200,200);
         botonPersonaje2.setMaxSize(200,200);
 
-        VBox box1 = new VBox(20);
+        box1 = new VBox(20);
         VBox box2 = new VBox(20);
-        VBox box3 = new VBox(20);
+        box3 = new VBox(20);
 
-         botonTemporal  = new Button("Temporal");
-         mover = new Button("MOVER");
-         atacar = new Button("ATACAR");
-         transformar = new Button("TRANSFORMAR");
-         botonTemporal2 = new Button("Temporal");
+        botonTemporal  = new Button("Temporal");
+        mover = new Button("MOVER");
+        atacar = new Button("ATACAR");
+        transformar = new Button("TRANSFORMAR");
+        botonTemporal2 = new Button("Temporal");
 
 
-        box1.getChildren().addAll(botonTemporal);
-        box2.getChildren().addAll(mover,atacar,transformar);
-        box3.getChildren().addAll(botonTemporal2);
+        box1.getChildren().addAll(mover,atacar,transformar);
+        box2.getChildren().addAll();
+        box3.getChildren().addAll(mover,atacar,transformar);
 
 
         panelInferior.getChildren().addAll(botonPersonaje,box1,box2,box3,botonPersonaje2);
@@ -91,31 +95,9 @@ public class PanelInferior {
 
         atacar.setOnAction(new EventoAtacar(juego,mapa,posicionOriginal));
 
-        transformar.setOnAction(e->{
-
-            if (posicionOriginal.getAlgoFormer().equals(NoOcupado.getInstance())){
-                System.out.println("Accion Invalida");
-            }else {
-
-                Transformacion transformar = new Transformacion(juego.getTablero().getCasillero(posicionOriginal.getPosicion()), posicionOriginal.getAlgoFormer());
-
-                try {
-                    transformar.aplicarTransformacion();
-                    juego.getControlDeTurnos().pasarTurno();
-                    System.out.println("Transformandose");
-                } catch (NoPuedeTransformarseEnHumanoideException e1) {
-                    System.out.println("WachinEstasEmpantanado");
-                }
-
-            }
-
-        });
-    }
-
-
-    public void setControlTurnos(ControlDeTurnos controlDeTurnos) {
-
-    this.controlTurnos = controlDeTurnos;
+        transformar.setOnAction(new EventoTransformarse(juego,posicionOriginal));
 
     }
+
+
 }

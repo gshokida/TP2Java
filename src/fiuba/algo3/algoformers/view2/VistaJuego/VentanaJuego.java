@@ -71,7 +71,6 @@ public class VentanaJuego implements Ventana {
         panelSuperior.setJugador1 (juego.getJugador1());
         panelSuperior.setJugador2 (juego.getJugador2());
 
-        panelInferior.setControlTurnos (juego.getControlDeTurnos());
         panelDerecha = new PanelDerecha(juego);
 
         border.setRight(panelDerecha.getPanelDerecha());
