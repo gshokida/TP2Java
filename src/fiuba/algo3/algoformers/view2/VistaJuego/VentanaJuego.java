@@ -39,7 +39,8 @@ public class VentanaJuego implements Ventana {
 
         scene = new Scene(border, 1024,800);
         scene.getStylesheets().addAll(this.getClass().getResource("Estilos/boton.css").toExternalForm(),
-            this.getClass().getResource("Estilos/optimus.css").toExternalForm());
+            this.getClass().getResource("Estilos/optimus.css").toExternalForm(),
+                this.getClass().getResource("Estilos/megatron.css").toExternalForm());
 
     }
 

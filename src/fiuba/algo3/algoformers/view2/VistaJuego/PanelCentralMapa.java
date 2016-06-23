@@ -159,7 +159,7 @@ public class PanelCentralMapa implements Paneles {
            baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("optimus");
        }
        if (algoformer.getNombre() == "Megatron"){
-           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("optimus");
+           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("megatron");
        }
 
 
