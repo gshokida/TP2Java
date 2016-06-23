@@ -4,6 +4,7 @@ import fiuba.algo3.algoformers.modelo.Errores.NoPuedeTransformarseEnHumanoideExc
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Transformacion;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.view2.Utilidades.PopUp;
 import fiuba.algo3.algoformers.view2.VistaJuego.ContenedorAlgoformerPosicion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -40,7 +41,9 @@ public class EventoTransformarse implements EventHandler<ActionEvent> {
                 juego.getControlDeTurnos().pasarTurno();
                 System.out.println("Transformandose");
             } catch (NoPuedeTransformarseEnHumanoideException e1) {
-                System.out.println("WachinEstasEmpantanado");
+                PopUp alerta = new PopUp();
+                alerta.setTextoAlerta("Transformacion Invalida", "No puede transformarse dentro del pantano");
+                alerta.mostrarAlerta();
             }
 
         }

@@ -6,6 +6,7 @@ import fiuba.algo3.algoformers.modelo.Errores.ImposibleMoverseCasilleroOcupadoEx
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Movimiento;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.view2.Utilidades.PopUp;
 import fiuba.algo3.algoformers.view2.VistaJuego.ContenedorAlgoformerPosicion;
 import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 import javafx.event.ActionEvent;
@@ -54,7 +55,9 @@ public class EventoMoverse implements EventHandler<ActionEvent> {
                 } catch (DistanciaExcedidaException e1) {
                     System.out.println("Distancia Exedida");
                 } catch (ImposibleMoverseCasilleroOcupadoException e1) {
-                    System.out.println("Casillero Ocupado");
+                    PopUp alerta = new PopUp();
+                    alerta.setTextoAlerta("Movimiento Invalido", "Casillero Ocupado");
+                    alerta.mostrarAlerta();
                 } catch (HumanoideNoPuedeAtravesarPantanoException e1) {
                     System.out.println("Humanoide No Atraviesa Pantano");
                 }

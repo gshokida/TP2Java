@@ -5,6 +5,7 @@ import fiuba.algo3.algoformers.modelo.Errores.NoSePermiteElFuegoAmistosoExceptio
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Ataque;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.view2.Utilidades.PopUp;
 import fiuba.algo3.algoformers.view2.VistaJuego.ContenedorAlgoformerPosicion;
 import fiuba.algo3.algoformers.view2.VistaJuego.PanelCentralMapa;
 import javafx.event.ActionEvent;
@@ -50,9 +51,13 @@ public class EventoAtacar  implements EventHandler<ActionEvent> {
                 contenedorAlgoformerPosicion.resetPosicionAlgoformer();
 
             } catch (NoSePermiteElFuegoAmistosoException e1) {
-                System.out.println("FuegoAmigoNO");
+                PopUp alerta = new PopUp();
+                alerta.setTextoAlerta("Objetivo Invalido", "El objetivo es del mismo bando");
+                alerta.mostrarAlerta();
             } catch (DistanciaExcedidaException e1) {
-                System.out.println("DistanciaExecidaNO");
+                PopUp alerta = new PopUp();
+                alerta.setTextoAlerta("Distancia de ataque invalida", "Distancia excedida");
+                alerta.mostrarAlerta();
             }
         }
     }
