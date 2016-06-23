@@ -25,8 +25,8 @@ public class Baldosa extends Button {
 
                 baldosa.setMinSize(48, 48);
         baldosa.setMaxSize(48, 48);
-        baldosa.setBackground(new Background(new ImageHelper().getImagen("Invisible")));
-        fondo.setBackground(new Background(new ImageHelper().getImagen("TR")));
+        baldosa.setBackground(new Background(new ImageHelper().getImagen("invisible")));
+        fondo.setBackground(new Background(new ImageHelper().getImagen("tierra")));
         fondo.getChildren().addAll(baldosa);
 
         posicion = new Posicion(x,y);

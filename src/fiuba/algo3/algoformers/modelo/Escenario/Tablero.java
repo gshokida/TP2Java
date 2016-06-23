@@ -4,6 +4,8 @@ import fiuba.algo3.algoformers.modelo.Errores.HumanoideNoPuedeAtravesarPantanoEx
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
 import fiuba.algo3.algoformers.modelo.Errores.TableroParInvalidoException;
 import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 
 /**
@@ -31,6 +33,8 @@ public class Tablero {
 
         Posicion posicionChispaSuprema = new Posicion((filas - 1) / 2, (columnas - 1) / 2);
 
+
+
         setContenido(ChispaSuprema.getInstance(), posicionChispaSuprema);
     }
 
@@ -51,4 +55,9 @@ public class Tablero {
     public boolean casilleroOcupado(Posicion posicion) {
         return (tablero[posicion.getX()][posicion.getY()].estaOcupado());
     }
+
+
+
+
+
 }

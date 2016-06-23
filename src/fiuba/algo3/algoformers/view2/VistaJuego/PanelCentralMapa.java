@@ -93,6 +93,8 @@ public class PanelCentralMapa implements Paneles {
 
                 verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getAlgoformer(),baldosas[i][j].getPosicion());
                 verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getContenido(), baldosas[i][j].getPosicion());
+                verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getSuperficieAerea(), baldosas[i][j].getPosicion());
+                verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getSuperficieTerreste(), baldosas[i][j].getPosicion());
 
             }
         }
@@ -154,10 +156,10 @@ public class PanelCentralMapa implements Paneles {
            baldosas[posicion.getX()][posicion.getY()].setImagen("invisible");
        }
        if (algoformer.getNombre() == "Optimus Prime") {
-           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("optimus");
+           baldosas[posicion.getX()][posicion.getY()].setImagen("optimus");
        }
        if (algoformer.getNombre() == "Megatron"){
-           baldosas[posicion.getX()][posicion.getY()].getBaldosa().setId("megatron");
+           baldosas[posicion.getX()][posicion.getY()].setImagen("megatron");
        }
 
 
@@ -165,32 +167,31 @@ public class PanelCentralMapa implements Paneles {
 
     private void verificarCasillero(Contenido contenido,Posicion posicion){
 
-       /* if (contenido.esLaChispaSuprema(ChispaSuprema.getInstance())){
+        if (contenido.esLaChispaSuprema(ChispaSuprema.getInstance())){
 
-            baldosas [posicion.getX()] [posicion.getY()].getBaldosa().setId("optimus");
+            baldosas [posicion.getX()] [posicion.getY()].setImagen("allspark");
 
-        }*/
+        }
 
     }
 
     private void verificarCasillero(SuperficieAerea superficie,Posicion posicion){
 
-      /* if (superficie instanceof NebulosaAndromeda){
+       if (superficie instanceof NebulosaAndromeda){
 
-           baldosas [posicion.getX()] [posicion.getY()].getBaldosa().setId("optimus");
+           baldosas [posicion.getX()] [posicion.getY()].setImagen("nebulosaandromeda");
 
-       }*/
+       }
 
     }
 
     private void verificarCasillero(SuperficieTerrestre superficie,Posicion posicion){
 
-      /*  if (superficie instanceof Pantano){
+        if (superficie instanceof Pantano){
 
-            baldosas [posicion.getX()] [posicion.getY()].getBaldosa().setId("optimus");
+            baldosas [posicion.getX()] [posicion.getY()].setFondo("pantano");
 
         }
-*/
     }
 
 
