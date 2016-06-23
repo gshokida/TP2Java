@@ -1,11 +1,12 @@
 package fiuba.algo3.algoformers.view2.VistaJuego;
 
 
-import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.ChispaSuprema;
-import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Contenido;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.*;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.SuperficieAerea;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.TormentaPsionica;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.SuperficieTerrestre;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
@@ -94,9 +95,9 @@ public class PanelCentralMapa implements Paneles {
 
 
                 verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getAlgoformer(),baldosas[i][j].getPosicion());
-                verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getContenido(), baldosas[i][j].getPosicion());
                 verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getSuperficieAerea(), baldosas[i][j].getPosicion());
                 verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getSuperficieTerreste(), baldosas[i][j].getPosicion());
+                verificarCasillero(juego.getTablero().getCasillero(baldosas[i][j].getPosicion()).getContenido(), baldosas[i][j].getPosicion());
 
             }
         }
@@ -196,7 +197,22 @@ public class PanelCentralMapa implements Paneles {
             baldosas [posicion.getX()] [posicion.getY()].setImagen("allspark");
 
         }
+        if (contenido instanceof Flash){
 
+            baldosas [posicion.getX()] [posicion.getY()].setImagen("flash");
+
+        }
+
+        if (contenido instanceof DobleCanion){
+
+            baldosas [posicion.getX()] [posicion.getY()].setImagen("doblecañon");
+
+        }
+        if (contenido instanceof BurbujaInmaculada){
+
+            baldosas [posicion.getX()] [posicion.getY()].setImagen("burbujainmaculada");
+
+        }
     }
 
     private void verificarCasillero(SuperficieAerea superficie,Posicion posicion){
@@ -206,6 +222,11 @@ public class PanelCentralMapa implements Paneles {
            baldosas [posicion.getX()] [posicion.getY()].setFondo("nebulosaandromeda");
 
        }
+        if (superficie instanceof TormentaPsionica){
+
+            baldosas [posicion.getX()] [posicion.getY()].setFondo("tormentapsionica");
+
+        }
 
     }
 
@@ -216,6 +237,12 @@ public class PanelCentralMapa implements Paneles {
             baldosas [posicion.getX()] [posicion.getY()].setFondo("pantano");
 
         }
+        if (superficie instanceof Espinas){
+
+            baldosas [posicion.getX()] [posicion.getY()].setFondo("espinas");
+
+        }
+
     }
 
 

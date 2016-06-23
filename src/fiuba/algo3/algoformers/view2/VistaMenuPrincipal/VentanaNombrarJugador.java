@@ -1,7 +1,11 @@
 package fiuba.algo3.algoformers.view2.VistaMenuPrincipal;
 
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.BurbujaInmaculada;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.DobleCanion;
+import fiuba.algo3.algoformers.modelo.Escenario.Contenidos.Flash;
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Espinas;
 import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import javafx.beans.value.ChangeListener;
@@ -174,9 +178,14 @@ public class VentanaNombrarJugador {
             juego.getTablero().getCasillero(new Posicion(i, 0)).setSuperficieAerea(new NebulosaAndromeda());
             juego.getTablero().getCasillero(new Posicion(i, juego.getFilas()-1)).setSuperficieAerea(new NebulosaAndromeda());
         }
-        
 
 
+        juego.getTablero().getCasillero(new Posicion(1,filas/2 )).setSuperficieTerreste(new Espinas());
+        juego.getTablero().getCasillero(new Posicion(filas-2,(filas/2) )).setSuperficieTerreste(new Espinas());
+        juego.getTablero().getCasillero(new Posicion(filas-2,(filas/2)+1 )).setContenido(new Flash());
+        juego.getTablero().getCasillero(new Posicion(1,(filas/2)+1 )).setContenido(new Flash());
+        juego.getTablero().getCasillero(new Posicion(filas-2,(filas/2)-1 )).setContenido(new BurbujaInmaculada());
+        juego.getTablero().getCasillero(new Posicion(1,filas-2 )).setContenido(new DobleCanion());
     }
 
 
