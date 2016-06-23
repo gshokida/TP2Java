@@ -62,7 +62,7 @@ public class EventoMoverse implements EventHandler<ActionEvent> {
 
                 movio = false;
                 juego.getControlDeTurnos().pasarTurno();
-
+                contenedorAlgoformerPosicion.resetPosicionAlgoformer();
             }
         }
 

@@ -1,6 +1,7 @@
 package fiuba.algo3.algoformers.view2.VistaMenuPrincipal;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -123,6 +124,14 @@ public class VentanaNombrarJugador {
     public int getFilas (){
         return filas;
     }
+
+    public Juego getJuego (){
+
+        Juego juego = new Juego(nombreJugador1.getText(),nombreJugador2.getText(),columnas,filas);
+        return juego;
+    }
+
+
 
 
 }

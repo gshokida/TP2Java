@@ -47,6 +47,7 @@ public class EventoAtacar  implements EventHandler<ActionEvent> {
             try {
                 ataque.atacarA(juego.getTablero().getCasillero(mapa.getPosicionBaldosa()));
                 juego.getControlDeTurnos().pasarTurno();
+                contenedorAlgoformerPosicion.resetPosicionAlgoformer();
 
             } catch (NoSePermiteElFuegoAmistosoException e1) {
                 System.out.println("FuegoAmigoNO");

@@ -33,6 +33,7 @@ public class EventoTransformarse implements EventHandler<ActionEvent> {
         }else {
 
             Transformacion transformar = new Transformacion(juego.getTablero().getCasillero(contenedorAlgoformerPosicion.getPosicion()), contenedorAlgoformerPosicion.getAlgoFormer());
+            contenedorAlgoformerPosicion.resetPosicionAlgoformer();
 
             try {
                 transformar.aplicarTransformacion();

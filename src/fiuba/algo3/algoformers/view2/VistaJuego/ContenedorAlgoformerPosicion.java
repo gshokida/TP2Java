@@ -68,4 +68,14 @@ public class ContenedorAlgoformerPosicion {
 
 
     }
+
+    public void resetPosicionAlgoformer() {
+
+        algoFormer = NoOcupado.getInstance();
+        posicion = new Posicion(0, 0);
+
+        actualizarAlgoformer();
+
+
+    }
 }
