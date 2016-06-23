@@ -12,7 +12,7 @@ import javafx.scene.layout.BackgroundSize;
  */
 public class ImageHelper {
 
-    public static String path = "fiuba/algo3/algoformers/view2/VistaJuego/Imagenes/";
+    public static String path = "file:src/fiuba/algo3/algoformers/view2/VistaJuego/Imagenes/";
 
 
     public BackgroundImage getImagen (String nombreImagen){

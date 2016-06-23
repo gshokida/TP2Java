@@ -1,8 +1,6 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
-import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Acciones.Ataque;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
-import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Megatron;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.Optimus;
 import org.junit.Test;
 
