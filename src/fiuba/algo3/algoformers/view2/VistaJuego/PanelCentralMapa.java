@@ -11,6 +11,7 @@ import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 import fiuba.algo3.algoformers.view2.Control.ObservadorAlgoformer;
 import fiuba.algo3.algoformers.view2.Control.ObservadorContenido;
 import fiuba.algo3.algoformers.view2.Control.ObservadorSuperficies;
@@ -158,6 +159,12 @@ public class PanelCentralMapa implements Paneles {
        if (algoformer.getNombre() == "Optimus Prime") {
            baldosas[posicion.getX()][posicion.getY()].setImagen("optimus");
        }
+       if (algoformer.getNombre() == "Optimus Prime" && algoformer.esTipoUnidad(new TipoUnidadVehiculo())){
+
+           baldosas[posicion.getX()][posicion.getY()].setImagen("optimusalterno");
+
+       }
+
        if (algoformer.getNombre() == "Megatron"){
            baldosas[posicion.getX()][posicion.getY()].setImagen("megatron");
        }

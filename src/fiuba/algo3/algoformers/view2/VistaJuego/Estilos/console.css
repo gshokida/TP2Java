@@ -1,8 +1,0 @@
- #console{
-  -fx-background-image: url("Imagenes/Banner.png");
-    -fx-background-repeat: stretch;
-    -fx-background-size: 1024 200 ;
-    -fx-background-position: center center;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-
-    }

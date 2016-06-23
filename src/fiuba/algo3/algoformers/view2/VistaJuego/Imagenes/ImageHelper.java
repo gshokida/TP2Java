@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.view2.VistaJuego.Estilos.Imagenes;
+package fiuba.algo3.algoformers.view2.VistaJuego.Imagenes;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,7 +12,7 @@ import javafx.scene.layout.BackgroundSize;
  */
 public class ImageHelper {
 
-    public static String path = "fiuba/algo3/algoformers/view2/VistaJuego/Estilos/Imagenes/";
+    public static String path = "fiuba/algo3/algoformers/view2/VistaJuego/Imagenes/";
 
 
     public BackgroundImage getImagen (String nombreImagen){

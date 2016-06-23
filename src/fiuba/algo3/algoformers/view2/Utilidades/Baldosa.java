@@ -2,7 +2,7 @@ package fiuba.algo3.algoformers.view2.Utilidades;
 
 
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
-import fiuba.algo3.algoformers.view2.VistaJuego.Estilos.Imagenes.ImageHelper;
+import fiuba.algo3.algoformers.view2.VistaJuego.Imagenes.ImageHelper;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
