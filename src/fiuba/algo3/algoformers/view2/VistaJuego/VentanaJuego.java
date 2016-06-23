@@ -64,6 +64,8 @@ public class VentanaJuego implements Ventana {
 
         border.setCenter(mapa.getGrilla());
         panelInferior = new PanelInferior(juego, contenedorAlgoformerPosicion, mapa);
+        contenedorAlgoformerPosicion.setPaneles(panelInferior);
+
         border.setBottom(panelInferior.getPanelInferior());
         border.setTop(panelSuperior.getPanelSuperior());
 

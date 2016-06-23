@@ -5,13 +5,17 @@ import fiuba.algo3.algoformers.modelo.ManejoDeJuego.ControlDeTurnos;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Jugador;
 import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.NoOcupado;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadVehiculo;
 import fiuba.algo3.algoformers.view2.Control.ObservadorTurnoSecuencia;
 import fiuba.algo3.algoformers.view2.Eventos.EventoAtacar;
 import fiuba.algo3.algoformers.view2.Eventos.EventoMoverse;
 import fiuba.algo3.algoformers.view2.Eventos.EventoTransformarse;
 import fiuba.algo3.algoformers.view2.Utilidades.PopUp;
+import fiuba.algo3.algoformers.view2.VistaJuego.Imagenes.ImageHelper;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
@@ -126,6 +130,24 @@ public class PanelInferior implements Paneles{
 
     @Override
     public void actualizarAlgoformers(AlgoFormer algoFormer) {
+
+        if (algoFormer == NoOcupado.getInstance()){
+
+        }
+        if (algoFormer.getNombre() == "Optimus Prime") {
+            botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("optimuscara")));
+        }
+        if (algoFormer.getNombre() == "Megatron"){
+
+        }
+
+        if (algoFormer.getNombre() == "Bumblebee"){
+
+        }
+
+        if (algoFormer.getNombre() == "Ratchet"){
+
+        }
 
     }
 }

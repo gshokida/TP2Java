@@ -160,14 +160,21 @@ public class PanelCentralMapa implements Paneles {
            baldosas[posicion.getX()][posicion.getY()].setImagen("optimus");
        }
        if (algoformer.getNombre() == "Optimus Prime" && algoformer.esTipoUnidad(new TipoUnidadVehiculo())){
-
            baldosas[posicion.getX()][posicion.getY()].setImagen("optimusalterno");
-
        }
 
        if (algoformer.getNombre() == "Megatron"){
            baldosas[posicion.getX()][posicion.getY()].setImagen("megatron");
        }
+
+       if (algoformer.getNombre() == "Bumblebee"){
+           baldosas[posicion.getX()][posicion.getY()].setImagen("bumblebee");
+       }
+
+       if (algoformer.getNombre() == "Ratchet"){
+           baldosas[posicion.getX()][posicion.getY()].setImagen("ratchet");
+       }
+
 
 
    }
