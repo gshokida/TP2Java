@@ -153,6 +153,7 @@ public class PanelCentralMapa implements Paneles {
 
 
    private void verificarCasillero(AlgoFormer algoformer,Posicion posicion){
+
        if (algoformer == NoOcupado.getInstance()){
            baldosas[posicion.getX()][posicion.getY()].setImagen("invisible");
        }
@@ -162,19 +163,24 @@ public class PanelCentralMapa implements Paneles {
        if (algoformer.getNombre() == "Optimus Prime" && algoformer.esTipoUnidad(new TipoUnidadVehiculo())){
            baldosas[posicion.getX()][posicion.getY()].setImagen("optimusalterno");
        }
-
-       if (algoformer.getNombre() == "Megatron"){
-           baldosas[posicion.getX()][posicion.getY()].setImagen("megatron");
-       }
-
        if (algoformer.getNombre() == "Bumblebee"){
            baldosas[posicion.getX()][posicion.getY()].setImagen("bumblebee");
        }
-
        if (algoformer.getNombre() == "Ratchet"){
            baldosas[posicion.getX()][posicion.getY()].setImagen("ratchet");
        }
-
+       if (algoformer.getNombre() == "Megatron"){
+           baldosas[posicion.getX()][posicion.getY()].setImagen("megatron");
+       }
+       if (algoformer.getNombre() == "Bonecrusher"){
+           baldosas[posicion.getX()][posicion.getY()].setImagen("bonecrusher");
+       }
+       if (algoformer.getNombre() == "Bonecrusher" && algoformer.esTipoUnidad(new TipoUnidadVehiculo())){
+           baldosas[posicion.getX()][posicion.getY()].setImagen("bonecrusheralternativo");
+       }
+       if (algoformer.getNombre() == "Frenzy"){
+           baldosas[posicion.getX()][posicion.getY()].setImagen("frenzy");
+       }
 
 
    }

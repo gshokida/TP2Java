@@ -136,7 +136,8 @@ public class PanelInferior implements Paneles{
     public void actualizarAlgoformers(AlgoFormer algoFormer) {
 
         if (algoFormer == NoOcupado.getInstance()){
-
+            botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("invisiblegrande")));
+            botonPersonaje2.setBackground(new Background(new ImageHelper().getImagen("invisiblegrande")));
         }
         if (algoFormer.getNombre() == "Optimus Prime") {
             botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("optimuscara")));
