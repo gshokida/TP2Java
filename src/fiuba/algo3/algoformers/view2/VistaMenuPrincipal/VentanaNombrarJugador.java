@@ -1,6 +1,8 @@
 package fiuba.algo3.algoformers.view2.VistaMenuPrincipal;
 
 import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -128,10 +130,54 @@ public class VentanaNombrarJugador {
     public Juego getJuego (){
 
         Juego juego = new Juego(nombreJugador1.getText(),nombreJugador2.getText(),columnas,filas);
+        inicializarMapa (juego);
+
         return juego;
     }
 
+    private void inicializarMapa(Juego juego) {
 
+        int j = 0;
+
+
+        for (int i = 0; i< juego.getFilas();i++){
+
+            juego.getTablero().getCasillero(new Posicion(0, i)).setSuperficieAerea(new NebulosaAndromeda());
+            juego.getTablero().getCasillero(new Posicion(j, i)).setSuperficieTerreste(new Pantano());
+            j++;
+
+            juego.getTablero().getCasillero(new Posicion(juego.getFilas()-1, i)).setSuperficieAerea(new NebulosaAndromeda());
+
+        }
+
+        int j2 = 0;
+
+        for (int i = 1; i< juego.getFilas();i++){
+
+            juego.getTablero().getCasillero(new Posicion(j2, i)).setSuperficieTerreste(new Pantano());
+            j2++;
+
+        }
+
+        int j3 = 1;
+
+        for (int i = 0; i< juego.getFilas();i++){
+
+            juego.getTablero().getCasillero(new Posicion(j3, i)).setSuperficieTerreste(new Pantano());
+           if ( j3 != juego.getFilas()-1){
+               j3++;
+           }
+
+        }
+        for (int i = 0; i< juego.getFilas();i++){
+
+            juego.getTablero().getCasillero(new Posicion(i, 0)).setSuperficieAerea(new NebulosaAndromeda());
+            juego.getTablero().getCasillero(new Posicion(i, juego.getFilas()-1)).setSuperficieAerea(new NebulosaAndromeda());
+        }
+        
+
+
+    }
 
 
 }

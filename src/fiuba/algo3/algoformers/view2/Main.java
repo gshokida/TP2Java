@@ -38,8 +38,7 @@ public class Main extends Application {
                 juego = ventanaNombrarJugador.getJuego();
             }
 
-            juego.getTablero().getCasillero(new Posicion(juego.getFilas()-3, juego.getColumnas()-2)).setSuperficieAerea(new NebulosaAndromeda());
-            juego.getTablero().getCasillero(new Posicion(juego.getFilas()-2, juego.getColumnas()-3)).setSuperficieTerreste(new Pantano());
+
 
             ventanaJuego.setJuego(juego);
             stage.setScene(ventanaJuego.getEscena());

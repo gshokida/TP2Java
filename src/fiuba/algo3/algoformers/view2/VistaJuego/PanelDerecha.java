@@ -20,12 +20,15 @@ public class PanelDerecha implements Paneles{
     private Label turnoNumero;
     private  Label juega;
     private VBox panelDerecha;
+    private Juego juego;
+
 
 
     public PanelDerecha (Juego juego){
 
         panelDerecha = new VBox(20);
 
+        this.juego = juego;
         Label turnos = new Label("Turnos");
          turnoNumero = new Label("Turno"+juego.getControlDeTurnos().getNumeroTurno());
          juega = new Label("Juega: " +juego.getControlDeTurnos().getJugadorTurnoActual().getNombre());
@@ -75,6 +78,8 @@ public class PanelDerecha implements Paneles{
         turnoNumero.setText("Turno " +numeroTurnoActual);
         juega.setText("Juega: " + nombreJugadorActual);
 
+        juego.getJugador1().pasarTurnoEnAlgoformers();
+        juego.getJugador2().pasarTurnoEnAlgoformers();
 
 
     }

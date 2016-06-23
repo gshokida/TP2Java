@@ -48,4 +48,16 @@ public class Jugador {
     private void setBando(Bando bando) {
         this.bando = bando;
     }
+
+    public void pasarTurnoEnAlgoformers(){
+        if (!listaPersonajes.isEmpty()){
+
+            for (AlgoFormer algoFormer: listaPersonajes){
+                algoFormer.pasarTurno();
+            }
+
+        }
+
+
+    }
 }

@@ -203,7 +203,7 @@ public class PanelCentralMapa implements Paneles {
 
        if (superficie instanceof NebulosaAndromeda){
 
-           baldosas [posicion.getX()] [posicion.getY()].setImagen("nebulosaandromeda");
+           baldosas [posicion.getX()] [posicion.getY()].setFondo("nebulosaandromeda");
 
        }
 
