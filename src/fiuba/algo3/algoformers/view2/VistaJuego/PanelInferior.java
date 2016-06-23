@@ -141,17 +141,27 @@ public class PanelInferior implements Paneles{
         if (algoFormer.getNombre() == "Optimus Prime") {
             botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("optimuscara")));
         }
+
+        if (algoFormer.getNombre() == "Bumblebee"){
+            botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("bumblebeecara")));
+        }
+
+        if (algoFormer.getNombre() == "Ratchet"){
+            botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("ratchetcara")));
+        }
+
         if (algoFormer.getNombre() == "Megatron"){
             botonPersonaje2.setBackground(new Background(new ImageHelper().getImagen("megatroncara")));
         }
 
-        if (algoFormer.getNombre() == "Bumblebee"){
-
+        if (algoFormer.getNombre() == "Frenzy"){
+            botonPersonaje2.setBackground(new Background(new ImageHelper().getImagen("frenzycara")));
         }
 
-        if (algoFormer.getNombre() == "Ratchet"){
-
+        if (algoFormer.getNombre() == "Bonecrusher"){
+            botonPersonaje2.setBackground(new Background(new ImageHelper().getImagen("bonecrushercara")));
         }
+
 
     }
 }
