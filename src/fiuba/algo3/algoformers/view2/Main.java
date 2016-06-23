@@ -1,6 +1,9 @@
 package fiuba.algo3.algoformers.view2;
 
 
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieTerrestre.Pantano;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.view2.VistaJuego.VentanaJuego;
 import fiuba.algo3.algoformers.view2.VistaMenuPrincipal.MenuPrincipal;
@@ -34,6 +37,10 @@ public class Main extends Application {
                 ventanaNombrarJugador.display();
             }
             juego = new Juego(ventanaNombrarJugador.getNombreJugador1(),ventanaNombrarJugador.getNombreJugador2(),ventanaNombrarJugador.getColumnas(),ventanaNombrarJugador.getColumnas());
+
+            juego.getTablero().getCasillero(new Posicion(juego.getFilas()-3, juego.getColumnas()-2)).setSuperficieAerea(new NebulosaAndromeda());
+            juego.getTablero().getCasillero(new Posicion(juego.getFilas()-2, juego.getColumnas()-3)).setSuperficieTerreste(new Pantano());
+
             ventanaJuego.setJuego(juego);
             stage.setScene(ventanaJuego.getEscena());
 

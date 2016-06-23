@@ -3,6 +3,8 @@ package fiuba.algo3.algoformers.view2.VistaJuego;
 
 
 
+import fiuba.algo3.algoformers.modelo.Escenario.Posicion;
+import fiuba.algo3.algoformers.modelo.Escenario.Superficies.SuperficieAerea.NebulosaAndromeda;
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.view2.Ventana;
 import fiuba.algo3.algoformers.view2.VistaJuego.Imagenes.ImageHelper;
@@ -82,5 +84,7 @@ public class VentanaJuego implements Ventana {
 
 
     }
+
+
 
 }
