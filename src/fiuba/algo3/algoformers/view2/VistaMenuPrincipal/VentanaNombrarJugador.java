@@ -38,13 +38,13 @@ public class VentanaNombrarJugador {
 
         nombreJugador1 = new TextField("Jugador 1");
         nombreJugador2 = new TextField("Jugador 2");
-        tamanioMapa = new ChoiceBox<>(FXCollections.observableArrayList("5x5", "7x7","9x9"));
+        tamanioMapa = new ChoiceBox<>(FXCollections.observableArrayList("5x5", "7x7","9x9","11x11"));
         columnas = DEFAULT;
         filas = DEFAULT;
 
 
 
-        final int[] tamanio = new int [] {5, 7, 9};
+        final int[] tamanio = new int [] {5, 7, 9,11};
         tamanioMapa.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue observable, Number oldValue, Number newValue) {
