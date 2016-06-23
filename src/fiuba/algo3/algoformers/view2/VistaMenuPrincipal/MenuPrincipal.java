@@ -1,9 +1,11 @@
 package fiuba.algo3.algoformers.view2.VistaMenuPrincipal;
 
 import fiuba.algo3.algoformers.view2.Ventana;
+import fiuba.algo3.algoformers.view2.VistaJuego.Imagenes.ImageHelper;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -21,6 +23,7 @@ public class MenuPrincipal implements Ventana {
 
         border = new BorderPane();
 
+        border.setBackground(new Background(new ImageHelper().getImagen("pantallaprincipalbg")));
         Button pausa = new Button("PAUSA");
         Button continuar = new Button("CONTINUAR");
 
