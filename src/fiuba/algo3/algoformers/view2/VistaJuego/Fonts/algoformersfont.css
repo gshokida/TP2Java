@@ -1,0 +1,11 @@
+@font-face {
+
+src: url ("fiuba/algo3/algoformers/view2/VistaJuego/Fonts/transformersmovie.ttf");
+
+}
+
+.transformersmovie {
+
+-fx-font-family: “Transformers Movie”;
+
+}

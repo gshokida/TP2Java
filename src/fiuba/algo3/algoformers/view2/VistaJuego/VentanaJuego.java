@@ -5,6 +5,7 @@ package fiuba.algo3.algoformers.view2.VistaJuego;
 
 import fiuba.algo3.algoformers.modelo.ManejoDeJuego.Juego;
 import fiuba.algo3.algoformers.view2.Ventana;
+import fiuba.algo3.algoformers.view2.VistaJuego.Imagenes.ImageHelper;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -34,6 +35,8 @@ public class VentanaJuego implements Ventana {
         border = new BorderPane();
         panelSuperior = new PanelSuperior();
         panelIzquierda = new PanelIzquierda();
+
+        border.setBackground(new Background(new ImageHelper().getImagen("ventanajuegobg")));
 
         contenedorAlgoformerPosicion.setPaneles(panelIzquierda);
 

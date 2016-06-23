@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 /**
  * Created by Rodrigo on 22/06/2016.
@@ -28,6 +29,16 @@ public class PanelDerecha implements Paneles{
         Label turnos = new Label("Turnos");
          turnoNumero = new Label("Turno"+juego.getControlDeTurnos().getNumeroTurno());
          juega = new Label("Juega: " +juego.getControlDeTurnos().getJugadorTurnoActual().getNombre());
+
+
+        turnos.setFont(new Font("Transformers Movie", 14));
+        turnos.setStyle("-fx-text-fill:ghostwhite;");
+        turnoNumero.setFont(new Font("Transformers Movie", 14));
+        turnoNumero.setStyle("-fx-text-fill:ghostwhite;");
+        juega.setFont(new Font("Transformers Movie", 14));
+        juega.setStyle("-fx-text-fill:ghostwhite;");
+
+
 
         Button ayuda = new Button("Info");
 

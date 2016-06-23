@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 /**
  * Created by Rodrigo on 20/06/2016.
@@ -22,6 +23,14 @@ public class PanelSuperior implements Paneles {
         jugador1 = new Label();
 
         jugador2 = new Label();
+
+        jugador1.setFont(new Font("Transformers Movie", 30));
+        jugador1.setStyle("-fx-text-fill:ghostwhite;");
+
+        jugador2.setFont(new Font("Transformers Movie", 30));
+        jugador2.setStyle("-fx-text-fill:ghostwhite;");
+
+
 
         panelSuperior = new HBox(266);
 

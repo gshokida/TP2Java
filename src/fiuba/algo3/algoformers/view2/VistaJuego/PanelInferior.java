@@ -48,7 +48,11 @@ public class PanelInferior implements Paneles{
 
         this.juego = juego;
 
+
+
         panelInferior = new HBox(105);
+
+        panelInferior.setBackground(new Background(new ImageHelper().getImagen("bannerautobots")));
 
         botonPersonaje = new Button();
 
@@ -138,7 +142,7 @@ public class PanelInferior implements Paneles{
             botonPersonaje.setBackground(new Background(new ImageHelper().getImagen("optimuscara")));
         }
         if (algoFormer.getNombre() == "Megatron"){
-
+            botonPersonaje2.setBackground(new Background(new ImageHelper().getImagen("megatroncara")));
         }
 
         if (algoFormer.getNombre() == "Bumblebee"){

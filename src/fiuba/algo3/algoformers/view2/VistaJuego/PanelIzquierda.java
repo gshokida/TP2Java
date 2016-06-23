@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 /**
  * Created by Rodrigo on 22/06/2016.
@@ -30,7 +31,17 @@ public class PanelIzquierda implements Paneles {
         vida = new Label("Vida");
         movimiento = new Label("Velocidad");
         ataque = new Label("Ataque");
-       // bando = new Label("Ninguno");
+
+
+        nombre.setFont(new Font("Transformers Movie", 14));
+        nombre.setStyle("-fx-text-fill:ghostwhite;");
+        vida.setFont(new Font("Transformers Movie", 14));
+        vida.setStyle("-fx-text-fill:ghostwhite;");
+        movimiento.setFont(new Font("Transformers Movie", 14));
+        movimiento.setStyle("-fx-text-fill:ghostwhite;");
+        ataque.setFont(new Font("Transformers Movie", 14));
+        ataque.setStyle("-fx-text-fill:ghostwhite;");
+
 
         box.setAlignment(Pos.CENTER);
         box.setPadding(new Insets(0,0,0,20));
