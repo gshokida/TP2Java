@@ -61,6 +61,7 @@ public class Casillero implements Subject {
 
             if(!this.contenido.equals(ContenidoVacio.getInstance())){
                 this.contenido.interactuar(algoformer);
+                this.contenido = ContenidoVacio.getInstance();
             }
 
             this.algoformer = algoformer;
