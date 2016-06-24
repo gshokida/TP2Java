@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modelo.Escenario.Contenidos;
 
+import fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers.AlgoFormer;
+
 /**
  * Created by Rodrigo on 01/06/2016.
  */
@@ -14,5 +16,9 @@ public class ChispaSuprema implements Contenido{
 
     public boolean esLaChispaSuprema(Contenido contenido){
         return this.equals(contenido);
+    }
+
+    public void interactuar(AlgoFormer algoformer) {
+
     }
 }

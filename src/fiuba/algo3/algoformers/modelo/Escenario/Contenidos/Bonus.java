@@ -9,6 +9,4 @@ public abstract class Bonus implements Contenido{
     public boolean esLaChispaSuprema(Contenido contenido){
         return false;
     }
-
-    public abstract void interactuar(AlgoFormer algoformer);
 }

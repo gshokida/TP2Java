@@ -58,6 +58,11 @@ public class Casillero implements Subject {
                 } catch (NoPuedeInteractuarConSuperficieException e1) {
                 }
             }
+
+            if(!this.contenido.equals(ContenidoVacio.getInstance())){
+                this.contenido.interactuar(algoformer);
+            }
+
             this.algoformer = algoformer;
         }
     }

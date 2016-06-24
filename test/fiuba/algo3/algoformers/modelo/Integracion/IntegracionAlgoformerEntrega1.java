@@ -194,7 +194,7 @@ public class IntegracionAlgoformerEntrega1 {
 
         Assert.assertTrue(tablero.casilleroOcupado(new Posicion(0, 0)));
         Assert.assertTrue(tablero.casilleroOcupado(new Posicion(0, 1)));
-        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(1, 2)));
+        Assert.assertTrue(tablero.casilleroOcupado(new Posicion(1, 0)));
         Assert.assertTrue(tablero.casilleroOcupado(new Posicion(4, 4)));
         Assert.assertTrue(tablero.casilleroOcupado(new Posicion(4, 3)));
         Assert.assertTrue(tablero.casilleroOcupado(new Posicion(3, 4)));
