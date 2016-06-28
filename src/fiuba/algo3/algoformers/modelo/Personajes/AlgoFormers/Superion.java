@@ -1,7 +1,8 @@
 package fiuba.algo3.algoformers.modelo.Personajes.AlgoFormers;
 
 import fiuba.algo3.algoformers.modelo.Personajes.Bandos.BandoDecepticons;
-import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadHumanoide;
+import fiuba.algo3.algoformers.modelo.Personajes.Efectos.Efecto;
+import fiuba.algo3.algoformers.modelo.Personajes.TiposDeUnidades.TipoUnidadTerrestre;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -29,10 +30,25 @@ public class Superion extends AlgoFormer {
         for (AlgoFormer algo : algoFormers)
             this.puntosDeVida += algo.getPuntosDeVida();
 
-        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, new TipoUnidadHumanoide());
+        estado = new AlgoformerEstado(ataqueNormal, distanciaAtaqueNormal, velocidadNormal, new TipoUnidadTerrestre());
     }
 
     public void transformar() {
+
+    }
+
+    @Override
+    public void pasarTurno() {
+        for(Efecto efecto : this.efectosAtaque)
+            efecto.pasarTurno();
+        for(Efecto efecto : this.efectosMovimiento)
+            efecto.pasarTurno();
+        for(Efecto efecto : this.efectosDefensivo)
+            efecto.pasarTurno();
+
+        limpiarEfectos();
+
+        this.duracion--;
 
     }
 }

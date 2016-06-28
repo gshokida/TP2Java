@@ -56,8 +56,12 @@ public class Tablero {
         return (tablero[posicion.getX()][posicion.getY()].estaOcupado());
     }
 
+    public int getFilas(){
+        return this.posx;
+    }
 
-
-
+    public int getColumnas(){
+        return this.posy;
+    }
 
 }

@@ -86,7 +86,8 @@ public abstract class AlgoFormer {
 
         limpiarEfectos();
     }
-    private void limpiarEfectos() {
+
+    protected void limpiarEfectos() {
         Iterator<EfectoMovimiento> efectoMovimientoIterator = this.efectosMovimiento.iterator();
         Iterator<EfectoDefensivo> efectoDefensivoIteratorIterator = this.efectosDefensivo.iterator();
         Iterator<EfectoAtaque> efectoAtaqueIteratorIterator = this.efectosAtaque.iterator();
